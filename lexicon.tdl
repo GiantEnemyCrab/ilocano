@@ -1,0 +1,68 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+;;; Nouns
+
+lalaki := common-noun-lex &
+  [ STEM < "lalaki" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_boy_n_rel" ].
+
+sabong := common-noun-lex &
+  [ STEM < "sabong" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_flower_n_rel" ].
+
+balay := common-noun-lex &
+  [ STEM < "balay" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_house_n_rel" ].
+
+babai := common-noun-lex &
+  [ STEM < "babai" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_girl_n_rel" ].
+
+suman := common-noun-lex &
+  [ STEM < "suman" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_ricecake_n_rel" ].
+
+ansisit := common-noun-lex &
+  [ STEM < "ansisit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_dwarf_n_rel" ].
+
+simbaan := common-noun-lex &
+  [ STEM < "simbaan" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_church_n_rel" ].
+
+;;; Adjectives
+
+;;; Verbs
+
+nagsangit := intrans-verb-lex &
+  [ STEM < "nagsangit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
+
+naglaylay := intrans-verb-lex &
+  [ STEM < "naglaylay" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wilt_v_rel" ].
+
+nagtudo := intrans-verb-lex &
+  [ STEM < "nagtudo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_rain_v_rel" ].
+
+nakita := trans-verb-lex &
+  [ STEM < "nakita" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_see_v_rel" ].
+
+;;; Determiners
+
+ti := art-core-sg-determiner-lex &
+  [ STEM < "ti" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
+
+dagiti := art-core-pl-determiner-lex &
+  [ STEM < "dagiti" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
+
+iti := art-obliq-sg-determiner-lex &
+  [ STEM < "iti" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
+
+kadagiti := art-obliq-pl-determiner-lex &
+  [ STEM < "kadagiti" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].

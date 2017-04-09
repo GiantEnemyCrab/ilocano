@@ -1,0 +1,179 @@
+
+version=28
+
+section=general
+language=Ilocano
+iso-code=ilo
+punctuation-chars=keep-all
+archive=yes
+
+section=word-order
+word-order=vso
+has-dets=yes
+noun-det-order=det-noun
+has-aux=no
+
+section=number
+  number1_name=sg
+    number1_supertype1_name=number
+  number2_name=non-sg
+    number2_supertype1_name=number
+  number3_name=pl
+    number3_supertype1_name=non-sg
+  number4_name=du
+    number4_supertype1_name=non-sg
+  number5_name=dist-pl
+    number5_supertype1_name=pl
+
+section=person
+person=1-2-3
+first-person=other
+  person-subtype1_name=inclusive
+  person-subtype1_number=dual
+  person-subtype2_name=exclusive
+  person-subtype2_number=pl
+  person-subtype3_name=inclusive
+  person-subtype3_number=pl
+
+section=gender
+  gender1_name=masculine
+    gender1_supertype1_name=gender
+  gender2_name=feminine
+    gender2_supertype1_name=gender
+
+section=case
+case-marking=focus
+focus-focus-case-name=focus-case
+focus-a-case-name=erg
+focus-o-case-name=abs
+  case1_name=core
+  case2_name=obliq
+
+section=direct-inverse
+scale-equal=direct
+
+section=tense-aspect-mood
+
+section=other-features
+
+section=sentential-negation
+
+section=coordination
+
+section=matrix-yes-no
+
+section=info-str
+
+section=arg-opt
+
+section=lexicon
+  noun1_name=common
+  noun1_det=obl
+    noun1_stem1_orth=lalaki
+    noun1_stem1_pred=_boy_n_rel
+    noun1_stem2_orth=sabong
+    noun1_stem2_pred=_flower_n_rel
+    noun1_stem3_orth=balay
+    noun1_stem3_pred=_house_n_rel
+    noun1_stem4_orth=babai
+    noun1_stem4_pred=_girl_n_rel
+    noun1_stem5_orth=suman
+    noun1_stem5_pred=_ricecake_n_rel
+    noun1_stem6_orth=ansisit
+    noun1_stem6_pred=_dwarf_n_rel
+    noun1_stem7_orth=simbaan
+    noun1_stem7_pred=_church_n_rel
+  verb1_name=intrans
+    verb1_feat1_name=case
+    verb1_feat1_value=core
+    verb1_feat1_head=subj
+  verb1_valence=intrans
+    verb1_stem1_orth=nagsangit
+    verb1_stem1_pred=_cry_v_rel
+    verb1_stem2_orth=naglaylay
+    verb1_stem2_pred=_wilt_v_rel
+    verb1_stem3_orth=nagtudo
+    verb1_stem3_pred=_rain_v_rel
+  verb2_name=trans
+    verb2_feat1_name=case
+    verb2_feat1_value=core
+    verb2_feat1_head=subj
+    verb2_feat2_name=case
+    verb2_feat2_value=core
+    verb2_feat2_head=obj
+  verb2_valence=trans
+    verb2_stem1_orth=nakita
+    verb2_stem1_pred=_see_v_rel
+  det1_name=art-core-sg
+    det1_stem1_orth=ti
+    det1_stem1_pred=_the_q_rel
+    det1_feat2_name=case
+    det1_feat2_value=core
+    det1_feat3_name=pernum
+    det1_feat3_value=sg
+  det2_name=art-core-pl
+    det2_stem1_orth=dagiti
+    det2_stem1_pred=_the_q_rel
+    det2_feat2_name=case
+    det2_feat2_value=core
+    det2_feat3_name=pernum
+    det2_feat3_value=pl
+  det3_name=art-obliq-sg
+    det3_stem1_orth=iti
+    det3_stem1_pred=_the_q_rel
+    det3_feat4_name=case
+    det3_feat4_value=obliq
+    det3_feat5_name=pernum
+    det3_feat5_value=sg
+  det4_name=art-obliq-pl
+    det4_stem1_orth=kadagiti
+    det4_stem1_pred=_the_q_rel
+    det4_feat2_name=case
+    det4_feat2_value=obliq
+    det4_feat3_name=pernum
+    det4_feat3_value=pl
+
+section=morphology
+
+section=toolbox-import
+
+section=test-sentences
+  sentence1_orth=nagsangit ti lalaki
+  sentence2_orth=ti lalaki nagsangit
+  sentence2_star=on
+  sentence3_orth=nakita ti lalaki ti sabong
+  sentence4_orth=nakita ti sabong ti lalaki
+  sentence5_orth=ti lalaki nakita ti sabong
+  sentence5_star=on
+  sentence6_orth=ti sabong nakita ti lalaki
+  sentence6_star=on
+  sentence7_orth=ti lalaki ti sabong nakita
+  sentence7_star=on
+  sentence8_orth=ti sabong ti lalaki nakita
+  sentence8_star=on
+  sentence9_orth=nagsangit iti lalaki
+  sentence9_star=on
+  sentence10_orth=iti lalaki nagsangit
+  sentence10_star=on
+  sentence11_orth=nakita ti lalaki iti sabong
+  sentence11_star=on
+  sentence12_orth=nakita iti lalaki ti sabong
+  sentence12_star=on
+  sentence13_orth=nakita iti lalaki iti sabong
+  sentence13_star=on
+  sentence14_orth=ti lalaki nakita iti sabong
+  sentence14_star=on
+  sentence15_orth=iti lalaki nakita ti sabong
+  sentence15_star=on
+  sentence16_orth=iti lalaki nakita iti sabong
+  sentence16_star=on
+  sentence17_orth=iti sabong ti lalaki nakita
+  sentence17_star=on
+  sentence18_orth=ti sabong iti lalaki nakita
+  sentence18_star=on
+  sentence19_orth=iti sabong iti lalaki nakita
+  sentence19_star=on
+
+section=gen-options
+
+section=ToolboxLexicon

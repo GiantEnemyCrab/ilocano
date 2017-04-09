@@ -1,0 +1,239 @@
+Language: Ilocano
+Language code: ilo
+Lines: orth orth-seg gloss translat
+Author: James Blackburn, Kazuki Shintani
+Date: April 7, 2016
+Source a: Rubino, Carl. Reference grammar of Ilocano. Diss. University of California, Santa Barbara, 1997.
+
+
+
+# Ex.1: grammatically correct VS order with intransitive verb
+Source: a:187
+Vetted: s
+Judgment: g
+Phenomena: {word order}
+Naglaylay ti sabong
+n-ag-laylay ti sabong
+PF-1-wilt ART flower.ABS
+`The flower wilted'
+
+# Ex.2: grammatically incorrect VS order with intransitive verb
+Source: a:187
+Vetted: f
+Judgment: u
+Phenomena: {word order}
+Ti sabong naglaylay
+ti sabong n-ag-laylay
+ART flower.ABS PF-1-wilt 
+`The flower wilted'
+
+# Ex. 3: Incorrect use of verbal arguments/transitivity.
+Source: a:?
+Vetted: f
+Judgment: u
+Phenomena: {c}
+Nagtudo iti balay
+n-ag-tudo    iti    balay
+PF-I-rain    OBL    house
+'It rained the house'
+
+# Ex. 4: correct article-to-noun order
+Source: a:187
+Vetted: s
+Judgment: g
+Phenomena: {wo}
+Naglaylay ti sabong
+n-ag-laylay ti sabong
+PF-1-wilt ART flower.ABS
+`The flower wilted'
+
+# Ex. 5: incorrect article-to-noun order
+Source: a:187
+Vetted: s
+Judgment: u
+Phenomena: {wo}
+Naglaylay sabong ti
+n-ag-laylay sabong ti
+PF-1-wilt flower.ABS ART
+`The flower wilted'
+
+# Ex. 6: correct singular determiner
+Source: a:194
+Vetted: s
+Judgment: g
+Phenomena: {det}
+Nagsangit ti lalaki
+n-ag-sangit ti lalaki
+PF-I-cry ART boy
+`The boy cried'
+
+# Ex. 7: correct plural determiner
+Source: a:194
+Vetted: s
+Judgment: g
+Phenomena: {det}
+Nagsangit dagiti lalaki
+n-ag-sangit dagiti lalaki
+PF-I-cry PL boy
+`The boys cried'
+
+# Ex. 8: incorrect plural determiner case
+Source: a:194
+Vetted: s
+Judgment: g
+Phenomena: {c}
+Nagsangit dagiti lalaki
+n-ag-sangit dagiti lalaki
+PF-I-cry OBL.PL boy
+`The boys cried'
+
+# Ex. 9: incorrect word order with transitive verb: tr core-NP missing
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {wo}
+Nakita ti babai
+nakita ART babai
+saw the girl
+`The girl saw'
+
+# Ex. 10: correct word order with transitive verb: tr core-NP core-NP
+Source: a:32
+Vetted: s
+Judgment: g
+Phenomena: {wo}
+Nakita ti babai ti lalaki
+nakita ART babai ART lalaki
+saw the girl the boy
+`The girl saw the boy'
+
+# Ex. 11: incorrect word order with transitive verb: core-NP tr core-NP
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {wo}
+Ti babai nakita ti lalaki
+ART babai nakita ART lalaki
+the girl saw the boy
+`The girl saw the boy'
+
+# Ex. 12: incorrect word order with transitive verb: core-NP core-NP tr
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {wo}
+Ti babai ti lalaki nakita
+ART babai ART lalaki nakita
+the girl the boy saw
+`The girl saw the boy'
+
+# Ex. 13: incorrect NP case with transitive verb: tr oblique-NP oblique-NP
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {c}
+Nakita iti babai iti lalaki
+nakita OBL babai OBL lalaki
+saw the girl the boy
+`The girl saw the boy'
+
+# Ex. 14: incorrect word order and case with transitive verb: oblique-NP tr oblique-NP
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {wo}
+Iti babai nakita iti lalaki
+OBL babai nakita OBL lalaki
+the girl saw the boy
+`The girl saw the boy'
+
+# Ex. 15: incorrect word order with transitive verb: oblique-NP oblique-NP tr
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {wo}
+Iti babai iti lalaki nakita
+OBL babai OBL lalaki nakita
+the girl the boy saw
+`The girl saw the boy'
+
+# Ex. 16: incorrect patient NP case with transitive verb: tr core-NP oblique-NP
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {c}
+Nakita ti babai iti lalaki
+nakita ART babai OBL lalaki
+saw the girl the boy
+`The girl saw the boy'
+
+# Ex. 17: incorrect agent NP case with transitive verb: tr oblique-NP core-NP
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {c}
+Nakita iti babai ti lalaki
+nakita OBL babai ART lalaki
+saw the girl the boy
+`The girl saw the boy'
+
+# Ex. 18: too many core-NP after transitive verb
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {argument optionality}
+Nakita iti babai ti lalaki ti babai
+nakita OBL babai ART lalaki ART babai
+saw the girl the boy the girl
+`The girl saw the boy'
+
+# Ex. 19: incorrect det-noun order for NPs with transitive verb
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {argument optionality}
+Nakita babai ti ti lalaki
+nakita babai ART ART lalaki
+saw girl the the boy
+`The girl saw the boy'
+
+# Ex. 20: incorrect det-noun order for NPs with transitive verb
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {argument optionality}
+Nakita ti babai lalaki ti
+nakita ART babai lalaki ART
+saw the girl boy the
+`The girl saw the boy'
+
+# Ex. 21: incorrect det-noun order for NPs with transitive verb
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {argument optionality}
+Nakita ti babai lalaki ti
+nakita babai ART lalaki ART
+saw girl the boy the
+`The girl saw the boy'
+
+# Ex. 22: grammatically correct, semantically weird
+Source: a:?
+Vetted: f
+Judgment: g
+Phenomena: {wo, c}
+Naglaylay ti ansisit
+n-ag-laylay ti ansisit
+PF-1-wilt ART dwarf.ABS
+`The dwarf wilted'
+
+# Ex. 23: incorrectly missing determiner in a noun phrase
+Source: a:?
+Vetted: f
+Judgment: u
+Phenomena: {argument optionality}
+Naglaylay ansisit
+n-ag-laylay ansisit
+PF-1-wilt dwarf.ABS
+`The dwarf wilted'
+
