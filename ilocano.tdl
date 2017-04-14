@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Fri Apr 14 18:13:14 UTC 2017
+;;;     Fri Apr 14 18:48:18 UTC 2017
 ;;; based on Matrix customization system version of:
 ;;;     Fri Apr 14 14:46:14 UTC 2017
 ;;;
@@ -164,11 +164,13 @@ transitive-verb-lex := main-verb-lex & transitive-lex-item &
                            HEAD noun ] ] > ].
 
 intrans-verb-lex := intransitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                      OPT + ] ].
 
 trans-verb-lex := transitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
-                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ] ].
+  [ SYNSEM.LOCAL.CAT.VAL [ COMPS.FIRST.LOCAL.CAT.HEAD.CASE cor+abs,
+                           SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+erg,
+                                        OPT - ] ] ].
 
 no-obj-drop-verb-lex := transitive-verb-lex &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.OPT - ].
