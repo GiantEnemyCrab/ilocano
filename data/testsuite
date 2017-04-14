@@ -17,7 +17,7 @@ Judgment: g
 Phenomena: {word order}
 Naglaylay   ti      sabong
 n-ag-laylay ti      sabong
-PF-I-wilt   Core.sg flower.ABS
+PF-I-wilt   CORE.sg flower.ABS
 `The flower wilted'
 
 # grammatically incorrect VS order with intransitive verb
@@ -27,7 +27,7 @@ Judgment: u
 Phenomena: {word order}
 Ti      sabong     naglaylay
 ti      sabong     n-ag-laylay
-Core.sg flower.ABS PF-I-wilt
+CORE.sg flower.ABS PF-I-wilt
 `The flower wilted'
 
 # correct article-to-noun order
@@ -37,7 +37,7 @@ Judgment: g
 Phenomena: {word order}
 Naglaylay   ti      sabong
 n-ag-laylay ti      sabong
-PF-I-wilt   Core.sg flower.ABS
+PF-I-wilt   CORE.sg flower.ABS
 `The flower wilted'
 
 # incorrect article-to-noun order
@@ -47,7 +47,7 @@ Judgment: u
 Phenomena: {word order}
 Naglaylay   sabong     ti
 n-ag-laylay sabong     ti
-PF-I-wilt   flower.ABS Core.sg
+PF-I-wilt   flower.ABS CORE.sg
 `The flower wilted'
 
 # correct word order with transitive verb: tr CoreNP CoreNP
@@ -55,9 +55,9 @@ Source: a:32
 Vetted: s
 Judgment: g
 Phenomena: {word order}
-Nakita ti      babai ti      lalaki
-nakita Core.sg babai Core.sg lalaki
-saw    the     girl  the     boy
+Nakita   ti      babai ti      lalaki
+na-kita  ti      babai ti      lalaki
+PF.T-saw CORE.sg girl  CORE.sg boy
 `The girl saw the boy'
 
 # incorrect word order with transitive verb: CoreNP tr CoreNP
@@ -66,8 +66,8 @@ Vetted: s
 Judgment: u
 Phenomena: {word order}
 Ti      babai nakita   ti      lalaki
-Core.sg babai na-kita  Core.sg lalaki
-the     girl  PF-T-saw the     boy
+ti      babai na-kita  ti      lalaki
+CORE.sg girl  PF.T-saw CORE.sg boy
 `The girl saw the boy'
 
 # incorrect word order with transitive verb: CoreNP CoreNP tr
@@ -76,8 +76,8 @@ Vetted: s
 Judgment: u
 Phenomena: {word order}
 Ti      babai ti      lalaki nakita
-Core.sg babai Core.sg lalaki na-kita
-the     girl  the     boy    saw
+ti      babai ti      lalaki na-kita
+CORE.sg girl  CORE.sg boy    PF.T-saw
 `The girl saw the boy'
 
 # incorrect word order and case with transitive verb: oblique-NP tr oblique-NP
@@ -85,9 +85,9 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {word order}
-Iti    babai nakita iti    lalaki
-Obl.sg babai nakita Obl.sg lalaki
-the    girl  saw    the    boy
+Iti    babai nakita   iti    lalaki
+iti    babai na-kita  iti    lalaki
+OBL.sg girl  PF.T-saw OBL.sg boy
 `The girl saw the boy'
 
 # incorrect word order with transitive verb: oblique-NP oblique-NP tr
@@ -95,9 +95,39 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {word order}
-Iti    babai iti    lalaki na-kita
-Obl.sg babai Obl.sg lalaki na-kita
-the    girl  the    boy    saw
+Iti    babai iti    lalaki nakita
+iti    babai iti    lalaki na-kita
+OBL.sg girl  OBL.sg boy    PF.T-saw
+`The girl saw the boy'
+
+# incorrect det-noun order for NPs with transitive verb
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {word order}
+Nakita   babai ti      ti      lalaki
+na-kita  babai ti      ti      lalaki
+PF.T-saw girl  CORE.sg CORE.sg boy
+`The girl saw the boy'
+
+# incorrect det-noun order for NPs with transitive verb
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {word order}
+Nakita   ti      babai lalaki ti
+na-kita  ti      babai lalaki the
+PF.T-saw CORE.sg girl  boy    CORE.sg
+`The girl saw the boy'
+
+# incorrect det-noun order for NPs with transitive verb
+Source: a:32
+Vetted: s
+Judgment: u
+Phenomena: {word order}
+Nakita   ti       babai  lalaki ti
+na-kita  ti       babai  lalaki ti
+PF.T-saw CORE.sg  boy    girl   CORE.sg
 `The girl saw the boy'
 
 ######################################
@@ -111,7 +141,7 @@ Judgment: g
 Phenomena: {det}
 Nagsangit   ti      lalaki
 n-ag-sangit ti      lalaki
-PF-I-cry    Core.sg boy
+PF-I-cry    CORE.sg boy
 `The boy cried'
 
 # correct plural determiner
@@ -121,11 +151,11 @@ Judgment: g
 Phenomena: {det}
 Nagsangit   dagiti  lalaki
 n-ag-sangit dagiti  lalaki
-PF-I-cry    Core.pl boy
+PF-I-cry    CORE.pl boy
 `The boys cried'
 
 ######################################
-######### CASE ##### #################
+######### CASE #######################
 ######################################
 
 # incorrect NP case with transitive verb: tr oblique-NP oblique-NP
@@ -134,8 +164,8 @@ Vetted: s
 Judgment: u
 Phenomena: {case}
 Nakita iti    babai iti    lalaki
-nakita Obl.sg babai Obl.sg lalaki
-saw    the    girl  the    boy
+nakita iti    babai iti    lalaki
+saw    OBL.sg girl  OBL.sg boy
 `The girl saw the boy'
 
 # incorrect plural determiner case
@@ -145,7 +175,7 @@ Judgment: u
 Phenomena: {case}
 Nagsangit   kadagiti lalaki
 n-ag-sangit kadagiti lalaki
-PF-I-cry    Obl.pl   boy
+PF-I-cry    OBL.pl   boy
 `The boys cried'
 
 # Incorrect use of verbal arguments/transitivity.
@@ -153,9 +183,9 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: {case}
-Nagtudo iti balay
-n-ag-tudo    iti       balay
-PF-I-rain    Obl.sg    house
+Nagtudo    iti    balay
+n-ag-tudo  iti    balay
+PF-I-rain  OBL.sg house
 'It rained the house'
 
 # incorrect patient NP case with transitive verb: tr CoreNP oblique-NP
@@ -163,9 +193,9 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {case}
-Nakita ti      babai iti    lalaki
-nakita Core.sg babai Obl.sg lalaki
-saw the girl the boy
+Nakita   ti      babai iti    lalaki
+na-kita  ti      babai iti    lalaki
+PF.T-saw CORE.sg girl  OBL.sg boy
 `The girl saw the boy'
 
 # incorrect agent NP case with transitive verb: tr oblique-NP CoreNP
@@ -173,9 +203,9 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {case}
-Nakita iti    babai ti      lalaki
-nakita Obl.sg babai Core.sg lalaki
-saw the girl the boy
+Nakita   iti    babai ti     lalaki
+na-kita  iti    babai ti     lalaki
+PF.T-saw OBL.sg girl  OBL.sg boy
 `The girl saw the boy'
 
 # grammatically correct, semantically weird
@@ -185,7 +215,7 @@ Judgment: g
 Phenomena: {word order, case}
 Naglaylay   ti      ansisit
 n-ag-laylay ti      ansisit
-PF-I-wilt   Core.sg dwarf.ABS
+PF-I-wilt   CORE.sg dwarf.ABS
 `The dwarf wilted'
 
 
@@ -198,9 +228,9 @@ Source: a:117
 Vetted: s
 Judgment: g
 Phenomena: {possessives}
-Nakita ti      babai ti      balay=ko
-nakita Core.sg babai Core.sg house =ERG.1sg
-saw    the     girl  my      house
+Nakita   ti      babai ti      balayko
+na-kita  ti      babai ti      balay=ko
+PF.T-saw CORE.sg girl  CORE.sg house=ERG.1sg
 `The girl saw her house'
 
 # incorrect case for possessive, using absolutive enclitic pronoun
@@ -208,9 +238,9 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: {case}
-Nakita ti      babai ti      balay=ak
-nakita Core.sg babai Core.sg balay =ABS.1sg
-saw    the     girl  the     my house
+Nakita   ti      babai ti      balayako
+na-kita  ti      babai ti      balay=ko
+PF.T-saw CORE.sg girl  CORE.sg house=ABS.1sg
 `The girl saw my house house'
 
 # possessive pronouns, not ready to test
@@ -219,7 +249,7 @@ saw    the     girl  the     my house
 #Judgment: g
 #Phenomena: {possessives}
 #Bagida ti      suman
-#bagida Core.sg suman
+#bagida CORE.sg suman
 #theirs the     ricecake
 #`The ricecake is theirs`
 
@@ -235,7 +265,7 @@ Judgment: g
 Phenomena: {argument optionality}
 Nagsukat
 n-ag-sukat
-PF-I-change (3sg)
+PF-I-change.(3sg)
 `he/she/it changed` (implicit 3sg subject, dropped arg)
 
 # When subject is not dropped from intransitive verb
@@ -245,7 +275,7 @@ Judgment: g
 Phenomena: {argument optionality}
 Nagsukat=ak
 n-ag-sukat=ak
-PF-I-change ABS.1sg
+PF-I-change=ABS.1sg
 `I changed`
 
 # allow object to be dropped for transitive verb to implicitly mean 3sg pronoun (absolutive)
@@ -255,7 +285,7 @@ Judgment: g
 Phenomena: {argument optionality}
 nakita=mo
 na-kita=mo
-PF-T-see ERG.2sg (3sg)
+PF.T-see=ERG.2sg.(3sg)
 `You see it` (implicit 3sg subject, dropped arg)
 
 # when object is not dropped from transitive verb
@@ -265,7 +295,7 @@ Judgment: g
 Phenomena: {argument optionality}
 nakita=mo=ak
 na-kita=mo=ak
-PF-T-see ERG.2sg ABS.1sg
+PF.T-see=ERG.2sg=ABS.1sg
 `You see me`
 
 # incorrectly missing determiner in a noun phrase
@@ -283,39 +313,9 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {argument optionality}
-Nakita iti    babai ti      lalaki ti      babai
-nakita Obl.sg babai Core.sg lalaki Core.sg babai
-saw    the    girl  the     boy    the     girl
-`The girl saw the boy'
-
-# incorrect det-noun order for NPs with transitive verb
-Source: a:32
-Vetted: s
-Judgment: u
-Phenomena: {argument optionality}
-Nakita babai ti      ti      lalaki
-nakita babai Core.sg Core.sg lalaki
-saw    girl  the     the     boy
-`The girl saw the boy'
-
-# incorrect det-noun order for NPs with transitive verb
-Source: a:32
-Vetted: s
-Judgment: u
-Phenomena: {argument optionality}
-Nakita ti      babai lalaki ti
-nakita Core.sg babai lalaki Core.sg
-saw    the     girl  boy    the
-`The girl saw the boy'
-
-# incorrect det-noun order for NPs with transitive verb
-Source: a:32
-Vetted: s
-Judgment: u
-Phenomena: {argument optionality}
-Nakita ti    babai   lalaki ti
-nakita babai Core.sg lalaki Core.sg
-saw    girl  the     boy    the
+Nakita   iti    babai ti      lalaki ti      babai
+na-kita  iti    babai ti      lalaki ti      babai
+PF.T-saw OBL.sg girl  CORE.sg boy    CORE.sg girl
 `The girl saw the boy'
 
 # argument optionality with transitive verb: tr CoreNP missing
@@ -323,9 +323,9 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {argument optionality}
-Nakita ti      babai
-nakita Core.sg babai
-saw    the     girl
+Nakita   ti      babai
+na-kita  ti      babai
+PF.T-saw CORE.sg girl
 `The girl saw'
 
 
@@ -340,7 +340,7 @@ Judgment: g
 Phenomena: {negation}
 Di  n-ag-laylay ti      sabong
 di  n-ag-laylay ti      sabong
-Neg PF-I-wilt   Core.sg flower.ABS
+Neg PF-I-wilt   CORE.sg flower.ABS
 `The flower didn't wilt'
 
 # a sentential negation with aux 'di' with any abs enclitic
@@ -350,17 +350,27 @@ Judgment: g
 Phenomena: {negation}
 Diak        n-ag-sangit
 di=ak       n-ag-sangit
-Neg ABS.1sg PF-I-cry
+Neg=ABS.1sg PF-I-cry
 `I did not cry'
+
+# negation 'di' is not for negating NP
+Source: author
+Vetted: f
+Judgment: f
+Phenomena: {negation}
+Di  ti      lalaki
+di  ti      lalaki
+Neg CORE.sg boy
+`Not the boy'
 
 # in negation, a case needs to agree between the subjet (absolutive) and the intransitive verb
 Source: author
 Vetted: f
 Judgment: f
-Phenomena: {case}
+Phenomena: {negation}
 Diko        n-ag-sangit
 di=ko       n-ag-sangit
-Neg ERG.1sg PF-I-cry
+Neg=ERG.1sg PF-I-cry
 `I did not cry'
 
 
