@@ -14,7 +14,7 @@ Judgment: g
 Phenomena: {word order}
 Naglaylay ti sabong
 n-ag-laylay ti sabong
-PF-1-wilt CORE.sg flower.ABS
+PF-I-wilt CORE.sg flower.ABS
 `The flower wilted'
 
 # Ex.2: grammatically incorrect VS order with intransitive verb
@@ -24,7 +24,7 @@ Judgment: u
 Phenomena: {word order}
 Ti sabong naglaylay
 ti sabong n-ag-laylay
-CORE.sg flower.ABS PF-1-wilt
+CORE.sg flower.ABS PF-I-wilt
 `The flower wilted'
 
 # Ex. 3: Incorrect use of verbal arguments/transitivity.
@@ -44,7 +44,7 @@ Judgment: g
 Phenomena: {wo}
 Naglaylay ti sabong
 n-ag-laylay ti sabong
-PF-1-wilt CORE.sg flower.ABS
+PF-I-wilt CORE.sg flower.ABS
 `The flower wilted'
 
 # Ex. 5: incorrect article-to-noun order
@@ -54,7 +54,7 @@ Judgment: u
 Phenomena: {wo}
 Naglaylay sabong ti
 n-ag-laylay sabong ti
-PF-1-wilt flower.ABS ART
+PF-I-wilt flower.ABS ART
 `The flower wilted'
 
 # Ex. 6: correct singular determiner
@@ -224,7 +224,7 @@ Judgment: g
 Phenomena: {wo, c}
 Naglaylay ti ansisit
 n-ag-laylay ti ansisit
-PF-1-wilt CORE.sg dwarf.ABS
+PF-I-wilt CORE.sg dwarf.ABS
 `The dwarf wilted'
 
 # Ex. 23: incorrectly missing determiner in a noun phrase
@@ -234,6 +234,6 @@ Judgment: u
 Phenomena: {argument optionality}
 Naglaylay ansisit
 n-ag-laylay ansisit
-PF-1-wilt dwarf.ABS
+PF-I-wilt dwarf.ABS
 `The dwarf wilted'
 
