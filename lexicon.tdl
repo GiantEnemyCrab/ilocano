@@ -29,25 +29,39 @@ simbaan := common-noun-lex &
   [ STEM < "simbaan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_church_n_rel" ].
 
+ak := enc-abs-1sg-noun-lex &
+  [ STEM < "ak" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+
+ko := enc-erg-1sg-noun-lex &
+  [ STEM < "ko" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+
 ;;; Adjectives
 
 ;;; Verbs
 
-nagsangit := intrans-verb-lex &
-  [ STEM < "nagsangit" >,
+sangit := intrans-verb-lex &
+  [ STEM < "sangit" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
 
-naglaylay := intrans-verb-lex &
-  [ STEM < "naglaylay" >,
+laylay := intrans-verb-lex &
+  [ STEM < "laylay" >,
     SYNSEM.LKEYS.KEYREL.PRED "_wilt_v_rel" ].
 
-nagtudo := intrans-verb-lex &
-  [ STEM < "nagtudo" >,
+tudo := intrans-verb-lex &
+  [ STEM < "tudo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_rain_v_rel" ].
 
 nakita := trans-verb-lex &
   [ STEM < "nakita" >,
     SYNSEM.LKEYS.KEYREL.PRED "_see_v_rel" ].
+
+;;; Auxiliaries
+
+di := neg-aux-lex &
+  [ STEM < "di" >,
+    SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
 
 ;;; Determiners
 

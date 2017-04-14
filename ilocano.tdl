@@ -2,9 +2,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Fri Apr 14 01:11:48 UTC 2017
+;;;     Fri Apr 14 18:13:14 UTC 2017
 ;;; based on Matrix customization system version of:
-;;;     Thu Apr 13 03:46:45 UTC 2017
+;;;     Fri Apr 14 14:46:14 UTC 2017
 ;;;
 ;;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -19,6 +19,9 @@ non-mod-lex-item := lex-item &
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 noun :+ [ CASE case ].
+
+head :+ [ AUX bool,
+    FORM form ].
 
 png :+ [ PERNUM pernum,
     GEND gender ].
@@ -39,10 +42,12 @@ basic-head-opt-comp-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ < > ].
 
 case := *top*.
 foc := case.  ; focus-case
-erg := case.  ; erg
-abs := case.  ; abs
-cor := case.  ; core
 obl := case.  ; obliq
+cor+abs := case.
+cor := cor+abs & cor+erg.
+abs := cor+abs.
+cor+erg := case.
+erg := cor+erg.
 
 ;;; Pernum
 
@@ -71,6 +76,16 @@ gender := *top*.
 masculine := gender.
 feminine := gender.
 
+;;; Form
+
+form := *top*.
+nonfinite := form.
+finite := form.
+
+;;; Aspect
+
+Perfective := aspect.
+
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
 ;;;;;;;;;;;;;;;;;;;
@@ -78,33 +93,69 @@ feminine := gender.
 ;;; Nouns
 
 noun-lex := basic-noun-lex & basic-one-arg & no-hcons-lex-item & non-mod-lex-item &
-  [ ARG-ST < #spr >,
-    SYNSEM.LOCAL.CAT.VAL [ COMPS < >,
+  [ SYNSEM.LOCAL.CAT.VAL [ SPR < #spr &
+                                 [ LOCAL.CAT.HEAD det ] >,
+                           COMPS < >,
                            SUBJ < >,
-                           SPEC < >,
-                           SPR < #spr &
-                                 [ LOCAL.CAT.HEAD det,
-                                   OPT - ] > ] ].
+                           SPEC < > ],
+    ARG-ST < #spr > ].
 
-common-noun-lex := noun-lex.
+obl-spr-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT - ] > ].
+
+no-spr-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT + ] > ].
+
+; Nouns which cannot take specifiers mark their SPR requirement
+; as OPT +.  Making the non-head daughter OPT - in this rule
+; keeps such nouns out.
+; 
+; Rules for building NPs.  Note that the Matrix uses SPR for
+; the specifier of nouns and SUBJ for the subject (specifier) of verbs.
+
+head-spec-phrase := basic-head-spec-phrase & head-final &
+  [ NON-HEAD-DTR.SYNSEM.OPT - ].
+
+common-noun-lex := obl-spr-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd ].
+
+pronoun-noun-lex := no-spr-noun-lex.
+
+enc-abs-pron-noun-lex := pronoun-noun-lex.
+
+enc-abs-1sg-noun-lex := enc-abs-pron-noun-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE abs ].
+
+enc-erg-pron-noun-lex := pronoun-noun-lex.
+
+enc-erg-1sg-noun-lex := enc-erg-pron-noun-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE erg ].
 
 ;;; Verbs
 
-verb-lex := basic-verb-lex & non-mod-lex-item &
-  [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
-                             SPEC < >,
-                             SUBJ < #subj > ],
+verb-lex := non-mod-lex-item & aspect-infl-rule-dtr &
+  [ SYNSEM.LOCAL.CAT [ HEAD verb,
+                       HC-LIGHT - ] ].
+
+main-verb-lex := verb-lex & basic-verb-lex &
+  [ SYNSEM.LOCAL [ CAT [ HEAD.AUX -,
+                         VAL [ SPR < >,
+                               SPEC < >,
+                               SUBJ < #subj > ] ],
                    CONT.HOOK.XARG #xarg ],
     ARG-ST.FIRST #subj &
                  [ LOCAL [ CAT.VAL [ SPR < >,
                                      COMPS < > ],
                            CONT.HOOK.INDEX #xarg ] ] ].
 
-intransitive-verb-lex := verb-lex & intransitive-lex-item &
+aux-lex := verb-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.AUX + ].
+
+intransitive-verb-lex := main-verb-lex & intransitive-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS < >,
     ARG-ST.FIRST.LOCAL.CAT.HEAD noun ].
 
-transitive-verb-lex := verb-lex & transitive-lex-item &
+transitive-verb-lex := main-verb-lex & transitive-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
     ARG-ST < [ LOCAL.CAT.HEAD noun ],
              #comps &
@@ -113,11 +164,45 @@ transitive-verb-lex := verb-lex & transitive-lex-item &
                            HEAD noun ] ] > ].
 
 intrans-verb-lex := intransitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor ].
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
 
 trans-verb-lex := transitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor,
-                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE cor ] ].
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
+                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ] ].
+
+no-obj-drop-verb-lex := transitive-verb-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.OPT - ].
+
+obj-drop-verb-lex := transitive-verb-lex.
+
+;;; Auxiliaries
+
+subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
+  [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
+                             SPEC < >,
+                             COMPS < #comps >,
+                             SUBJ < #subj > ],
+                   CONT.HOOK.XARG #xarg ],
+    ARG-ST < #subj &
+             [ LOCAL [ CAT [ HEAD noun &
+                                  [ CASE #case ],
+                             VAL [ SUBJ < >,
+                                   SPR < >,
+                                   SPEC < >,
+                                   COMPS < > ] ],
+                       CONT.HOOK.INDEX #xarg ] ],
+             #comps &
+             [ LOCAL.CAT [ HEAD verb,
+                           VAL [ COMPS < >,
+                                 SPR < >,
+                                 SPEC < >,
+                                 SUBJ < unexpressed &
+                                        [ LOCAL.CAT.HEAD.CASE #case ] > ] ] ] > ].
+
+subj-raise-aux-with-pred := subj-raise-aux & norm-sem-lex-item & trans-first-arg-raising-lex-item-1.
+
+neg-aux-lex := subj-raise-aux-with-pred &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM form ].
 
 ;;; Others
 
@@ -149,7 +234,35 @@ art-obliq-pl-determiner-lex := determiner-lex & no-icons-lex-item &
 ;;; Lexical Rules
 ;;;;;;;;;;;;;;;;;;;
 
+; Adjective Incorporation
+
+adj_incorporation-lex-rule := add-only-rule &
+  [ C-CONT [ RELS <! arg1-ev-relation &
+                     [ LBL #ltop,
+                       ARG1 #index ] !>,
+             HOOK #hook ],
+    DTR.SYNSEM.LOCAL [ CAT.HEAD noun,
+                       CONT.HOOK #hook &
+                                 [ LTOP #ltop,
+                                   INDEX #index ] ] ].
+
+;;; Intermediate rule types
+
+aspect-infl-rule-dtr := word-or-lexrule.
+
 ;;; Lexical rule types
+
+aspect-infl-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ DTR aspect-infl-rule-dtr ].
+
+perf-asp-infl-lex-rule := aspect-infl-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Perfective ].
+
+trans-intrans-infl-lex-rule-super := add-only-no-ccont-rule & aspect-infl-rule-dtr & infl-lex-rule &
+  [ DTR verb-lex ].
+
+intrans-infl-lex-rule := trans-intrans-infl-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types
@@ -158,15 +271,10 @@ art-obliq-pl-determiner-lex := determiner-lex & no-icons-lex-item &
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2
 
-head-comp-phrase := basic-head-1st-comp-phrase & head-initial &
-  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ < > ].
+head-comp-phrase := basic-head-1st-comp-phrase & head-initial.
 
-head-subj-phrase := decl-head-subj-phrase & head-initial.
-
-; Rules for building NPs.  Note that the Matrix uses SPR for
-; the specifier of nouns and SUBJ for the subject (specifier) of verbs.
-
-head-spec-phrase := basic-head-spec-phrase & head-final.
+head-subj-phrase := decl-head-subj-phrase & head-initial &
+  [ HEAD-DTR.SYNSEM.LIGHT + ].
 
 ; Bare NP phrase.  Consider modifying the PRED value of the quantifier relation
 ; introduced to match the semantic effect of bare NPs in your language.

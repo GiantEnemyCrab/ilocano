@@ -218,7 +218,7 @@ saw girl the boy the
 `The girl saw the boy'
 
 # Ex. 22: grammatically correct, semantically weird
-Source: a:?
+Source: author
 Vetted: f
 Judgment: g
 Phenomena: {wo, c}
@@ -228,7 +228,7 @@ PF-I-wilt CORE.sg dwarf.ABS
 `The dwarf wilted'
 
 # Ex. 23: incorrectly missing determiner in a noun phrase
-Source: a:?
+Source: author
 Vetted: f
 Judgment: u
 Phenomena: {argument optionality}
@@ -236,4 +236,68 @@ Naglaylay ansisit
 n-ag-laylay ansisit
 PF-I-wilt dwarf.ABS
 `The dwarf wilted'
+
+# Ex 24: Allow subject slot to be dropped for 3sg pronoun for intransitive verb
+Source: a:95
+Vetted: s
+Judgment: g
+Phenomena: {argument optionality}
+Nagsukat
+n-ag-sukat
+PF-I-change
+`he changed`
+
+# Ex 25: Subject slot should exist for transitive verb
+Source: a:31
+Vetted: s
+Judgment: g
+Phenomena: {argument optionality}
+Nakitan=ak
+na-kita=na=ak
+PF.T-see =3sE =1sA
+She saw me
+
+# Ex 26: Object can be dropped for transitive verb when obj is 3sg absolutive pronoun
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {argument optionality}
+Nakita=na
+na-kita=na
+PF.T-see=3sE
+She saw it
+
+# Ex 27: Object can be dropped for transitive verb when obj is 3sg absolutive pronoun
+Source: a:419
+Vetted: s
+Judgment: g
+Phenomena: {argument optionality}
+Kayatko
+kayat=ko
+want=1sE
+I want it
+
+######################################
+######### POSSESSIVE #################
+######################################
+# grammatically correct possessive, using absolutive enclitic pronoun
+Source: a:117
+Vetted: s
+Judgment: g
+Phenomena: {possessives}
+Nakita ti babai ti balay=ko
+nakita CORE.sg babai CORE.sg house=1s.Abs.Enc
+saw the girl my house
+`The girl saw her house'
+
+# incorrect case for possessive, using ergative enclitic pronoun
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {case}
+Nakita ti babai ti balay=ak
+nakita CORE.sg babai CORE.sg balay=1s.Abs.Erg
+saw the girl my house
+`The girl saw my house house'
+
 

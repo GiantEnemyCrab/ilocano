@@ -1,1 +1,10 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
+;;; Inflecting Lexical Rule Instances
+
+perf-asp-infl-prefix :=
+%prefix (* n-)
+perf-asp-infl-lex-rule.
+
+intrans-infl-prefix :=
+%prefix (* ag-)
+intrans-infl-lex-rule.
