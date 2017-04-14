@@ -29,11 +29,11 @@ simbaan := common-noun-lex &
   [ STEM < "simbaan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_church_n_rel" ].
 
-ak := enc-abs-1sg-noun-lex &
+ak := abs-1sg-noun-lex &
   [ STEM < "ak" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
 
-ko := enc-erg-1sg-noun-lex &
+ko := erg-1sg-noun-lex &
   [ STEM < "ko" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
 
@@ -53,8 +53,12 @@ tudo := intrans-verb-lex &
   [ STEM < "tudo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_rain_v_rel" ].
 
-nakita := trans-verb-lex &
-  [ STEM < "nakita" >,
+sukat := intrans-verb-lex &
+  [ STEM < "sukat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_change_v_rel" ].
+
+kita := trans-verb-lex &
+  [ STEM < "kita" >,
     SYNSEM.LKEYS.KEYREL.PRED "_see_v_rel" ].
 
 ;;; Auxiliaries
@@ -65,18 +69,18 @@ di := neg-aux-lex &
 
 ;;; Determiners
 
-ti := art-core-sg-determiner-lex &
+ti := core-sg-determiner-lex &
   [ STEM < "ti" >,
     SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
 
-dagiti := art-core-pl-determiner-lex &
+dagiti := core-pl-determiner-lex &
   [ STEM < "dagiti" >,
     SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
 
-iti := art-obliq-sg-determiner-lex &
+iti := obl-sq-determiner-lex &
   [ STEM < "iti" >,
     SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
 
-kadagiti := art-obliq-pl-determiner-lex &
+kadagiti := obl-pl-determiner-lex &
   [ STEM < "kadagiti" >,
     SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].

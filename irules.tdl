@@ -8,3 +8,7 @@ perf-asp-infl-lex-rule.
 intrans-infl-prefix :=
 %prefix (* ag-)
 intrans-infl-lex-rule.
+
+perf-trans-infl-prefix :=
+%prefix (* na-)
+perf-trans-infl-lex-rule.

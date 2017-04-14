@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Fri Apr 14 18:48:18 UTC 2017
+;;;     Fri Apr 14 23:43:16 UTC 2017
 ;;; based on Matrix customization system version of:
 ;;;     Fri Apr 14 14:46:14 UTC 2017
 ;;;
@@ -119,16 +119,16 @@ head-spec-phrase := basic-head-spec-phrase & head-final &
 common-noun-lex := obl-spr-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd ].
 
-pronoun-noun-lex := no-spr-noun-lex.
+pron-noun-lex := no-spr-noun-lex.
 
-enc-abs-pron-noun-lex := pronoun-noun-lex.
+abs-noun-lex := pron-noun-lex.
 
-enc-abs-1sg-noun-lex := enc-abs-pron-noun-lex &
+abs-1sg-noun-lex := abs-noun-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.CASE abs ].
 
-enc-erg-pron-noun-lex := pronoun-noun-lex.
+erg-noun-lex := pron-noun-lex.
 
-enc-erg-1sg-noun-lex := enc-erg-pron-noun-lex &
+erg-1sg-noun-lex := erg-noun-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.CASE erg ].
 
 ;;; Verbs
@@ -164,8 +164,7 @@ transitive-verb-lex := main-verb-lex & transitive-lex-item &
                            HEAD noun ] ] > ].
 
 intrans-verb-lex := intransitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
-                                      OPT + ] ].
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
 
 trans-verb-lex := transitive-verb-lex &
   [ SYNSEM.LOCAL.CAT.VAL [ COMPS.FIRST.LOCAL.CAT.HEAD.CASE cor+abs,
@@ -216,19 +215,19 @@ determiner-lex := basic-determiner-lex & norm-zero-arg & non-mod-lex-item &
                            COMPS < >,
                            SUBJ < > ] ].
 
-art-core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
+core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE cor,
                                             CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
 
-art-core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
+core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE cor,
                                             CONT.HOOK.INDEX.PNG.PERNUM pl ] ].
 
-art-obliq-sg-determiner-lex := determiner-lex & no-icons-lex-item &
+obl-sq-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE obl,
                                             CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
 
-art-obliq-pl-determiner-lex := determiner-lex & no-icons-lex-item &
+obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE obl,
                                             CONT.HOOK.INDEX.PNG.PERNUM pl ] ].
 
@@ -266,9 +265,18 @@ trans-intrans-infl-lex-rule-super := add-only-no-ccont-rule & aspect-infl-rule-d
 intrans-infl-lex-rule := trans-intrans-infl-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
 
+trans-infl-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ DTR transitive-verb-lex ].
+
+perf-trans-infl-lex-rule := trans-infl-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Perfective ].
+
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types
 ;;;;;;;;;;;;;;;;;;;
+
+context1-decl-head-opt-subj-phrase := decl-head-opt-subj-phrase &
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs ].
 
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2

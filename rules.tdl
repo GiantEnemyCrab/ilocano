@@ -1,7 +1,7 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
-decl-head-opt-subj := decl-head-opt-subj-phrase.
-
 basic-head-opt-comp := basic-head-opt-comp-phrase.
+
+context1-decl-head-opt-subj := context1-decl-head-opt-subj-phrase.
 
 head-comp := head-comp-phrase.
 
