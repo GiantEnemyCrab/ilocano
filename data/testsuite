@@ -14,7 +14,7 @@ Judgment: g
 Phenomena: {word order}
 Naglaylay ti sabong
 n-ag-laylay ti sabong
-PF-1-wilt ART flower.ABS
+PF-1-wilt CORE.sg flower.ABS
 `The flower wilted'
 
 # Ex.2: grammatically incorrect VS order with intransitive verb
@@ -24,17 +24,17 @@ Judgment: u
 Phenomena: {word order}
 Ti sabong naglaylay
 ti sabong n-ag-laylay
-ART flower.ABS PF-1-wilt 
+CORE.sg flower.ABS PF-1-wilt
 `The flower wilted'
 
 # Ex. 3: Incorrect use of verbal arguments/transitivity.
-Source: a:?
+Source: author
 Vetted: f
 Judgment: u
 Phenomena: {c}
 Nagtudo iti balay
 n-ag-tudo    iti    balay
-PF-I-rain    OBL    house
+PF-I-rain    OBL.sg    house
 'It rained the house'
 
 # Ex. 4: correct article-to-noun order
@@ -44,7 +44,7 @@ Judgment: g
 Phenomena: {wo}
 Naglaylay ti sabong
 n-ag-laylay ti sabong
-PF-1-wilt ART flower.ABS
+PF-1-wilt CORE.sg flower.ABS
 `The flower wilted'
 
 # Ex. 5: incorrect article-to-noun order
@@ -64,7 +64,7 @@ Judgment: g
 Phenomena: {det}
 Nagsangit ti lalaki
 n-ag-sangit ti lalaki
-PF-I-cry ART boy
+PF-I-cry CORE.sg boy
 `The boy cried'
 
 # Ex. 7: correct plural determiner
@@ -74,26 +74,26 @@ Judgment: g
 Phenomena: {det}
 Nagsangit dagiti lalaki
 n-ag-sangit dagiti lalaki
-PF-I-cry PL boy
+PF-I-cry CORE.pl boy
 `The boys cried'
 
 # Ex. 8: incorrect plural determiner case
 Source: a:194
 Vetted: s
-Judgment: g
+Judgment: u
 Phenomena: {c}
-Nagsangit dagiti lalaki
-n-ag-sangit dagiti lalaki
-PF-I-cry OBL.PL boy
+Nagsangit kadagiti lalaki
+n-ag-sangit kadagiti lalaki
+PF-I-cry OBL.pl boy
 `The boys cried'
 
-# Ex. 9: incorrect word order with transitive verb: tr core-NP missing
+# Ex. 9: argument optionality with transitive verb: tr core-NP missing
 Source: a:32
 Vetted: s
 Judgment: u
-Phenomena: {wo}
+Phenomena: {argument optionality}
 Nakita ti babai
-nakita ART babai
+nakita CORE.sg babai
 saw the girl
 `The girl saw'
 
@@ -103,7 +103,7 @@ Vetted: s
 Judgment: g
 Phenomena: {wo}
 Nakita ti babai ti lalaki
-nakita ART babai ART lalaki
+nakita CORE.sg babai CORE.sg lalaki
 saw the girl the boy
 `The girl saw the boy'
 
@@ -113,7 +113,7 @@ Vetted: s
 Judgment: u
 Phenomena: {wo}
 Ti babai nakita ti lalaki
-ART babai nakita ART lalaki
+CORE.sg babai nakita CORE.sg lalaki
 the girl saw the boy
 `The girl saw the boy'
 
@@ -123,7 +123,7 @@ Vetted: s
 Judgment: u
 Phenomena: {wo}
 Ti babai ti lalaki nakita
-ART babai ART lalaki nakita
+CORE.sg babai CORE.sg lalaki nakita
 the girl the boy saw
 `The girl saw the boy'
 
@@ -133,7 +133,7 @@ Vetted: s
 Judgment: u
 Phenomena: {c}
 Nakita iti babai iti lalaki
-nakita OBL babai OBL lalaki
+nakita OBL.sg babai OBL.sg lalaki
 saw the girl the boy
 `The girl saw the boy'
 
@@ -143,7 +143,7 @@ Vetted: s
 Judgment: u
 Phenomena: {wo}
 Iti babai nakita iti lalaki
-OBL babai nakita OBL lalaki
+OBL.sg babai nakita OBL.sg lalaki
 the girl saw the boy
 `The girl saw the boy'
 
@@ -153,7 +153,7 @@ Vetted: s
 Judgment: u
 Phenomena: {wo}
 Iti babai iti lalaki nakita
-OBL babai OBL lalaki nakita
+OBL.sg babai OBL.sg lalaki nakita
 the girl the boy saw
 `The girl saw the boy'
 
@@ -163,7 +163,7 @@ Vetted: s
 Judgment: u
 Phenomena: {c}
 Nakita ti babai iti lalaki
-nakita ART babai OBL lalaki
+nakita CORE.sg babai OBL.sg lalaki
 saw the girl the boy
 `The girl saw the boy'
 
@@ -173,7 +173,7 @@ Vetted: s
 Judgment: u
 Phenomena: {c}
 Nakita iti babai ti lalaki
-nakita OBL babai ART lalaki
+nakita OBL.sg babai CORE.sg lalaki
 saw the girl the boy
 `The girl saw the boy'
 
@@ -183,7 +183,7 @@ Vetted: s
 Judgment: u
 Phenomena: {argument optionality}
 Nakita iti babai ti lalaki ti babai
-nakita OBL babai ART lalaki ART babai
+nakita OBL.sg babai CORE.sg lalaki CORE.sg babai
 saw the girl the boy the girl
 `The girl saw the boy'
 
@@ -193,7 +193,7 @@ Vetted: s
 Judgment: u
 Phenomena: {argument optionality}
 Nakita babai ti ti lalaki
-nakita babai ART ART lalaki
+nakita babai CORE.sg CORE.sg lalaki
 saw girl the the boy
 `The girl saw the boy'
 
@@ -203,7 +203,7 @@ Vetted: s
 Judgment: u
 Phenomena: {argument optionality}
 Nakita ti babai lalaki ti
-nakita ART babai lalaki ART
+nakita CORE.sg babai lalaki ART
 saw the girl boy the
 `The girl saw the boy'
 
@@ -213,7 +213,7 @@ Vetted: s
 Judgment: u
 Phenomena: {argument optionality}
 Nakita ti babai lalaki ti
-nakita babai ART lalaki ART
+nakita babai CORE.sg lalaki ART
 saw girl the boy the
 `The girl saw the boy'
 
@@ -224,7 +224,7 @@ Judgment: g
 Phenomena: {wo, c}
 Naglaylay ti ansisit
 n-ag-laylay ti ansisit
-PF-1-wilt ART dwarf.ABS
+PF-1-wilt CORE.sg dwarf.ABS
 `The dwarf wilted'
 
 # Ex. 23: incorrectly missing determiner in a noun phrase

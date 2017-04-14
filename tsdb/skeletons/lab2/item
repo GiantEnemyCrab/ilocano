@@ -1,12 +1,12 @@
-1@a:187@@@1@wo@Naglaylay ti sabong@@@@1@3@PF-1-wilt ART flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
-2@a:187@@@1@wo@Ti sabong naglaylay@@@@0@3@ART flower.ABS PF-1-wilt`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
-3@a:?@@@1@c@Nagtudo iti balay@@@@0@3@PF-I-rain    OBL    house'It rained the house'@james blackburn, kazuki shintani@april 7, 2016
-4@a:187@@@1@wo@Naglaylay ti sabong@@@@1@3@PF-1-wilt ART flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
+1@a:187@@@1@wo@Naglaylay ti sabong@@@@1@3@PF-1-wilt CORE.sg flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
+2@a:187@@@1@wo@Ti sabong naglaylay@@@@0@3@CORE.sg flower.ABS PF-1-wilt`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
+3@author@@@1@c@Nagtudo iti balay@@@@0@3@PF-I-rain    OBL.sg    house'It rained the house'@james blackburn, kazuki shintani@april 7, 2016
+4@a:187@@@1@wo@Naglaylay ti sabong@@@@1@3@PF-1-wilt CORE.sg flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
 5@a:187@@@1@wo@Naglaylay sabong ti@@@@0@3@PF-1-wilt flower.ABS ART`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
-6@a:194@@@1@det@Nagsangit ti lalaki@@@@1@3@PF-I-cry ART boy`The boy cried'@james blackburn, kazuki shintani@april 7, 2016
-7@a:194@@@1@det@Nagsangit dagiti lalaki@@@@1@3@PF-I-cry PL boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2016
-8@a:194@@@1@c@Nagsangit dagiti lalaki@@@@1@3@PF-I-cry OBL.PL boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2016
-9@a:32@@@1@wo@Nakita ti babai@@@@0@3@saw the girl`The girl saw'@james blackburn, kazuki shintani@april 7, 2016
+6@a:194@@@1@det@Nagsangit ti lalaki@@@@1@3@PF-I-cry CORE.sg boy`The boy cried'@james blackburn, kazuki shintani@april 7, 2016
+7@a:194@@@1@det@Nagsangit dagiti lalaki@@@@1@3@PF-I-cry CORE.pl boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2016
+8@a:194@@@1@c@Nagsangit kadagiti lalaki@@@@0@3@PF-I-cry OBL.pl boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2016
+9@a:32@@@1@pro-d@Nakita ti babai@@@@0@3@saw the girl`The girl saw'@james blackburn, kazuki shintani@april 7, 2016
 10@a:32@@@1@wo@Nakita ti babai ti lalaki@@@@1@5@saw the girl the boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
 11@a:32@@@1@wo@Ti babai nakita ti lalaki@@@@0@5@the girl saw the boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
 12@a:32@@@1@wo@Ti babai ti lalaki nakita@@@@0@5@the girl the boy saw`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
@@ -19,5 +19,5 @@
 19@a:32@@@1@pro-d@Nakita babai ti ti lalaki@@@@0@5@saw girl the the boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
 20@a:32@@@1@pro-d@Nakita ti babai lalaki ti@@@@0@5@saw the girl boy the`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
 21@a:32@@@1@pro-d@Nakita ti babai lalaki ti@@@@0@5@saw girl the boy the`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-22@a:?@@@1@wo,c@Naglaylay ti ansisit@@@@1@3@PF-1-wilt ART dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2016
+22@a:?@@@1@wo,c@Naglaylay ti ansisit@@@@1@3@PF-1-wilt CORE.sg dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2016
 23@a:?@@@1@pro-d@Naglaylay ansisit@@@@0@2@PF-1-wilt dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2016
