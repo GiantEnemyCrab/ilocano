@@ -4,8 +4,10 @@ version=28
 section=general
 language=Ilocano
 iso-code=ilo
-punctuation-chars=keep-all
+punctuation-chars=keep-list
+punctuation-chars-list=-
 archive=yes
+vcs=none
 
 section=word-order
 word-order=vso

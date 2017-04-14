@@ -2,9 +2,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Fri Apr 07 22:28:44 UTC 2017
+;;;     Fri Apr 14 01:11:48 UTC 2017
 ;;; based on Matrix customization system version of:
-;;;     Sun Jan 10 22:56:48 UTC 2016
+;;;     Thu Apr 13 03:46:45 UTC 2017
 ;;;
 ;;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -28,6 +28,8 @@ basic-head-comp-phrase :+ [ SYNSEM.LOCAL.CAT.MC #mc,
 
 basic-head-mod-phrase-simple :+ [ SYNSEM.LOCAL.CAT.MC #mc,
     NON-HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
+
+basic-head-opt-comp-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ < > ].
 
 ;;;;;;;;;;;;;;
 ;;; Features
@@ -122,7 +124,7 @@ trans-verb-lex := transitive-verb-lex &
 ;;; Determiners
 ;;; SPEC is non-empty, and already specified by basic-determiner-lex.
 
-determiner-lex := basic-determiner-lex & basic-zero-arg & non-mod-lex-item &
+determiner-lex := basic-determiner-lex & norm-zero-arg & non-mod-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
                            COMPS < >,
                            SUBJ < > ] ].
