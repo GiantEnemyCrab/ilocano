@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Sat Apr 15 04:42:30 UTC 2017
+;;;     Sat Apr 15 04:56:18 UTC 2017
 ;;; based on Matrix customization system version of:
 ;;;     Fri Apr 14 14:46:14 UTC 2017
 ;;;
@@ -85,7 +85,10 @@ finite := form.
 
 ;;; Aspect
 
-Perfective := aspect.
+perfective := aspect.
+imperfective := aspect.
+past-imperfective := aspect.
+infinitive := aspect.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
@@ -154,7 +157,7 @@ abs-3pl-noun-lex := enc-pron-noun-lex &
 
 ;;; Verbs
 
-verb-lex := non-mod-lex-item & aspect-infl-rule-dtr &
+verb-lex := non-mod-lex-item & aspect-prefix-rule-dtr & int-infix-rule-dtr &
   [ SYNSEM.LOCAL.CAT [ HEAD verb,
                        HC-LIGHT - ] ].
 
@@ -270,27 +273,40 @@ adj_incorporation-lex-rule := add-only-rule &
 
 ;;; Intermediate rule types
 
-aspect-infl-rule-dtr := word-or-lexrule.
+int-infix-rule-dtr := word-or-lexrule.
+aspect-prefix-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
-aspect-infl-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ DTR aspect-infl-rule-dtr ].
+aspect-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ DTR aspect-prefix-rule-dtr ].
 
-perf-asp-infl-lex-rule := aspect-infl-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Perfective ].
+perf-asp-infl-lex-rule := aspect-prefix-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
 
-trans-intrans-infl-lex-rule-super := add-only-no-ccont-rule & aspect-infl-rule-dtr & infl-lex-rule &
+aspect-suffix-lex-rule-super := add-only-no-ccont-rule & aspect-prefix-rule-dtr & infl-lex-rule &
   [ DTR verb-lex ].
 
-intrans-infl-lex-rule := trans-intrans-infl-lex-rule-super &
+imperf-asp-redup-lex-rule := aspect-suffix-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT imperfective ].
+
+int-prefix-lex-rule-super := add-only-no-ccont-rule & aspect-prefix-rule-dtr & infl-lex-rule &
+  [ DTR verb-lex ].
+
+intrans-prefix-lex-rule := int-prefix-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
 
-trans-infl-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ DTR transitive-verb-lex ].
+int-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ DTR int-infix-rule-dtr ].
 
-perf-trans-infl-lex-rule := trans-infl-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Perfective ].
+intrans-infix-lex-rule := int-infix-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
+
+aspect-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule & int-infix-rule-dtr &
+  [ DTR verb-lex ].
+
+perf-asp-infix-lex-rule := aspect-infix-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types

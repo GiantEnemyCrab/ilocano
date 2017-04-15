@@ -5,10 +5,18 @@ perf-asp-infl-prefix :=
 %prefix (* n-)
 perf-asp-infl-lex-rule.
 
-intrans-infl-prefix :=
-%prefix (* ag-)
-intrans-infl-lex-rule.
+imperf-asp-redup-suffix :=
+%suffix (* -RR)
+imperf-asp-redup-lex-rule.
 
-perf-trans-infl-prefix :=
-%prefix (* na-)
-perf-trans-infl-lex-rule.
+intrans-prefix-prefix :=
+%prefix (* ag-)
+intrans-prefix-lex-rule.
+
+intrans-infix-suffix :=
+%suffix (* -{um})
+intrans-infix-lex-rule.
+
+perf-asp-infix-suffix :=
+%suffix (* -{in})
+perf-asp-infix-lex-rule.
