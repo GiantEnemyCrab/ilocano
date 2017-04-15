@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Fri Apr 14 23:43:16 UTC 2017
+;;;     Sat Apr 15 02:34:09 UTC 2017
 ;;; based on Matrix customization system version of:
 ;;;     Fri Apr 14 14:46:14 UTC 2017
 ;;;
@@ -129,7 +129,8 @@ abs-1sg-noun-lex := abs-noun-lex &
 erg-noun-lex := pron-noun-lex.
 
 erg-1sg-noun-lex := erg-noun-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.CASE erg ].
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
+                   CONT.HOOK.INDEX.PNG.PERNUM 1sg ] ].
 
 ;;; Verbs
 
@@ -203,7 +204,7 @@ subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
 subj-raise-aux-with-pred := subj-raise-aux & norm-sem-lex-item & trans-first-arg-raising-lex-item-1.
 
 neg-aux-lex := subj-raise-aux-with-pred &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM form ].
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ].
 
 ;;; Others
 
