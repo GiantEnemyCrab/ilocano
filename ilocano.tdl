@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Sat Apr 15 02:34:09 UTC 2017
+;;;     Sat Apr 15 04:42:30 UTC 2017
 ;;; based on Matrix customization system version of:
 ;;;     Fri Apr 14 14:46:14 UTC 2017
 ;;;
@@ -54,12 +54,11 @@ erg := cor+erg.
 pernum := *top*.
 sg := pernum.
 non-sg := pernum.
-pl := non-sg.
+pl := non-sg & pl+3rd.
 du := non-sg.
 dist-pl := pl.
 1st := pernum.
 2nd := pernum.
-3rd := pernum.
 1sg := 1st & sg.
 2sg := 2nd & sg.
 3sg := 3rd & sg.
@@ -69,6 +68,8 @@ dist-pl := pl.
 1dist-pl := 1st & dist-pl.
 2dist-pl := 2nd & dist-pl.
 3dist-pl := 3rd & dist-pl.
+pl+3rd := pernum.
+3rd := pl+3rd.
 
 ;;; Gender
 
@@ -121,16 +122,35 @@ common-noun-lex := obl-spr-noun-lex &
 
 pron-noun-lex := no-spr-noun-lex.
 
-abs-noun-lex := pron-noun-lex.
+enc-pron-noun-lex := pron-noun-lex.
 
-abs-1sg-noun-lex := abs-noun-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.CASE abs ].
-
-erg-noun-lex := pron-noun-lex.
-
-erg-1sg-noun-lex := erg-noun-lex &
+erg-1sg-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
                    CONT.HOOK.INDEX.PNG.PERNUM 1sg ] ].
+
+erg-2sg-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
+                   CONT.HOOK.INDEX.PNG.PERNUM 2sg ] ].
+
+erg-3sg-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
+                   CONT.HOOK.INDEX.PNG.PERNUM 3sg ] ].
+
+erg-3pl-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
+                   CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ] ].
+
+abs-1sg-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
+                   CONT.HOOK.INDEX.PNG.PERNUM 1sg ] ].
+
+abs-2sg-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
+                   CONT.HOOK.INDEX.PNG.PERNUM 2sg ] ].
+
+abs-3pl-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
+                   CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ] ].
 
 ;;; Verbs
 

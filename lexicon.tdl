@@ -29,12 +29,32 @@ simbaan := common-noun-lex &
   [ STEM < "simbaan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_church_n_rel" ].
 
+ko := erg-1sg-noun-lex &
+  [ STEM < "ko" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+
+mo := erg-2sg-noun-lex &
+  [ STEM < "mo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+
+na := erg-3sg-noun-lex &
+  [ STEM < "na" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+
+da_1 := erg-3pl-noun-lex &
+  [ STEM < "da" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+
 ak := abs-1sg-noun-lex &
   [ STEM < "ak" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
 
-ko := erg-1sg-noun-lex &
-  [ STEM < "ko" >,
+ka := abs-2sg-noun-lex &
+  [ STEM < "ka" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+
+da_2 := abs-3pl-noun-lex &
+  [ STEM < "da" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
 
 ;;; Adjectives
