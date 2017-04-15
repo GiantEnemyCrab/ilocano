@@ -77,6 +77,18 @@ sukat := intrans-verb-lex &
   [ STEM < "sukat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_change_v_rel" ].
 
+taray := intrans-verb-lex &
+  [ STEM < "taray" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_run_v_rel" ].
+
+umanges := intrans-verb-lex &
+  [ STEM < "umanges" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_breathe_v_rel" ].
+
+basa := intrans-verb-lex &
+  [ STEM < "basa" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_read_v_rel" ].
+
 kita := trans-verb-lex &
   [ STEM < "kita" >,
     SYNSEM.LKEYS.KEYREL.PRED "_see_v_rel" ].
