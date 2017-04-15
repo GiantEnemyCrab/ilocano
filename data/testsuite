@@ -219,6 +219,66 @@ n-ag-laylay ti      ansisit
 PF-I-wilt   CORE.SG dwarf.ABS
 `The dwarf wilted'
 
+# case agreement with transitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {case}
+Nakitako         ti      lalaki
+na-kita=ko       ti      lalaki
+PF.T-see=ERG.1SG CORE.SG boy
+`I saw the boy'
+
+# incorrect case agreement with transitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: f
+Phenomena: {case}
+Nakitaak         ti      lalaki
+na-kita=ak       ti      lalaki
+PF.T-see=ABS.1SG CORE.SG boy
+`I saw the boy'
+
+# case agreement with transitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {case}
+Nakitadaak
+na-kita=da=ak
+PF.T-see=ERG.3PL=ABS.1SG
+`They saw me'
+
+# incorrect case agreement with transitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: f
+Phenomena: {case}
+Nakitaakda
+na-kita=ak=da
+PF.T-see=ABS.1ST=ERG.3PL
+`me saw they'
+
+# case agreement with intransitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {case}
+Naglaylay=ak
+n-ag-sangit=ak
+PF-I-cry=ABS.1SG
+`I cried'
+
+# incorrect case agreement with intransitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: f
+Phenomena: {case}
+Naglaylay=ak
+n-ag-sangit=ko
+PF-I-cry=ERG.1SG
+`me cried'
+
 
 ######################################
 ######### POSSESSIVE #################
@@ -233,7 +293,18 @@ PF-I-wilt   CORE.SG dwarf.ABS
 #Nakita   ti      babai ti      balayko
 #na-kita  ti      babai ti      balay=ko
 #PF.T-see CORE.SG girl  CORE.SG house=ERG.1sg
-#`The girl saw her house'
+#`The girl saw my house'
+
+# grammatically correct possessive 3sg
+# not ready to test
+#Source: a:117
+#Vetted: s
+#Judgment: g
+#Phenomena: {possessives}
+#Diay tulbek ti      lalaki
+#diay tulbek ti      lalaki
+#that key    CORE.SG boy
+#`The boy's key'
 
 # incorrect case for possessive, using absolutive enclitic pronoun
 # not ready to test
@@ -393,7 +464,7 @@ Neg CORE.SG boy
 Source: author
 Vetted: f
 Judgment: f
-Phenomena: {negation}
+Phenomena: {case}
 Diko        nagsangit
 di=ko       n-ag-sangit
 Neg=ERG.1sg PF-I-cry
