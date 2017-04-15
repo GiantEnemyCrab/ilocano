@@ -289,6 +289,15 @@ section=morphology
       verb-pc5_lrt1_feat1_head=verb
       verb-pc5_lrt1_lri1_inflecting=yes
       verb-pc5_lrt1_lri1_orth=-{in}
+  verb-pc6_name=trans-prefix
+  verb-pc6_order=prefix
+  verb-pc6_inputs=tverb
+    verb-pc6_lrt1_name=trans-perf-infix
+      verb-pc6_lrt1_feat1_name=aspect
+      verb-pc6_lrt1_feat1_value=perfective
+      verb-pc6_lrt1_feat1_head=verb
+      verb-pc6_lrt1_lri1_inflecting=yes
+      verb-pc6_lrt1_lri1_orth=na-
 
 section=toolbox-import
 

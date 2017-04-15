@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Sat Apr 15 04:56:18 UTC 2017
+;;;     Sat Apr 15 05:15:39 UTC 2017
 ;;; based on Matrix customization system version of:
 ;;;     Fri Apr 14 14:46:14 UTC 2017
 ;;;
@@ -306,6 +306,12 @@ aspect-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule & int-infi
   [ DTR verb-lex ].
 
 perf-asp-infix-lex-rule := aspect-infix-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
+
+trans-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ DTR transitive-verb-lex ].
+
+trans-perf-infix-lex-rule := trans-prefix-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
 
 ;;;;;;;;;;;;;;;;;;;

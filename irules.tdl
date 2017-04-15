@@ -20,3 +20,7 @@ intrans-infix-lex-rule.
 perf-asp-infix-suffix :=
 %suffix (* -{in})
 perf-asp-infix-lex-rule.
+
+trans-perf-infix-prefix :=
+%prefix (* na-)
+trans-perf-infix-lex-rule.
