@@ -70,6 +70,17 @@ n-ag-sangit=ko
 PF-I-cry=ERG.1SG
 `me cried'
 
+# Week 4
+# Independent pronoun and noun phrase to copula, number agreement mitmatch
+Source: a:33
+Vetted: f
+Judgment: f
+Phenomena: {agreement}
+Siak dagiti  paralako
+siak dagiti  paralako
+1SG  CORE.PL paralako
+'I am the salespersons'
+
 
 ######################################
 ######### ARGUMENT OPTIONALITY #######
@@ -211,6 +222,50 @@ PF-I-wilt   CORE.SG dwarf.ABS
 
 
 ######################################
+######### COORDINATION ###############
+######################################
+
+# Ken, "and", is used to connect items which can be freely arranged, 
+# stated in eirher order without affecting the intended semantics of
+# the utterance. It may cordinate words, clauses. or entire sentences
+# Week 4
+Source: a:492
+Vetted: s
+Judgment: g
+Phenomena: {coordination}
+Ti      aso ken pusa
+ti      aso ken pusa
+CORE.SG dog and cat
+`The dog and cat`
+
+# Ket "and, and then", is mostly used to introduce successive nominal
+# concepts or clauses. Unlike phrases or words that may be conncected 
+# with ken, the order of consituents connected by ket may not be interchanged.
+# Unlike ken, ket may not be used to conjoin parallelevents.
+# Week 4
+Source: a:492
+Vetted: s
+Judgment: g
+Phenomena: {coordination}
+Naglualokami          ket nagkantakami
+n-ag-lualo=kami       ket n-ag-kanta=kami
+PF-I-pray=ABS.1P.EXCL and PF-I-sing=ABS.1P.EXCL
+'We prayed and sang`
+
+# Wenno 'or' conjoins alternatives. It is placed between
+# its connecting constituents
+# Week 4
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {coordination}
+Ti      aso wenno pusa
+ti      aso wenno pusa
+CORE.SG dog or    cat
+`The dog or cat`
+
+
+######################################
 ######### DETERMINER #################
 ######################################
 
@@ -298,6 +353,23 @@ Diak        nakita   ti      lalaki
 di=ak       na-kita  ti      lalaki
 Neg=ABS.1sg PF.T-see CORE.SG boy
 `I didn't see the boy'
+
+
+######################################
+######### Non-Verbal Predicates ######
+######################################
+# Copula
+
+# Week 4
+# Independent pronoun and noun phrase to copula
+Source: a:33
+Vetted: s
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Siak ti      paralako
+siak ti      paralako
+1SG  CORE.SG paralako
+'I am the salesperson'
 
 
 ######################################
