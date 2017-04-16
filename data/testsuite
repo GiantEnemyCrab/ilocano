@@ -7,6 +7,59 @@ Source a: Rubino, Carl. Reference grammar of Ilocano. Diss. University of Califo
 
 
 ######################################
+######### ADVERBS ####################
+######################################
+
+# Week 4
+# 1. use of an adjective with the ligature, "a":
+Source: a:354
+Vetted: s
+Judgment: g
+Phenomena: {adverbs}
+Nadaras  a   nagsubliak
+na-daras a   n-ag-subli=ak
+ADJ-fast LIG PF-I-return=ABS.1SG
+`I returned quickly`
+
+# Week 4
+# 2. use of an adjective or verb. connected to the predicaze 
+# as a prepositional phase with the oblique noun marker iti,
+# similar to a prepositional phrase:
+Source: a:354
+Vetted: s
+Judgment: g
+Phenomena: {adverbs}
+Naglaylayak      iti    napaut
+n-ag-sangit=ak   iti    na-paut
+PF-I-cry=ABS.1SG OBL.SG ADJ-lasting
+`I cried for a long time'
+
+# Week 4
+# 3. use of a transitive verb denoting an adverbial notion
+Source: a:354
+Vetted: s
+Judgment: g
+Phenomena: {adverbs}
+Igaedna            ti      agadal
+i-gaed=na          ti      ag-adaI
+T-diligent=ERG.3SG CORE.SG I-study
+`He studied diligently`
+
+# Week 4
+# 4. use of an adverb-like lexeme that does a require the ligature
+# (ng)a when linking to a constituent- These words form a closed
+# class and may aiso function as adjectives
+Source: a:355
+Vetted: s
+Judgment: g
+Phenomena: {adverbs}
+Nagistayan ginetteb        ti      alingo    ti      tengngedna
+Nagistayan getteb-{in}     ti      alingo    ti      tengnged=na
+almost     tear.off-{PF.T} CORE.SG wild.boar CORE.SG neck=ERG.3SG
+`The wild boar almost cut his neck`
+
+
+######################################
 ######### AGREEMENT ##################
 ######################################
 
@@ -55,7 +108,7 @@ Source: author
 Vetted: f
 Judgment: g
 Phenomena: {agreement}
-Naglaylay=ak
+Naglaylayak
 n-ag-sangit=ak
 PF-I-cry=ABS.1SG
 `I cried'
@@ -65,7 +118,7 @@ Source: author
 Vetted: f
 Judgment: f
 Phenomena: {agreement}
-Naglaylay=ak
+Naglaylayak
 n-ag-sangit=ko
 PF-I-cry=ERG.1SG
 `me cried'
@@ -361,7 +414,7 @@ Neg=ABS.1sg PF.T-see CORE.SG boy
 # Copula
 
 # Week 4
-# Independent pronoun and noun phrase to copula
+# Copula for Noun phrase
 Source: a:33
 Vetted: s
 Judgment: g
@@ -370,6 +423,28 @@ Siak ti      paralako
 siak ti      paralako
 1SG  CORE.SG paralako
 'I am the salesperson'
+
+# Week 4
+# COpula for Adj
+Source: a:397
+Vetted: s
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Dakkel ti      ubing
+dakkel ti      ubing
+big    CORE.SG child
+`The child is big`
+
+# Week 4
+# Copula for Prepositional phrase (oblique noun phrase)
+Source: a:416
+Vetted: s
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Iti    rabaw ti      lamisaan ti      tulbek
+iti    rabaw ti      lamisaan ti      tulbek
+OBL.SG top   CORE.SG table    CORE.SG key
+`The key is on the table`
 
 
 ######################################
