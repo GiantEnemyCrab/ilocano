@@ -41,7 +41,7 @@ Vetted: s
 Judgment: g
 Phenomena: {adverbs}
 Igaedna            ti      agadal
-i-gaed=na          ti      ag-adaI
+i-gaed=na          ti      ag-adal
 T-diligent=ERG.3SG CORE.SG I-study
 `He studied diligently`
 
@@ -341,6 +341,66 @@ Nagsangit   dagiti  lalaki
 n-ag-sangit dagiti  lalaki
 PF-I-cry    CORE.PL boy
 `The boys cried'
+
+
+######################################
+######### Embedded declaratives ######
+######################################
+
+# 1. "ta" complement clauses."Ta" complement clauses must be finite: 
+# co-referential arguments are not deleted in the complement clause.
+# To use "ta" with verbs, it is used with certain imperative verbs,
+#  i.e. aguray `wait`, ibaga `tell`, umay `come`, etc
+
+# week 4
+# imperative + ta + declarative clause
+Source: a:462
+Vetted: s
+Judgment: g
+Phenomena: {Embedded declaratives}
+Aguraykayo     ta  sapulek
+ag-uray=ka     ta  sapul-en=ko
+I-wait=ABS.2SG SUB search-T=ERG.1SG
+`Wait and I search for it`
+
+
+# 2. In another case, complement clauses are preceded by Ligature, "(ng)a".
+# Co-refential arguments may be expressed twice: once in the main clause,
+# and again in the complement clause for clarity (to avoid any ambiguity.
+# Week 4
+Source: a:468
+Vetted: s
+Judgment: g
+Phenomena: {Embedded declaratives}
+Ikariko           a   mapanak
+i-kari=ko         a   ma-pan=ak
+T-promise=ERG.1SG LIG I-go=ABS.1SG
+`I promise to go (I promise that I go)`
+
+# Week 4
+Source: a:242
+Vetted: s
+Judgment: g
+Phenomena: {Embedded declaratives}
+Ammok        a   nakitamo         ti      lalaki
+ammo=ko      a   na-kita=mo       ti      lalaki
+know=ERG.1SG LIG PF.T-see=ERG.2SG CORE.SG boy
+`I know that you saw the boy`
+
+
+######################################
+######### Embedded questions #########
+######################################
+
+# Week 4
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {Embedded questions}
+Nalipatak           no nakitako         ti      lalaki
+na-lipat-an=ak      no na-kita=ko       ti      lalaki
+PF-forget-T=ERG.1SG if PF.T-see=ERG.1SG CORE.SG boy
+I forgot if I saw the boy'
 
 
 ######################################
