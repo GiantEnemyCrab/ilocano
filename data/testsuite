@@ -7,6 +7,37 @@ Source a: Rubino, Carl. Reference grammar of Ilocano. Diss. University of Califo
 
 
 ######################################
+######### ADJECTIVES #################
+######################################
+
+# Week 4
+# Adjectives as modifiers to nouns
+Source: a:122
+Vetted: s
+Judgment: g
+Phenomena: {adjectives}
+Kayatko      ti      nalabaga  a   balay
+Kayat=ko     ti      na-labaga a   balay
+want=ERG.1SG CORE.SG ADJ-red   LIG house
+`I want the red house`
+
+# Adjectives may either precede or follow the noun
+# they qualify, linked by the ligature (ng)a. When
+# used to distinguish, they normally follow the noun.
+# Week 4
+# Adjectives as nouns, grammar concept betted, exact
+# words are not betted
+Source: a:139
+Vetted: f
+Judgment: g
+Phenomena: {adjectives}
+Kayatko      ti      balay a   nalabaga
+Kayat=ko     ti      balay a   na-labaga
+want=ERG.1SG CORE.SG house LIG ADJ-red
+`I want the red house`
+
+
+######################################
 ######### ADVERBS ####################
 ######################################
 
@@ -22,7 +53,7 @@ ADJ-fast LIG PF-I-return=ABS.1SG
 `I returned quickly`
 
 # Week 4
-# 2. use of an adjective or verb. connected to the predicaze 
+# 2. use of an adjective or verb. connected to the predicate 
 # as a prepositional phase with the oblique noun marker iti,
 # similar to a prepositional phrase:
 Source: a:354
@@ -33,6 +64,26 @@ Naglaylayak      iti    napaut
 n-ag-sangit=ak   iti    na-paut
 PF-I-cry=ABS.1SG OBL.SG ADJ-lasting
 `I cried for a long time'
+
+# Week 4
+Source: a:35
+Vetted: s
+Judgment: g
+Phenomena: {adverbs}
+Nagpanunotka       iti     nauneg
+n-ag-panunot=ka    iti     na-uneg
+PF-I-think=ABS.2SG CORE.SG ADJ-deep
+`You thought deeply`
+
+# Week 4
+Source: a:36
+Vetted: s
+Judgment: g
+Phenomena: {adverbs}
+Nagsaoda           iti    nalapat
+n-ag-sao=da        iti    na-lapat
+PF-I-speak=ABS.3PL OBL.SG ADJ-frank
+`They spoke frankly`
 
 # Week 4
 # 3. use of a transitive verb denoting an adverbial notion
