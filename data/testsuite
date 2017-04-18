@@ -174,17 +174,6 @@ n-ag-sangit=ko
 PF-I-cry=ERG.1SG
 `me cried'
 
-# Week 4
-# Independent pronoun and noun phrase to copula, number agreement mitmatch
-Source: a:33
-Vetted: f
-Judgment: f
-Phenomena: {agreement}
-Siak dagiti  paralako
-siak dagiti  paralako
-1SG  CORE.PL paralako
-'I am the salespersons'
-
 
 ######################################
 ######### ARGUMENT OPTIONALITY #######
@@ -367,6 +356,33 @@ Ti      aso wenno pusa
 ti      aso wenno pusa
 CORE.SG dog or    cat
 `The dog or cat`
+
+
+######################################
+######### COORDINATION AGREEMENT #####
+######################################
+
+# Week 4
+# Independent pronoun and noun phrase to copula, number agreement match
+Source: a:33
+Vetted: g
+Judgment: f
+Phenomena: {coordination agreement}
+Siak ti      paralako
+siak ti      paralako
+1SG  CORE.SG paralako
+'I am the salespersons'
+
+# Week 4
+# Independent pronoun and noun phrase to copula, number agreement mismatch
+Source: a:33
+Vetted: f
+Judgment: f
+Phenomena: {coordination agreement}
+Siak dagiti  paralako
+siak dagiti  paralako
+1SG  CORE.PL paralako
+'I am the salespersons'
 
 
 ######################################
