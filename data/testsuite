@@ -36,6 +36,26 @@ Kayat=ko     ti      balay a   na-labaga
 want=ERG.1SG CORE.SG house LIG ADJ-red
 `I want the red house`
 
+# ungrammatical adjectives as modifiers to nouns without LIG
+Source: author
+Vetted: f
+Judgment: f
+Phenomena: {adjectives}
+Kayatko      ti      nalabaga  balay
+Kayat=ko     ti      na-labaga balay
+want=ERG.1SG CORE.SG ADJ-red   house
+`I want the red house`
+
+# ungrammatical adjectives as modifiers to nouns without LIG
+Source: author
+Vetted: f
+Judgment: f
+Phenomena: {adjectives}
+Kayatko      ti      balay nalabaga
+Kayat=ko     ti      balay na-labaga
+want=ERG.1SG CORE.SG house ADJ-red
+`I want the red house`
+
 
 ######################################
 ######### ADVERBS ####################

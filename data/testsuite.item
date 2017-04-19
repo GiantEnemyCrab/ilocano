@@ -1,63 +1,65 @@
 1@a:122@@@1@adj@Kayat=ko     ti      na-labaga a   balay@@@@1@5@want=ERG.1SG CORE.SG ADJ-red   LIG house`I want the red house`@james blackburn, kazuki shintani@april 7, 2016
 2@a:139@@@1@adj@Kayat=ko     ti      balay a   na-labaga@@@@1@5@want=ERG.1SG CORE.SG house LIG ADJ-red`I want the red house`@james blackburn, kazuki shintani@april 7, 2016
-3@a:354@@@1@adv@na-daras a   n-ag-subli=ak@@@@1@3@ADJ-fast LIG PF-I-return=ABS.1SG`I returned quickly`@james blackburn, kazuki shintani@april 7, 2016
-4@a:354@@@1@adv@n-ag-sangit=ak   iti    na-paut@@@@1@3@PF-I-cry=ABS.1SG OBL.SG ADJ-lasting`I cried for a long time'@james blackburn, kazuki shintani@april 7, 2016
-5@a:35@@@1@adv@n-ag-panunot=ka    iti     na-uneg@@@@1@3@PF-I-think=ABS.2SG CORE.SG ADJ-deep`You thought deeply`@james blackburn, kazuki shintani@april 7, 2016
-6@a:36@@@1@adv@n-ag-sao=da        iti    na-lapat@@@@1@3@PF-I-speak=ABS.3PL OBL.SG ADJ-frank`They spoke frankly`@james blackburn, kazuki shintani@april 7, 2016
-7@a:354@@@1@adv@i-gaed=na          ti      ag-adal@@@@1@3@T-diligent=ERG.3SG CORE.SG I-study`He studied diligently`@james blackburn, kazuki shintani@april 7, 2016
-8@a:355@@@1@adv@Nagistayan getteb-{in}     ti      alingo    ti      tengnged=na@@@@1@6@almost     tear.off-{PF.T} CORE.SG wild.boar CORE.SG neck=ERG.3SG`The wild boar almost cut his neck`@james blackburn, kazuki shintani@april 7, 2016
-9@author@@@1@agr@na-kita=ko       ti      lalaki@@@@1@3@PF.T-see=ERG.1SG CORE.SG boy`I saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-10@author@@@1@agr@na-kita=ak       ti      lalaki@@@@0@3@PF.T-see=ABS.1SG CORE.SG boy`I saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-11@author@@@1@agr@na-kita=da=ak@@@@1@1@PF.T-see=ERG.3PL=ABS.1SG`They saw me'@james blackburn, kazuki shintani@april 7, 2016
-12@author@@@1@agr@na-kita=ak=da@@@@0@1@PF.T-see=ABS.1ST=ERG.3PL`me saw they'@james blackburn, kazuki shintani@april 7, 2016
-13@author@@@1@agr@n-ag-sangit=ak@@@@1@1@PF-I-cry=ABS.1SG`I cried'@james blackburn, kazuki shintani@april 7, 2016
-14@author@@@1@agr@n-ag-sangit=ko@@@@0@1@PF-I-cry=ERG.1SG`me cried'@james blackburn, kazuki shintani@april 7, 2016
-15@a:188@@@1@pro-d@n-ag-sukat@@@@1@1@PF-I-change.(3sg)`he/she/it changed` (implicit 3sg subject, dropped arg)@james blackburn, kazuki shintani@april 7, 2016
-16@author@@@1@pro-d@n-ag-sukat=ak@@@@1@1@PF-I-change=ABS.1sg`I changed`@james blackburn, kazuki shintani@april 7, 2016
-17@a:57@@@1@pro-d@na-kita=ko@@@@1@1@PF.T-see=ERG.2sg.(3sg)`You see it` (implicit 3sg subject, dropped arg)@james blackburn, kazuki shintani@april 7, 2016
-18@author@@@1@pro-d@na-kita=ko=ak@@@@1@1@PF.T-see=ERG.2sg=ABS.1sg`You see me`@james blackburn, kazuki shintani@april 7, 2016
-19@author@@@1@pro-d@n-ag-laylay ansisit@@@@0@2@PF-I-wilt   dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2016
-20@a:32@@@1@pro-d@na-kita  iti    babai ti      lalaki ti      babai@@@@0@7@PF.T-see OBL.SG girl  CORE.SG boy    CORE.SG girl`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-21@a:32@@@1@pro-d@na-kita  ti      babai@@@@0@3@PF.T-see CORE.SG girl`The girl saw'@james blackburn, kazuki shintani@april 7, 2016
-22@a:32@@@1@c@nakita iti    babai iti    lalaki@@@@0@5@saw    OBL.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-23@a:194@@@1@c@n-ag-sangit kadagiti lalaki@@@@0@3@PF-I-cry    OBL.PL   boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2016
-24@author@@@1@c@n-ag-tudo  iti    balay@@@@0@3@PF-I-rain  OBL.SG house'It rained the house'@james blackburn, kazuki shintani@april 7, 2016
-25@a:32@@@1@c@na-kita  ti      babai iti    lalaki@@@@0@5@PF.T-see CORE.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-26@a:32@@@1@c@na-kita  iti    babai ti     lalaki@@@@0@5@PF.T-see OBL.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-27@author@@@1@wo,c@n-ag-laylay ti      ansisit@@@@1@3@PF-I-wilt   CORE.SG dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2016
-28@a:492@@@1@crd@ti      aso ken pusa@@@@1@4@CORE.SG dog and cat`The dog and cat`@james blackburn, kazuki shintani@april 7, 2016
-29@a:492@@@1@crd@n-ag-lualo=kami       ket n-ag-kanta=kami@@@@1@3@PF-I-pray=ABS.1P.EXCL and PF-I-sing=ABS.1P.EXCL'We prayed and sang`@james blackburn, kazuki shintani@april 7, 2016
-30@author@@@1@crd@ti      aso wenno pusa@@@@1@4@CORE.SG dog or    cat`The dog or cat`@james blackburn, kazuki shintani@april 7, 2016
-31@a:33@@@1@coordinationagreement@siak ti      paralako@@@@1@3@1SG  CORE.SG paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2016
-32@a:33@@@1@coordinationagreement@siak dagiti  paralako@@@@0@3@1SG  CORE.PL paralako'I am the salespersons'@james blackburn, kazuki shintani@april 7, 2016
-33@a:194@@@1@det@n-ag-sangit ti      lalaki@@@@1@3@PF-I-cry    CORE.SG boy`The boy cried'@james blackburn, kazuki shintani@april 7, 2016
-34@a:194@@@1@det@n-ag-sangit dagiti  lalaki@@@@1@3@PF-I-cry    CORE.PL boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2016
-35@a:462@@@1@emb-d@ag-uray=ka     ta  sapul-en=ko@@@@1@3@I-wait=ABS.2SG SUB search-T=ERG.1SG`Wait and I search for it`@james blackburn, kazuki shintani@april 7, 2016
-36@a:468@@@1@emb-d@i-kari=ko         a   ma-pan=ak@@@@1@3@T-promise=ERG.1SG LIG I-go=ABS.1SG`I promise to go (I promise that I go)`@james blackburn, kazuki shintani@april 7, 2016
-37@a:242@@@1@emb-d@ammo=ko      a   na-kita=mo       ti      lalaki@@@@1@5@know=ERG.1SG LIG PF.T-see=ERG.2SG CORE.SG boy`I know that you saw the boy`@james blackburn, kazuki shintani@april 7, 2016
-38@author@@@1@emb-q@na-lipat-an=ak      no na-kita=ko       ti      lalaki@@@@1@5@PF-forget-T=ERG.1SG if PF.T-see=ERG.1SG CORE.SG boyI forgot if I saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-39@author@@@1@neg@di  n-ag-laylay ti      sabong@@@@1@4@Neg PF-I-wilt   CORE.SG flower.ABS`The flower didn't wilt'@james blackburn, kazuki shintani@april 7, 2016
-40@author@@@1@neg@di=ak       n-ag-sangit@@@@1@2@Neg=ABS.1sg PF-I-cry`I did not cry'@james blackburn, kazuki shintani@april 7, 2016
-41@author@@@1@neg@di  ti      lalaki@@@@0@3@Neg CORE.SG boy`Not the boy'@james blackburn, kazuki shintani@april 7, 2016
-42@author@@@1@c@di=ko       n-ag-sangit@@@@0@2@Neg=ERG.1sg PF-I-cry`I did not cry'@james blackburn, kazuki shintani@april 7, 2016
-43@author@@@1@neg@di=ko       na-kita  ti      lalaki@@@@1@4@Neg=ERG.1sg PF.T-see CORE.SG boy`I didn't see the boy'@james blackburn, kazuki shintani@april 7, 2016
-44@author@@@1@c@di=ak       na-kita  ti      lalaki@@@@0@4@Neg=ABS.1sg PF.T-see CORE.SG boy`I didn't see the boy'@james blackburn, kazuki shintani@april 7, 2016
-45@a:33@@@1@non-verbalpredicates@siak ti      paralako@@@@1@3@1SG  CORE.SG paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2016
-46@a:397@@@1@non-verbalpredicates@dakkel ti      ubing@@@@1@3@big    CORE.SG child`The child is big`@james blackburn, kazuki shintani@april 7, 2016
-47@a:416@@@1@non-verbalpredicates@iti    rabaw ti      lamisaan ti      tulbek@@@@1@6@OBL.SG top   CORE.SG table    CORE.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2016
-48@a:186@@@1@tam@n-ag-laylay ti      sabong@@@@1@3@PF-I-wilt   CORE.SG flower.ABS‘The flower wilted’@james blackburn, kazuki shintani@april 7, 2016
-49@author@@@1@tam@taray-{in}-{um}=ak@@@@1@1@run-{PF}-{I}=ABS.1SG‘I ran’@james blackburn, kazuki shintani@april 7, 2016
-50@author@@@1@tam@ag-basa-RR ti      dwarf@@@@1@3@ag-basa-RR CORE.SG dwarf‘The dwarf reads’@james blackburn, kazuki shintani@april 7, 2016
-51@author@@@1@tam@n-umanges-{um} ti      lalaki@@@@0@3@PF-breathe-{I} CORE.SG boy`The boy breathed`@james blackburn, kazuki shintani@april 7, 2016
-52@a:187@@@1@wo@n-ag-laylay ti      sabong@@@@1@3@PF-I-wilt   CORE.SG flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
-53@a:187@@@1@wo@ti      sabong     n-ag-laylay@@@@0@3@CORE.SG flower.ABS PF-I-wilt`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
+3@author@@@1@adj@Kayat=ko     ti      na-labaga balay@@@@0@4@want=ERG.1SG CORE.SG ADJ-red   house`I want the red house`@james blackburn, kazuki shintani@april 7, 2016
+4@author@@@1@adj@Kayat=ko     ti      balay na-labaga@@@@0@4@want=ERG.1SG CORE.SG house ADJ-red`I want the red house`@james blackburn, kazuki shintani@april 7, 2016
+5@a:354@@@1@adv@na-daras a   n-ag-subli=ak@@@@1@3@ADJ-fast LIG PF-I-return=ABS.1SG`I returned quickly`@james blackburn, kazuki shintani@april 7, 2016
+6@a:354@@@1@adv@n-ag-sangit=ak   iti    na-paut@@@@1@3@PF-I-cry=ABS.1SG OBL.SG ADJ-lasting`I cried for a long time'@james blackburn, kazuki shintani@april 7, 2016
+7@a:35@@@1@adv@n-ag-panunot=ka    iti     na-uneg@@@@1@3@PF-I-think=ABS.2SG CORE.SG ADJ-deep`You thought deeply`@james blackburn, kazuki shintani@april 7, 2016
+8@a:36@@@1@adv@n-ag-sao=da        iti    na-lapat@@@@1@3@PF-I-speak=ABS.3PL OBL.SG ADJ-frank`They spoke frankly`@james blackburn, kazuki shintani@april 7, 2016
+9@a:354@@@1@adv@i-gaed=na          ti      ag-adal@@@@1@3@T-diligent=ERG.3SG CORE.SG I-study`He studied diligently`@james blackburn, kazuki shintani@april 7, 2016
+10@a:355@@@1@adv@Nagistayan getteb-{in}     ti      alingo    ti      tengnged=na@@@@1@6@almost     tear.off-{PF.T} CORE.SG wild.boar CORE.SG neck=ERG.3SG`The wild boar almost cut his neck`@james blackburn, kazuki shintani@april 7, 2016
+11@author@@@1@agr@na-kita=ko       ti      lalaki@@@@1@3@PF.T-see=ERG.1SG CORE.SG boy`I saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+12@author@@@1@agr@na-kita=ak       ti      lalaki@@@@0@3@PF.T-see=ABS.1SG CORE.SG boy`I saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+13@author@@@1@agr@na-kita=da=ak@@@@1@1@PF.T-see=ERG.3PL=ABS.1SG`They saw me'@james blackburn, kazuki shintani@april 7, 2016
+14@author@@@1@agr@na-kita=ak=da@@@@0@1@PF.T-see=ABS.1ST=ERG.3PL`me saw they'@james blackburn, kazuki shintani@april 7, 2016
+15@author@@@1@agr@n-ag-sangit=ak@@@@1@1@PF-I-cry=ABS.1SG`I cried'@james blackburn, kazuki shintani@april 7, 2016
+16@author@@@1@agr@n-ag-sangit=ko@@@@0@1@PF-I-cry=ERG.1SG`me cried'@james blackburn, kazuki shintani@april 7, 2016
+17@a:188@@@1@pro-d@n-ag-sukat@@@@1@1@PF-I-change.(3sg)`he/she/it changed` (implicit 3sg subject, dropped arg)@james blackburn, kazuki shintani@april 7, 2016
+18@author@@@1@pro-d@n-ag-sukat=ak@@@@1@1@PF-I-change=ABS.1sg`I changed`@james blackburn, kazuki shintani@april 7, 2016
+19@a:57@@@1@pro-d@na-kita=ko@@@@1@1@PF.T-see=ERG.2sg.(3sg)`You see it` (implicit 3sg subject, dropped arg)@james blackburn, kazuki shintani@april 7, 2016
+20@author@@@1@pro-d@na-kita=ko=ak@@@@1@1@PF.T-see=ERG.2sg=ABS.1sg`You see me`@james blackburn, kazuki shintani@april 7, 2016
+21@author@@@1@pro-d@n-ag-laylay ansisit@@@@0@2@PF-I-wilt   dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2016
+22@a:32@@@1@pro-d@na-kita  iti    babai ti      lalaki ti      babai@@@@0@7@PF.T-see OBL.SG girl  CORE.SG boy    CORE.SG girl`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+23@a:32@@@1@pro-d@na-kita  ti      babai@@@@0@3@PF.T-see CORE.SG girl`The girl saw'@james blackburn, kazuki shintani@april 7, 2016
+24@a:32@@@1@c@nakita iti    babai iti    lalaki@@@@0@5@saw    OBL.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+25@a:194@@@1@c@n-ag-sangit kadagiti lalaki@@@@0@3@PF-I-cry    OBL.PL   boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2016
+26@author@@@1@c@n-ag-tudo  iti    balay@@@@0@3@PF-I-rain  OBL.SG house'It rained the house'@james blackburn, kazuki shintani@april 7, 2016
+27@a:32@@@1@c@na-kita  ti      babai iti    lalaki@@@@0@5@PF.T-see CORE.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+28@a:32@@@1@c@na-kita  iti    babai ti     lalaki@@@@0@5@PF.T-see OBL.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+29@author@@@1@wo,c@n-ag-laylay ti      ansisit@@@@1@3@PF-I-wilt   CORE.SG dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2016
+30@a:492@@@1@crd@ti      aso ken pusa@@@@1@4@CORE.SG dog and cat`The dog and cat`@james blackburn, kazuki shintani@april 7, 2016
+31@a:492@@@1@crd@n-ag-lualo=kami       ket n-ag-kanta=kami@@@@1@3@PF-I-pray=ABS.1P.EXCL and PF-I-sing=ABS.1P.EXCL'We prayed and sang`@james blackburn, kazuki shintani@april 7, 2016
+32@author@@@1@crd@ti      aso wenno pusa@@@@1@4@CORE.SG dog or    cat`The dog or cat`@james blackburn, kazuki shintani@april 7, 2016
+33@a:33@@@1@coordinationagreement@siak ti      paralako@@@@1@3@1SG  CORE.SG paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2016
+34@a:33@@@1@coordinationagreement@siak dagiti  paralako@@@@0@3@1SG  CORE.PL paralako'I am the salespersons'@james blackburn, kazuki shintani@april 7, 2016
+35@a:194@@@1@det@n-ag-sangit ti      lalaki@@@@1@3@PF-I-cry    CORE.SG boy`The boy cried'@james blackburn, kazuki shintani@april 7, 2016
+36@a:194@@@1@det@n-ag-sangit dagiti  lalaki@@@@1@3@PF-I-cry    CORE.PL boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2016
+37@a:462@@@1@emb-d@ag-uray=ka     ta  sapul-en=ko@@@@1@3@I-wait=ABS.2SG SUB search-T=ERG.1SG`Wait and I search for it`@james blackburn, kazuki shintani@april 7, 2016
+38@a:468@@@1@emb-d@i-kari=ko         a   ma-pan=ak@@@@1@3@T-promise=ERG.1SG LIG I-go=ABS.1SG`I promise to go (I promise that I go)`@james blackburn, kazuki shintani@april 7, 2016
+39@a:242@@@1@emb-d@ammo=ko      a   na-kita=mo       ti      lalaki@@@@1@5@know=ERG.1SG LIG PF.T-see=ERG.2SG CORE.SG boy`I know that you saw the boy`@james blackburn, kazuki shintani@april 7, 2016
+40@author@@@1@emb-q@na-lipat-an=ak      no na-kita=ko       ti      lalaki@@@@1@5@PF-forget-T=ERG.1SG if PF.T-see=ERG.1SG CORE.SG boyI forgot if I saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+41@author@@@1@neg@di  n-ag-laylay ti      sabong@@@@1@4@Neg PF-I-wilt   CORE.SG flower.ABS`The flower didn't wilt'@james blackburn, kazuki shintani@april 7, 2016
+42@author@@@1@neg@di=ak       n-ag-sangit@@@@1@2@Neg=ABS.1sg PF-I-cry`I did not cry'@james blackburn, kazuki shintani@april 7, 2016
+43@author@@@1@neg@di  ti      lalaki@@@@0@3@Neg CORE.SG boy`Not the boy'@james blackburn, kazuki shintani@april 7, 2016
+44@author@@@1@c@di=ko       n-ag-sangit@@@@0@2@Neg=ERG.1sg PF-I-cry`I did not cry'@james blackburn, kazuki shintani@april 7, 2016
+45@author@@@1@neg@di=ko       na-kita  ti      lalaki@@@@1@4@Neg=ERG.1sg PF.T-see CORE.SG boy`I didn't see the boy'@james blackburn, kazuki shintani@april 7, 2016
+46@author@@@1@c@di=ak       na-kita  ti      lalaki@@@@0@4@Neg=ABS.1sg PF.T-see CORE.SG boy`I didn't see the boy'@james blackburn, kazuki shintani@april 7, 2016
+47@a:33@@@1@non-verbalpredicates@siak ti      paralako@@@@1@3@1SG  CORE.SG paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2016
+48@a:397@@@1@non-verbalpredicates@dakkel ti      ubing@@@@1@3@big    CORE.SG child`The child is big`@james blackburn, kazuki shintani@april 7, 2016
+49@a:416@@@1@non-verbalpredicates@iti    rabaw ti      lamisaan ti      tulbek@@@@1@6@OBL.SG top   CORE.SG table    CORE.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2016
+50@a:186@@@1@tam@n-ag-laylay ti      sabong@@@@1@3@PF-I-wilt   CORE.SG flower.ABS‘The flower wilted’@james blackburn, kazuki shintani@april 7, 2016
+51@author@@@1@tam@taray-{in}-{um}=ak@@@@1@1@run-{PF}-{I}=ABS.1SG‘I ran’@james blackburn, kazuki shintani@april 7, 2016
+52@author@@@1@tam@ag-basa-RR ti      dwarf@@@@1@3@ag-basa-RR CORE.SG dwarf‘The dwarf reads’@james blackburn, kazuki shintani@april 7, 2016
+53@author@@@1@tam@n-umanges-{um} ti      lalaki@@@@0@3@PF-breathe-{I} CORE.SG boy`The boy breathed`@james blackburn, kazuki shintani@april 7, 2016
 54@a:187@@@1@wo@n-ag-laylay ti      sabong@@@@1@3@PF-I-wilt   CORE.SG flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
-55@a:187@@@1@wo@n-ag-laylay sabong     ti@@@@0@3@PF-I-wilt   flower.ABS CORE.SG`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
-56@a:32@@@1@wo@na-kita  ti      babai ti      lalaki@@@@1@5@PF.T-see CORE.SG girl  CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-57@a:32@@@1@wo@ti      babai na-kita  ti      lalaki@@@@0@5@CORE.SG girl  PF.T-see CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-58@a:32@@@1@wo@ti      babai ti      lalaki na-kita@@@@0@5@CORE.SG girl  CORE.SG boy    PF.T-see`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-59@a:32@@@1@wo@iti    babai na-kita  iti    lalaki@@@@0@5@OBL.SG girl  PF.T-see OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-60@a:32@@@1@wo@iti    babai iti    lalaki na-kita@@@@0@5@OBL.SG girl  OBL.SG boy    PF.T-see`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-61@a:32@@@1@wo@na-kita  babai ti      ti      lalaki@@@@0@5@PF.T-see girl  CORE.SG CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-62@a:32@@@1@wo@na-kita  ti      babai lalaki the@@@@0@5@PF.T-see CORE.SG girl  boy    CORE.SG`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
-63@a:32@@@1@wo@na-kita  ti       babai  lalaki ti@@@@0@5@PF.T-see CORE.SG  boy    girl   CORE.SG`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+55@a:187@@@1@wo@ti      sabong     n-ag-laylay@@@@0@3@CORE.SG flower.ABS PF-I-wilt`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
+56@a:187@@@1@wo@n-ag-laylay ti      sabong@@@@1@3@PF-I-wilt   CORE.SG flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
+57@a:187@@@1@wo@n-ag-laylay sabong     ti@@@@0@3@PF-I-wilt   flower.ABS CORE.SG`The flower wilted'@james blackburn, kazuki shintani@april 7, 2016
+58@a:32@@@1@wo@na-kita  ti      babai ti      lalaki@@@@1@5@PF.T-see CORE.SG girl  CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+59@a:32@@@1@wo@ti      babai na-kita  ti      lalaki@@@@0@5@CORE.SG girl  PF.T-see CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+60@a:32@@@1@wo@ti      babai ti      lalaki na-kita@@@@0@5@CORE.SG girl  CORE.SG boy    PF.T-see`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+61@a:32@@@1@wo@iti    babai na-kita  iti    lalaki@@@@0@5@OBL.SG girl  PF.T-see OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+62@a:32@@@1@wo@iti    babai iti    lalaki na-kita@@@@0@5@OBL.SG girl  OBL.SG boy    PF.T-see`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+63@a:32@@@1@wo@na-kita  babai ti      ti      lalaki@@@@0@5@PF.T-see girl  CORE.SG CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+64@a:32@@@1@wo@na-kita  ti      babai lalaki the@@@@0@5@PF.T-see CORE.SG girl  boy    CORE.SG`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
+65@a:32@@@1@wo@na-kita  ti       babai  lalaki ti@@@@0@5@PF.T-see CORE.SG  boy    girl   CORE.SG`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2016
