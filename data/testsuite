@@ -365,13 +365,13 @@ CORE.SG dog or    cat
 # Week 4
 # Independent pronoun and noun phrase to copula, number agreement match
 Source: a:33
-Vetted: g
-Judgment: f
+Vetted: s
+Judgment: g
 Phenomena: {coordination agreement}
 Siak ti      paralako
 siak ti      paralako
 1SG  CORE.SG paralako
-'I am the salespersons'
+'I am the salesperson'
 
 # Week 4
 # Independent pronoun and noun phrase to copula, number agreement mismatch
@@ -548,10 +548,10 @@ Neg=ABS.1sg PF.T-see CORE.SG boy
 ######################################
 ######### Non-Verbal Predicates ######
 ######################################
-# Copula
+# copular expression
 
 # Week 4
-# Copula for Noun phrase
+# Noun phrases
 Source: a:33
 Vetted: s
 Judgment: g
@@ -562,7 +562,7 @@ siak ti      paralako
 'I am the salesperson'
 
 # Week 4
-# COpula for Adj
+# Adj predicate
 Source: a:397
 Vetted: s
 Judgment: g
@@ -573,7 +573,7 @@ big    CORE.SG child
 `The child is big`
 
 # Week 4
-# Copula for Prepositional phrase (oblique noun phrase)
+# Prepositional phrase (via oblique noun phrase)
 Source: a:416
 Vetted: s
 Judgment: g
