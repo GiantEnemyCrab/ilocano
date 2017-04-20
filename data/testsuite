@@ -621,69 +621,69 @@ OBL.SG top   CORE.SG table    CORE.SG key
 
 # grammatically correct possessive, using ergative enclitic pronoun
 # not ready to test
-#Source: a:117
-#Vetted: s
-#Judgment: g
-#Phenomena: {possessives}
-#Nakita   ti      babai ti      balayko
-#na-kita  ti      babai ti      balay=ko
-#PF.T-see CORE.SG girl  CORE.SG house=ERG.1sg
-#`The girl saw my house'
+Source: a:117
+Vetted: s
+Judgment: g
+Phenomena: {possessives}
+Nakita   ti      babai ti      balayko
+na-kita  ti      babai ti      balay=ko
+PF.T-see CORE.SG girl  CORE.SG house=ERG.1sg
+`The girl saw my house'
 
 # grammatically correct possessive 3sg
 # not ready to test
-#Source: a:117
-#Vetted: s
-#Judgment: g
-#Phenomena: {possessives}
-#Diay tulbek ti      lalaki
-#diay tulbek ti      lalaki
-#that key    CORE.SG boy
-#`The boy's key'
+Source: a:117
+Vetted: s
+Judgment: g
+Phenomena: {possessives}
+Diay tulbek ti      lalaki
+diay tulbek ti      lalaki
+that key    CORE.SG boy
+`The boy's key'
 
 # incorrect case for possessive, using absolutive enclitic pronoun
 # not ready to test
-#Source: author
-#Vetted: f
-#Judgment: u
-#Phenomena: {case}
-#Nakita   ti      babai ti      balayak
-#na-kita  ti      babai ti      balay=ak
-#PF.T-see CORE.SG girl  CORE.SG house=ABS.1sg
-#`The girl saw my house'
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {case}
+Nakita   ti      babai ti      balayak
+na-kita  ti      babai ti      balay=ak
+PF.T-see CORE.SG girl  CORE.SG house=ABS.1sg
+`The girl saw my house'
 
 # possessive nominal needs CORE.SG determiner before the 3rdPerson noun
 # not ready to test
-#Source: author
-#Vetted: f
-#Judgment: u
-#Phenomena: {case}
-#Nakita   ti      babai balayak
-#na-kita  ti      babai balay=ak
-#PF.T-see CORE.SG girl  house=ABS.1sg
-#`The girl saw my house'
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {case}
+Nakita   ti      babai balayak
+na-kita  ti      babai balay=ak
+PF.T-see CORE.SG girl  house=ABS.1sg
+`The girl saw my house'
 
 # possessive pronouns
 # not ready to test
-#source: a:117
-#Vetted: s
-#Judgment: g
-#Phenomena: {possessives}
-#Bagida ti      suman
-#bagida CORE.SG suman
-#theirs the     ricecake
-#`The ricecake is theirs`
+source: a:117
+Vetted: s
+Judgment: g
+Phenomena: {possessives}
+Bagida ti      suman
+bagida CORE.SG suman
+theirs the     ricecake
+`The ricecake is theirs`
 
 # possessive pronouns
 # not ready to test
-#source: a:117
-#Vetted: s
-#Judgment: g
-#Phenomena: {possessives}
-#Bagida ti      suman
-#bagida CORE.SG suman
-#theirs the     ricecake
-#`The ricecake is theirs`
+source: a:117
+Vetted: s
+Judgment: g
+Phenomena: {possessives}
+Bagida ti      suman
+bagida CORE.SG suman
+theirs the     ricecake
+`The ricecake is theirs`
 
 
 ######################################
