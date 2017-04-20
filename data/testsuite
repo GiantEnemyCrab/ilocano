@@ -503,7 +503,7 @@ Judgment: g
 Phenomena: {wh}
 Ania	ti	ginatangmo
 ania 	ti 	gatang-{in}=mo
-what	CORE.SG	buy{PF.T}=2sE
+what	CORE.SG	buy-{PF.T}=2sE
 'What did you buy?'
 
 # Week 4
@@ -519,18 +519,6 @@ what	CORE.SG	bad=2sE
 'What's wrong with you?'
 
 # Week 4
-# A 'what' question without 'ti', where 'ania' is followed by a
-# demonstrative.
-Source: a:430
-Vetted: s
-Judgment: g
-Phenomena: {wh}
-Ania	daytoy
-ania	daytoy
-what	this
-'What is this?'
-
-# Week 4
 # An incorrectly formed question where 'ti' is omitted before an encliticized word.
 Source: author
 Vetted: f
@@ -538,19 +526,8 @@ Judgment: u
 Phenomena: {wh}
 Ania	ginatangmo
 ania	gatang-{in}=mo
-what	buy{PF.T}=2sE
+what	buy-{PF.T}=2sE
 'What did you buy?'
-
-# Week 4
-# An incorrectly formed question with the wrong word order.
-Source: author
-Vetted: f
-Judgment: u
-Phenomena: {wh}
-Daytoy	ania
-daytoy	ania
-this	what
-'What is this?'
 
 # Week 4
 # A 'who' question formed similarly to the above questions.
@@ -562,17 +539,6 @@ Sino	ti	amam?
 sino	ti	ama=m
 who	CORE.SG	father=2sE
 'Who is your father?'
-
-# Week 4
-# A 'who' question without the article 'ti'.
-Source: a:435
-Vetted: s
-Judgment: g
-Phenomena: {wh}
-Sino	daydiay	ubing?
-sino	daydiay	ubing
-who	DISTAL	child
-'Who is that child?'
 
 # Week 4
 # NOTE: This judgment is pending prof's input.
