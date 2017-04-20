@@ -227,7 +227,7 @@ Phenomena: {argument optionality}
 Nakita=ko
 na-kita=ko
 PF.T-see=ERG.2sg.(3sg)
-`You see it` (implicit 3sg subject, dropped arg)
+`You see it` (implicit 3sg object, dropped arg)
 
 # when object is not dropped from transitive verb
 Source: author
@@ -591,6 +591,17 @@ Dakkel ti      ubing
 dakkel ti      ubing
 big    CORE.SG child
 `The child is big`
+
+# Week 4
+# Adj predicate
+Source: a:135
+Vetted: s
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Nadalus   ti      balay
+na-dalus  ti      balay
+ADJ-clean CORE.SG house
+`The house is clean`
 
 # Week 4
 # Prepositional phrase (via oblique noun phrase)
