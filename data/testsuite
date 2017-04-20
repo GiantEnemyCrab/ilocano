@@ -278,9 +278,9 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {case}
-Nakita iti    babai iti    lalaki
-nakita iti    babai iti    lalaki
-saw    OBL.SG girl  OBL.SG boy
+Nakita      iti    babai iti    lalaki
+na-kita     iti    babai iti    lalaki
+PF.T-see    OBL.SG girl  OBL.SG boy
 `The girl saw the boy'
 
 # incorrect plural determiner case
@@ -816,9 +816,9 @@ Source: author
 Vetted: f
 Judgment: g
 Phenomena: {tam}
-Agbasbasa  ti      agsisit
-ag-basa-RR ti      dwarf
-ag-basa-RR CORE.SG dwarf
+Agbasbasa        ti      ansisit
+ag-basa-RR       ti      ansisit
+PF.I-read-IMPERF CORE.SG dwarf
 ‘The dwarf reads’
 
 # Incorrect co-occurrence of n- perfective aspect marker with incompatible -um- infix
@@ -943,7 +943,7 @@ Vetted: s
 Judgment: u
 Phenomena: {word order}
 Nakita   ti      babai lalaki ti
-na-kita  ti      babai lalaki the
+na-kita  ti      babai lalaki ti
 PF.T-see CORE.SG girl  boy    CORE.SG
 `The girl saw the boy'
 
