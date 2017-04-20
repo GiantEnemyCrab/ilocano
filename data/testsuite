@@ -2,7 +2,7 @@ Language: Ilocano
 Language code: ilo
 Lines: orth orth-seg gloss translat
 Author: James Blackburn, Kazuki Shintani
-Date: April 7, 2016
+Date: April 7, 2017
 Source a: Rubino, Carl. Reference grammar of Ilocano. Diss. University of California, Santa Barbara, 1997.
 
 
@@ -494,11 +494,109 @@ I forgot if I saw the boy'
 ######### Matrix wh questions ########
 ######################################
 
+# Week 4
+# A properly formed 'what' question in which the interrogative
+# is followed by 'ti' and a verb with an ergative enclitic pronoun:
+Source: a:430
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Ania	ti	ginatangmo
+ania 	ti 	gatang-{in}=mo
+what	CORE.SG	buy{PF.T}=2sE
+'What did you buy?'
+
+# Week 4
+# Another 'what' question following the same pattern, but with the
+# ergative enclitic on a glossed adjective.
+Source: a:431
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Ania	ti	dakesmo
+ania	ti	dakes=mo
+what	CORE.SG	bad=2sE
+'What's wrong with you?'
+
+# Week 4
+# A 'what' question without 'ti', where 'ania' is followed by a
+# demonstrative.
+Source: a:430
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Ania	daytoy
+ania	daytoy
+what	this
+'What is this?'
+
+# Week 4
+# An incorrectly formed question where 'ti' is omitted before an encliticized word.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {wh}
+Ania	ginatangmo
+ania	gatang-{in}=mo
+what	buy{PF.T}=2sE
+'What did you buy?'
+
+# Week 4
+# An incorrectly formed question with the wrong word order.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {wh}
+Daytoy	ania
+daytoy	ania
+this	what
+'What is this?'
+
+# Week 4
+# A 'who' question formed similarly to the above questions.
+Source: a:435
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Sino	ti	amam?
+sino	ti	ama=m
+who	CORE.SG	father=2sE
+'Who is your father?'
+
+# Week 4
+# A 'who' question without the article 'ti'.
+Source: a:435
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Sino	daydiay	ubing?
+sino	daydiay	ubing
+who	DISTAL	child
+'Who is that child?'
+
+# Week 4
+# NOTE: This judgment is pending prof's input.
+# Rubino states that ania and sino always appear in an absolutive
+# role with respect to the verb.
+# Does this mean that an absolutive enclitic pronoun on the following
+# verb would render the question ungrammatical?
+# 
+# A 'who' question with absolutive enclitic pronoun on the verb.
+# Source: author
+# Vetted: f
+# Judgment: u
+# Phenomena: {wh}
+# Sino	ti	nakitaka?
+# sino	ti	na-kita=ka?
+# who	CORE.SG	PF.T-see=2sA
 
 ######################################
 ######### Matrix yes-no questions ####
 ######################################
 
+# Leaving this section blank for now, as Y/N questions are distinguished solely
+# by intonation, or by an optional particle that the customization does not
+# support.
 
 ######################################
 ######### NEGATION ###################
