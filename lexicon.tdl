@@ -29,6 +29,30 @@ simbaan := common-noun-lex &
   [ STEM < "simbaan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_church_n_rel" ].
 
+tulbek := common-noun-lex &
+  [ STEM < "tulbek" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_key_n_rel" ].
+
+rabaw := common-noun-lex &
+  [ STEM < "rabaw" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_table_n_rel" ].
+
+ubing := common-noun-lex &
+  [ STEM < "ubing" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_child_n_rel" ].
+
+paralako := common-noun-lex &
+  [ STEM < "paralako" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_salesperson_n_rel" ].
+
+alingo := common-noun-lex &
+  [ STEM < "alingo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wildboar_n_rel" ].
+
+tengnged := common-noun-lex &
+  [ STEM < "tengnged" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_neck_n_rel" ].
+
 ko := erg-1sg-noun-lex &
   [ STEM < "ko" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
@@ -57,7 +81,95 @@ da_2 := abs-3pl-noun-lex &
   [ STEM < "da" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
 
+tayo_1 := abs-1pl-noun-lex &
+  [ STEM < "tayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kayo := abs-2pl-noun-lex &
+  [ STEM < "kayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+ta_1 := abs-du-noun-lex &
+  [ STEM < "ta" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+tayo_2 := erg-1pl-noun-lex &
+  [ STEM < "tayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+ta_2 := erg-du-noun-lex &
+  [ STEM < "ta" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+yo := erg-2pl-noun-lex &
+  [ STEM < "yo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+siak := ind-1sg-noun-lex &
+  [ STEM < "siak" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+datayo := ind-1pl-noun-lex &
+  [ STEM < "datayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+data := ind-du-noun-lex &
+  [ STEM < "data" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+sika := ind-2sg-noun-lex &
+  [ STEM < "sika" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+dakayo := ind-2pl-noun-lex &
+  [ STEM < "dakayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+isu := ind-3sg-noun-lex &
+  [ STEM < "isu" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+isuda := ind-3pl-noun-lex &
+  [ STEM < "isuda" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
 ;;; Adjectives
+
+na-labaga := attr-adj-adj-lex &
+  [ STEM < "na-labaga" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_red_a_rel" ].
+
+na-angin := attr-adj-adj-lex &
+  [ STEM < "na-angin" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_windy_a_rel" ].
+
+na-pigsa := attr-adj-adj-lex &
+  [ STEM < "na-pigsa" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_strong_a_rel" ].
+
+na-baknang := attr-adj-adj-lex &
+  [ STEM < "na-baknang" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wealthy_a_rel" ].
+
+na-daras := attr-adj-adj-lex &
+  [ STEM < "na-daras" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_hurry_a_rel" ].
+
+na-paut := attr-adj-adj-lex &
+  [ STEM < "na-paut" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_lasting_a_rel" ].
+
+na-uneg := attr-adj-adj-lex &
+  [ STEM < "na-uneg" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_deep_a_rel" ].
+
+na-lapat := attr-adj-adj-lex &
+  [ STEM < "na-lapat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_frank_a_rel" ].
+
+na-dalus := attr-adj-adj-lex &
+  [ STEM < "na-dalus" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_clean_a_rel" ].
 
 ;;; Verbs
 
@@ -109,10 +221,30 @@ dagiti := core-pl-determiner-lex &
   [ STEM < "dagiti" >,
     SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
 
-iti := obl-sq-determiner-lex &
+iti := obl-sg-determiner-lex &
   [ STEM < "iti" >,
     SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
 
 kadagiti := obl-pl-determiner-lex &
   [ STEM < "kadagiti" >,
     SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
+
+ken1 := conj-lex &
+  [ STEM < "ken" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
+    CFORM "1" ].
+
+ket2 := conj-lex &
+  [ STEM < "ket" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
+    CFORM "2" ].
+
+wenno3 := conj-lex &
+  [ STEM < "wenno" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
+    CFORM "3" ].
+
+ngem4 := conj-lex &
+  [ STEM < "ngem" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
+    CFORM "4" ].

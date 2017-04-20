@@ -2,9 +2,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Sat Apr 15 06:32:12 UTC 2017
+;;;     Thu Apr 20 23:34:31 UTC 2017
 ;;; based on Matrix customization system version of:
-;;;     Fri Apr 14 14:46:14 UTC 2017
+;;;     Thu Apr 20 21:52:07 UTC 2017
 ;;;
 ;;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -54,11 +54,9 @@ erg := cor+erg.
 pernum := *top*.
 sg := pernum.
 non-sg := pernum.
-pl := non-sg & pl+3rd.
+pl := non-sg & pl+3rd & pl+1st & pl+2nd.
 du := non-sg.
 dist-pl := pl.
-1st := pernum.
-2nd := pernum.
 1sg := 1st & sg.
 2sg := 2nd & sg.
 3sg := 3rd & sg.
@@ -70,6 +68,10 @@ dist-pl := pl.
 3dist-pl := 3rd & dist-pl.
 pl+3rd := pernum.
 3rd := pl+3rd.
+pl+1st := pernum.
+1st := pl+1st.
+pl+2nd := pernum.
+2nd := pl+2nd.
 
 ;;; Gender
 
@@ -155,6 +157,49 @@ abs-3pl-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
                    CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ] ].
 
+abs-1pl-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
+                   CONT.HOOK.INDEX.PNG.PERNUM pl+1st ] ].
+
+abs-2pl-noun-lex := no-spr-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
+                   CONT.HOOK.INDEX.PNG.PERNUM pl+2nd ] ].
+
+abs-du-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
+                   CONT.HOOK.INDEX.PNG.PERNUM du ] ].
+
+erg-1pl-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
+                   CONT.HOOK.INDEX.PNG.PERNUM pl+1st ] ].
+
+erg-du-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.PNG.PERNUM du,
+                   CAT.HEAD.CASE erg ] ].
+
+erg-2pl-noun-lex := enc-pron-noun-lex.
+
+ind-pron-noun-lex := pron-noun-lex.
+
+ind-1sg-noun-lex := ind-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1sg ].
+
+ind-1pl-noun-lex := ind-pron-noun-lex.
+
+ind-du-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM du ].
+
+ind-2sg-noun-lex := ind-pron-noun-lex.
+
+ind-2pl-noun-lex := ind-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+2nd ].
+
+ind-3sg-noun-lex := ind-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3sg ].
+
+ind-3pl-noun-lex := ind-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ].
+
 ;;; Verbs
 
 verb-lex := non-mod-lex-item & aspect-prefix-rule-dtr & int-infix-rule-dtr &
@@ -229,6 +274,22 @@ subj-raise-aux-with-pred := subj-raise-aux & norm-sem-lex-item & trans-first-arg
 neg-aux-lex := subj-raise-aux-with-pred &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ].
 
+;;; Adjectives
+
+adj-lex := basic-intersective-adjective-lex.
+
+attr-adj-adj-lex := attr-only-adj-lex.
+
+; Basic attributive adjective definition
+
+attr-adj-lex := adj-lex & intersective-mod-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
+                                              VAL.SPR cons ] ] > ].
+
+attr-only-adj-lex := attr-adj-lex &
+  [ SYNSEM.LOCAL.CAT [ HEAD.PRD -,
+                       VAL.SUBJ < > ] ].
+
 ;;; Others
 
 ;;; Determiners
@@ -247,7 +308,7 @@ core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE cor,
                                             CONT.HOOK.INDEX.PNG.PERNUM pl ] ].
 
-obl-sq-determiner-lex := determiner-lex & no-icons-lex-item &
+obl-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE obl,
                                             CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
 
@@ -258,18 +319,6 @@ obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Rules
 ;;;;;;;;;;;;;;;;;;;
-
-; Adjective Incorporation
-
-adj_incorporation-lex-rule := add-only-rule &
-  [ C-CONT [ RELS <! arg1-ev-relation &
-                     [ LBL #ltop,
-                       ARG1 #index ] !>,
-             HOOK #hook ],
-    DTR.SYNSEM.LOCAL [ CAT.HEAD noun,
-                       CONT.HOOK #hook &
-                                 [ LTOP #ltop,
-                                   INDEX #index ] ] ].
 
 ;;; Intermediate rule types
 
@@ -334,3 +383,119 @@ head-subj-phrase := decl-head-subj-phrase & head-initial &
 
 bare-np-phrase := basic-bare-np-phrase &
   [ C-CONT.RELS <! [ PRED "exist_q_rel" ] !> ].
+
+;;;;;;;;;;;;;;;;;;
+;;; Coordination
+;;;;;;;;;;;;;;;;;;
+
+;;; Coordination Strategy 1
+
+n1-top-coord-rule := basic-n-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+n1-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+;;; Coordination Strategy 1
+
+np1-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+np1-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+;;; Coordination Strategy 1
+
+vp1-top-coord-rule := basic-vp-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+vp1-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+;;; Coordination Strategy 1
+
+s1-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+s1-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+;;; Coordination Strategy 2
+
+n2-top-coord-rule := basic-n-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
+
+n2-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
+
+;;; Coordination Strategy 2
+
+np2-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
+
+np2-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
+
+;;; Coordination Strategy 2
+
+vp2-top-coord-rule := basic-vp-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
+
+vp2-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
+
+;;; Coordination Strategy 2
+
+s2-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
+
+s2-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
+
+;;; Coordination Strategy 3
+
+n3-top-coord-rule := basic-n-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
+
+n3-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
+
+;;; Coordination Strategy 3
+
+np3-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
+
+np3-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
+
+;;; Coordination Strategy 3
+
+vp3-top-coord-rule := basic-vp-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
+
+vp3-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
+
+;;; Coordination Strategy 3
+
+s3-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
+
+s3-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
+
+;;; Coordination Strategy 4
+
+vp4-top-coord-rule := basic-vp-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "4" ].
+
+vp4-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "4" ].
+
+;;; Coordination Strategy 4
+
+s4-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "4" ].
+
+s4-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.COORD-STRAT "4" ].
