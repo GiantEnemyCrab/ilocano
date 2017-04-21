@@ -179,6 +179,14 @@ bassig := attr-adj-adj-lex &
   [ STEM < "bassig" >,
     SYNSEM.LKEYS.KEYREL.PRED "_small_a_rel" ].
 
+akaba_1 := attr-adj-adj-lex &
+  [ STEM < "akaba" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wide_a_rel" ].
+
+akikid_1 := attr-adj-adj-lex &
+  [ STEM < "akikid" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_narrow_a_rel" ].
+
 na-labaga_2 := pred-adj-adj-lex &
   [ STEM < "na-labaga" >,
     SYNSEM.LKEYS.KEYREL.PRED "_red_a_rel" ].
@@ -222,6 +230,14 @@ dakkel_2 := pred-adj-adj-lex &
 bassit := pred-adj-adj-lex &
   [ STEM < "bassit" >,
     SYNSEM.LKEYS.KEYREL.PRED "_small_a_rel" ].
+
+akaba_2 := pred-adj-adj-lex &
+  [ STEM < "akaba" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wide_a_rel" ].
+
+akikid_2 := pred-adj-adj-lex &
+  [ STEM < "akikid" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_narrow_a_rel" ].
 
 ;;; Verbs
 
