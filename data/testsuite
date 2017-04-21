@@ -501,8 +501,19 @@ Phenomena: {Embedded declaratives}
 Aguraykayo     ta  sapulek
 ag-uray=ka     ta  sapul-en=ko
 I-wait=ABS.2SG SUB search-T=ERG.1SG
-`Wait and I search for it`
+`Wait and I'll look for it`
 
+# Week 4
+# Ungrammatical example of 'ta' complement clause violating the constraint
+# that such clauses must be finite. Coreferential argument in complement
+# clause has been deleted.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {embedded declaratives}
+Agsardengkan ta in aginanan.
+ag-sardeng=ka=n ta  in ag-inana=n
+I-stop=2sA=now  SUB go I-rest=now
 
 # 2. In another case, complement clauses are preceded by Ligature, "(ng)a".
 # Co-refential arguments may be expressed twice: once in the main clause,
@@ -516,6 +527,29 @@ Ikariko           a   mapanak
 i-kari=ko         a   ma-pan=ak
 T-promise=ERG.1SG LIG I-go=ABS.1SG
 `I promise to go (I promise that I go)`
+
+# 3. (ng)a complements can accompany an impersonal predicate; these are
+# clauses that do not take personal clitic pronouns or full noun phrase
+# arguments along with their complement clauses.
+Source: a:464
+Vetted: s
+Judgment: g
+Phenomena: {Embedded declaratives}
+Nasken nga aginanakayo.
+na-sekken nga ag-inana=kayo
+ADJ-need  LIG I-rest=2pA
+'It is necessary that you rest.'
+
+# 4. There are (ng)a complements where NO arguments are specified, either in
+# the predicate or the complement, as with meteorological verbs.
+# Example of a (ng)a complement phrase with no specified arguments:
+Source: a:464
+Vetted: s
+Judgment: g
+Phenomena: {embedded declaratives}
+Mangrugi  nga agarbis.
+mang-rugi nga ag-arbis
+I-start   LIG I-drizzle
 
 # Week 4
 Source: a:242
