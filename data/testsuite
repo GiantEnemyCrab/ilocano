@@ -10,8 +10,40 @@ Source a: Rubino, Carl. Reference grammar of Ilocano. Diss. University of Califo
 ######### ADJECTIVES #################
 ######################################
 
+# Ajectives, which are used as attributive adjectives, in Ilocano are 
+# either monomorphemic (Rubino also refers to as "simple root adjectives"),
+# fossilized and derived.
+# For example, in the monomorphemic adjective, the word,
+# "dakkel" means "big", and "dakkel" is an adjective by itself, without
+# any morphological rules applied to it.
+# For fossilized adjectives have the "a-" prefix, and it is no longer
+# productive once the affixation is applied and no longer separatable.
+# They form a small class, expressing physical dimensions, such as "akaba" 
+# meaning "wide" and "akikid" meaning "narrow".
+# In addition, there is the "derived" adjective.
+# Derived adjectives, as the terminology indicates, consist of a noun
+# and the prefix 'na-', which is prepended to the noun. For example, the noun "angin" means
+# "wind". But when the prefix "na-" is attached to the
+# noun, it becomes "na-angin", and that is now an adjective, meaning "windy":
+# Some examples of derived adjectives are:
+# angin    wind      na-angin    windy
+# pigsa    strength  na-pigsa    strong
+# baknang  wealth    na-baknang  wealthy
+#
+# In the customization system, there was no option to do category-changing
+# morphology, which is observed in the derived adjectives, and it is out of scope for the purpose
+# of lab #4, at least. The choice was to just enter the "na-" adjectives directly
+# into the lexicon list, without creating any adjective-specific morphological
+# rules. For fossilized adjectives, because the prefix "a-" is inseparatable, lexicons were 
+# entered as "akaba", "akikid", etc, without any hyphen. Rubino does not show the "a-"
+# prefix in his IGT.
+#
+# Attributive adjectives could appear either before or after the noun, but between
+# the noun and the adjective, there needs to be the ligature "a" or "nga".
+
 # Week 4
-# Adjectives as modifiers to nouns
+# An example shows that attributive adjectives have a 
+# ligature between ADJ and NOUN, in the order of ADJ LIG NOUN
 Source: a:122
 Vetted: s
 Judgment: g
@@ -21,12 +53,9 @@ Kayat=ko     ti      na-labaga a   balay
 want=ERG.1SG CORE.SG ADJ-red   LIG house
 `I want the red house`
 
-# Adjectives may either precede or follow the noun
-# they qualify, linked by the ligature (ng)a. When
-# used to distinguish, they normally follow the noun.
 # Week 4
-# Adjectives as nouns, grammar concept betted, exact
-# words are not betted
+# An example shows that attributive adjectives have a 
+# ligature between NOUN LIG ADJ, in the order of NOUN LIG ADJ
 Source: a:139
 Vetted: f
 Judgment: g
@@ -36,7 +65,32 @@ Kayat=ko     ti      balay a   na-labaga
 want=ERG.1SG CORE.SG house LIG ADJ-red
 `I want the red house`
 
-# ungrammatical adjectives as modifiers to nouns without LIG
+# Week 4
+# Here is an example of an attributive adjective, with monomorphemis adjective,
+# which does not have morphological rule
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {adjectives}
+Kayatko      ti      balay a   dakkel
+Kayat=ko     ti      balay a   dakkel
+want=ERG.1SG CORE.SG house LIG big
+`I want the big house`
+
+# Week 4
+# Here is an example of an attributive adjective, fossilized.
+# which does not have morphological rule
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {adjectives}
+Kayatko      ti      balay a   akaba
+Kayat=ko     ti      balay a   akaba
+want=ERG.1SG CORE.SG house LIG wide
+`I want the wide house`
+
+# Here is a ungrammatical, contrasting example for attributive adjectives,
+# where there is no LIG between Noun and ADJ
 Source: author
 Vetted: f
 Judgment: f
