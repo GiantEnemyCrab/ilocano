@@ -576,7 +576,6 @@ na-lipat-an=ak      no na-kita=ko       ti      lalaki
 PF-forget-T=ERG.1SG if PF.T-see=ERG.1SG CORE.SG boy
 I forgot if I saw the boy'
 
-
 ######################################
 ######### Matrix wh questions ########
 ######################################
@@ -628,20 +627,15 @@ who  CORE.SG father=2sE
 'Who is your father?'
 
 # Week 4
-# NOTE: This judgment is pending prof's input.
-# Rubino states that ania and sino always appear in an absolutive
-# role with respect to the verb.
-# Does this mean that an absolutive enclitic pronoun on the following
-# verb would render the question ungrammatical?
-# 
 # A 'who' question with absolutive enclitic pronoun on the verb.
-# Source: author
-# Vetted: f
-# Judgment: u
-# Phenomena: {wh}
-# Sino ti      nakitaka?
-# sino ti      na-kita=ka?
-# who  CORE.SG PF.T-see=2sA
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {wh}
+Sino ti      nakitaka?
+sino ti      na-kita=ka?
+who  CORE.SG PF.T-see=2sA
+'Who saw you?'
 
 ######################################
 ######### Matrix yes-no questions ####
