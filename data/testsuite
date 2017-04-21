@@ -478,6 +478,51 @@ siak dagiti  paralako
 1SG  CORE.PL paralako
 'I am the salespersons'
 
+# Week 4
+# Coordination of pronoun and (proper) noun, to indicate the participation of
+# an additional person. The enclitic pronoun apparently agrees with the pernum
+# of all indicated participants (in this case, the speaker and another person,
+# hence 1pEXCL)
+Source: a:492
+Vetted: s
+Judgment: g
+Phenomena: {coordination agreement}
+Napankami    ken Marta.
+na-pan=kami  ken Marta
+PF-go=1pEXCL and Marta
+'Marta and I went.'
+
+# Week 4
+# Ungrammatical example as above, where the enclitic pronoun does NOT agree
+# in number with the participants.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {coordination agreement}
+Napan=ak  ken Marta.
+na-pan=ak ken Marta.
+PF-go=1sA ken Marta.
+'Marta and I went.'
+
+# Week 4
+# Ken has a plural form, kada, used to coordinate plural nouns.
+Source: a:493
+Vetted: s
+Judgment: g
+Phenomena: {coordination agreement}
+dagiti  lallakay kada   babbaket
+CORE.PL old.men  and.PL old.women
+'the old men and women (husbands and wives)'
+
+# Week 4
+# Ungrammatical use of singular "ken" with plural coordinates.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {coordination agreement}
+dagiti  lallakay ken    babbaket
+CORE.PL old.men  and.SG old.women
+'the old men and women'
 
 ######################################
 ######### DETERMINER #################
