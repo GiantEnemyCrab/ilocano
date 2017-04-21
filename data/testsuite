@@ -554,9 +554,9 @@ Source: a:430
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Ania	ti	ginatangmo
-ania 	ti 	gatang-{in}=mo
-what	CORE.SG	buy-{PF.T}=2sE
+Ania ti      ginatangmo
+ania ti      gatang-{in}=mo
+what CORE.SG buy-{PF.T}=2sE
 'What did you buy?'
 
 # Week 4
@@ -566,9 +566,9 @@ Source: a:431
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Ania	ti	dakesmo
-ania	ti	dakes=mo
-what	CORE.SG	bad=2sE
+Ania ti      dakesmo
+ania ti      dakes=mo
+what CORE.SG bad=2sE
 'What's wrong with you?'
 
 # Week 4
@@ -577,9 +577,9 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: {wh}
-Ania	ginatangmo
-ania	gatang-{in}=mo
-what	buy-{PF.T}=2sE
+Ania ginatangmo
+ania gatang-{in}=mo
+what buy-{PF.T}=2sE
 'What did you buy?'
 
 # Week 4
@@ -588,9 +588,9 @@ Source: a:435
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Sino	ti	amam?
-sino	ti	ama=m
-who	CORE.SG	father=2sE
+Sino ti      amam?
+sino ti	     ama=m
+who  CORE.SG father=2sE
 'Who is your father?'
 
 # Week 4
@@ -605,17 +605,15 @@ who	CORE.SG	father=2sE
 # Vetted: f
 # Judgment: u
 # Phenomena: {wh}
-# Sino	ti	nakitaka?
-# sino	ti	na-kita=ka?
-# who	CORE.SG	PF.T-see=2sA
+# Sino ti      nakitaka?
+# sino ti      na-kita=ka?
+# who  CORE.SG PF.T-see=2sA
 
 ######################################
 ######### Matrix yes-no questions ####
 ######################################
 
-# Leaving this section blank for now, as Y/N questions are distinguished solely
-# by intonation, or by an optional particle that the customization does not
-# support.
+# A treatment of yes-no questions will be documented in the writeup
 
 ######################################
 ######### NEGATION ###################
