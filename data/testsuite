@@ -127,6 +127,17 @@ ADJ-fast LIG PF-I-return=ABS.1SG
 `I returned quickly`
 
 # Week 4
+# 2. Ungrammatical use of an adjective without ligature:
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {adverbs}
+Nadaras  nagsubliak
+na-daras n-ag-subli=ak
+ADJ-fast PF-I-return=ABS.1SG
+
+
+# Week 4
 # 2. use of an adjective or verb. connected to the predicate 
 # as a prepositional phase with the oblique noun marker iti,
 # similar to a prepositional phrase:
@@ -134,7 +145,7 @@ Source: a:354
 Vetted: s
 Judgment: g
 Phenomena: {adverbs}
-Naglaylayak      iti    napaut
+Nagsangitak      iti    napaut
 n-ag-sangit=ak   iti    na-paut
 PF-I-cry=ABS.1SG OBL.SG ADJ-lasting
 `I cried for a long time'
@@ -146,8 +157,18 @@ Judgment: g
 Phenomena: {adverbs}
 Nagpanunotka       iti     nauneg
 n-ag-panunot=ka    iti     na-uneg
-PF-I-think=ABS.2SG CORE.SG ADJ-deep
+PF-I-think=ABS.2SG OBL.SG  ADJ-deep
 `You thought deeply`
+
+# Week 4
+# Ungrammatical example with ligature missing
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {adverbs}
+Nagpanunotka       nauneg  
+n-ag-panunot=ka    na-uneg
+PF-I-think=ABS.2SG ADJ-deep
 
 # Week 4
 Source: a:36
@@ -171,9 +192,9 @@ T-diligent=ERG.3SG CORE.SG I-study
 `He studied diligently`
 
 # Week 4
-# 4. use of an adverb-like lexeme that does a require the ligature
-# (ng)a when linking to a constituent- These words form a closed
-# class and may aiso function as adjectives
+# 4. use of an adverb-like lexeme that does not require the ligature
+# (ng)a when linking to a constituent. These words form a closed
+# class and may also function as adjectives.
 Source: a:355
 Vetted: s
 Judgment: g
