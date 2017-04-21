@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Thu Apr 20 23:34:31 UTC 2017
+;;;     Fri Apr 21 02:09:08 UTC 2017
 ;;; based on Matrix customization system version of:
 ;;;     Thu Apr 20 21:52:07 UTC 2017
 ;;;
@@ -280,6 +280,9 @@ adj-lex := basic-intersective-adjective-lex.
 
 attr-adj-adj-lex := attr-only-adj-lex.
 
+pred-adj-adj-lex := pred-only-adj-lex & stative-pred-adj-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.PRD - ].
+
 ; Basic attributive adjective definition
 
 attr-adj-lex := adj-lex & intersective-mod-lex &
@@ -289,6 +292,17 @@ attr-adj-lex := adj-lex & intersective-mod-lex &
 attr-only-adj-lex := attr-adj-lex &
   [ SYNSEM.LOCAL.CAT [ HEAD.PRD -,
                        VAL.SUBJ < > ] ].
+
+pred-only-adj-lex := adj-lex & no-mod-lex.
+
+; Stative predicate adjective definition
+
+stative-pred-adj-lex := adj-lex &
+  [ SYNSEM.LOCAL [ CAT.VAL.SUBJ < [ LOCAL [ CONT.HOOK.INDEX #xarg,
+                                            CAT [ VAL [ SPR < >,
+                                                        COMPS < > ],
+                                                  HEAD noun ] ] ] >,
+                   CONT.HOOK.XARG #xarg ] ].
 
 ;;; Others
 

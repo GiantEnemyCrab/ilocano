@@ -135,41 +135,93 @@ isuda := ind-3pl-noun-lex &
 
 ;;; Adjectives
 
-na-labaga := attr-adj-adj-lex &
+na-labaga_1 := attr-adj-adj-lex &
   [ STEM < "na-labaga" >,
     SYNSEM.LKEYS.KEYREL.PRED "_red_a_rel" ].
 
-na-angin := attr-adj-adj-lex &
+na-angin_1 := attr-adj-adj-lex &
   [ STEM < "na-angin" >,
     SYNSEM.LKEYS.KEYREL.PRED "_windy_a_rel" ].
 
-na-pigsa := attr-adj-adj-lex &
+na-pigsa_1 := attr-adj-adj-lex &
   [ STEM < "na-pigsa" >,
     SYNSEM.LKEYS.KEYREL.PRED "_strong_a_rel" ].
 
-na-baknang := attr-adj-adj-lex &
+na-baknang_1 := attr-adj-adj-lex &
   [ STEM < "na-baknang" >,
     SYNSEM.LKEYS.KEYREL.PRED "_wealthy_a_rel" ].
 
-na-daras := attr-adj-adj-lex &
+na-daras_1 := attr-adj-adj-lex &
   [ STEM < "na-daras" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hurry_a_rel" ].
 
-na-paut := attr-adj-adj-lex &
+na-paut_1 := attr-adj-adj-lex &
   [ STEM < "na-paut" >,
     SYNSEM.LKEYS.KEYREL.PRED "_lasting_a_rel" ].
 
-na-uneg := attr-adj-adj-lex &
+na-uneg_1 := attr-adj-adj-lex &
   [ STEM < "na-uneg" >,
     SYNSEM.LKEYS.KEYREL.PRED "_deep_a_rel" ].
 
-na-lapat := attr-adj-adj-lex &
+na-lapat_1 := attr-adj-adj-lex &
   [ STEM < "na-lapat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_frank_a_rel" ].
 
-na-dalus := attr-adj-adj-lex &
+na-dalus_1 := attr-adj-adj-lex &
   [ STEM < "na-dalus" >,
     SYNSEM.LKEYS.KEYREL.PRED "_clean_a_rel" ].
+
+dakkel_1 := attr-adj-adj-lex &
+  [ STEM < "dakkel" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_big_a_rel" ].
+
+bassig := attr-adj-adj-lex &
+  [ STEM < "bassig" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_small_a_rel" ].
+
+na-labaga_2 := pred-adj-adj-lex &
+  [ STEM < "na-labaga" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_red_a_rel" ].
+
+na-angin_2 := pred-adj-adj-lex &
+  [ STEM < "na-angin" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_windy_a_rel" ].
+
+na-pigsa_2 := pred-adj-adj-lex &
+  [ STEM < "na-pigsa" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_strong_a_rel" ].
+
+na-baknang_2 := pred-adj-adj-lex &
+  [ STEM < "na-baknang" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wealthy_a_rel" ].
+
+na-daras_2 := pred-adj-adj-lex &
+  [ STEM < "na-daras" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_hurry_a_rel" ].
+
+na-paut_2 := pred-adj-adj-lex &
+  [ STEM < "na-paut" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_lasting_a_rel" ].
+
+na-uneg_2 := pred-adj-adj-lex &
+  [ STEM < "na-uneg" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_deep_a_rel" ].
+
+na-lapat_2 := pred-adj-adj-lex &
+  [ STEM < "na-lapat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_frank_a_rel" ].
+
+na-dalus_2 := pred-adj-adj-lex &
+  [ STEM < "na-dalus" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_clean_a_rel" ].
+
+dakkel_2 := pred-adj-adj-lex &
+  [ STEM < "dakkel" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_big_a_rel" ].
+
+bassit := pred-adj-adj-lex &
+  [ STEM < "bassit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_small_a_rel" ].
 
 ;;; Verbs
 
