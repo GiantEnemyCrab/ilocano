@@ -134,67 +134,6 @@ almost     tear.off-{PF.T} CORE.SG wild.boar CORE.SG neck=ERG.3SG
 ######### AGREEMENT ##################
 ######################################
 
-# case agreement with transitive verb and enclitic pronoun
-Source: author
-Vetted: f
-Judgment: g
-Phenomena: {agreement}
-Nakitako         ti      lalaki
-na-kita=ko       ti      lalaki
-PF.T-see=ERG.1SG CORE.SG boy
-`I saw the boy'
-
-# incorrect case agreement with transitive verb and enclitic pronoun
-Source: author
-Vetted: f
-Judgment: f
-Phenomena: {agreement}
-Nakitaak         ti      lalaki
-na-kita=ak       ti      lalaki
-PF.T-see=ABS.1SG CORE.SG boy
-`I saw the boy'
-
-# case agreement with transitive verb and enclitic pronoun
-Source: author
-Vetted: f
-Judgment: g
-Phenomena: {agreement}
-Nakitadaak
-na-kita=da=ak
-PF.T-see=ERG.3PL=ABS.1SG
-`They saw me'
-
-# incorrect case agreement with transitive verb and enclitic pronoun
-Source: author
-Vetted: f
-Judgment: f
-Phenomena: {agreement}
-Nakitaakda
-na-kita=ak=da
-PF.T-see=ABS.1ST=ERG.3PL
-`me saw they'
-
-# case agreement with intransitive verb and enclitic pronoun
-Source: author
-Vetted: f
-Judgment: g
-Phenomena: {agreement}
-Naglaylayak
-n-ag-sangit=ak
-PF-I-cry=ABS.1SG
-`I cried'
-
-# incorrect case agreement with intransitive verb and enclitic pronoun
-Source: author
-Vetted: f
-Judgment: f
-Phenomena: {agreement}
-Naglaylayak
-n-ag-sangit=ko
-PF-I-cry=ERG.1SG
-`me cried'
-
-
 ######################################
 ######### ARGUMENT OPTIONALITY #######
 ######################################
@@ -332,6 +271,66 @@ Naglaylay   ti      ansisit
 n-ag-laylay ti      ansisit
 PF-I-wilt   CORE.SG dwarf.ABS
 `The dwarf wilted'
+
+# case matching with transitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {case}
+Nakitako         ti      lalaki
+na-kita=ko       ti      lalaki
+PF.T-see=ERG.1SG CORE.SG boy
+`I saw the boy'
+
+# incorrect case matching with transitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: f
+Phenomena: {case}
+Nakitaak         ti      lalaki
+na-kita=ak       ti      lalaki
+PF.T-see=ABS.1SG CORE.SG boy
+`I saw the boy'
+
+# case matching with transitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {case}
+Nakitadaak
+na-kita=da=ak
+PF.T-see=ERG.3PL=ABS.1SG
+`They saw me'
+
+# incorrect case matching with transitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: f
+Phenomena: {case}
+Nakitaakda
+na-kita=ak=da
+PF.T-see=ABS.1ST=ERG.3PL
+`me saw they'
+
+# case matching with intransitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {case}
+Naglaylayak
+n-ag-sangit=ak
+PF-I-cry=ABS.1SG
+`I cried'
+
+# incorrect case matching with intransitive verb and enclitic pronoun
+Source: author
+Vetted: f
+Judgment: f
+Phenomena: {case}
+Naglaylayak
+n-ag-sangit=ko
+PF-I-cry=ERG.1SG
+`me cried'
 
 
 ######################################
@@ -501,9 +500,9 @@ Source: a:430
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Ania	ti	ginatangmo
-ania 	ti 	gatang-{in}=mo
-what	CORE.SG	buy{PF.T}=2sE
+Ania	ti	     ginatangmo
+ania  ti 	    gatang-{in}=mo
+what	CORE.SG	buy-{PF.T}=2sE
 'What did you buy?'
 
 # Week 4
@@ -538,7 +537,7 @@ Judgment: u
 Phenomena: {wh}
 Ania	ginatangmo
 ania	gatang-{in}=mo
-what	buy{PF.T}=2sE
+what	buy-{PF.T}=2sE
 'What did you buy?'
 
 # Week 4
@@ -717,8 +716,11 @@ OBL.SG top   CORE.SG table    CORE.SG key
 ######### POSSESSIVE #################
 ######################################
 
+# Ilocano pronominal possesives, such as 'my', 'their, 'your', etc,
+# are achieved by the use of a noun with an enclitic pronoun in ergative
+# case.
+
 # grammatically correct possessive, using ergative enclitic pronoun
-# not ready to test
 Source: a:117
 Vetted: s
 Judgment: g
@@ -729,7 +731,6 @@ PF.T-see CORE.SG girl  CORE.SG house=ERG.1sg
 `The girl saw my house'
 
 # grammatically correct possessive 3sg
-# not ready to test
 Source: a:117
 Vetted: s
 Judgment: g
@@ -740,7 +741,6 @@ that key    CORE.SG boy
 `The boy's key'
 
 # incorrect case for possessive, using absolutive enclitic pronoun
-# not ready to test
 Source: author
 Vetted: f
 Judgment: u
@@ -751,7 +751,6 @@ PF.T-see CORE.SG girl  CORE.SG house=ABS.1sg
 `The girl saw my house'
 
 # possessive nominal needs CORE.SG determiner before the 3rdPerson noun
-# not ready to test
 Source: author
 Vetted: f
 Judgment: u
@@ -760,28 +759,6 @@ Nakita   ti      babai balayak
 na-kita  ti      babai balay=ak
 PF.T-see CORE.SG girl  house=ABS.1sg
 `The girl saw my house'
-
-# possessive pronouns
-# not ready to test
-source: a:117
-Vetted: s
-Judgment: g
-Phenomena: {possessives}
-Bagida ti      suman
-bagida CORE.SG suman
-theirs the     ricecake
-`The ricecake is theirs`
-
-# possessive pronouns
-# not ready to test
-source: a:117
-Vetted: s
-Judgment: g
-Phenomena: {possessives}
-Bagida ti      suman
-bagida CORE.SG suman
-theirs the     ricecake
-`The ricecake is theirs`
 
 
 ######################################
