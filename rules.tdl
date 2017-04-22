@@ -70,3 +70,7 @@ vp4-bottom-coord := vp4-bottom-coord-rule.
 s4-top-coord := s4-top-coord-rule.
 
 s4-bottom-coord := s4-bottom-coord-rule.
+
+n5-non-sg-non-sg-non-sg-top-coord := n5-non-sg-non-sg-non-sg-top-coord-rule.
+
+n5-bottom-coord := n5-bottom-coord-rule.

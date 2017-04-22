@@ -2,9 +2,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Fri Apr 21 04:33:45 UTC 2017
+;;;     Sat Apr 22 00:48:24 UTC 2017
 ;;; based on Matrix customization system version of:
-;;;     Fri Apr 21 03:37:44 UTC 2017
+;;;     Fri Apr 21 07:02:53 UTC 2017
 ;;;
 ;;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -106,9 +106,6 @@ noun-lex := basic-noun-lex & basic-one-arg & no-hcons-lex-item & non-mod-lex-ite
                            SPEC < > ],
     ARG-ST < #spr > ].
 
-obl-spr-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT - ] > ].
-
 no-spr-noun-lex := noun-lex &
   [ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT + ] > ].
 
@@ -122,7 +119,7 @@ no-spr-noun-lex := noun-lex &
 head-spec-phrase := basic-head-spec-phrase & head-final &
   [ NON-HEAD-DTR.SYNSEM.OPT - ].
 
-common-noun-lex := obl-spr-noun-lex &
+common-noun-lex := noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd ].
 
 pron-noun-lex := no-spr-noun-lex.
@@ -278,9 +275,7 @@ neg-aux-lex := subj-raise-aux-with-pred &
 
 adj-lex := basic-intersective-adjective-lex.
 
-attr-adj-adj-lex := attr-only-adj-lex.
-
-pred-adj-adj-lex := pred-only-adj-lex & stative-pred-adj-lex &
+adj-adj-lex := attr-adj-lex & stative-pred-adj-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.PRD - ].
 
 ; Basic attributive adjective definition
@@ -288,12 +283,6 @@ pred-adj-adj-lex := pred-only-adj-lex & stative-pred-adj-lex &
 attr-adj-lex := adj-lex & intersective-mod-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
                                               VAL.SPR cons ] ] > ].
-
-attr-only-adj-lex := attr-adj-lex &
-  [ SYNSEM.LOCAL.CAT [ HEAD.PRD -,
-                       VAL.SUBJ < > ] ].
-
-pred-only-adj-lex := adj-lex & no-mod-lex.
 
 ; Stative predicate adjective definition
 
@@ -320,7 +309,7 @@ core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
 
 core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE cor,
-                                            CONT.HOOK.INDEX.PNG.PERNUM pl ] ].
+                                            CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
 obl-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE obl,
@@ -328,7 +317,7 @@ obl-sg-determiner-lex := determiner-lex & no-icons-lex-item &
 
 obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE obl,
-                                            CONT.HOOK.INDEX.PNG.PERNUM pl ] ].
+                                            CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Rules
@@ -340,6 +329,12 @@ int-infix-rule-dtr := word-or-lexrule.
 aspect-prefix-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
+
+noun-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ DTR common-noun-lex ].
+
+reduplication-lex-rule := noun-prefix-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM dist-pl ].
 
 aspect-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ DTR aspect-prefix-rule-dtr ].
@@ -513,3 +508,22 @@ s4-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
 
 s4-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
   [ SYNSEM.LOCAL.COORD-STRAT "4" ].
+
+;;; Feature Resolution Rules
+
+non-sg-non-sg-non-sg-pernum-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM non-sg,
+    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM non-sg,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM non-sg ].
+
+pass-up-png-coord-rule := bottom-coord-phrase &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG #png,
+    NONCONJ-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG #png ].
+
+;;; Coordination Strategy 5
+
+n5-non-sg-non-sg-non-sg-top-coord-rule := basic-n-top-coord-rule & apoly-top-coord-rule & non-sg-non-sg-non-sg-pernum-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "5" ].
+
+n5-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase & pass-up-png-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "5" ].
