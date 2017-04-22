@@ -305,6 +305,14 @@ kita := trans-verb-lex &
   [ STEM < "kita" >,
     SYNSEM.LKEYS.KEYREL.PRED "_see_v_rel" ].
 
+kayat := trans-verb-lex &
+  [ STEM < "kayat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_want_v_rel" ].
+
+lipat-an := trans-verb-lex &
+  [ STEM < "lipat-an" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_forget_v_rel" ].
+
 ;;; Auxiliaries
 
 di := neg-aux-lex &
