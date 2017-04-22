@@ -10,14 +10,14 @@ Source a: Rubino, Carl. Reference grammar of Ilocano. Diss. University of Califo
 ######### ADJECTIVES #################
 ######################################
 
-# Ajectives, which are used as attributive adjectives, in Ilocano are 
+# Adjectives, which are used as attributive adjectives, in Ilocano are 
 # either monomorphemic (Rubino also refers to as "simple root adjectives"),
 # fossilized and derived.
 # For example, in the monomorphemic adjective, the word,
 # "dakkel" means "big", and "dakkel" is an adjective by itself, without
 # any morphological rules applied to it.
 # For fossilized adjectives have the "a-" prefix, and it is no longer
-# productive once the affixation is applied and no longer separatable.
+# productive once the affixation is applied and no longer be separated.
 # They form a small class, expressing physical dimensions, such as "akaba" 
 # meaning "wide" and "akikid" meaning "narrow".
 # In addition, there is the "derived" adjective.
@@ -119,8 +119,13 @@ want=ERG.1SG CORE.SG house ADJ-red
 # "quickly"-equivalenti) are considered.
 # In Ilocano, such adverbial behavior can be achieved by use of an adjective, followed by Ilocano ligature, "(ng)a"
 # (nga or a), which is followed by a verbal predicate.
-# The word order is: ADJ -> LIG -> finite clause
-# Another way to achieve the adverbial behavior is by use of oblique noun marker, 'iti', along the the adjective. For this, a verbal predica
+# The word order is: adjective -> ligature -> finite clause
+# Another way to achieve the adverbial behavior is by use of oblique noun marker, 'iti', followed by the adjective.
+# Contrasting to the first method, where the word sequence of adjective and ligature happen before the finite clause,
+# in this second method, a finite clause comes before the oblique noun marker and the adjective.
+# The word order is: finite clause -> oblique noun marker -> adjective
+# The oblique noun marker always needs to be the singular form of the oblique determiner, therefore,
+# the plural form "dagiti" (CORE.PL) is not allowed.
 
 # Week 4
 # 1. use of an adjective with the ligature, "a":
@@ -144,7 +149,6 @@ na-daras n-ag-subli=ak
 ADJ-fast PF-I-return=ABS.1SG
 'I returned quickly'
 
-
 # Week 4
 # 2. use of an adjective or verb. connected to the predicate 
 # as a prepositional phase with the oblique noun marker iti,
@@ -156,6 +160,41 @@ Phenomena: {adverbs}
 Nagsangitak      iti    napaut
 n-ag-sangit=ak   iti    na-paut
 PF-I-cry=ABS.1SG OBL.SG ADJ-lasting
+`I cried for a long time'
+
+# Week 4
+# adverbial with oblique followed by adjective should not use
+# plural version of oblique
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {adverbs}
+Nagsangitak      dagiti napaut
+n-ag-sangit=ak   dagiti na-paut
+PF-I-cry=ABS.1SG OBL.PL ADJ-lasting
+`I cried for a long time'
+
+# Week 4
+# adverbial with oblique followed by adjective should not use
+# core case determiner
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {adverbs}
+Nagsangitak      ti      napaut
+n-ag-sangit=ak   ti      na-paut
+PF-I-cry=ABS.1SG CORE.SG ADJ-lasting
+`I cried for a long time'
+
+# Week 4
+# ungrammatical: oblique noun marker is missing before the adjective
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {adverbs}
+Nagsangitak      napaut
+n-ag-sangit=ak   na-paut
+PF-I-cry=ABS.1SG ADJ-lasting
 `I cried for a long time'
 
 # Week 4
@@ -177,6 +216,7 @@ Phenomena: {adverbs}
 Nagpanunotka       nauneg  
 n-ag-panunot=ka    na-uneg
 PF-I-think=ABS.2SG ADJ-deep
+`You thought deeply`
 
 # Week 4
 Source: a:36
@@ -187,17 +227,6 @@ Nagsaoda           iti    nalapat
 n-ag-sao=da        iti    na-lapat
 PF-I-speak=ABS.3PL OBL.SG ADJ-frank
 `They spoke frankly`
-
-# Week 4
-# 3. use of a transitive verb denoting an adverbial notion
-Source: a:354
-Vetted: s
-Judgment: g
-Phenomena: {adverbs}
-Igaedna            ti      agadal
-i-gaed=na          ti      ag-adal
-T-diligent=ERG.3SG CORE.SG I-study
-`He studied diligently`
 
 
 ######################################
@@ -447,61 +476,24 @@ ti      aso wenno pusa
 CORE.SG dog or    cat
 `The dog or cat`
 
+# Week 4
+# Coordination of pronoun and (proper) noun
+Source: a:492
+Vetted: s
+Judgment: g
+Phenomena: {coordination}
+Napankami           ken ti      lalaki.
+na-pan=kami         ken ti      lalaki
+PF-go=ABS.1PL.1EXCL and CORE.SG boy
+'The boy and I went.'
+
 
 ######################################
 ######### COORDINATION AGREEMENT #####
 ######################################
 
 # Week 4
-# Independent pronoun and noun phrase to copula, number agreement match
-Source: a:33
-Vetted: s
-Judgment: g
-Phenomena: {coordination agreement}
-Siak ti      paralako
-siak ti      paralako
-1SG  CORE.SG paralako
-'I am the salesperson'
-
-# Week 4
-# Independent pronoun and noun phrase to copula, number agreement mismatch
-Source: a:33
-Vetted: f
-Judgment: f
-Phenomena: {coordination agreement}
-Siak dagiti  paralako
-siak dagiti  paralako
-1SG  CORE.PL paralako
-'I am the salespersons'
-
-# Week 4
-# Coordination of pronoun and (proper) noun, to indicate the participation of
-# an additional person. The enclitic pronoun apparently agrees with the pernum
-# of all indicated participants (in this case, the speaker and another person,
-# hence 1pEXCL)
-Source: a:492
-Vetted: s
-Judgment: g
-Phenomena: {coordination agreement}
-Napankami    ken Marta.
-na-pan=kami  ken Marta
-PF-go=1pEXCL and Marta
-'Marta and I went.'
-
-# Week 4
-# Ungrammatical example as above, where the enclitic pronoun does NOT agree
-# in number with the participants.
-Source: author
-Vetted: f
-Judgment: u
-Phenomena: {coordination agreement}
-Napan=ak  ken Marta.
-na-pan=ak ken Marta.
-PF-go=1sA ken Marta.
-'Marta and I went.'
-
-# Week 4
-# Ken has a plural form, kada, used to coordinate plural nouns.
+# Ken has a plural form, kada, used to coordinate plural nouns only.
 Source: a:493
 Vetted: s
 Judgment: g
@@ -512,15 +504,27 @@ CORE.PL old.men  and.PL old.women
 'the old men and women (husbands and wives)'
 
 # Week 4
-# Ungrammatical use of singular "ken" with plural coordinates.
+# Ken is able to have either singular or plural on either side.
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {coordination agreement}
+dagiti  lallakay ken   babbaket
+dagiti  lallakay ken   babbaket
+CORE.PL old.men  and   old.women
+'the old men and women (husbands and wives)'
+
+# Week 4
+# Ken has a plural form, kada, used to coordinate plural nouns only.
 Source: author
 Vetted: f
 Judgment: u
 Phenomena: {coordination agreement}
-dagiti  lallakay ken    babbaket
-dagiti  lallakay ken    babbaket
-CORE.PL old.men  and.SG old.women
-'the old men and women'
+Ti      lalaki kada   ti      babai
+ti      lalaki kada   ti      babai
+CORE.SG boy    and.PL CORE.SG girl
+'the boy and the girl'
+
 
 ######################################
 ######### DETERMINER #################
@@ -564,20 +568,18 @@ Judgment: g
 Phenomena: {Embedded declaratives}
 Aguraykayo     ta  sapulek
 ag-uray=ka     ta  sapul-en=ko
-I-wait=ABS.2SG SUB search-T=ERG.1SG
+I-wait=ABS.2SG SUB search-T=ERG.1SG.(3SG)
 `Wait and I'll look for it`
 
-# Week 4
-# Ungrammatical example of 'ta' complement clause violating the constraint
-# that such clauses must be finite. Coreferential argument in complement
-# clause has been deleted.
-Source: author
-Vetted: f
-Judgment: u
-Phenomena: {embedded declaratives}
-Agsardengkan ta in aginanan.
-ag-sardeng=ka=n ta  in ag-inana=n
-I-stop=2sA=now  SUB go I-rest=now
+# ungrammatical: co-referential argument is deleted
+Source: a:462
+Vetted: s
+Judgment: g
+Phenomena: {Embedded declaratives}
+Aguraykayo     ta  sapulek
+ag-uray=ka     ta  sapul-en
+I-wait=ABS.2SG SUB search-T
+`Wait and I'll look for it`
 
 # 2. In another case, complement clauses are preceded by Ligature, "(ng)a".
 # Co-refential arguments may be expressed twice: once in the main clause,
@@ -592,29 +594,6 @@ i-kari=ko         a   ma-pan=ak
 T-promise=ERG.1SG LIG I-go=ABS.1SG
 `I promise to go (I promise that I go)`
 
-# 3. (ng)a complements can accompany an impersonal predicate; these are
-# clauses that do not take personal clitic pronouns or full noun phrase
-# arguments along with their complement clauses.
-Source: a:464
-Vetted: s
-Judgment: g
-Phenomena: {Embedded declaratives}
-Nasken nga aginanakayo.
-na-sekken nga ag-inana=kayo
-ADJ-need  LIG I-rest=2pA
-'It is necessary that you rest.'
-
-# 4. There are (ng)a complements where NO arguments are specified, either in
-# the predicate or the complement, as with meteorological verbs.
-# Example of a (ng)a complement phrase with no specified arguments:
-Source: a:464
-Vetted: s
-Judgment: g
-Phenomena: {embedded declaratives}
-Mangrugi  nga agarbis.
-mang-rugi nga ag-arbis
-I-start   LIG I-drizzle
-
 # Week 4
 Source: a:242
 Vetted: s
@@ -625,10 +604,30 @@ ammo=ko      a   na-kita=mo       ti      lalaki
 know=ERG.1SG LIG PF.T-see=ERG.2SG CORE.SG boy
 `I know that you saw the boy`
 
+# ungrammatical: ligature complementizer takes finite clause only
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded declaratives}
+Ammok        a   ti      lalaki
+ammo=ko      a   ti      lalaki
+know=ERG.1SG LIG CORE.SG boy
+`I know that you saw the boy`
+
 
 ######################################
 ######### Embedded questions #########
 ######################################
+
+# Week 4
+Source: a:496
+Vetted: s
+Judgment: g
+Phenomena: {Embedded questions}
+Nalipatak           no na-labaga wenno asul
+na-lipat-an=ak      no na-labaga wenno asul
+PF-forget-T=ERG.1SG if ADJ-red   or    blue
+`I forgot if it is red or blue'
 
 # Week 4
 Source: author
@@ -638,7 +637,18 @@ Phenomena: {Embedded questions}
 Nalipatak           no nakitako         ti      lalaki
 na-lipat-an=ak      no na-kita=ko       ti      lalaki
 PF-forget-T=ERG.1SG if PF.T-see=ERG.1SG CORE.SG boy
-I forgot if I saw the boy'
+`I forgot if I saw the boy'
+
+# ungrammatical: the conditional should not be able to embed just NP
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded questions}
+Nalipatak           no ti      lalaki
+na-lipat-an=ak      no ti      lalaki
+PF-forget-T=ERG.1SG if CORE.SG boy
+`I forgot if I saw the boy'
+
 
 ######################################
 ######### Matrix wh questions ########
@@ -653,7 +663,7 @@ Judgment: g
 Phenomena: {wh}
 Ania ti      ginatangmo
 ania ti      gatang-{in}=mo
-what CORE.SG buy-{PF.T}=2sE
+what CORE.SG buy-{PF.T}=ERG.2SG
 'What did you buy?'
 
 # Week 4
@@ -665,7 +675,7 @@ Judgment: g
 Phenomena: {wh}
 Ania ti      dakesmo
 ania ti      dakes=mo
-what CORE.SG bad=2sE
+what CORE.SG bad=ERG.2SG
 'What's wrong with you?'
 
 # Week 4
@@ -676,7 +686,7 @@ Judgment: u
 Phenomena: {wh}
 Ania ginatangmo
 ania gatang-{in}=mo
-what buy-{PF.T}=2sE
+what buy-{PF.T}=ERG.2SG
 'What did you buy?'
 
 # Week 4
@@ -687,7 +697,7 @@ Judgment: g
 Phenomena: {wh}
 Sino ti      amam?
 sino ti	     ama=m
-who  CORE.SG father=2sE
+who  CORE.SG father=ERG.2SG
 'Who is your father?'
 
 # Week 4
@@ -698,7 +708,7 @@ Judgment: u
 Phenomena: {wh}
 Sino ti      nakitaka?
 sino ti      na-kita=ka
-who  CORE.SG PF.T-see=2sA
+who  CORE.SG PF.T-see=ABS.2SG
 'Who saw you?'
 
 ######################################
@@ -789,6 +799,17 @@ siak ti      paralako
 'I am the salesperson'
 
 # Week 4
+# ungrammatical: PERNUM should match
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Siak dagiti  paralako
+siak dagiti  paralako
+1SG  CORE.PL paralako
+'I am the salesperson'
+
+# Week 4
 # Adj predicate
 Source: a:397
 Vetted: s
@@ -808,6 +829,17 @@ Phenomena: {Non-verbal predicates}
 Nadalus   ti      balay
 na-dalus  ti      balay
 ADJ-clean CORE.SG house
+`The house is clean`
+
+# Week 4
+# ungrammatical: incorrect word order for what should be AP -> NP
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+ti      balay Nadalus   
+ti      balay na-dalus
+CORE.SG house ADJ-clean
 `The house is clean`
 
 # Week 4
