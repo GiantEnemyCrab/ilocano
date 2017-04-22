@@ -134,6 +134,18 @@ ADJ-fast LIG PF-I-return=ABS.1SG
 `I returned quickly`
 
 # Week 4
+# 2. Ungrammatical use of an adjective without ligature:
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {adverbs}
+Nadaras  nagsubliak
+na-daras n-ag-subli=ak
+ADJ-fast PF-I-return=ABS.1SG
+'I returned quickly'
+
+
+# Week 4
 # 2. use of an adjective or verb. connected to the predicate 
 # as a prepositional phase with the oblique noun marker iti,
 # similar to a prepositional phrase:
@@ -141,7 +153,7 @@ Source: a:354
 Vetted: s
 Judgment: g
 Phenomena: {adverbs}
-Naglaylayak      iti    napaut
+Nagsangitak      iti    napaut
 n-ag-sangit=ak   iti    na-paut
 PF-I-cry=ABS.1SG OBL.SG ADJ-lasting
 `I cried for a long time'
@@ -153,8 +165,18 @@ Judgment: g
 Phenomena: {adverbs}
 Nagpanunotka       iti     nauneg
 n-ag-panunot=ka    iti     na-uneg
-PF-I-think=ABS.2SG CORE.SG ADJ-deep
+PF-I-think=ABS.2SG OBL.SG  ADJ-deep
 `You thought deeply`
+
+# Week 4
+# Ungrammatical example with ligature missing
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {adverbs}
+Nagpanunotka       nauneg  
+n-ag-panunot=ka    na-uneg
+PF-I-think=ABS.2SG ADJ-deep
 
 # Week 4
 Source: a:36
@@ -452,6 +474,53 @@ siak dagiti  paralako
 1SG  CORE.PL paralako
 'I am the salespersons'
 
+# Week 4
+# Coordination of pronoun and (proper) noun, to indicate the participation of
+# an additional person. The enclitic pronoun apparently agrees with the pernum
+# of all indicated participants (in this case, the speaker and another person,
+# hence 1pEXCL)
+Source: a:492
+Vetted: s
+Judgment: g
+Phenomena: {coordination agreement}
+Napankami    ken Marta.
+na-pan=kami  ken Marta
+PF-go=1pEXCL and Marta
+'Marta and I went.'
+
+# Week 4
+# Ungrammatical example as above, where the enclitic pronoun does NOT agree
+# in number with the participants.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {coordination agreement}
+Napan=ak  ken Marta.
+na-pan=ak ken Marta.
+PF-go=1sA ken Marta.
+'Marta and I went.'
+
+# Week 4
+# Ken has a plural form, kada, used to coordinate plural nouns.
+Source: a:493
+Vetted: s
+Judgment: g
+Phenomena: {coordination agreement}
+dagiti  lallakay kada   babbaket
+dagiti  lallakay kada   babbaket
+CORE.PL old.men  and.PL old.women
+'the old men and women (husbands and wives)'
+
+# Week 4
+# Ungrammatical use of singular "ken" with plural coordinates.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {coordination agreement}
+dagiti  lallakay ken    babbaket
+dagiti  lallakay ken    babbaket
+CORE.PL old.men  and.SG old.women
+'the old men and women'
 
 ######################################
 ######### DETERMINER #################
@@ -496,8 +565,19 @@ Phenomena: {Embedded declaratives}
 Aguraykayo     ta  sapulek
 ag-uray=ka     ta  sapul-en=ko
 I-wait=ABS.2SG SUB search-T=ERG.1SG
-`Wait and I search for it`
+`Wait and I'll look for it`
 
+# Week 4
+# Ungrammatical example of 'ta' complement clause violating the constraint
+# that such clauses must be finite. Coreferential argument in complement
+# clause has been deleted.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {embedded declaratives}
+Agsardengkan ta in aginanan.
+ag-sardeng=ka=n ta  in ag-inana=n
+I-stop=2sA=now  SUB go I-rest=now
 
 # 2. In another case, complement clauses are preceded by Ligature, "(ng)a".
 # Co-refential arguments may be expressed twice: once in the main clause,
@@ -511,6 +591,29 @@ Ikariko           a   mapanak
 i-kari=ko         a   ma-pan=ak
 T-promise=ERG.1SG LIG I-go=ABS.1SG
 `I promise to go (I promise that I go)`
+
+# 3. (ng)a complements can accompany an impersonal predicate; these are
+# clauses that do not take personal clitic pronouns or full noun phrase
+# arguments along with their complement clauses.
+Source: a:464
+Vetted: s
+Judgment: g
+Phenomena: {Embedded declaratives}
+Nasken nga aginanakayo.
+na-sekken nga ag-inana=kayo
+ADJ-need  LIG I-rest=2pA
+'It is necessary that you rest.'
+
+# 4. There are (ng)a complements where NO arguments are specified, either in
+# the predicate or the complement, as with meteorological verbs.
+# Example of a (ng)a complement phrase with no specified arguments:
+Source: a:464
+Vetted: s
+Judgment: g
+Phenomena: {embedded declaratives}
+Mangrugi  nga agarbis.
+mang-rugi nga ag-arbis
+I-start   LIG I-drizzle
 
 # Week 4
 Source: a:242
@@ -537,7 +640,6 @@ na-lipat-an=ak      no na-kita=ko       ti      lalaki
 PF-forget-T=ERG.1SG if PF.T-see=ERG.1SG CORE.SG boy
 I forgot if I saw the boy'
 
-
 ######################################
 ######### Matrix wh questions ########
 ######################################
@@ -549,9 +651,9 @@ Source: a:430
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Ania	ti	ginatangmo
-ania 	ti 	gatang-{in}=mo
-what	CORE.SG	buy-{PF.T}=2sE
+Ania ti      ginatangmo
+ania ti      gatang-{in}=mo
+what CORE.SG buy-{PF.T}=2sE
 'What did you buy?'
 
 # Week 4
@@ -561,9 +663,9 @@ Source: a:431
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Ania	ti	dakesmo
-ania	ti	dakes=mo
-what	CORE.SG	bad=2sE
+Ania ti      dakesmo
+ania ti      dakes=mo
+what CORE.SG bad=2sE
 'What's wrong with you?'
 
 # Week 4
@@ -572,9 +674,9 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: {wh}
-Ania	ginatangmo
-ania	gatang-{in}=mo
-what	buy-{PF.T}=2sE
+Ania ginatangmo
+ania gatang-{in}=mo
+what buy-{PF.T}=2sE
 'What did you buy?'
 
 # Week 4
@@ -583,34 +685,27 @@ Source: a:435
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Sino	ti	amam?
-sino	ti	ama=m
-who	CORE.SG	father=2sE
+Sino ti      amam?
+sino ti	     ama=m
+who  CORE.SG father=2sE
 'Who is your father?'
 
 # Week 4
-# NOTE: This judgment is pending prof's input.
-# Rubino states that ania and sino always appear in an absolutive
-# role with respect to the verb.
-# Does this mean that an absolutive enclitic pronoun on the following
-# verb would render the question ungrammatical?
-# 
 # A 'who' question with absolutive enclitic pronoun on the verb.
-# Source: author
-# Vetted: f
-# Judgment: u
-# Phenomena: {wh}
-# Sino	ti	nakitaka?
-# sino	ti	na-kita=ka?
-# who	CORE.SG	PF.T-see=2sA
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {wh}
+Sino ti      nakitaka?
+sino ti      na-kita=ka
+who  CORE.SG PF.T-see=2sA
+'Who saw you?'
 
 ######################################
 ######### Matrix yes-no questions ####
 ######################################
 
-# Leaving this section blank for now, as Y/N questions are distinguished solely
-# by intonation, or by an optional particle that the customization does not
-# support.
+# A treatment of yes-no questions will be documented in the writeup
 
 ######################################
 ######### NEGATION ###################
