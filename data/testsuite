@@ -498,10 +498,10 @@ Source: a:493
 Vetted: s
 Judgment: g
 Phenomena: {coordination agreement}
-dagiti  lallakay kada   babbaket
-dagiti  lallakay kada   babbaket
-CORE.PL old.men  and.PL old.women
-'the old men and women (husbands and wives)'
+Nagsangit   dagiti  lallakay kada   babbaket
+n-ag-sangit dagiti  lallakay kada   babbaket
+PF-I.cry    CORE.PL old.men  and.PL old.women
+'the old men and women (husbands and wives) cried'
 
 # Week 4
 # Ken is able to have either singular or plural on either side.
@@ -509,10 +509,10 @@ Source: author
 Vetted: f
 Judgment: g
 Phenomena: {coordination agreement}
-dagiti  lallakay ken   babbaket
-dagiti  lallakay ken   babbaket
-CORE.PL old.men  and   old.women
-'the old men and women (husbands and wives)'
+Nagsangit   dagiti  lallakay ken   babbaket
+n-ag-sangit dagiti  lallakay ken   babbaket
+PF-I.cry    CORE.PL old.men  and   old.women
+'the old men and women (husbands and wives) cried'
 
 # Week 4
 # Ken has a plural form, kada, used to coordinate plural nouns only.
@@ -520,10 +520,10 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: {coordination agreement}
-Ti      lalaki kada   ti      babai
-ti      lalaki kada   ti      babai
-CORE.SG boy    and.PL CORE.SG girl
-'the boy and the girl'
+Nagsangit    ti      lalaki kada   ti      babai
+n-ag-sangit  ti      lalaki kada   ti      babai
+ PF-I.cry    CORE.SG boy    and.PL CORE.SG girl
+'the boy and the girl cried'
 
 
 ######################################

@@ -35,7 +35,7 @@ tulbek := common-noun-lex &
 
 rabaw := common-noun-lex &
   [ STEM < "rabaw" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_table_n_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "_top_n_rel" ].
 
 ubing := common-noun-lex &
   [ STEM < "ubing" >,
@@ -52,6 +52,22 @@ alingo := common-noun-lex &
 tengnged := common-noun-lex &
   [ STEM < "tengnged" >,
     SYNSEM.LKEYS.KEYREL.PRED "_neck_n_rel" ].
+
+aso := common-noun-lex &
+  [ STEM < "aso" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_dog_n_rel" ].
+
+pusa := common-noun-lex &
+  [ STEM < "pusa" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cat_n_rel" ].
+
+ama := common-noun-lex &
+  [ STEM < "ama" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_father_n_rel" ].
+
+lamisaan := common-noun-lex &
+  [ STEM < "lamisaan" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_table_n_rel" ].
 
 ko := erg-1sg-noun-lex &
   [ STEM < "ko" >,
@@ -133,6 +149,14 @@ isuda := ind-3pl-noun-lex &
   [ STEM < "isuda" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
+lallakay := redup-gem-noun-lex &
+  [ STEM < "lallakay" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_oldmen_n_rel" ].
+
+babbaket := redup-gem-noun-lex &
+  [ STEM < "babbaket" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_oldwomen_n_rel" ].
+
 ;;; Adjectives
 
 na-labaga := adj-adj-lex &
@@ -201,7 +225,7 @@ tudo := intrans-verb-lex &
   [ STEM < "tudo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_rain_v_rel" ].
 
-sukat := intrans-verb-lex &
+sukat_1 := intrans-verb-lex &
   [ STEM < "sukat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_change_v_rel" ].
 
@@ -216,6 +240,66 @@ umanges := intrans-verb-lex &
 basa := intrans-verb-lex &
   [ STEM < "basa" >,
     SYNSEM.LKEYS.KEYREL.PRED "_read_v_rel" ].
+
+subli := intrans-verb-lex &
+  [ STEM < "subli" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_return_v_rel" ].
+
+panunot := intrans-verb-lex &
+  [ STEM < "panunot" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel" ].
+
+sao := intrans-verb-lex &
+  [ STEM < "sao" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_speak_v_rel" ].
+
+sukat_2 := intrans-verb-lex &
+  [ STEM < "sukat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_change_v_rel" ].
+
+lualo := intrans-verb-lex &
+  [ STEM < "lualo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pray_v_rel" ].
+
+kanta := intrans-verb-lex &
+  [ STEM < "kanta" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_sing_v_rel" ].
+
+pan := intrans-verb-lex &
+  [ STEM < "pan" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_go_v_rel" ].
+
+uray := intrans-verb-lex &
+  [ STEM < "uray" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wait_v_rel" ].
+
+sapul := intrans-verb-lex &
+  [ STEM < "sapul" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_search_v_rel" ].
+
+sardeng := intrans-verb-lex &
+  [ STEM < "sardeng" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_stop_v_rel" ].
+
+inana := intrans-verb-lex &
+  [ STEM < "inana" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_rest_v_rel" ].
+
+rugi := intrans-verb-lex &
+  [ STEM < "rugi" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_start_v_rel" ].
+
+arbis := intrans-verb-lex &
+  [ STEM < "arbis" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_drizzle_v_rel" ].
+
+ammo := intrans-verb-lex &
+  [ STEM < "ammo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel" ].
+
+lipat := intrans-verb-lex &
+  [ STEM < "lipat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_forget_v_rel" ].
 
 kita := trans-verb-lex &
   [ STEM < "kita" >,
@@ -259,11 +343,6 @@ wenno3 := conj-lex &
   [ STEM < "wenno" >,
     SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
     CFORM "3" ].
-
-ngem4 := conj-lex &
-  [ STEM < "ngem" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
-    CFORM "4" ].
 
 kada5 := conj-lex &
   [ STEM < "kada" >,
