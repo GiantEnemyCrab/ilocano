@@ -115,6 +115,13 @@ want=ERG.1SG CORE.SG house ADJ-red
 ######### ADVERBS ####################
 ######################################
 
+# Because Ilocano adverbs could constitute a broad and diverse, only manner adverbs (such as English
+# "quickly"-equivalenti) are considered.
+# In Ilocano, such adverbial behavior can be achieved by use of an adjective, followed by Ilocano ligature, "(ng)a"
+# (nga or a), which is followed by a verbal predicate.
+# The word order is: ADJ -> LIG -> finite clause
+# Another way to achieve the adverbial behavior is by use of oblique noun marker, 'iti', along the the adjective. For this, a verbal predica
+
 # Week 4
 # 1. use of an adjective with the ligature, "a":
 Source: a:354
@@ -170,23 +177,11 @@ i-gaed=na          ti      ag-adal
 T-diligent=ERG.3SG CORE.SG I-study
 `He studied diligently`
 
-# Week 4
-# 4. use of an adverb-like lexeme that does a require the ligature
-# (ng)a when linking to a constituent- These words form a closed
-# class and may aiso function as adjectives
-Source: a:355
-Vetted: s
-Judgment: g
-Phenomena: {adverbs}
-Nagistayan ginetteb        ti      alingo    ti      tengngedna
-Nagistayan getteb-{in}     ti      alingo    ti      tengnged=na
-almost     tear.off-{PF.T} CORE.SG wild.boar CORE.SG neck=ERG.3SG
-`The wild boar almost cut his neck`
-
 
 ######################################
 ######### AGREEMENT ##################
 ######################################
+
 
 ######################################
 ######### ARGUMENT OPTIONALITY #######
