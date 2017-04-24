@@ -1,26 +1,54 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Inflecting Lexical Rule Instances
 
-perf-asp-infl-prefix :=
+perf-asp-prefix-prefix1 :=
 %prefix (* n-)
-perf-asp-infl-lex-rule.
+perf-asp-prefix-lex-rule.
 
-imperf-asp-redup-suffix :=
+perf-asp-prefix-prefix2 :=
+%prefix (* na-)
+perf-asp-prefix-lex-rule.
+
+imperf-asp-redup-suffix-suffix :=
 %suffix (* -RR)
-imperf-asp-redup-lex-rule.
-
-intrans-prefix-prefix :=
-%prefix (* ag-)
-intrans-prefix-lex-rule.
-
-intrans-infix-suffix :=
-%suffix (* -{um})
-intrans-infix-lex-rule.
+imperf-asp-redup-suffix-lex-rule.
 
 perf-asp-infix-suffix :=
 %suffix (* -{in})
 perf-asp-infix-lex-rule.
 
-trans-perf-infix-prefix :=
-%prefix (* na-)
-trans-perf-infix-lex-rule.
+actor-focus-prefix-prefix1 :=
+%prefix (* ag-)
+actor-focus-prefix-lex-rule.
+
+actor-focus-prefix-prefix2 :=
+%prefix (* mang-)
+actor-focus-prefix-lex-rule.
+
+comitative-focus-prefix-prefix1 :=
+%prefix (* ka-)
+comitative-focus-prefix-lex-rule.
+
+comitative-focus-prefix-prefix2 :=
+%prefix (* ma-)
+comitative-focus-prefix-lex-rule.
+
+theme-focus-prefix-prefix :=
+%prefix (* i-)
+theme-focus-prefix-lex-rule.
+
+instrumental-focus-prefix-prefix :=
+%prefix (* pag-)
+instrumental-focus-prefix-lex-rule.
+
+actor-focus-infix-suffix :=
+%suffix (* -{um})
+actor-focus-infix-lex-rule.
+
+patient-focus-suffix-suffix :=
+%suffix (* -en)
+patient-focus-suffix-lex-rule.
+
+locative-focus-suffix-suffix :=
+%suffix (* -an)
+locative-focus-suffix-lex-rule.

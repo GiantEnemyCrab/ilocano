@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Sat Apr 22 06:45:04 UTC 2017
+;;;     Mon Apr 24 04:54:43 UTC 2017
 ;;; based on Matrix customization system version of:
 ;;;     Fri Apr 21 07:02:53 UTC 2017
 ;;;
@@ -23,6 +23,10 @@ noun :+ [ CASE case ].
 head :+ [ AUX bool,
     FORM form ].
 
+inflected :+ [ IMPERF-ASP-REDUP-SUFFIX-FLAG luk ].
+
+infl-satisfied :+ [ IMPERF-ASP-REDUP-SUFFIX-FLAG na-or-+ ].
+
 png :+ [ PERNUM pernum,
     GEND gender ].
 
@@ -42,11 +46,13 @@ basic-head-opt-comp-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ < > ].
 
 case := *top*.
 foc := case.  ; focus-case
-obl := case.  ; obliq
-cor+abs := case.
+cor+abs+erg := case.
+obl+cor+abs := case.
+obl := obl+cor+abs.
+cor+abs := obl+cor+abs & cor+abs+erg.
 cor := cor+abs & cor+erg.
 abs := cor+abs.
-cor+erg := case.
+cor+erg := cor+abs+erg.
 erg := cor+erg.
 
 ;;; Pernum
@@ -203,9 +209,28 @@ ind-3pl-noun-lex := ind-pron-noun-lex &
 redup-gem-noun-lex := obl-spr-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ].
 
+obl-pron-noun-lex := pron-noun-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE obl ].
+
+obl-1sg-noun-lex := obl-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1sg ].
+
+obl-2sg-noun-lex := obl-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 2sg ].
+
+obl-3sg-noun-lex := obl-pron-noun-lex.
+
+obl-1pl-noun-lex := obl-pron-noun-lex.
+
+obl-2pl-noun-lex := obl-pron-noun-lex.
+
+obl-du-noun-lex := obl-pron-noun-lex.
+
+obl-3pl-noun-lex := pron-noun-lex.
+
 ;;; Verbs
 
-verb-lex := non-mod-lex-item & aspect-prefix-rule-dtr & int-infix-rule-dtr &
+verb-lex := non-mod-lex-item &
   [ SYNSEM.LOCAL.CAT [ HEAD verb,
                        HC-LIGHT - ] ].
 
@@ -227,7 +252,7 @@ intransitive-verb-lex := main-verb-lex & intransitive-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS < >,
     ARG-ST.FIRST.LOCAL.CAT.HEAD noun ].
 
-transitive-verb-lex := main-verb-lex & transitive-lex-item &
+transitive-verb-lex := main-verb-lex & transitive-lex-item & aspect-infix-or-aspect-prefix-rule-dtr & focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
     ARG-ST < [ LOCAL.CAT.HEAD noun ],
              #comps &
@@ -235,18 +260,11 @@ transitive-verb-lex := main-verb-lex & transitive-lex-item &
                                  COMPS < > ],
                            HEAD noun ] ] > ].
 
-intrans-verb-lex := intransitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
-
 trans-verb-lex := transitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL [ COMPS.FIRST.LOCAL.CAT.HEAD.CASE cor+abs,
-                           SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+erg,
-                                        OPT - ] ] ].
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs+erg,
+                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE obl+cor+abs ] ].
 
-no-obj-drop-verb-lex := transitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.OPT - ].
-
-obj-drop-verb-lex := transitive-verb-lex.
+intrans-verb-lex := intransitive-verb-lex.
 
 ;;; Auxiliaries
 
@@ -329,55 +347,103 @@ obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
 ;;; Lexical Rules
 ;;;;;;;;;;;;;;;;;;;
 
+; Adjective Incorporation
+
+adj_incorporation-lex-rule := add-only-rule &
+  [ C-CONT [ RELS <! arg1-ev-relation &
+                     [ LBL #ltop,
+                       ARG1 #index ] !>,
+             HOOK #hook ],
+    DTR.SYNSEM.LOCAL [ CAT.HEAD noun,
+                       CONT.HOOK #hook &
+                                 [ LTOP #ltop,
+                                   INDEX #index ] ] ].
+
 ;;; Intermediate rule types
 
-int-infix-rule-dtr := word-or-lexrule.
-aspect-prefix-rule-dtr := word-or-lexrule.
+aspect-infix-or-aspect-prefix-rule-dtr := word-or-lexrule.
+focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
 aspect-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ DTR aspect-prefix-rule-dtr ].
+  [ INFLECTED #infl,
+    DTR aspect-infix-or-aspect-prefix-rule-dtr &
+        [ INFLECTED #infl &
+                    [ IMPERF-ASP-REDUP-SUFFIX-FLAG na ] ] ].
 
-perf-asp-infl-lex-rule := aspect-prefix-lex-rule-super &
+perf-asp-prefix-lex-rule := aspect-prefix-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
 
-aspect-suffix-lex-rule-super := add-only-no-ccont-rule & aspect-prefix-rule-dtr & infl-lex-rule &
-  [ DTR verb-lex ].
+aspect-suffix-lex-rule-super := add-only-no-ccont-rule & aspect-infix-or-aspect-prefix-rule-dtr & focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr & infl-lex-rule &
+  [ INFLECTED #infl,
+    DTR trans-verb-lex &
+        [ INFLECTED #infl ] ].
 
-imperf-asp-redup-lex-rule := aspect-suffix-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT imperfective ].
+imperf-asp-redup-suffix-lex-rule := aspect-suffix-lex-rule-super &
+  [ INFLECTED.IMPERF-ASP-REDUP-SUFFIX-FLAG +,
+    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT imperfective ].
 
-int-prefix-lex-rule-super := add-only-no-ccont-rule & aspect-prefix-rule-dtr & infl-lex-rule &
-  [ DTR verb-lex ].
-
-intrans-prefix-lex-rule := int-prefix-lex-rule-super &
-  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
-
-int-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ DTR int-infix-rule-dtr ].
-
-intrans-infix-lex-rule := int-infix-lex-rule-super &
-  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ].
-
-aspect-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule & int-infix-rule-dtr &
-  [ DTR verb-lex ].
+aspect-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED #infl,
+    DTR aspect-infix-or-aspect-prefix-rule-dtr &
+        [ INFLECTED #infl ] ].
 
 perf-asp-infix-lex-rule := aspect-infix-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
 
-trans-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ DTR transitive-verb-lex ].
+focus-prefix-lex-rule-super := add-only-no-ccont-rule & aspect-infix-or-aspect-prefix-rule-dtr & infl-lex-rule &
+  [ INFLECTED #infl,
+    DTR focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr &
+        [ INFLECTED #infl ] ].
 
-trans-perf-infix-lex-rule := trans-prefix-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
+actor-focus-prefix-lex-rule := focus-prefix-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                        OPT + ],
+                           COMPS.FIRST [ LOCAL.CAT.HEAD.CASE obl,
+                                         OPT + ] ] ].
+
+goal-focus-prefix-lex-rule := focus-prefix-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
+                           COMPS.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                         OPT + ] ] ].
+
+comitative-focus-prefix-lex-rule := goal-focus-prefix-lex-rule.
+
+theme-focus-prefix-lex-rule := goal-focus-prefix-lex-rule.
+
+instrumental-focus-prefix-lex-rule := goal-focus-prefix-lex-rule.
+
+focus-infix-lex-rule-super := add-only-no-ccont-rule & aspect-infix-or-aspect-prefix-rule-dtr & infl-lex-rule &
+  [ INFLECTED #infl,
+    DTR focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr &
+        [ INFLECTED #infl ] ].
+
+actor-focus-infix-lex-rule := focus-infix-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL [ COMPS.FIRST.LOCAL.CAT.HEAD.CASE obl,
+                           SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                        OPT + ] ] ].
+
+focus-suffix-lex-rule-super := add-only-no-ccont-rule & aspect-infix-or-aspect-prefix-rule-dtr & infl-lex-rule &
+  [ INFLECTED #infl,
+    DTR focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr &
+        [ INFLECTED #infl ] ].
+
+goal-focus-suffix-lex-rule := focus-suffix-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
+                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ] ].
+
+patient-focus-suffix-lex-rule := goal-focus-suffix-lex-rule.
+
+locative-focus-suffix-lex-rule := goal-focus-suffix-lex-rule.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types
 ;;;;;;;;;;;;;;;;;;;
 
 context1-decl-head-opt-subj-phrase := decl-head-opt-subj-phrase &
-  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs ].
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE abs,
+                                                     CONT.HOOK.INDEX.PNG.PERNUM 3sg ] ].
 
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2
