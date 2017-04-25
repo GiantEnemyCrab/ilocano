@@ -2,9 +2,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Ilocano
 ;;; created at:
-;;;     Mon Apr 24 04:54:43 UTC 2017
+;;;     Tue Apr 25 06:16:32 UTC 2017
 ;;; based on Matrix customization system version of:
-;;;     Fri Apr 21 07:02:53 UTC 2017
+;;;     Tue Apr 25 03:52:37 UTC 2017
 ;;;
 ;;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -23,9 +23,13 @@ noun :+ [ CASE case ].
 head :+ [ AUX bool,
     FORM form ].
 
-inflected :+ [ IMPERF-ASP-REDUP-SUFFIX-FLAG luk ].
+inflected :+ [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG luk,
+    ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG luk,
+    ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG luk ].
 
-infl-satisfied :+ [ IMPERF-ASP-REDUP-SUFFIX-FLAG na-or-+ ].
+infl-satisfied :+ [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG na-or-+,
+    ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG na-or-+,
+    ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG na-or-+ ].
 
 png :+ [ PERNUM pernum,
     GEND gender ].
@@ -49,11 +53,11 @@ foc := case.  ; focus-case
 cor+abs+erg := case.
 obl+cor+abs := case.
 obl := obl+cor+abs.
-cor+abs := obl+cor+abs & cor+abs+erg.
-cor := cor+abs & cor+erg.
-abs := cor+abs.
 cor+erg := cor+abs+erg.
+cor := cor+erg & cor+abs.
 erg := cor+erg.
+cor+abs := obl+cor+abs & cor+abs+erg.
+abs := cor+abs.
 
 ;;; Pernum
 
@@ -252,7 +256,7 @@ intransitive-verb-lex := main-verb-lex & intransitive-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS < >,
     ARG-ST.FIRST.LOCAL.CAT.HEAD noun ].
 
-transitive-verb-lex := main-verb-lex & transitive-lex-item & aspect-infix-or-aspect-prefix-rule-dtr & focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr &
+transitive-verb-lex := main-verb-lex & transitive-lex-item & fossil-aspect-infix-or-fossil-aspect-prefix-rule-dtr & only-focus-prefix-or-only-focus-suffix-or-infx-rule-dtr &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
     ARG-ST < [ LOCAL.CAT.HEAD noun ],
              #comps &
@@ -262,7 +266,8 @@ transitive-verb-lex := main-verb-lex & transitive-lex-item & aspect-infix-or-asp
 
 trans-verb-lex := transitive-verb-lex &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+abs+erg,
-                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE obl+cor+abs ] ].
+                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE obl+cor+abs ],
+    INFLECTED.ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG - ].
 
 intrans-verb-lex := intransitive-verb-lex.
 
@@ -361,81 +366,160 @@ adj_incorporation-lex-rule := add-only-rule &
 
 ;;; Intermediate rule types
 
-aspect-infix-or-aspect-prefix-rule-dtr := word-or-lexrule.
-focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr := word-or-lexrule.
+fossil-aspect-infix-or-fossil-aspect-prefix-rule-dtr := word-or-lexrule.
+only-focus-prefix-or-only-focus-suffix-or-infx-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
-aspect-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ INFLECTED #infl,
-    DTR aspect-infix-or-aspect-prefix-rule-dtr &
-        [ INFLECTED #infl &
-                    [ IMPERF-ASP-REDUP-SUFFIX-FLAG na ] ] ].
+only-focus-suffix-or-infx-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG +,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG +,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ],
+    DTR only-focus-prefix-or-only-focus-suffix-or-infx-rule-dtr &
+        [ INFLECTED.FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ] ].
 
-perf-asp-prefix-lex-rule := aspect-prefix-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
+only-goal-focus-suffix-lex-lex-rule := only-focus-suffix-or-infx-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
+                           COMPS.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                         OPT + ] ] ].
 
-aspect-suffix-lex-rule-super := add-only-no-ccont-rule & aspect-infix-or-aspect-prefix-rule-dtr & focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr & infl-lex-rule &
-  [ INFLECTED #infl,
-    DTR trans-verb-lex &
-        [ INFLECTED #infl ] ].
-
-imperf-asp-redup-suffix-lex-rule := aspect-suffix-lex-rule-super &
-  [ INFLECTED.IMPERF-ASP-REDUP-SUFFIX-FLAG +,
-    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT imperfective ].
-
-aspect-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ INFLECTED #infl,
-    DTR aspect-infix-or-aspect-prefix-rule-dtr &
-        [ INFLECTED #infl ] ].
-
-perf-asp-infix-lex-rule := aspect-infix-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
-
-focus-prefix-lex-rule-super := add-only-no-ccont-rule & aspect-infix-or-aspect-prefix-rule-dtr & infl-lex-rule &
-  [ INFLECTED #infl,
-    DTR focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr &
-        [ INFLECTED #infl ] ].
-
-actor-focus-prefix-lex-rule := focus-prefix-lex-rule-super &
+only-actor-focus-infix-lex-lex-rule := only-focus-suffix-or-infx-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
                                         OPT + ],
                            COMPS.FIRST [ LOCAL.CAT.HEAD.CASE obl,
                                          OPT + ] ] ].
 
-goal-focus-prefix-lex-rule := focus-prefix-lex-rule-super &
+only-aspect-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG +,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ],
+    DTR trans-verb-lex &
+        [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                      ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ] ] ].
+
+only-perf-aspect-prefix-lex-lex-rule := only-aspect-prefix-lex-rule-super &
+  [ SYNSEM.LOCAL [ CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
+                             COMPS.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                           OPT + ] ],
+                   CONT.HOOK.INDEX.E.ASPECT perfective ] ].
+
+productive-focus-suffix-or-infix-lex-rule-super := add-only-no-ccont-rule & fossil-aspect-infix-or-fossil-aspect-prefix-rule-dtr & infl-lex-rule &
+  [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG -,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG +,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ],
+    DTR trans-verb-lex &
+        [ INFLECTED.ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ] ].
+
+productive-actor-focus-infix-lex-lex-rule := productive-focus-suffix-or-infix-lex-rule-super &
+  [ INFLECTED.FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG -,
+    SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                        OPT + ],
+                           COMPS.FIRST [ LOCAL.CAT.HEAD.CASE obl,
+                                         OPT + ] ] ].
+
+productive-goal-focus-suffix-lex-lex-rule := productive-focus-suffix-or-infix-lex-rule-super &
+  [ INFLECTED.FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG -,
+    SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
+                           COMPS.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                         OPT + ] ] ].
+
+fossil-aspect-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG +,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ],
+    DTR fossil-aspect-infix-or-fossil-aspect-prefix-rule-dtr &
+        [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup,
+                      ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ] ] ].
+
+fossil-aspect-prefix-lex-lex-rule := fossil-aspect-prefix-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
+
+only-focus-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG +,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG +,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ],
+    DTR only-focus-prefix-or-only-focus-suffix-or-infx-rule-dtr &
+        [ INFLECTED.FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ] ].
+
+only-actor-focus-prefix-lex-lex-rule := only-focus-prefix-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                        OPT + ],
+                           COMPS.FIRST [ LOCAL.CAT.HEAD.CASE obl,
+                                         OPT + ] ] ].
+
+only-goal-focus-prefix-lex-lex-rule := only-focus-prefix-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
                            COMPS.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
                                          OPT + ] ] ].
 
-comitative-focus-prefix-lex-rule := goal-focus-prefix-lex-rule.
+productive-focus-prefix-lex-rule-super := add-only-no-ccont-rule & fossil-aspect-infix-or-fossil-aspect-prefix-rule-dtr & infl-lex-rule &
+  [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG -,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG +,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ],
+    DTR trans-verb-lex &
+        [ INFLECTED.ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ] ].
 
-theme-focus-prefix-lex-rule := goal-focus-prefix-lex-rule.
+productive-actor-focus-prefix-lex-rule := productive-focus-prefix-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                        OPT + ],
+                           COMPS.FIRST [ LOCAL.CAT.HEAD.CASE obl,
+                                         OPT + ] ] ].
 
-instrumental-focus-prefix-lex-rule := goal-focus-prefix-lex-rule.
-
-focus-infix-lex-rule-super := add-only-no-ccont-rule & aspect-infix-or-aspect-prefix-rule-dtr & infl-lex-rule &
-  [ INFLECTED #infl,
-    DTR focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr &
-        [ INFLECTED #infl ] ].
-
-actor-focus-infix-lex-rule := focus-infix-lex-rule-super &
-  [ SYNSEM.LOCAL.CAT.VAL [ COMPS.FIRST.LOCAL.CAT.HEAD.CASE obl,
-                           SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
-                                        OPT + ] ] ].
-
-focus-suffix-lex-rule-super := add-only-no-ccont-rule & aspect-infix-or-aspect-prefix-rule-dtr & infl-lex-rule &
-  [ INFLECTED #infl,
-    DTR focus-infix-or-focus-prefix-or-focus-suffix-rule-dtr &
-        [ INFLECTED #infl ] ].
-
-goal-focus-suffix-lex-rule := focus-suffix-lex-rule-super &
+productive-goal-focus-prefix-lex-rule := productive-focus-prefix-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
-                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE cor+abs ] ].
+                           COMPS.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                         OPT + ] ] ].
 
-patient-focus-suffix-lex-rule := goal-focus-suffix-lex-rule.
+only-aspect-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG +,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ],
+    DTR trans-verb-lex &
+        [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                      ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ] ] ].
 
-locative-focus-suffix-lex-rule := goal-focus-suffix-lex-rule.
+only-perf-aspect-infix-lex-lex-rule := only-aspect-infix-lex-rule-super &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective,
+                   CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
+                             COMPS.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                           OPT + ] ] ] ].
+
+fossil-aspect-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG +,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ],
+    DTR fossil-aspect-infix-or-fossil-aspect-prefix-rule-dtr &
+        [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup,
+                      ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ] ] ].
+
+fossil-perf-aspect-infix-lex-lex-rule := fossil-aspect-infix-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
+
+only-aspect-suffix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG +,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ],
+    DTR trans-verb-lex &
+        [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                      ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ] ] ].
+
+imperf-aspect-redup-lex-lex-rule := only-aspect-suffix-lex-rule-super &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT imperfective,
+                   CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
+                             COMPS.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                           OPT + ] ] ] ].
+
+productive-imperf-aspect-redup-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule & only-focus-prefix-or-only-focus-suffix-or-infx-rule-dtr &
+  [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG +,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ],
+    DTR trans-verb-lex &
+        [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                      ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG #only-focus-prefix-or-only-focus-suffix-or-infx ] ] ].
+
+productive-imperf-aspect-redup-lex-lex-rule := productive-imperf-aspect-redup-lex-rule-super &
+  [ INFLECTED.ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG -,
+    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT imperfective ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types
@@ -561,9 +645,8 @@ s3-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
 
 ;;; Feature Resolution Rules
 
-non-sg-non-sg-non-sg-pernum-coord-rule := coord-phrase &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM non-sg,
-    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM non-sg,
+non-sg-non-sg-any-pernum-coord-rule := coord-phrase &
+  [ LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM non-sg,
     RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM non-sg ].
 
 pass-up-png-coord-rule := bottom-coord-phrase &
@@ -572,7 +655,7 @@ pass-up-png-coord-rule := bottom-coord-phrase &
 
 ;;; Coordination Strategy 5
 
-n5-non-sg-non-sg-non-sg-top-coord-rule := basic-n-top-coord-rule & apoly-top-coord-rule & non-sg-non-sg-non-sg-pernum-coord-rule &
+n5-non-sg-non-sg-any-top-coord-rule := basic-n-top-coord-rule & apoly-top-coord-rule & non-sg-non-sg-any-pernum-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "5" ].
 
 n5-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase & pass-up-png-coord-rule &
