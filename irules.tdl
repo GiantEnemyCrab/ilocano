@@ -1,26 +1,106 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Inflecting Lexical Rule Instances
 
-perf-asp-infl-prefix :=
-%prefix (* n-)
-perf-asp-infl-lex-rule.
+only-goal-focus-suffix-lex-suffix1 :=
+%suffix (* -en)
+only-goal-focus-suffix-lex-lex-rule.
 
-imperf-asp-redup-suffix :=
-%suffix (* -RR)
-imperf-asp-redup-lex-rule.
+only-goal-focus-suffix-lex-suffix2 :=
+%suffix (* -an)
+only-goal-focus-suffix-lex-lex-rule.
 
-intrans-prefix-prefix :=
-%prefix (* ag-)
-intrans-prefix-lex-rule.
-
-intrans-infix-suffix :=
+only-actor-focus-infix-lex-suffix :=
 %suffix (* -{um})
-intrans-infix-lex-rule.
+only-actor-focus-infix-lex-lex-rule.
 
-perf-asp-infix-suffix :=
-%suffix (* -{in})
-perf-asp-infix-lex-rule.
-
-trans-perf-infix-prefix :=
+only-perf-aspect-prefix-lex-prefix1 :=
 %prefix (* na-)
-trans-perf-infix-lex-rule.
+only-perf-aspect-prefix-lex-lex-rule.
+
+only-perf-aspect-prefix-lex-prefix2 :=
+%prefix (* n-)
+only-perf-aspect-prefix-lex-lex-rule.
+
+productive-goal-focus-suffix-lex-suffix1 :=
+%suffix (* -en)
+productive-goal-focus-suffix-lex-lex-rule.
+
+productive-goal-focus-suffix-lex-suffix2 :=
+%suffix (* -an)
+productive-goal-focus-suffix-lex-lex-rule.
+
+productive-actor-focus-infix-lex-suffix :=
+%suffix (* -{um})
+productive-actor-focus-infix-lex-lex-rule.
+
+fossil-aspect-prefix-lex-prefix1 :=
+%prefix (* na-)
+fossil-aspect-prefix-lex-lex-rule.
+
+fossil-aspect-prefix-lex-prefix2 :=
+%prefix (* n-)
+fossil-aspect-prefix-lex-lex-rule.
+
+only-actor-focus-prefix-lex-prefix1 :=
+%prefix (* ag-)
+only-actor-focus-prefix-lex-lex-rule.
+
+only-actor-focus-prefix-lex-prefix2 :=
+%prefix (* mang-)
+only-actor-focus-prefix-lex-lex-rule.
+
+only-goal-focus-prefix-lex-prefix1 :=
+%prefix (* pag-)
+only-goal-focus-prefix-lex-lex-rule.
+
+only-goal-focus-prefix-lex-prefix2 :=
+%prefix (* i-)
+only-goal-focus-prefix-lex-lex-rule.
+
+only-goal-focus-prefix-lex-prefix3 :=
+%prefix (* ka-)
+only-goal-focus-prefix-lex-lex-rule.
+
+only-goal-focus-prefix-lex-prefix4 :=
+%prefix (* ma-)
+only-goal-focus-prefix-lex-lex-rule.
+
+productive-actor-focus-prefix-prefix1 :=
+%prefix (* ag-)
+productive-actor-focus-prefix-lex-rule.
+
+productive-actor-focus-prefix-prefix2 :=
+%prefix (* mang-)
+productive-actor-focus-prefix-lex-rule.
+
+productive-goal-focus-prefix-prefix1 :=
+%prefix (* pag-)
+productive-goal-focus-prefix-lex-rule.
+
+productive-goal-focus-prefix-prefix2 :=
+%prefix (* i-)
+productive-goal-focus-prefix-lex-rule.
+
+productive-goal-focus-prefix-prefix3 :=
+%prefix (* ka-)
+productive-goal-focus-prefix-lex-rule.
+
+productive-goal-focus-prefix-prefix4 :=
+%prefix (* ma-)
+productive-goal-focus-prefix-lex-rule.
+
+only-perf-aspect-infix-lex-suffix :=
+%suffix (* -{in})
+only-perf-aspect-infix-lex-lex-rule.
+
+fossil-perf-aspect-infix-lex-suffix :=
+%suffix (* -{in})
+fossil-perf-aspect-infix-lex-lex-rule.
+
+imperf-aspect-redup-lex-suffix :=
+%suffix (* -RR)
+imperf-aspect-redup-lex-lex-rule.
+
+productive-imperf-aspect-redup-lex-suffix :=
+%suffix (* -RR)
+productive-imperf-aspect-redup-lex-lex-rule.

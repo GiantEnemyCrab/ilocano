@@ -71,34 +71,38 @@ lamisaan := common-noun-lex &
 
 ko := erg-1sg-noun-lex &
   [ STEM < "ko" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 mo := erg-2sg-noun-lex &
   [ STEM < "mo" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 na := erg-3sg-noun-lex &
   [ STEM < "na" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 da_1 := erg-3pl-noun-lex &
   [ STEM < "da" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 ak := abs-1sg-noun-lex &
   [ STEM < "ak" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 ka := abs-2sg-noun-lex &
   [ STEM < "ka" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 da_2 := abs-3pl-noun-lex &
   [ STEM < "da" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pron_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 tayo_1 := abs-1pl-noun-lex &
   [ STEM < "tayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kami := abs-1pl-noun-lex &
+  [ STEM < "kami" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 kayo := abs-2pl-noun-lex &
@@ -111,6 +115,10 @@ ta_1 := abs-du-noun-lex &
 
 tayo_2 := erg-1pl-noun-lex &
   [ STEM < "tayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+mi := erg-1pl-noun-lex &
+  [ STEM < "mi" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 ta_2 := erg-du-noun-lex &
@@ -156,6 +164,42 @@ lallakay := redup-gem-noun-lex &
 babbaket := redup-gem-noun-lex &
   [ STEM < "babbaket" >,
     SYNSEM.LKEYS.KEYREL.PRED "_oldwomen_n_rel" ].
+
+kaniak := obl-1sg-noun-lex &
+  [ STEM < "kaniak" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kaniam := obl-2sg-noun-lex &
+  [ STEM < "kaniam" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kenka := obl-2sg-noun-lex &
+  [ STEM < "kenka" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kaniana := obl-3sg-noun-lex &
+  [ STEM < "kaniana" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kaniatayo := obl-1pl-noun-lex &
+  [ STEM < "kaniatayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kaniami := obl-1pl-noun-lex &
+  [ STEM < "kaniami" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kaniayo := obl-2pl-noun-lex &
+  [ STEM < "kaniayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kaniata := obl-du-noun-lex &
+  [ STEM < "kaniata" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kaniada := obl-3pl-noun-lex &
+  [ STEM < "kaniada" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 ;;; Adjectives
 
@@ -211,93 +255,105 @@ akikid := adj-adj-lex &
   [ STEM < "akikid" >,
     SYNSEM.LKEYS.KEYREL.PRED "_narrow_a_rel" ].
 
+asul := adj-adj-lex &
+  [ STEM < "asul" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_blue_a_rel" ].
+
+dakes := adj-adj-lex &
+  [ STEM < "dakes" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bad_a_rel" ].
+
+naimbag := adj-adj-lex &
+  [ STEM < "naimbag" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_good_a_rel" ].
+
 ;;; Verbs
 
-sangit := intrans-verb-lex &
+sangit := trans-verb-lex &
   [ STEM < "sangit" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
 
-laylay := intrans-verb-lex &
+laylay := trans-verb-lex &
   [ STEM < "laylay" >,
     SYNSEM.LKEYS.KEYREL.PRED "_wilt_v_rel" ].
 
-tudo := intrans-verb-lex &
+tudo := trans-verb-lex &
   [ STEM < "tudo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_rain_v_rel" ].
 
-sukat_1 := intrans-verb-lex &
+sukat_1 := trans-verb-lex &
   [ STEM < "sukat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_change_v_rel" ].
 
-taray := intrans-verb-lex &
+taray := trans-verb-lex &
   [ STEM < "taray" >,
     SYNSEM.LKEYS.KEYREL.PRED "_run_v_rel" ].
 
-umanges := intrans-verb-lex &
+umanges := trans-verb-lex &
   [ STEM < "umanges" >,
     SYNSEM.LKEYS.KEYREL.PRED "_breathe_v_rel" ].
 
-basa := intrans-verb-lex &
+basa := trans-verb-lex &
   [ STEM < "basa" >,
     SYNSEM.LKEYS.KEYREL.PRED "_read_v_rel" ].
 
-subli := intrans-verb-lex &
+subli := trans-verb-lex &
   [ STEM < "subli" >,
     SYNSEM.LKEYS.KEYREL.PRED "_return_v_rel" ].
 
-panunot := intrans-verb-lex &
+panunot := trans-verb-lex &
   [ STEM < "panunot" >,
     SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel" ].
 
-sao := intrans-verb-lex &
+sao := trans-verb-lex &
   [ STEM < "sao" >,
     SYNSEM.LKEYS.KEYREL.PRED "_speak_v_rel" ].
 
-sukat_2 := intrans-verb-lex &
+sukat_2 := trans-verb-lex &
   [ STEM < "sukat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_change_v_rel" ].
 
-lualo := intrans-verb-lex &
+lualo := trans-verb-lex &
   [ STEM < "lualo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pray_v_rel" ].
 
-kanta := intrans-verb-lex &
+kanta := trans-verb-lex &
   [ STEM < "kanta" >,
     SYNSEM.LKEYS.KEYREL.PRED "_sing_v_rel" ].
 
-pan := intrans-verb-lex &
+pan := trans-verb-lex &
   [ STEM < "pan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_go_v_rel" ].
 
-uray := intrans-verb-lex &
+uray := trans-verb-lex &
   [ STEM < "uray" >,
     SYNSEM.LKEYS.KEYREL.PRED "_wait_v_rel" ].
 
-sapul := intrans-verb-lex &
+sapul := trans-verb-lex &
   [ STEM < "sapul" >,
     SYNSEM.LKEYS.KEYREL.PRED "_search_v_rel" ].
 
-sardeng := intrans-verb-lex &
+sardeng := trans-verb-lex &
   [ STEM < "sardeng" >,
     SYNSEM.LKEYS.KEYREL.PRED "_stop_v_rel" ].
 
-inana := intrans-verb-lex &
+inana := trans-verb-lex &
   [ STEM < "inana" >,
     SYNSEM.LKEYS.KEYREL.PRED "_rest_v_rel" ].
 
-rugi := intrans-verb-lex &
+rugi := trans-verb-lex &
   [ STEM < "rugi" >,
     SYNSEM.LKEYS.KEYREL.PRED "_start_v_rel" ].
 
-arbis := intrans-verb-lex &
+arbis := trans-verb-lex &
   [ STEM < "arbis" >,
     SYNSEM.LKEYS.KEYREL.PRED "_drizzle_v_rel" ].
 
-ammo := intrans-verb-lex &
+ammo := trans-verb-lex &
   [ STEM < "ammo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel" ].
 
-lipat := intrans-verb-lex &
+lipat := trans-verb-lex &
   [ STEM < "lipat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_forget_v_rel" ].
 
@@ -309,9 +365,17 @@ kayat := trans-verb-lex &
   [ STEM < "kayat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_want_v_rel" ].
 
-lipat-an := trans-verb-lex &
-  [ STEM < "lipat-an" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_forget_v_rel" ].
+kari := trans-verb-lex &
+  [ STEM < "kari" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_promise_v_rel" ].
+
+gatang := trans-verb-lex &
+  [ STEM < "gatang" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_buy_v_rel" ].
+
+intrans_place_holder := intrans-verb-lex &
+  [ STEM < "intrans_place_holder" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_intrans_place_holder_v_rel" ].
 
 ;;; Auxiliaries
 
