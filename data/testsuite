@@ -861,6 +861,11 @@ OBL.SG top   CORE.SG table    CORE.SG key
 # Ilocano pronominal possesives, such as 'my', 'their, 'your', etc,
 # are achieved by the use of a noun with an enclitic pronoun in ergative
 # case.
+# From page 117:
+# Normally, a possessor follows the possessed referent. possessive constructions are done
+# simply by juxtaposing possessum and possessor. A possessor may be encoded with a full noun
+# phrase (the appropriate article introducing the relevant nominal possessor) or an ergative enclitic
+# pronoun.
 
 # grammatically correct possessive, using ergative enclitic pronoun
 Source: a:117
@@ -872,15 +877,28 @@ na-kita  ti      babai ti      balay=ko
 PF.T-see CORE.SG girl  CORE.SG house=ERG.1sg
 `The girl saw my house'
 
-# grammatically correct possessive 3sg
+# from p.384:
+# possession in Ilocano can be expressed by simple juxtaposition of
+# the possessed entity and possessor. in that order.
 Source: a:117
 Vetted: s
 Judgment: g
 Phenomena: {possessives}
-Diay tulbek ti      lalaki
-diay tulbek ti      lalaki
-that key    CORE.SG boy
-`The boy's key'
+Nakitako         ti      tulbek ti      lalaki
+na-kita=ko       ti      tulbek ti      lalaki
+PF.T-see=1SG.ERG CORE.SG key    CORE.SG boy
+`I saw the boy's key'
+
+# Though cannot find exact source, goal focus verb with core NP as subject,
+# followed by the possesum NP and possessor NP seems theoretically possible
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {possessives}
+Nakita   ti      babai ti      tulbek ti      lalaki
+na-kita  ti      babai ti      tulbek ti      lalaki
+PF.T-see CORE.SG girl  CORE.SG key    CORE.SG boy
+`The girl saw the boy's key'
 
 # incorrect case for possessive, using absolutive enclitic pronoun
 Source: author
@@ -901,6 +919,38 @@ Nakita   ti      babai balayak
 na-kita  ti      babai balay=ak
 PF.T-see CORE.SG girl  house=ABS.1sg
 `The girl saw my house'
+
+# Example from page a:117 but substituted a person's name (ni Maria) with a noun (ti babai)
+# This is the case where two NPs are juxtaposed
+Source: a:117
+Vetted: f
+Judgment: g
+Phenomena: {possessives}
+nakitako         ti      baiay ti      babai
+na-kita=ko       ti      baiay ti      babai
+PF.T-see=1SG.ERG CORE.SG house CORE.SG girl
+'I saw the girl's house'
+
+# This is the case where tww NPs are juxtaposed but for actor focus, the object is
+# in the oblique case, followed by the possessor, which needs to be in core case
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {possessives}
+nagkitaak        iti    baiay ti      babai
+n-ag-kita=ak     iti    baiay ti      babai
+PF-I-see=1SG.ABS OBL.SG house CORE.SG girl
+'I saw the girl's house'
+
+# two oblique case juxtaposed is not describing possessives
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {possessives}
+nagkitaak        iti     baiay iti    babai
+n-ag-kita=ak     iti     baiay iti    babai
+PF-I-see=1SG.ABS CORE.SG house OBL.SG girl
+'I saw the girl's house'
 
 
 ######################################
