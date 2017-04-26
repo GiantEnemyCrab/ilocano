@@ -344,6 +344,17 @@ obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE obl,
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
+;;; Ligature
+ligature-lex := basic-two-arg & intersective-mod-lex & raise-sem-lex-item &
+ [ SYNSEM.LOCAL [ CAT [ HEAD adp & MOD < [ ... ] >,
+                        VAL [ SPR < >,
+                              SUBJ < >,
+                              SPEC < >,
+                              COMPS < [ ... ] > ],
+                        POSTHEAD + ] ] ].
+
+
+
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Rules
 ;;;;;;;;;;;;;;;;;;;
