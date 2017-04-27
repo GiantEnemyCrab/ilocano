@@ -369,7 +369,6 @@ right-mod-ligature-lex := basic-two-arg & intersective-mod-lex & raise-sem-lex-i
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
                            [ MOD < 
                                [ LOCAL.CAT.HEAD adj,
-                                 LOCAL.CAT.VAL.SUBJ.FIRST.OPT -, ;;; FIXME: Hack to disable arg optionality within AP
                                  LOCAL.CONT.HOOK.LTOP #ltop,
                                  LOCAL.CONT.HOOK.XARG #index
                                ] >
