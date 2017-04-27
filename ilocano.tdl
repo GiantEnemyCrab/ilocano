@@ -345,23 +345,44 @@ obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
 ;;; Ligature
-ligature-lex := basic-two-arg & intersective-mod-lex & raise-sem-lex-item &
+left-mod-ligature-lex := basic-two-arg & intersective-mod-lex & raise-sem-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
                            [ MOD < 
-                               [ LOCAL.CAT
-                                   [ HEAD noun, 
-                                     VAL.SPR < > ],
-                                 LOCAL.CONT.HOOK
-                                     [ LTOP #ltop,
-                                       INDEX #index ] 
-                               ] > ],
+                               [ LOCAL.CAT.HEAD noun,
+                                 LOCAL.CAT.VAL.SPR < >,
+                                 LOCAL.CONT.HOOK.LTOP #ltop,
+                                 LOCAL.CONT.HOOK.INDEX #index
+                               ] >
+                           ],
                         VAL [ SPR < >,
                               SUBJ < >,
                               SPEC < >,
                               COMPS < [ LOCAL.CAT.HEAD adj,
                                         LOCAL.CAT.VAL.SUBJ.FIRST.OPT -, ;;; FIXME: Hack to disable arg optionality within AP
                                         LOCAL.CONT.HOOK.LTOP #ltop,
-                                        LOCAL.CONT.HOOK.XARG #index ] > ],
+                                        LOCAL.CONT.HOOK.XARG #index
+                                       ] >
+                            ],
+                        POSTHEAD + ] ] ].
+
+right-mod-ligature-lex := basic-two-arg & intersective-mod-lex & raise-sem-lex-item &
+  [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
+                           [ MOD < 
+                               [ LOCAL.CAT.HEAD adj,
+                                 LOCAL.CAT.VAL.SUBJ.FIRST.OPT -, ;;; FIXME: Hack to disable arg optionality within AP
+                                 LOCAL.CONT.HOOK.LTOP #ltop,
+                                 LOCAL.CONT.HOOK.XARG #index
+                               ] >
+                           ],
+                        VAL [ SPR < >,
+                              SUBJ < >,
+                              SPEC < >,
+                              COMPS < [ LOCAL.CAT.HEAD noun,
+                                        LOCAL.CAT.VAL.SPR < >,
+                                        LOCAL.CONT.HOOK.LTOP #ltop,
+                                        LOCAL.CONT.HOOK.INDEX #index
+                                      ] >
+                             ],
                         POSTHEAD + ] ] ].
 
 ;;;;;;;;;;;;;;;;;;;
