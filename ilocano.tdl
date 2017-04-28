@@ -349,6 +349,16 @@ adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-ite
                                                      HEAD adj ] ] > ],
                          POSTHEAD - ] ] ].
 
+adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
+  [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
+                           [ MOD < [ LOCAL.CAT.HEAD verb ] > ],
+                         VAL [ SPR < >,
+                               SUBJ < >,
+                               SPEC < >,
+                               COMPS < [ LOCAL.CAT [ VAL.SUBJ < [ ] >,
+                                                     HEAD adj ] ] > ],
+                         POSTHEAD + ] ] ].
+
 ;;; Others
 
 ;;; Determiners
