@@ -48,9 +48,9 @@ Source: a:122
 Vetted: s
 Judgment: g
 Phenomena: {adjectives}
-Kayatko      ti      nalabaga  a   balay
-Kayat=ko     ti      na-labaga a   balay
-want=ERG.1SG CORE.SG ADJ-red   LIG house
+Kayatenko      ti      nalabaga  a   balay
+Kayat-en=ko    ti      na-labaga a   balay
+want-T=ERG.1SG CORE.SG ADJ-red   LIG house
 `I want the red house`
 
 # Week 4
@@ -60,9 +60,9 @@ Source: a:139
 Vetted: f
 Judgment: g
 Phenomena: {adjectives}
-Kayatko      ti      balay a   nalabaga
-Kayat=ko     ti      balay a   na-labaga
-want=ERG.1SG CORE.SG house LIG ADJ-red
+Kayatenko      ti      balay a   nalabaga
+Kayat-en=ko    ti      balay a   na-labaga
+want-T=ERG.1SG CORE.SG house LIG ADJ-red
 `I want the red house`
 
 # Week 4
@@ -72,9 +72,9 @@ Source: author
 Vetted: f
 Judgment: g
 Phenomena: {adjectives}
-Kayatko      ti      balay a   dakkel
-Kayat=ko     ti      balay a   dakkel
-want=ERG.1SG CORE.SG house LIG big
+Kayatenko      ti      balay a   dakkel
+Kayat-en=ko    ti      balay a   dakkel
+want-T=ERG.1SG CORE.SG house LIG big
 `I want the big house`
 
 # Week 4
@@ -84,9 +84,9 @@ Source: author
 Vetted: f
 Judgment: g
 Phenomena: {adjectives}
-Kayatko      ti      balay a   akaba
-Kayat=ko     ti      balay a   akaba
-want=ERG.1SG CORE.SG house LIG wide
+Kayatenko      ti      balay a   akaba
+Kayat-en=ko    ti      balay a   akaba
+want-T=ERG.1SG CORE.SG house LIG wide
 `I want the wide house`
 
 # Here is a ungrammatical, contrasting example for attributive adjectives,
@@ -95,9 +95,9 @@ Source: author
 Vetted: f
 Judgment: f
 Phenomena: {adjectives}
-Kayatko      ti      nalabaga  balay
-Kayat=ko     ti      na-labaga balay
-want=ERG.1SG CORE.SG ADJ-red   house
+Kayatenko      ti      nalabaga  balay
+Kayat-en=ko    ti      na-labaga balay
+want-T=ERG.1SG CORE.SG ADJ-red   house
 `I want the red house`
 
 # ungrammatical adjectives as modifiers to nouns without LIG

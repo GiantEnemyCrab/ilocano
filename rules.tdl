@@ -9,6 +9,8 @@ context1-decl-head-opt-subj := context1-decl-head-opt-subj-phrase.
 
 head-comp := head-comp-phrase.
 
+comp-head := comp-head-phrase.
+
 head-subj := head-subj-phrase.
 
 head-spec := head-spec-phrase.
