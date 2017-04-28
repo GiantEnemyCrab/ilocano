@@ -21,7 +21,8 @@ non-mod-lex-item := lex-item &
 noun :+ [ CASE case ].
 
 head :+ [ AUX bool,
-    FORM form ].
+	  INIT bool,
+	  FORM form ].
 
 inflected :+ [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG luk,
     ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG luk,
@@ -41,6 +42,8 @@ basic-head-mod-phrase-simple :+ [ SYNSEM.LOCAL.CAT.MC #mc,
     NON-HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
 
 basic-head-opt-comp-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ < > ].
+
+isect-mod-phrase :+ [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
 
 ;;;;;;;;;;;;;;
 ;;; Features
@@ -300,14 +303,15 @@ neg-aux-lex := subj-raise-aux-with-pred &
 
 adj-lex := basic-intersective-adjective-lex.
 
-adj-adj-lex := attr-adj-lex & stative-pred-adj-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.PRD - ].
+adj-adj-lex := stative-pred-adj-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD [ MOD < >,
+			    PRD - ] ].
 
 ; Basic attributive adjective definition
 
-attr-adj-lex := adj-lex & intersective-mod-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
-                                              VAL.SPR cons ] ] > ].
+; attr-adj-lex := adj-lex & intersective-mod-lex &
+;   [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
+;                                               VAL.SPR cons ] ] > ].
 
 ; Stative predicate adjective definition
 
@@ -345,44 +349,21 @@ obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
 ;;; Ligature
-left-mod-ligature-lex := basic-two-arg & intersective-mod-lex & raise-sem-lex-item &
+attr-adj-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
-                           [ MOD < 
-                               [ LOCAL.CAT.HEAD noun,
-                                 LOCAL.CAT.VAL.SPR < >,
-                                 LOCAL.CONT.HOOK.LTOP #ltop,
-                                 LOCAL.CONT.HOOK.INDEX #index
-                               ] >
-                           ],
-                        VAL [ SPR < >,
-                              SUBJ < >,
-                              SPEC < >,
-                              COMPS < [ LOCAL.CAT.HEAD adj,
-                                        LOCAL.CAT.VAL.SUBJ.FIRST.OPT -, ;;; FIXME: Hack to disable arg optionality within AP
-                                        LOCAL.CONT.HOOK.LTOP #ltop,
-                                        LOCAL.CONT.HOOK.XARG #index
-                                       ] >
-                            ],
-                        POSTHEAD + ] ] ].
+                           [ INIT #init,
+                             MOD < [ LOCAL [ CAT [ HEAD noun,
+                                                   VAL.SPR < [ ] > ],
+                                             CONT.HOOK [ INDEX #index ] ]] > ],
+                         VAL [ SPR < >,
+                               SUBJ < >,
+                               SPEC < >,
+                               COMPS < #comps & [ LOCAL [ CAT [ VAL.SUBJ < [ ] >,
+                                                                HEAD adj ],
+                                                          CONT.HOOK [ XARG #index ] ] ] > ],
+                         POSTHEAD #init ] ],
+           ARG-ST < #comps > ].
 
-right-mod-ligature-lex := basic-two-arg & intersective-mod-lex & raise-sem-lex-item &
-  [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
-                           [ MOD < 
-                               [ LOCAL.CAT.HEAD adj,
-                                 LOCAL.CONT.HOOK.LTOP #ltop,
-                                 LOCAL.CONT.HOOK.XARG #index
-                               ] >
-                           ],
-                        VAL [ SPR < >,
-                              SUBJ < >,
-                              SPEC < >,
-                              COMPS < [ LOCAL.CAT.HEAD noun,
-                                        LOCAL.CAT.VAL.SPR < >,
-                                        LOCAL.CONT.HOOK.LTOP #ltop,
-                                        LOCAL.CONT.HOOK.INDEX #index
-                                      ] >
-                             ],
-                        POSTHEAD + ] ] ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Rules
@@ -556,7 +537,11 @@ context1-decl-head-opt-subj-phrase := decl-head-opt-subj-phrase &
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2
 
-head-comp-phrase := basic-head-1st-comp-phrase & head-initial.
+head-comp-phrase := basic-head-1st-comp-phrase & head-initial &
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.INIT + ].
+
+comp-head-phrase := basic-head-1st-comp-phrase & head-final &
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD adp & [ INIT - ] ].
 
 head-subj-phrase := decl-head-subj-phrase & head-initial &
   [ HEAD-DTR.SYNSEM.LIGHT + ].

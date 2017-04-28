@@ -427,11 +427,7 @@ kada5 := conj-lex &
 
 ;;; Ligature
 
-a_1 := left-mod-ligature-lex &
-  [ STEM < "a" >,
-    SYNSEM.LKEYS.KEYREL.PRED "ligature_rel" ].
-
-a_2 := right-mod-ligature-lex &
+a_1 := attr-adj-mod-ligature-lex &
   [ STEM < "a" >,
     SYNSEM.LKEYS.KEYREL.PRED "ligature_rel" ].
 
