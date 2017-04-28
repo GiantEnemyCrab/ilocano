@@ -190,6 +190,7 @@ erg-du-noun-lex := enc-pron-noun-lex &
 
 erg-2pl-noun-lex := enc-pron-noun-lex.
 
+
 ind-pron-noun-lex := pron-noun-lex.
 
 ind-1sg-noun-lex := ind-pron-noun-lex &
@@ -377,7 +378,7 @@ obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
 
 
 ;;;;;;;;;;;;;;;;;;;
-;;; Lexical Rules
+;;; Lexical Rules 
 ;;;;;;;;;;;;;;;;;;;
 
 ;;; Intermediate rule types
@@ -566,6 +567,30 @@ adj-head-int-restrict-context1-decl-phrase := adj-head-int-phrase &
 
 bare-np-phrase := basic-bare-np-phrase &
   [ C-CONT.RELS <! [ PRED "exist_q_rel" ] !> ].
+
+;;;
+;;; Possessive phrase: In all possessive constructions we've seen, the
+;;; possessum (head) is initial, and the possessor is in second position.
+;;;
+poss-phrase := head-initial &
+  [ SYNSEM.LOCAL.CAT [ HEAD #head ],
+    C-CONT [ HOOK.INDEX #index,
+	     RELS < ! arg12-ev-relation & [ PRED "poss_rel",
+                                            LBL #lbl,
+                                            ARG1 #index,
+                                            ARG2 #poss ],
+		      quant-relation & [ PRED "exist_q_rel",
+				         ARG0 #index,
+				         RSTR #harg ] ! >,
+	     HCONS < ! qeq & [ HARG #harg, LARG #lbl ] ! >,
+	     ICONS < ! ! > ],
+    HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD #head & noun & [ CASE cor ],
+				  VAL.SPR < [ ] > ],
+			    CONT.HOOK [ INDEX #index & [ COG-ST uniq+fam+act ],
+				        LTOP #lbl ] ],
+    NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun & [ CASE cor ],
+                            VAL.SPR < > ],
+                            CONT.HOOK.INDEX #poss ] ].
 
 ;;;;;;;;;;;;;;;;;;
 ;;; Coordination
