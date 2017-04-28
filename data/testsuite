@@ -50,7 +50,7 @@ Judgment: g
 Phenomena: {adjectives}
 Kayatenko      ti      nalabaga  a   balay
 Kayat-en=ko    ti      na-labaga a   balay
-want-T=ERG.1SG CORE.SG ADJ-red   LIG house
+want-GF=1SG.ERG CORE.SG ADJ-red   LIG house
 `I want the red house`
 
 # Week 4
@@ -62,7 +62,7 @@ Judgment: g
 Phenomena: {adjectives}
 Kayatenko      ti      balay a   nalabaga
 Kayat-en=ko    ti      balay a   na-labaga
-want-T=ERG.1SG CORE.SG house LIG ADJ-red
+want-GF=1SG.ERG CORE.SG house LIG ADJ-red
 `I want the red house`
 
 # Week 4
@@ -74,7 +74,7 @@ Judgment: g
 Phenomena: {adjectives}
 Kayatenko      ti      balay a   dakkel
 Kayat-en=ko    ti      balay a   dakkel
-want-T=ERG.1SG CORE.SG house LIG big
+want-GF=1SG.ERG CORE.SG house LIG big
 `I want the big house`
 
 # Week 4
@@ -86,7 +86,7 @@ Judgment: g
 Phenomena: {adjectives}
 Kayatenko      ti      balay a   akaba
 Kayat-en=ko    ti      balay a   akaba
-want-T=ERG.1SG CORE.SG house LIG wide
+want-GF=1SG.ERG CORE.SG house LIG wide
 `I want the wide house`
 
 # Here is a ungrammatical, contrasting example for attributive adjectives,
@@ -97,7 +97,7 @@ Judgment: f
 Phenomena: {adjectives}
 Kayatenko      ti      nalabaga  balay
 Kayat-en=ko    ti      na-labaga balay
-want-T=ERG.1SG CORE.SG ADJ-red   house
+want-GF=1SG.ERG CORE.SG ADJ-red   house
 `I want the red house`
 
 # ungrammatical adjectives as modifiers to nouns without LIG
@@ -107,7 +107,7 @@ Judgment: f
 Phenomena: {adjectives}
 Kayatko      ti      balay nalabaga
 Kayat=ko     ti      balay na-labaga
-want=ERG.1SG CORE.SG house ADJ-red
+want=1SG.ERG CORE.SG house ADJ-red
 `I want the red house`
 
 
@@ -135,7 +135,7 @@ Judgment: g
 Phenomena: {adverbs}
 Nadaras  a   nagsubliak
 na-daras a   n-ag-subli=ak
-ADJ-fast LIG PF-I-return=ABS.1SG
+ADJ-fast LIG PF-AF-return=1SG.ABS
 `I returned quickly`
 
 # Week 4
@@ -146,7 +146,7 @@ Judgment: u
 Phenomena: {adverbs}
 Nadaras  nagsubliak
 na-daras n-ag-subli=ak
-ADJ-fast PF-I-return=ABS.1SG
+ADJ-fast PF-AF-return=1SG.ABS
 'I returned quickly'
 
 # Week 4
@@ -157,9 +157,9 @@ Source: a:354
 Vetted: s
 Judgment: g
 Phenomena: {adverbs}
-Nagsangitak      iti    napaut
-n-ag-sangit=ak   iti    na-paut
-PF-I-cry=ABS.1SG OBL.SG ADJ-lasting
+Nagsangitak      iti napaut
+n-ag-sangit=ak   iti na-paut
+PF-AF-cry=1SG.ABS ADV ADJ-lasting
 `I cried for a long time'
 
 # Week 4
@@ -171,7 +171,7 @@ Judgment: u
 Phenomena: {adverbs}
 Nagsangitak      dagiti napaut
 n-ag-sangit=ak   dagiti na-paut
-PF-I-cry=ABS.1SG OBL.PL ADJ-lasting
+PF-AF-cry=1SG.ABS OBL.PL ADJ-lasting
 `I cried for a long time'
 
 # Week 4
@@ -183,7 +183,7 @@ Judgment: u
 Phenomena: {adverbs}
 Nagsangitak      ti      napaut
 n-ag-sangit=ak   ti      na-paut
-PF-I-cry=ABS.1SG CORE.SG ADJ-lasting
+PF-AF-cry=1SG.ABS CORE.SG ADJ-lasting
 `I cried for a long time'
 
 # Week 4
@@ -194,7 +194,7 @@ Judgment: u
 Phenomena: {adverbs}
 Nagsangitak      napaut
 n-ag-sangit=ak   na-paut
-PF-I-cry=ABS.1SG ADJ-lasting
+PF-AF-cry=1SG.ABS ADJ-lasting
 `I cried for a long time'
 
 # Week 4
@@ -202,9 +202,9 @@ Source: a:35
 Vetted: s
 Judgment: g
 Phenomena: {adverbs}
-Nagpanunotka       iti     nauneg
-n-ag-panunot=ka    iti     na-uneg
-PF-I-think=ABS.2SG OBL.SG  ADJ-deep
+Nagpanunotka       iti nauneg
+n-ag-panunot=ka    iti na-uneg
+PF-AF-think=2SG.ABS ADV ADJ-deep
 `You thought deeply`
 
 # Week 4
@@ -215,7 +215,7 @@ Judgment: u
 Phenomena: {adverbs}
 Nagpanunotka       nauneg  
 n-ag-panunot=ka    na-uneg
-PF-I-think=ABS.2SG ADJ-deep
+PF-AF-think=2SG.ABS ADJ-deep
 `You thought deeply`
 
 # Week 4
@@ -223,9 +223,9 @@ Source: a:36
 Vetted: s
 Judgment: g
 Phenomena: {adverbs}
-Nagsaoda           iti    nalapat
-n-ag-sao=da        iti    na-lapat
-PF-I-speak=ABS.3PL OBL.SG ADJ-frank
+Nagsaoda            iti nalapat
+n-ag-sao=da         iti na-lapat
+PF-AF-speak=3PL.ABS ADV ADJ-frank
 `They spoke frankly`
 
 
@@ -245,7 +245,7 @@ Judgment: g
 Phenomena: {argument optionality}
 Nagsukat
 n-ag-sukat
-PF-I-change.(3sg)
+PF-AF-change.(3sg)
 `he/she/it changed` (implicit 3sg subject, dropped arg)
 
 # When subject is not dropped from intransitive verb
@@ -255,7 +255,7 @@ Judgment: g
 Phenomena: {argument optionality}
 Nagsukat=ak
 n-ag-sukat=ak
-PF-I-change=ABS.1sg
+PF-AF-change=1SG.ABS
 `I changed`
 
 # allow object to be dropped for transitive verb to implicitly mean 3sg pronoun (absolutive)
@@ -265,7 +265,7 @@ Judgment: g
 Phenomena: {argument optionality}
 Nakita=ko
 na-kita=ko
-PF.T-see=ERG.2sg.(3sg)
+PF.GF-see=2SG.ABS.(3sg)
 `You see it` (implicit 3sg object, dropped arg)
 
 # when object is not dropped from transitive verb
@@ -275,7 +275,7 @@ Judgment: g
 Phenomena: {argument optionality}
 Nakita=ko=ak
 na-kita=ko=ak
-PF.T-see=ERG.2sg=ABS.1sg
+PF.GF-see=2SG.ERG=1SG.ABS
 `You see me`
 
 # incorrectly missing determiner in a noun phrase
@@ -285,7 +285,7 @@ Judgment: u
 Phenomena: {argument optionality}
 Naglaylay   ansisit
 n-ag-laylay ansisit
-PF-I-wilt   dwarf.ABS
+PF-AF-wilt   dwarf.ABS
 `The dwarf wilted'
 
 # too many CoreNP after transitive verb
@@ -295,7 +295,7 @@ Judgment: u
 Phenomena: {argument optionality}
 Nakita   iti    babai ti      lalaki ti      babai
 na-kita  iti    babai ti      lalaki ti      babai
-PF.T-see OBL.SG girl  CORE.SG boy    CORE.SG girl
+PF.GF-see OBL.SG girl  CORE.SG boy    CORE.SG girl
 `The girl saw the boy'
 
 # argument optionality with transitive verb: tr CoreNP missing
@@ -305,7 +305,7 @@ Judgment: u
 Phenomena: {argument optionality}
 Nakita   ti      babai
 na-kita  ti      babai
-PF.T-see CORE.SG girl
+PF.GF-see CORE.SG girl
 `The girl saw'
 
 ######################################
@@ -319,7 +319,7 @@ Judgment: u
 Phenomena: {case}
 Nakita      iti    babai iti    lalaki
 na-kita     iti    babai iti    lalaki
-PF.T-see    OBL.SG girl  OBL.SG boy
+PF.GF-see    OBL.SG girl  OBL.SG boy
 `The girl saw the boy'
 
 # incorrect plural determiner case
@@ -329,7 +329,7 @@ Judgment: u
 Phenomena: {case}
 Nagsangit   kadagiti lalaki
 n-ag-sangit kadagiti lalaki
-PF-I-cry    OBL.PL   boy
+PF-AF-cry    OBL.PL   boy
 `The boys cried'
 
 # Incorrect use of verbal arguments/transitivity.
@@ -339,7 +339,7 @@ Judgment: u
 Phenomena: {case}
 Nagtudo    iti    balay
 n-ag-tudo  iti    balay
-PF-I-rain  OBL.SG house
+PF-AF-rain  OBL.SG house
 'It rained the house'
 
 # incorrect patient NP case with transitive verb: tr CoreNP oblique-NP
@@ -349,7 +349,7 @@ Judgment: u
 Phenomena: {case}
 Nakita   ti      babai iti    lalaki
 na-kita  ti      babai iti    lalaki
-PF.T-see CORE.SG girl  OBL.SG boy
+PF.GF-see CORE.SG girl  OBL.SG boy
 `The girl saw the boy'
 
 # incorrect agent NP case with transitive verb: tr oblique-NP CoreNP
@@ -359,7 +359,7 @@ Judgment: u
 Phenomena: {case}
 Nakita   iti    babai ti     lalaki
 na-kita  iti    babai ti     lalaki
-PF.T-see OBL.SG girl  OBL.SG boy
+PF.GF-see OBL.SG girl  OBL.SG boy
 `The girl saw the boy'
 
 # grammatically correct, semantically weird
@@ -369,7 +369,7 @@ Judgment: g
 Phenomena: {word order, case}
 Naglaylay   ti      ansisit
 n-ag-laylay ti      ansisit
-PF-I-wilt   CORE.SG dwarf.ABS
+PF-AF-wilt   CORE.SG dwarf.ABS
 `The dwarf wilted'
 
 # case matching with transitive verb and enclitic pronoun
@@ -379,7 +379,7 @@ Judgment: g
 Phenomena: {case}
 Nakitako         ti      lalaki
 na-kita=ko       ti      lalaki
-PF.T-see=ERG.1SG CORE.SG boy
+PF.GF-see=1SG.ERG CORE.SG boy
 `I saw the boy'
 
 # incorrect case matching with transitive verb and enclitic pronoun
@@ -389,7 +389,7 @@ Judgment: f
 Phenomena: {case}
 Nakitaak         ti      lalaki
 na-kita=ak       ti      lalaki
-PF.T-see=ABS.1SG CORE.SG boy
+PF.GF-see=1SG.ABS CORE.SG boy
 `I saw the boy'
 
 # case matching with transitive verb and enclitic pronoun
@@ -399,7 +399,7 @@ Judgment: g
 Phenomena: {case}
 Nakitadaak
 na-kita=da=ak
-PF.T-see=ERG.3PL=ABS.1SG
+PF.GF-see=3PL.ERG=1SG.ABS
 `They saw me'
 
 # incorrect case matching with transitive verb and enclitic pronoun
@@ -409,7 +409,7 @@ Judgment: f
 Phenomena: {case}
 Nakitaakda
 na-kita=ak=da
-PF.T-see=ABS.1ST=ERG.3PL
+PF.GF-see=1SG.ABS=3PL.ERG
 `me saw they'
 
 # case matching with intransitive verb and enclitic pronoun
@@ -419,7 +419,7 @@ Judgment: g
 Phenomena: {case}
 Naglaylayak
 n-ag-sangit=ak
-PF-I-cry=ABS.1SG
+PF-AF-cry=1SG.ABS
 `I cried'
 
 # incorrect case matching with intransitive verb and enclitic pronoun
@@ -429,7 +429,7 @@ Judgment: f
 Phenomena: {case}
 Naglaylayak
 n-ag-sangit=ko
-PF-I-cry=ERG.1SG
+PF-AF-cry=1SG.ERG
 `me cried'
 
 
@@ -461,7 +461,7 @@ Judgment: g
 Phenomena: {coordination}
 Naglualokami          ket nagkantakami
 n-ag-lualo=kami       ket n-ag-kanta=kami
-PF-I-pray=ABS.1P.EXCL and PF-I-sing=ABS.1P.EXCL
+PF-AF-pray=1PL.ABS.EXCL and PF-AF-sing=1PL.ABS.EXCL
 'We prayed and sang`
 
 # Wenno 'or' conjoins alternatives. It is placed between
@@ -484,7 +484,7 @@ Judgment: g
 Phenomena: {coordination}
 Napankami           ken ti      lalaki.
 na-pan=kami         ken ti      lalaki
-PF-go=ABS.1PL.1EXCL and CORE.SG boy
+PF-go=1PL.ABS.EXCL and CORE.SG boy
 'The boy and I went.'
 
 
@@ -500,7 +500,7 @@ Judgment: g
 Phenomena: {coordination agreement}
 Nagsangit   dagiti  lallakay kada   babbaket
 n-ag-sangit dagiti  lallakay kada   babbaket
-PF-I-cry    CORE.PL old.men  and.PL old.women
+PF-AF-cry    CORE.PL old.men  and.PL old.women
 'the old men and women (husbands and wives) cried'
 
 # Week 4
@@ -511,7 +511,7 @@ Judgment: g
 Phenomena: {coordination agreement}
 Nagsangit   dagiti  lallakay ken   babbaket
 n-ag-sangit dagiti  lallakay ken   babbaket
-PF-I-cry    CORE.PL old.men  and   old.women
+PF-AF-cry    CORE.PL old.men  and   old.women
 'the old men and women (husbands and wives) cried'
 
 # Week 4
@@ -522,7 +522,7 @@ Judgment: u
 Phenomena: {coordination agreement}
 Nagsangit    ti      lalaki kada   ti      babai
 n-ag-sangit  ti      lalaki kada   ti      babai
- PF-I-cry    CORE.SG boy    and.PL CORE.SG girl
+ PF-AF-cry    CORE.SG boy    and.PL CORE.SG girl
 'the boy and the girl cried'
 
 
@@ -537,7 +537,7 @@ Judgment: g
 Phenomena: {det}
 Nagsangit   ti      lalaki
 n-ag-sangit ti      lalaki
-PF-I-cry    CORE.SG boy
+PF-AF-cry    CORE.SG boy
 `The boy cried'
 
 # correct plural determiner
@@ -547,7 +547,7 @@ Judgment: g
 Phenomena: {det}
 Nagsangit   dagiti  lalaki
 n-ag-sangit dagiti  lalaki
-PF-I-cry    CORE.PL boy
+PF-AF-cry    CORE.PL boy
 `The boys cried'
 
 
@@ -568,7 +568,7 @@ Judgment: g
 Phenomena: {Embedded declaratives}
 Aguraykayo     ta  sapulek
 ag-uray=ka     ta  sapul-en=ko
-I-wait=ABS.2SG SUB search-T=ERG.1SG.(3SG)
+I-wait=2SG.ABS SUB search-GF=1SG.ERG.(3SG)
 `Wait and I'll look for it`
 
 # ungrammatical: co-referential argument is deleted
@@ -578,7 +578,7 @@ Judgment: g
 Phenomena: {Embedded declaratives}
 Aguraykayo     ta  sapulek
 ag-uray=ka     ta  sapul-en
-I-wait=ABS.2SG SUB search-T
+I-wait=2SG.ABS SUB search-GF
 `Wait and I'll look for it`
 
 # 2. In another case, complement clauses are preceded by Ligature, "(ng)a".
@@ -591,7 +591,7 @@ Judgment: g
 Phenomena: {Embedded declaratives}
 Ikariko           a   mapanak
 i-kari=ko         a   ma-pan=ak
-T-promise=ERG.1SG LIG I-go=ABS.1SG
+GF-promise=1SG.ERG LIG I-go=1SG.ABS
 `I promise to go (I promise that I go)`
 
 # Week 4
@@ -601,7 +601,7 @@ Judgment: g
 Phenomena: {Embedded declaratives}
 Ammok        a   nakitamo         ti      lalaki
 ammo=ko      a   na-kita=mo       ti      lalaki
-know=ERG.1SG LIG PF.T-see=ERG.2SG CORE.SG boy
+know=1SG.ERG LIG PF.GF-see=2SG.ERG CORE.SG boy
 `I know that you saw the boy`
 
 # ungrammatical: ligature complementizer takes finite clause only
@@ -611,7 +611,7 @@ Judgment: u
 Phenomena: {Embedded declaratives}
 Ammok        a   ti      lalaki
 ammo=ko      a   ti      lalaki
-know=ERG.1SG LIG CORE.SG boy
+know=1SG.ERG LIG CORE.SG boy
 `I know that you saw the boy`
 
 
@@ -626,7 +626,7 @@ Judgment: g
 Phenomena: {Embedded questions}
 Nalipatak           no na-labaga wenno asul
 na-lipat-an=ak      no na-labaga wenno asul
-PF-forget-T=ERG.1SG if ADJ-red   or    blue
+PF-forget-GF=1SG.ERG if ADJ-red   or    blue
 `I forgot if it is red or blue'
 
 # Week 4
@@ -636,7 +636,7 @@ Judgment: g
 Phenomena: {Embedded questions}
 Nalipatak           no nakitako         ti      lalaki
 na-lipat-an=ak      no na-kita=ko       ti      lalaki
-PF-forget-T=ERG.1SG if PF.T-see=ERG.1SG CORE.SG boy
+PF-forget-GF=1SG.ERG if PF.GF-see=1SG.ERG CORE.SG boy
 `I forgot if I saw the boy'
 
 # ungrammatical: the conditional should not be able to embed just NP
@@ -646,7 +646,7 @@ Judgment: u
 Phenomena: {Embedded questions}
 Nalipatak           no ti      lalaki
 na-lipat-an=ak      no ti      lalaki
-PF-forget-T=ERG.1SG if CORE.SG boy
+PF-forget-GF=1SG.ERG if CORE.SG boy
 `I forgot if I saw the boy'
 
 
@@ -663,7 +663,7 @@ Judgment: g
 Phenomena: {wh}
 Ania ti      ginatangmo
 ania ti      gatang-{in}=mo
-what CORE.SG buy-{PF.T}=ERG.2SG
+what CORE.SG buy-{PF.GF}=2SG.ERG
 'What did you buy?'
 
 # Week 4
@@ -675,7 +675,7 @@ Judgment: g
 Phenomena: {wh}
 Ania ti      dakesmo
 ania ti      dakes=mo
-what CORE.SG bad=ERG.2SG
+what CORE.SG bad=2SG.ERG
 'What's wrong with you?'
 
 # Week 4
@@ -686,7 +686,7 @@ Judgment: u
 Phenomena: {wh}
 Ania ginatangmo
 ania gatang-{in}=mo
-what buy-{PF.T}=ERG.2SG
+what buy-{PF.GF}=2SG.ERG
 'What did you buy?'
 
 # Week 4
@@ -697,7 +697,7 @@ Judgment: g
 Phenomena: {wh}
 Sino ti      amam?
 sino ti	    ama=mo
-who  CORE.SG father=ERG.2SG
+who  CORE.SG father=2SG.ERG
 'Who is your father?'
 
 # Week 4
@@ -708,7 +708,7 @@ Judgment: u
 Phenomena: {wh}
 Sino ti      nakitaka?
 sino ti      na-kita=ka
-who  CORE.SG PF.T-see=ABS.2SG
+who  CORE.SG PF.GF-see=2SG.ABS
 'Who saw you?'
 
 ######################################
@@ -728,7 +728,7 @@ Judgment: g
 Phenomena: {negation}
 Di  n-ag-laylay ti      sabong
 di  n-ag-laylay ti      sabong
-Neg PF-I-wilt   CORE.SG flower.ABS
+Neg PF-AF-wilt   CORE.SG flower.ABS
 `The flower didn't wilt'
 
 # a sentential negation with aux 'di' with any abs enclitic
@@ -738,7 +738,7 @@ Judgment: g
 Phenomena: {negation}
 Diak        nagsangit
 di=ak       n-ag-sangit
-Neg=ABS.1sg PF-I-cry
+Neg=1SG.ABS PF-AF-cry
 `I did not cry'
 
 # negation 'di' is not for negating NP-only
@@ -758,7 +758,7 @@ Judgment: f
 Phenomena: {case}
 Diko        nagsangit
 di=ko       n-ag-sangit
-Neg=ERG.1sg PF-I-cry
+Neg=1SG.ERG PF-AF-cry
 `I did not cry'
 
 # negation with transitive verb sentense
@@ -768,7 +768,7 @@ Judgment: g
 Phenomena: {negation}
 Diko        nakita   ti      lalaki
 di=ko       na-kita  ti      lalaki
-Neg=ERG.1sg PF.T-see CORE.SG boy
+Neg=1SG.ERG PF.GF-see CORE.SG boy
 `I didn't see the boy'
 
 # negation with transitive verb sentense, but wrong case (needs ERG, but given ABS)
@@ -778,7 +778,7 @@ Judgment: f
 Phenomena: {case}
 Diak        nakita   ti      lalaki
 di=ak       na-kita  ti      lalaki
-Neg=ABS.1sg PF.T-see CORE.SG boy
+Neg=1SG.ABS PF.GF-see CORE.SG boy
 `I didn't see the boy'
 
 
@@ -874,7 +874,7 @@ Judgment: g
 Phenomena: {possessives}
 Nakita   ti      babai ti      balayko
 na-kita  ti      babai ti      balay=ko
-PF.T-see CORE.SG girl  CORE.SG house=ERG.1sg
+PF.GF-see CORE.SG girl  CORE.SG house=1SG.ERG
 `The girl saw my house'
 
 # from p.384:
@@ -886,7 +886,7 @@ Judgment: g
 Phenomena: {possessives}
 Nakitako         ti      tulbek ti      lalaki
 na-kita=ko       ti      tulbek ti      lalaki
-PF.T-see=1SG.ERG CORE.SG key    CORE.SG boy
+PF.GF-see=1SG.ERG CORE.SG key    CORE.SG boy
 `I saw the boy's key'
 
 # Though cannot find exact source, goal focus verb with core NP as subject,
@@ -897,7 +897,7 @@ Judgment: g
 Phenomena: {possessives}
 Nakita   ti      babai ti      tulbek ti      lalaki
 na-kita  ti      babai ti      tulbek ti      lalaki
-PF.T-see CORE.SG girl  CORE.SG key    CORE.SG boy
+PF.GF-see CORE.SG girl  CORE.SG key    CORE.SG boy
 `The girl saw the boy's key'
 
 # incorrect case for possessive, using absolutive enclitic pronoun
@@ -907,7 +907,7 @@ Judgment: u
 Phenomena: {case}
 Nakita   ti      babai ti      balayak
 na-kita  ti      babai ti      balay=ak
-PF.T-see CORE.SG girl  CORE.SG house=ABS.1sg
+PF.GF-see CORE.SG girl  CORE.SG house=1SG.ABS
 `The girl saw my house'
 
 # possessive nominal needs CORE.SG determiner before the 3rdPerson noun
@@ -917,7 +917,7 @@ Judgment: u
 Phenomena: {case}
 Nakita   ti      babai balayak
 na-kita  ti      babai balay=ak
-PF.T-see CORE.SG girl  house=ABS.1sg
+PF.GF-see CORE.SG girl  house=1SG.ABS
 `The girl saw my house'
 
 # Example from page a:117 but substituted a person's name (ni Maria) with a noun (ti babai)
@@ -928,7 +928,7 @@ Judgment: g
 Phenomena: {possessives}
 nakitako         ti      balay ti      babai
 na-kita=ko       ti      balay ti      babai
-PF.T-see=1SG.ERG CORE.SG house CORE.SG girl
+PF.GF-see=1SG.ERG CORE.SG house CORE.SG girl
 'I saw the girl's house'
 
 # This is the case where tww NPs are juxtaposed but for actor focus, the object is
@@ -939,7 +939,7 @@ Judgment: g
 Phenomena: {possessives}
 nagkitaak        iti    balay ti      babai
 n-ag-kita=ak     iti    balay ti      babai
-PF-I-see=1SG.ABS OBL.SG house CORE.SG girl
+PF-AF-see=1SG.ABS OBL.SG house CORE.SG girl
 'I saw the girl's house'
 
 # two oblique case juxtaposed is not describing possessives
@@ -949,7 +949,7 @@ Judgment: u
 Phenomena: {possessives}
 nagkitaak        iti     balay iti    babai
 n-ag-kita=ak     iti     balay iti    babai
-PF-I-see=1SG.ABS CORE.SG house OBL.SG girl
+PF-AF-see=1SG.ABS CORE.SG house OBL.SG girl
 'I saw the girl's house'
 
 
@@ -964,7 +964,7 @@ Judgment: g
 Phenomena: {tam}
 Naglaylay   ti      sabong
 n-ag-laylay ti      sabong
-PF-I-wilt   CORE.SG flower.ABS
+PF-AF-wilt   CORE.SG flower.ABS
 ‘The flower wilted’
 
 # Correct infixation of perfective aspect marker -in- 
@@ -976,7 +976,7 @@ Judgment: g
 Phenomena: {tam}
 Timmarayak
 taray-{um}-{in}=ak
-run-{I}-{PF}=ABS.1SG
+run-{I}-{PF}=1SG.ABS
 ‘I ran’
 
 # Correct reduplication of first (C)VC of verb stem, 
@@ -987,7 +987,7 @@ Judgment: g
 Phenomena: {tam}
 Agbasbasa        ti      ansisit
 ag-basa-RR       ti      ansisit
-PF.I-read-IMPERF CORE.SG dwarf
+PF.AF-read-IMPERF CORE.SG dwarf
 ‘The dwarf reads’
 
 # Incorrect co-occurrence of n- perfective aspect marker with incompatible -um- infix
@@ -1013,7 +1013,7 @@ Judgment: g
 Phenomena: {word order}
 Naglaylay   ti      sabong
 n-ag-laylay ti      sabong
-PF-I-wilt   CORE.SG flower.ABS
+PF-AF-wilt   CORE.SG flower.ABS
 `The flower wilted'
 
 # grammatically incorrect VS order with intransitive verb
@@ -1023,7 +1023,7 @@ Judgment: u
 Phenomena: {word order}
 Ti      sabong     naglaylay
 ti      sabong     n-ag-laylay
-CORE.SG flower.ABS PF-I-wilt
+CORE.SG flower.ABS PF-AF-wilt
 `The flower wilted'
 
 # correct article-to-noun order
@@ -1033,7 +1033,7 @@ Judgment: g
 Phenomena: {word order}
 Naglaylay   ti      sabong
 n-ag-laylay ti      sabong
-PF-I-wilt   CORE.SG flower.ABS
+PF-AF-wilt   CORE.SG flower.ABS
 `The flower wilted'
 
 # incorrect article-to-noun order
@@ -1043,7 +1043,7 @@ Judgment: u
 Phenomena: {word order}
 Naglaylay   sabong     ti
 n-ag-laylay sabong     ti
-PF-I-wilt   flower.ABS CORE.SG
+PF-AF-wilt   flower.ABS CORE.SG
 `The flower wilted'
 
 # correct word order with transitive verb: tr CoreNP CoreNP
@@ -1053,7 +1053,7 @@ Judgment: g
 Phenomena: {word order}
 Nakita   ti      babai ti      lalaki
 na-kita  ti      babai ti      lalaki
-PF.T-see CORE.SG girl  CORE.SG boy
+PF.GF-see CORE.SG girl  CORE.SG boy
 `The girl saw the boy'
 
 # incorrect word order with transitive verb: CoreNP tr CoreNP
@@ -1063,7 +1063,7 @@ Judgment: u
 Phenomena: {word order}
 Ti      babai nakita   ti      lalaki
 ti      babai na-kita  ti      lalaki
-CORE.SG girl  PF.T-see CORE.SG boy
+CORE.SG girl  PF.GF-see CORE.SG boy
 `The girl saw the boy'
 
 # incorrect word order with transitive verb: CoreNP CoreNP tr
@@ -1073,7 +1073,7 @@ Judgment: u
 Phenomena: {word order}
 Ti      babai ti      lalaki nakita
 ti      babai ti      lalaki na-kita
-CORE.SG girl  CORE.SG boy    PF.T-see
+CORE.SG girl  CORE.SG boy    PF.GF-see
 `The girl saw the boy'
 
 # incorrect word order: oblique-NP tr oblique-NP
@@ -1083,7 +1083,7 @@ Judgment: u
 Phenomena: {word order}
 Iti    babai nakita   iti    lalaki
 iti    babai na-kita  iti    lalaki
-OBL.SG girl  PF.T-see OBL.SG boy
+OBL.SG girl  PF.GF-see OBL.SG boy
 `The girl saw the boy'
 
 # incorrect word order with transitive verb: oblique-NP oblique-NP tr
@@ -1093,7 +1093,7 @@ Judgment: u
 Phenomena: {word order}
 Iti    babai iti    lalaki nakita
 iti    babai iti    lalaki na-kita
-OBL.SG girl  OBL.SG boy    PF.T-see
+OBL.SG girl  OBL.SG boy    PF.GF-see
 `The girl saw the boy'
 
 # incorrect det-noun order for NPs with transitive verb
@@ -1103,7 +1103,7 @@ Judgment: u
 Phenomena: {word order}
 Nakita   babai ti      ti      lalaki
 na-kita  babai ti      ti      lalaki
-PF.T-see girl  CORE.SG CORE.SG boy
+PF.GF-see girl  CORE.SG CORE.SG boy
 `The girl saw the boy'
 
 # incorrect det-noun order for NPs with transitive verb
@@ -1113,7 +1113,7 @@ Judgment: u
 Phenomena: {word order}
 Nakita   ti      babai lalaki ti
 na-kita  ti      babai lalaki ti
-PF.T-see CORE.SG girl  boy    CORE.SG
+PF.GF-see CORE.SG girl  boy    CORE.SG
 `The girl saw the boy'
 
 # incorrect det-noun order for NPs with transitive verb
@@ -1123,6 +1123,6 @@ Judgment: u
 Phenomena: {word order}
 Nakita   ti       babai  lalaki ti
 na-kita  ti       babai  lalaki ti
-PF.T-see CORE.SG  boy    girl   CORE.SG
+PF.GF-see CORE.SG  boy    girl   CORE.SG
 `The girl saw the boy'
 
