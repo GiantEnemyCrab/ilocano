@@ -428,11 +428,14 @@ kada5 := conj-lex &
 ;;; Ligature
 
 a_1 := attr-adj-mod-ligature-lex &
-  [ STEM < "a" >].
+  [ STEM < "a" >,
+    SYNSEM.LKEYS.KEYREL.PRED ""].
 
 a_2 := adv-mod-ligature-lex &
-  [ STEM < "a" >].
+  [ STEM < "a" >,
+    SYNSEM.LKEYS.KEYREL.PRED ""].
 
 iti_adv := adv-mod-iti-lex &
-  [ STEM < "iti" >].
+  [ STEM < "iti" >,
+    SYNSEM.LKEYS.KEYREL.PRED ""].
 
