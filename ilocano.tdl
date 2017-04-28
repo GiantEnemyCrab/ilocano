@@ -322,6 +322,33 @@ stative-pred-adj-lex := adj-lex &
                                                   HEAD noun ] ] ] >,
                    CONT.HOOK.XARG #xarg ] ].
 
+;;; Attributive Adjectives with ligature, intersecting between noun and adj, or adj and noun
+attr-adj-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
+  [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
+                           [ INIT #init,
+                             MOD < [ LOCAL [ CAT [ HEAD noun,
+                                                   VAL.SPR < [ ] > ],
+                                             CONT.HOOK [ INDEX #index ] ] ] > ],
+                         VAL [ SPR < >,
+                               SUBJ < >,
+                               SPEC < >,
+                               COMPS < #comps & [ LOCAL [ CAT [ VAL.SUBJ < [ ] >,
+                                                                HEAD adj ],
+                                                          CONT.HOOK [ XARG #index ] ] ] > ],
+                         POSTHEAD #init ] ],
+           ARG-ST < #comps > ].
+
+;;; Adverbs
+adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
+  [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
+                           [ MOD < [ LOCAL.CAT.HEAD verb ] > ],
+                         VAL [ SPR < >,
+                               SUBJ < >,
+                               SPEC < >,
+                               COMPS < [ LOCAL.CAT [ VAL.SUBJ < [ ] >,
+                                                     HEAD adj ] ] > ],
+                         POSTHEAD - ] ] ].
+
 ;;; Others
 
 ;;; Determiners
@@ -347,22 +374,6 @@ obl-sg-determiner-lex := determiner-lex & no-icons-lex-item &
 obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE obl,
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
-
-;;; Ligature
-attr-adj-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
-  [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
-                           [ INIT #init,
-                             MOD < [ LOCAL [ CAT [ HEAD noun,
-                                                   VAL.SPR < [ ] > ],
-                                             CONT.HOOK [ INDEX #index ] ]] > ],
-                         VAL [ SPR < >,
-                               SUBJ < >,
-                               SPEC < >,
-                               COMPS < #comps & [ LOCAL [ CAT [ VAL.SUBJ < [ ] >,
-                                                                HEAD adj ],
-                                                          CONT.HOOK [ XARG #index ] ] ] > ],
-                         POSTHEAD #init ] ],
-           ARG-ST < #comps > ].
 
 
 ;;;;;;;;;;;;;;;;;;;
@@ -545,6 +556,10 @@ comp-head-phrase := basic-head-1st-comp-phrase & head-final &
 
 head-subj-phrase := decl-head-subj-phrase & head-initial &
   [ HEAD-DTR.SYNSEM.LIGHT + ].
+
+; Adverb addition: constrain the head daughter from enabling context1-decl rule
+adj-head-int-phrase := adj-head-phrase &
+   [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ < [ ] > ].
 
 ; Bare NP phrase.  Consider modifying the PRED value of the quantifier relation
 ; introduced to match the semantic effect of bare NPs in your language.
