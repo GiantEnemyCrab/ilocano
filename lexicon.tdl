@@ -431,3 +431,7 @@ a_1 := attr-adj-mod-ligature-lex &
   [ STEM < "a" >,
     SYNSEM.LKEYS.KEYREL.PRED "ligature_rel" ].
 
+a_2 := adv-mod-ligature-lex &
+  [ STEM < "a" >,
+    SYNSEM.LKEYS.KEYREL.PRED "ligature_rel" ].
+
