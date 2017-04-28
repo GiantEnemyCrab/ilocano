@@ -558,7 +558,7 @@ head-subj-phrase := decl-head-subj-phrase & head-initial &
   [ HEAD-DTR.SYNSEM.LIGHT + ].
 
 ; Adverb addition: constrain the head daughter from enabling context1-decl rule
-adj-head-int-phrase := adj-head-phrase &
+adj-head-int-restrict-context1-decl-phrase := adj-head-int-phrase &
    [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ < [ ] > ].
 
 ; Bare NP phrase.  Consider modifying the PRED value of the quantifier relation
