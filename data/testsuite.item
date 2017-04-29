@@ -74,19 +74,25 @@
 74@a:117@@@1@poss@na-kita=ko       ti      balay ti      babai@@@@1@5@PF.GF-see=1SG.ERG CORE.SG house CORE.SG girl'I saw the girl's house'@james blackburn, kazuki shintani@april 7, 2017
 75@author@@@1@poss@n-ag-kita=ak     iti    balay ti      babai@@@@1@5@PF-AF-see=1SG.ABS OBL.SG house CORE.SG girl'I saw the girl's house'@james blackburn, kazuki shintani@april 7, 2017
 76@author@@@1@poss@n-ag-kita=ak     iti     balay iti    babai@@@@0@5@PF-AF-see=1SG.ABS CORE.SG house OBL.SG girl'I saw the girl's house'@james blackburn, kazuki shintani@april 7, 2017
-77@a:186@@@1@tam@n-ag-laylay ti      sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS‘The flower wilted’@james blackburn, kazuki shintani@april 7, 2017
-78@author@@@1@tam@taray-{um}-{in}=ak@@@@1@1@run-{I}-{PF}=1SG.ABS‘I ran’@james blackburn, kazuki shintani@april 7, 2017
-79@author@@@1@tam@ag-basa-RR       ti      ansisit@@@@1@3@PF.AF-read-IMPERF CORE.SG dwarf‘The dwarf reads’@james blackburn, kazuki shintani@april 7, 2017
-80@author@@@1@tam@n-umanges-{um} ti      lalaki@@@@0@3@PF-breathe-{I} CORE.SG boy`The boy breathed`@james blackburn, kazuki shintani@april 7, 2017
-81@a:187@@@1@wo@n-ag-laylay ti      sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
-82@a:187@@@1@wo@ti      sabong     n-ag-laylay@@@@0@3@CORE.SG flower.ABS PF-AF-wilt`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
-83@a:187@@@1@wo@n-ag-laylay ti      sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
-84@a:187@@@1@wo@n-ag-laylay sabong     ti@@@@0@3@PF-AF-wilt   flower.ABS CORE.SG`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
-85@a:32@@@1@wo@na-kita  ti      babai ti      lalaki@@@@1@5@PF.GF-see CORE.SG girl  CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
-86@a:32@@@1@wo@ti      babai na-kita  ti      lalaki@@@@0@5@CORE.SG girl  PF.GF-see CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
-87@a:32@@@1@wo@ti      babai ti      lalaki na-kita@@@@0@5@CORE.SG girl  CORE.SG boy    PF.GF-see`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
-88@a:32@@@1@wo@iti    babai na-kita  iti    lalaki@@@@0@5@OBL.SG girl  PF.GF-see OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
-89@a:32@@@1@wo@iti    babai iti    lalaki na-kita@@@@0@5@OBL.SG girl  OBL.SG boy    PF.GF-see`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
-90@a:32@@@1@wo@na-kita  babai ti      ti      lalaki@@@@0@5@PF.GF-see girl  CORE.SG CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
-91@a:32@@@1@wo@na-kita  ti      babai lalaki ti@@@@0@5@PF.GF-see CORE.SG girl  boy    CORE.SG`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
-92@a:32@@@1@wo@na-kita  ti       babai  lalaki ti@@@@0@5@PF.GF-see CORE.SG  boy    girl   CORE.SG`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
+77@author@@@1@poss@n-ag-laylay ti      babai ti       flower@@@@1@5@PF-AF-wilt  CORE.SG girl  CORE.SG  flower'The girl's flower wilted.'@james blackburn, kazuki shintani@april 7, 2017
+78@author@@@1@poss@na-kita=ko        ti      balay=mo@@@@1@3@PF.GF-see=1sg.ERG CORE.SG house=2sg.ERG'I saw your house.'@james blackburn, kazuki shintani@april 7, 2017
+79@author@@@1@poss@na-kita=ko        iti    balay=mo@@@@0@3@PF.GF-see=1sg.ERG OBL.SG house=2sg.ERG'I saw your house.'@james blackburn, kazuki shintani@april 7, 2017
+80@author@@@1@poss@na-kita=ko        iti      balay=ka@@@@0@3@PF.GF-see=1sg.ERG CORE.SG house=2sg.ABS'I saw your house.'@james blackburn, kazuki shintani@april 7, 2017
+81@author@@@1@wo@n-ag-kita  ti      babai iti    sabong@@@@1@5@PF-AF-kita CORE.SG girl  OBL.SG flower'The girl saw the flower.'@james blackburn, kazuki shintani@april 7, 2017
+82@author@@@1@poss@na-kita    ti      babai ti      sabong@@@@1@5@PF.GF-kita CORE.SG girl  CORE.SG flower'The girl saw the flower.'@james blackburn, kazuki shintani@april 7, 2017
+83@a:186@@@1@tam@n-ag-laylay ti      sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS‘The flower wilted’@james blackburn, kazuki shintani@april 7, 2017
+84@author@@@1@tam@taray-{um}-{in}=ak@@@@1@1@run-{I}-{PF}=1SG.ABS‘I ran’@james blackburn, kazuki shintani@april 7, 2017
+85@author@@@1@tam@ag-basa-RR       ti      ansisit@@@@1@3@PF.AF-read-IMPERF CORE.SG dwarf‘The dwarf reads’@james blackburn, kazuki shintani@april 7, 2017
+86@author@@@1@tam@n-umanges-{um} ti      lalaki@@@@0@3@PF-breathe-{I} CORE.SG boy`The boy breathed`@james blackburn, kazuki shintani@april 7, 2017
+87@a:187@@@1@wo@n-ag-laylay ti      sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
+88@a:187@@@1@wo@ti      sabong     n-ag-laylay@@@@0@3@CORE.SG flower.ABS PF-AF-wilt`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
+89@a:187@@@1@wo@n-ag-laylay ti      sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
+90@a:187@@@1@wo@n-ag-laylay sabong     ti@@@@0@3@PF-AF-wilt   flower.ABS CORE.SG`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
+91@a:32@@@1@wo@na-kita  ti      babai ti      lalaki@@@@1@5@PF.GF-see CORE.SG girl  CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
+92@a:32@@@1@wo@ti      babai na-kita  ti      lalaki@@@@0@5@CORE.SG girl  PF.GF-see CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
+93@a:32@@@1@wo@ti      babai ti      lalaki na-kita@@@@0@5@CORE.SG girl  CORE.SG boy    PF.GF-see`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
+94@a:32@@@1@wo@iti    babai na-kita  iti    lalaki@@@@0@5@OBL.SG girl  PF.GF-see OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
+95@a:32@@@1@wo@iti    babai iti    lalaki na-kita@@@@0@5@OBL.SG girl  OBL.SG boy    PF.GF-see`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
+96@a:32@@@1@wo@na-kita  babai ti      ti      lalaki@@@@0@5@PF.GF-see girl  CORE.SG CORE.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
+97@a:32@@@1@wo@na-kita  ti      babai lalaki ti@@@@0@5@PF.GF-see CORE.SG girl  boy    CORE.SG`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
+98@a:32@@@1@wo@na-kita  ti       babai  lalaki ti@@@@0@5@PF.GF-see CORE.SG  boy    girl   CORE.SG`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
