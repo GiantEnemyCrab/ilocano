@@ -952,6 +952,74 @@ n-ag-kita=ak     iti     balay iti    babai
 PF-AF-see=1SG.ABS CORE.SG house OBL.SG girl
 'I saw the girl's house'
 
+# Week 5
+# Possession indicated by juxtaposed core-case NP's.
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {poss}
+Naglaylay   ti      babai ti       sabong.
+n-ag-laylay ti      babai ti       flower
+PF-AF-wilt  CORE.SG girl  CORE.SG  flower
+'The girl's flower wilted.'
+
+# Week 5
+# Possession indicated by ergative enclitic pronoun on possessum.
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {poss}
+Nakitako          ti      balaymo.
+na-kita=ko        ti      balay=mo
+PF.GF-see=1sg.ERG CORE.SG house=2sg.ERG
+'I saw your house.'
+
+# Week 5
+# Incorrect possession construction with oblique possessum.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {poss}
+Nakitako          iti    balaymo.
+na-kita=ko        iti    balay=mo
+PF.GF-see=1sg.ERG OBL.SG house=2sg.ERG
+'I saw your house.'
+
+# Week 5
+# Incorrect possession construction with absolutive enclitic on possessum.
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {poss}
+Nakitako         ti       balayka.
+na-kita=ko        iti      balay=ka
+PF.GF-see=1sg.ERG CORE.SG house=2sg.ABS
+'I saw your house.'
+
+# Week 5
+# Grammatical sentence that should parse, but not as a possessive construction.
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {wo}
+Nagkita    ti      babai iti    sabong.
+n-ag-kita  ti      babai iti    sabong
+PF-AF-kita CORE.SG girl  OBL.SG flower
+'The girl saw the flower.'
+
+# Week 5
+# Ambiguous sentence with one possessive parse and one agent-patient parse.
+# The correct parse is the agent-patient configuration; the current state of
+# the grammar also generates a non-preferred parse in which the girl is the
+# possessor and the flower is the possessum.
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {poss}
+Nakita ti babai ti sabong.
+na-kita    ti      babai ti      sabong
+PF.GF-kita CORE.SG girl  CORE.SG flower
+'The girl saw the flower.'
 
 ######################################
 ######### TENSE / ASPECT / MOOD ######
