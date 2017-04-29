@@ -574,7 +574,7 @@ bare-np-phrase := basic-bare-np-phrase &
 ;;;
 poss-phrase := head-initial &
   [ SYNSEM.LOCAL.CAT [ HEAD #head,
-                       VAL [ SPR < >,
+                       VAL [ SPR #hdspr,
                              COMPS < >,
                              SUBJ < > ] ],
     C-CONT [ HOOK.INDEX #index,
@@ -588,7 +588,7 @@ poss-phrase := head-initial &
 	     HCONS < ! qeq & [ HARG #harg, LARG #lbl ] ! >,
 	     ICONS < ! ! > ],
     HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD #head & noun & [ CASE cor ],
-				  VAL.SPR < [ ] > ],
+				  VAL.SPR #hdspr & < [ ] > ],
 			    CONT.HOOK [ INDEX #index & [ COG-ST uniq+fam+act ],
 				        LTOP #lbl ] ],
     NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun & [ CASE cor+erg ],
