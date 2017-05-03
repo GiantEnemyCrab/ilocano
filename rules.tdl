@@ -1,7 +1,7 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 head-adj-int := head-adj-int-phrase.
 
-;adj-head-int := adj-head-int-phrase.
+;adj-head-int := adj-head-int-phrase. ;favor the restrict rule to disallow extraneous parses of AP that assumes subject drop, which should not happen with just AP
 adj-head-int := adj-head-int-restrict-context1-decl-phrase.
 
 basic-head-opt-comp := basic-head-opt-comp-phrase.
@@ -17,6 +17,10 @@ head-subj := head-subj-phrase.
 head-spec := head-spec-phrase.
 
 bare-np := bare-np-phrase.
+
+poss := poss-phrase.
+
+equational-np := n-bar-predicate-rule.
 
 n1-top-coord := n1-top-coord-rule.
 
@@ -70,4 +74,3 @@ n5-non-sg-non-sg-any-top-coord := n5-non-sg-non-sg-any-top-coord-rule.
 
 n5-bottom-coord := n5-bottom-coord-rule.
 
-poss := poss-phrase.
