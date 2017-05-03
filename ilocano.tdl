@@ -273,6 +273,15 @@ trans-verb-lex := transitive-verb-lex &
 
 intrans-verb-lex := intransitive-verb-lex.
 
+;embedding-verb-lex := main-ver-lex & clausal-second-arg-trans-lex-item &
+;  [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
+;    ARG-ST < [ LOCAL.CAT.HEAD noun ],
+;             #comps &
+;             [ LOCAL [ CAT [ VAL [ SPR < >,
+;                                 COMPS < > ],
+;                           HEAD noun ] 
+;                       CONT.HOOK.INDEX.SF prop-or-ques ] ] > ].
+
 ;;; Auxiliaries
 
 subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
@@ -301,6 +310,32 @@ subj-raise-aux-with-pred := subj-raise-aux & norm-sem-lex-item & trans-first-arg
 
 neg-aux-lex := subj-raise-aux-with-pred &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ].
+
+;;; NP predicate (copula-less equational sentence)
+n-bar-predicate-rule := unary-phrase & nocoord &
+  [ SYNSEM.LOCAL.CAT [ HEAD verb,
+                       VAL [ COMPS < >,
+                             SUBJ < [ LOCAL [ CONT.HOOK.INDEX #arg1,
+                                              CAT [ HEAD noun,
+                                                    VAL.SPR < > ] ] ] > ] ],
+    C-CONT [ HOOK [ LTOP #ltop,
+                    INDEX #index,
+                    XARG #arg1 ],
+             RELS <! arg12-ev-relation &
+                   [ PRED "_be_v_id_rel",
+                     LBL #ltop,
+                     ARG0 #index,
+                     ARG1 #arg1,
+                     ARG2 #arg2 ],
+                   quant-relation &
+                   [ PRED "exist_q_rel",
+                     ARG0 #arg2,
+                     RSTR #harg ] !>,
+             HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
+    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun,
+                                  VAL.SPR cons ],
+                            CONT.HOOK [ INDEX #arg2,
+                                        LTOP #larg ] ] ] > ].
 
 ;;; Adjectives
 
