@@ -273,7 +273,7 @@ trans-verb-lex := transitive-verb-lex &
 intrans-verb-lex := intransitive-verb-lex.
 
 embedding-verb-lex := main-verb-lex & clausal-second-arg-trans-lex-item &
- [ SYNSEM.LOCAL.CAT.VAL [ COMPS < #comps >,
+ [ SYNSEM.LOCAL.CAT.VAL [ COMPS < #comps & [ LOCAL.CAT.HEAD comp ] >,
                           SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg ],
    ARG-ST < [ ], #comps > ].
 
@@ -404,7 +404,7 @@ adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
 
 ;;; Complementizers
 complementizer-lex-item := raise-sem-lex-item & basic-one-arg &
-  [ SYNSEM [ LOCAL [ CAT [ HEAD comp,
+  [ SYNSEM [ LOCAL [ CAT [ HEAD comp & [ MOD < > ],
                            VAL [ SPR < >,
                                  SUBJ < >,
                                  COMPS < #comp > ] ] ] ],
