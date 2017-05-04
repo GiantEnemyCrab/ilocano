@@ -275,8 +275,7 @@ intrans-verb-lex := intransitive-verb-lex.
 
 embedding-verb-lex := main-verb-lex & clausal-second-arg-trans-lex-item &
  [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
-   ARG-ST < [ ], #comps & 
-                 [ LOCAL.CONT.HOOK.INDEX.SF prop-or-ques ] > ].
+   ARG-ST < [ ], #comps > ].
 
 embedding-declarative-verb-lex := embedding-verb-lex &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST [ LOCAL.CONT.HOOK.INDEX.SF prop ] ].
