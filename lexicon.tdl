@@ -439,12 +439,20 @@ iti_adv := adv-mod-iti-lex &
   [ STEM < "iti" >,
     SYNSEM.LKEYS.KEYREL.PRED ""].
 
-a_3 := complementizer-lex-item &
+a_3 := complementizer-declarative-lex-item &
   [ STEM < "a" >,
     SYNSEM.LKEYS.KEYREL.PRED ""].
 
-ammo_2 := embedding-verb-lex &
+no_1 := complementizer-interrogative-lex-item &
+  [ STEM < "no" >,
+    SYNSEM.LKEYS.KEYREL.PRED ""].
+
+ammo_embed := embedding-declarative-verb-lex &
   [ STEM < "ammo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel"].
+
+lipat_embed := embedding-interrogative-verb-lex &
+  [ STEM < "lipat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_forget_v_rel" ].
 
 

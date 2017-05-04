@@ -276,7 +276,13 @@ intrans-verb-lex := intransitive-verb-lex.
 embedding-verb-lex := main-verb-lex & clausal-second-arg-trans-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
     ARG-ST < [ ], #comps & 
-                  [ LOCAL.CONT.HOOK.INDEX.SF prop ] > ].
+                  [ LOCAL.CONT.HOOK.INDEX.SF prop-or-ques ] > ].
+
+embedding-declarative-verb-lex := embedding-verb-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF prop ].
+
+embedding-interrogative-verb-lex := embedding-verb-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF ques ].
 
 ;;; Auxiliaries
 
@@ -408,6 +414,12 @@ complementizer-lex-item := raise-sem-lex-item & basic-one-arg &
                              VAL [ SUBJ < >,
                                    COMPS < > ] ],
                        CONT.HOOK.INDEX.SF prop-or-ques ] ] > ].
+
+complementizer-declarative-lex-item := complementizer-lex-item &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.SF prop ] ].
+
+complementizer-interrogative-lex-item := complementizer-lex-item &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.SF ques ] ].
 
 ;;; Determiners
 ;;; SPEC is non-empty, and already specified by basic-determiner-lex.
