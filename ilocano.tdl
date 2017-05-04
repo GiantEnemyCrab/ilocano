@@ -274,15 +274,15 @@ trans-verb-lex := transitive-verb-lex &
 intrans-verb-lex := intransitive-verb-lex.
 
 embedding-verb-lex := main-verb-lex & clausal-second-arg-trans-lex-item &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
-    ARG-ST < [ ], #comps & 
-                  [ LOCAL.CONT.HOOK.INDEX.SF prop-or-ques ] > ].
+ [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
+   ARG-ST < [ ], #comps & 
+                 [ LOCAL.CONT.HOOK.INDEX.SF prop-or-ques ] > ].
 
 embedding-declarative-verb-lex := embedding-verb-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF prop ].
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST [ LOCAL.CONT.HOOK.INDEX.SF prop ] ].
 
 embedding-interrogative-verb-lex := embedding-verb-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF ques ].
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST [ LOCAL.CONT.HOOK.INDEX.SF ques ] ].
 
 ;;; Auxiliaries
 
@@ -406,20 +406,19 @@ adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
 ;;; Complementizers
 complementizer-lex-item := raise-sem-lex-item & basic-one-arg &
   [ SYNSEM [ LOCAL [ CAT [ HEAD comp,
-                         VAL [ SPR < >,
-                               SUBJ < >,
-                               COMPS < #comp > ] ] ] ],
+                           VAL [ SPR < >,
+                                 SUBJ < >,
+                                 COMPS < #comp > ] ] ] ],
     ARG-ST < #comp &
              [ LOCAL [ CAT [ HEAD verb,
                              VAL [ SUBJ < >,
-                                   COMPS < > ] ],
-                       CONT.HOOK.INDEX.SF prop-or-ques ] ] > ].
+                                   COMPS < > ] ] ] ] > ].
 
 complementizer-declarative-lex-item := complementizer-lex-item &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.SF prop ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF prop ].
 
 complementizer-interrogative-lex-item := complementizer-lex-item &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.SF ques ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF ques ].
 
 ;;; Determiners
 ;;; SPEC is non-empty, and already specified by basic-determiner-lex.
