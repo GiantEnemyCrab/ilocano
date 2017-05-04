@@ -192,7 +192,6 @@ erg-du-noun-lex := enc-pron-noun-lex &
 
 erg-2pl-noun-lex := enc-pron-noun-lex.
 
-
 ind-pron-noun-lex := pron-noun-lex.
 
 ind-1sg-noun-lex := ind-pron-noun-lex &

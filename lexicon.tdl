@@ -419,25 +419,20 @@ kada5 := conj-lex &
 
 ;;; Ligature
 
-a_1 := attr-adj-mod-ligature-lex &
-  [ STEM < "a" >,
-    SYNSEM.LKEYS.KEYREL.PRED ""].
+a_attr := attr-adj-mod-ligature-lex &
+  [ STEM < "a" > ].
 
-a_2 := adv-mod-ligature-lex &
-  [ STEM < "a" >,
-    SYNSEM.LKEYS.KEYREL.PRED ""].
+a_adv := adv-mod-ligature-lex &
+  [ STEM < "a" > ].
 
 iti_adv := adv-mod-iti-lex &
-  [ STEM < "iti" >,
-    SYNSEM.LKEYS.KEYREL.PRED ""].
+  [ STEM < "iti" > ].
 
-a_3 := complementizer-declarative-lex-item &
-  [ STEM < "a" >,
-    SYNSEM.LKEYS.KEYREL.PRED ""].
+a_compl := complementizer-declarative-lex-item &
+  [ STEM < "a" > ].
 
-no_1 := complementizer-interrogative-lex-item &
-  [ STEM < "no" >,
-    SYNSEM.LKEYS.KEYREL.PRED ""].
+no_compl := complementizer-interrogative-lex-item &
+  [ STEM < "no" > ].
 
 ammo_embed := embedding-declarative-verb-lex &
   [ STEM < "ammo" >,

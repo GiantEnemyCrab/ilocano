@@ -5,11 +5,23 @@ comp_declarative_gtr := generator_rule &
   [ CONTEXT [ RELS <! [ ARG2 #h & handle ],
                     [ ARG0 #e & event ] !> ],
     FLAGS [ EQUAL < #e, #h >,
-          TRIGGER "a_3" ]].
+          TRIGGER "a_compl" ]].
 
 comp_interrogative_gtr := generator_rule &
   [ CONTEXT [ RELS <! [ ARG2 #h & handle ],
                     [ ARG0 #e & event ] !> ],
     FLAGS [ EQUAL < #e, #h >,
-          TRIGGER "no_1" ]].
+          TRIGGER "no_compl" ]].
+
+a_attr_gtr := arg0e_gtr &
+  [ CONTEXT [ RELS <! [ PRED "~.*_a_"] !> ],
+    FLAGS.TRIGGER "a_attr" ].
+
+a_adv_gtr := arg0e_gtr &
+  [ CONTEXT [ RELS <! [ PRED "~.*_a_"] !> ],
+    FLAGS.TRIGGER "a_adv" ].
+
+iti_adv_gtr := arg0e_gtr &
+  [ CONTEXT [ RELS <! [ PRED "~.*_a_" ] !> ],
+    FLAGS.TRIGGER "iti_adv" ].
 
