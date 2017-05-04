@@ -1,13 +1,13 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Semantically Empty Lexical Entries
 
-comp_declarative_gr := generator_rule &
+comp_declarative_gtr := generator_rule &
   [ CONTEXT [ RELS <! [ ARG2 #h & handle ],
                     [ ARG0 #e & event ] !> ],
     FLAGS [ EQUAL < #e, #h >,
           TRIGGER "a_3" ]].
 
-comp_interrogative_gr := generator_rule &
+comp_interrogative_gtr := generator_rule &
   [ CONTEXT [ RELS <! [ ARG2 #h & handle ],
                     [ ARG0 #e & event ] !> ],
     FLAGS [ EQUAL < #e, #h >,
