@@ -555,99 +555,113 @@ PF-AF-cry    CORE.PL boy
 ######### Embedded declaratives ######
 ######################################
 
-# 1. "ta" complement clauses."Ta" complement clauses must be finite: 
-# co-referential arguments are not deleted in the complement clause.
-# To use "ta" with verbs, it is used with certain imperative verbs,
-#  i.e. aguray `wait`, ibaga `tell`, umay `come`, etc
-
-# week 4
-# imperative + ta + declarative clause
-Source: a:462
-Vetted: s
-Judgment: g
-Phenomena: {Embedded declaratives}
-Aguraykayo     ta  sapulek
-ag-uray=ka     ta  sapul-en=ko
-I-wait=2SG.ABS SUB search-GF=1SG.ERG.(3SG)
-`Wait and I'll look for it`
-
-# ungrammatical: co-referential argument is deleted
-Source: author
-Vetted: u
-Judgment: f
-Phenomena: {Embedded declaratives}
-Aguraykayo     ta  sapulek
-ag-uray=ka     ta  sapul-en
-I-wait=2SG.ABS SUB search-GF
-`Wait and I'll look for it`
-
-# 2. In another case, complement clauses are preceded by Ligature, "(ng)a".
+# Complement clauses are preceded by Ligature, "(ng)a".
 # Co-refential arguments may be expressed twice: once in the main clause,
 # and again in the complement clause for clarity (to avoid any ambiguity.
-# Week 4
-Source: a:468
-Vetted: s
-Judgment: g
-Phenomena: {Embedded declaratives}
-Ikariko           a   mapanak
-i-kari=ko         a   ma-pan=ak
-GF-promise=1SG.ERG LIG I-go=1SG.ABS
-`I promise to go (I promise that I go)`
 
 # Week 4
 Source: a:242
 Vetted: s
 Judgment: g
 Phenomena: {Embedded declaratives}
-Ammok        a   nakitamo         ti      lalaki
-ammo=ko      a   na-kita=mo       ti      lalaki
-know=1SG.ERG LIG PF.GF-see=2SG.ERG CORE.SG boy
+Ammok        a       nakitamo          ti      lalaki
+ammo=ko      a       na-kita=mo        ti      lalaki
+know=1SG.ERG CP.PROP PF.GF-see=2SG.ERG CORE.SG boy
 `I know that you saw the boy`
 
-# ungrammatical: ligature complementizer takes finite clause only
+# ungrammatical: ligature complementizer should not take NP-only phrase
 Source: author
 Vetted: f
 Judgment: u
 Phenomena: {Embedded declaratives}
-Ammok        a   ti      lalaki
-ammo=ko      a   ti      lalaki
-know=1SG.ERG LIG CORE.SG boy
+Ammok        a       ti      lalaki
+ammo=ko      a       ti      lalaki
+know=1SG.ERG CP.PROP CORE.SG boy
 `I know that you saw the boy`
+
+# ungrammatical: repeated complemtizer
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded declaratives}
+Ammok        a       a       nakitamo          ti      lalaki
+ammo=ko      a       a       na-kita=mo        ti      lalaki
+know=1SG.ERG CP.PROP CP.PROP PF.GF-see=2SG.ERG CORE.SG boy
+`I know that you saw the boy`
+
+# ungrammatical: complementizer should not come first
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded declaratives}
+a       Ammok        a       nakitamo          ti      lalaki
+a       ammo=ko      a       na-kita=mo        ti      lalaki
+CP.PROP know=1SG.ERG CP.PROP PF.GF-see=2SG.ERG CORE.SG boy
+`I know that you saw the boy`
+
+# ungrammatical: unexpected complementizer for the verb
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded declaratives}
+Ammok        no      ti      lalaki
+ammo=ko      no      ti      lalaki
+know=1SG.ERG CP.QUES CORE.SG boy
+`I know if you saw the boy`
 
 
 ######################################
 ######### Embedded questions #########
 ######################################
 
-# Week 4
 Source: a:496
 Vetted: s
 Judgment: g
 Phenomena: {Embedded questions}
-Nalipatak           no na-labaga wenno asul
-na-lipat-an=ak      no na-labaga wenno asul
-PF-forget-GF=1SG.ERG if ADJ-red   or    blue
-`I forgot if it is red or blue'
+lipatk         no      nakitamo         ti      lalaki
+lipat=ko       no      na-kita=mo       ti      lalaki
+forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
+`I forget if you saw the boy`
 
-# Week 4
-Source: author
-Vetted: f
-Judgment: g
-Phenomena: {Embedded questions}
-Nalipatak           no nakitako         ti      lalaki
-na-lipat-an=ak      no na-kita=ko       ti      lalaki
-PF-forget-GF=1SG.ERG if PF.GF-see=1SG.ERG CORE.SG boy
-`I forgot if I saw the boy'
-
-# ungrammatical: the conditional should not be able to embed just NP
+# ungrammatical: NOature complementizer should not take NP-only phrase
 Source: author
 Vetted: f
 Judgment: u
 Phenomena: {Embedded questions}
-Nalipatak           no ti      lalaki
-na-lipat-an=ak      no ti      lalaki
-PF-forget-GF=1SG.ERG if CORE.SG boy
-`I forgot if I saw the boy'
+lipatk         no      ti      lalaki
+lipat=ko       no      ti      lalaki
+forget=1SG.ERG CP.QUES CORE.SG boy
+`I forget if you saw the boy`
+
+# ungrammatical: repeated complemtizer
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded questions}
+lipatk         n  o    no      nakitamo          ti      lalaki
+lipat=ko       no      no      na-kita=mo        ti      lalaki
+forget=1SG.ERG CP.QUES CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
+`I forget if you saw the boy`
+
+# ungrammatical: complementizer should not come first
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded questions}
+a   lipatk        no      nakitamo          ti      lalaki
+a   lipat=ko      no      na-kita=mo        ti      lalaki
+NO forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
+`I forget if you saw the boy`
+
+# ungrammatical: unexpected complementizer for the verb
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded questions}
+lipatk         a       ti      lalaki
+lipat=ko       a       ti      lalaki
+forget=1SG.ERG CP.PROP CORE.SG boy
+`I forget that you saw the boy`
 
 
 ######################################
