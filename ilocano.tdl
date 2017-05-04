@@ -273,14 +273,10 @@ trans-verb-lex := transitive-verb-lex &
 
 intrans-verb-lex := intransitive-verb-lex.
 
-;embedding-verb-lex := main-ver-lex & clausal-second-arg-trans-lex-item &
-;  [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
-;    ARG-ST < [ LOCAL.CAT.HEAD noun ],
-;             #comps &
-;             [ LOCAL [ CAT [ VAL [ SPR < >,
-;                                 COMPS < > ],
-;                           HEAD noun ] 
-;                       CONT.HOOK.INDEX.SF prop-or-ques ] ] > ].
+embedding-verb-lex := main-verb-lex & clausal-second-arg-trans-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
+    ARG-ST < [ ], #comps & 
+                  [ LOCAL.CONT.HOOK.INDEX.SF prop ] > ].
 
 ;;; Auxiliaries
 
@@ -312,30 +308,31 @@ neg-aux-lex := subj-raise-aux-with-pred &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ].
 
 ;;; NP predicate (copula-less equational sentence)
-n-bar-predicate-rule := unary-phrase & nocoord &
-  [ SYNSEM.LOCAL.CAT [ HEAD verb,
-                       VAL [ COMPS < >,
-                             SUBJ < [ LOCAL [ CONT.HOOK.INDEX #arg1,
-                                              CAT [ HEAD noun,
-                                                    VAL.SPR < > ] ] ] > ] ],
-    C-CONT [ HOOK [ LTOP #ltop,
-                    INDEX #index,
-                    XARG #arg1 ],
-             RELS <! arg12-ev-relation &
-                   [ PRED "_be_v_id_rel",
-                     LBL #ltop,
-                     ARG0 #index,
-                     ARG1 #arg1,
-                     ARG2 #arg2 ],
-                   quant-relation &
-                   [ PRED "exist_q_rel",
-                     ARG0 #arg2,
-                     RSTR #harg ] !>,
-             HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
-    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun,
-                                  VAL.SPR cons ],
-                            CONT.HOOK [ INDEX #arg2,
-                                        LTOP #larg ] ] ] > ].
+;n-bar-predicate-rule := unary-phrase & nocoord &
+;  [ SYNSEM.LOCAL.CAT [ HEAD verb,
+;                       VAL [ SPR < >,
+;                             COMPS < >,
+;                             SUBJ < [ LOCAL [ CONT.HOOK.INDEX #arg1,
+;                                              CAT [ HEAD noun,
+;                                                    VAL.SPR < > ] ] ] > ] ],
+;    C-CONT [ HOOK [ LTOP #ltop,
+;                    INDEX #index,
+;                    XARG #arg1 ],
+;             RELS <! arg12-ev-relation &
+;                   [ PRED "_be_v_id_rel",
+;                     LBL #ltop,
+;                     ARG0 #index,
+;                     ARG1 #arg1,
+;                     ARG2 #arg2 ],
+;                   quant-relation &
+;                   [ PRED "exist_q_rel",
+;                     ARG0 #arg2,
+;                     RSTR #harg ] !>,
+;             HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
+;    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun,
+;                                  VAL.SPR cons ],
+;                            CONT.HOOK [ INDEX #arg2,
+;                                        LTOP #larg ] ] ] > ].
 
 ;;; Adjectives
 
@@ -379,7 +376,7 @@ attr-adj-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-le
 ;;; Adverbs
 adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
-                           [ MOD < [ LOCAL.CAT.HEAD verb ] > ],
+                           [ MOD < [ LOCAL.CAT [ HEAD verb ] ] > ],
                          VAL [ SPR < >,
                                SUBJ < >,
                                SPEC < >,
@@ -399,6 +396,18 @@ adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
                          POSTHEAD + ] ] ].
 
 ;;; Others
+
+;;; Complementizers
+complementizer-lex-item := raise-sem-lex-item & basic-one-arg &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD comp,
+                         VAL [ SPR < >,
+                               SUBJ < >,
+                               COMPS < #comp > ] ] ] ],
+    ARG-ST < #comp &
+             [ LOCAL [ CAT [ HEAD verb,
+                             VAL [ SUBJ < >,
+                                   COMPS < > ] ],
+                       CONT.HOOK.INDEX.SF prop-or-ques ] ] > ].
 
 ;;; Determiners
 ;;; SPEC is non-empty, and already specified by basic-determiner-lex.
