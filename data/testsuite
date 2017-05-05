@@ -729,7 +729,54 @@ who  CORE.SG PF.GF-see=2SG.ABS
 ######### Matrix yes-no questions ####
 ######################################
 
-# A treatment of yes-no questions will be documented in the writeup
+# Yes-no questions are indicated primarily by intonation alone, which is
+# outside the scope of the grammar we're building, but they can also be
+# expressed optionally by a second-position enclitic 'kadi' which appears
+# After the first constituent of a sentence or clause.
+
+# Week 6
+# Example of a yes-no question with 'kadi'.
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {yn}
+Nalukmeg  kadi   ti      lalaki?
+na-lukmeg kadi   ti      lalaki
+ADJ-fat   QUES   CORE.SG boy
+‘Is the boy fat?’
+
+# Week 6
+# Example of a yes-no question with 'kadi' after an encliticized adjective.
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {yn}
+Napigsaka         kadi?
+na-pigsa=ka       kadi
+ADJ-strong=2s.ABS QUES
+'Are you strong?'
+
+# Week 6
+# Example of a yes-no question with 'kadi' after an encliticized noun.
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {yn}
+Amaka         kadi?
+ama=ka	      kadi
+father=2s.ABS QUES
+'Are you a father?'
+
+# Week 6
+# Ungrammatical example of 'kadi' in sentence-final position
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {yn}
+Nalukmeg  ti      lalaki kadi?
+na-lukmeg ti      lalaki kadi
+ADJ-fag   CORE-SG boy    QUES
+'Is the boy fat?'
 
 ######################################
 ######### NEGATION ###################
