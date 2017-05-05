@@ -20,7 +20,7 @@ bare-np := bare-np-phrase.
 
 poss := poss-phrase.
 
-equational-np := n-bar-predicate-rule.
+np-pred := n-bar-predicate-rule.
 
 n1-top-coord := n1-top-coord-rule.
 
