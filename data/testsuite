@@ -973,7 +973,7 @@ Vetted: f
 Judgment: g
 Phenomena: {poss}
 Naglaylay   ti      babai ti       sabong.
-n-ag-laylay ti      babai ti       flower
+n-ag-laylay ti      babai ti       sabong
 PF-AF-wilt  CORE.SG girl  CORE.SG  flower
 'The girl's flower wilted.'
 
@@ -1030,7 +1030,7 @@ Source: author
 Vetted: f
 Judgment: g
 Phenomena: {poss}
-Nakita ti babai ti sabong.
+Nakita     ti      babai ti      sabong.
 na-kita    ti      babai ti      sabong
 PF.GF-kita CORE.SG girl  CORE.SG flower
 'The girl saw the flower.'
@@ -1044,8 +1044,8 @@ Source: a:186
 Vetted: f
 Judgment: g
 Phenomena: {tam}
-Naglaylay   ti      sabong
-n-ag-laylay ti      sabong
+Naglaylay    ti      sabong
+n-ag-laylay  ti      sabong
 PF-AF-wilt   CORE.SG flower.ABS
 ‘The flower wilted’
 
@@ -1093,8 +1093,8 @@ Source: a:187
 Vetted: s
 Judgment: g
 Phenomena: {word order}
-Naglaylay   ti      sabong
-n-ag-laylay ti      sabong
+Naglaylay   ti       sabong
+n-ag-laylay ti       sabong
 PF-AF-wilt   CORE.SG flower.ABS
 `The flower wilted'
 
@@ -1113,8 +1113,8 @@ Source: a:187
 Vetted: s
 Judgment: g
 Phenomena: {word order}
-Naglaylay   ti      sabong
-n-ag-laylay ti      sabong
+Naglaylay    ti      sabong
+n-ag-laylay  ti      sabong
 PF-AF-wilt   CORE.SG flower.ABS
 `The flower wilted'
 
@@ -1123,8 +1123,8 @@ Source: a:187
 Vetted: s
 Judgment: u
 Phenomena: {word order}
-Naglaylay   sabong     ti
-n-ag-laylay sabong     ti
+Naglaylay    sabong     ti
+n-ag-laylay  sabong     ti
 PF-AF-wilt   flower.ABS CORE.SG
 `The flower wilted'
 
@@ -1133,8 +1133,8 @@ Source: a:32
 Vetted: s
 Judgment: g
 Phenomena: {word order}
-Nakita   ti      babai ti      lalaki
-na-kita  ti      babai ti      lalaki
+Nakita    ti      babai ti      lalaki
+na-kita   ti      babai ti      lalaki
 PF.GF-see CORE.SG girl  CORE.SG boy
 `The girl saw the boy'
 
@@ -1143,8 +1143,8 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {word order}
-Ti      babai nakita   ti      lalaki
-ti      babai na-kita  ti      lalaki
+Ti      babai nakita    ti      lalaki
+ti      babai na-kita   ti      lalaki
 CORE.SG girl  PF.GF-see CORE.SG boy
 `The girl saw the boy'
 
@@ -1163,8 +1163,8 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {word order}
-Iti    babai nakita   iti    lalaki
-iti    babai na-kita  iti    lalaki
+Iti    babai nakita    iti    lalaki
+iti    babai na-kita   iti    lalaki
 OBL.SG girl  PF.GF-see OBL.SG boy
 `The girl saw the boy'
 
@@ -1183,8 +1183,8 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {word order}
-Nakita   babai ti      ti      lalaki
-na-kita  babai ti      ti      lalaki
+Nakita    babai ti      ti      lalaki
+na-kita   babai ti      ti      lalaki
 PF.GF-see girl  CORE.SG CORE.SG boy
 `The girl saw the boy'
 
@@ -1193,8 +1193,8 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {word order}
-Nakita   ti      babai lalaki ti
-na-kita  ti      babai lalaki ti
+Nakita    ti      babai lalaki ti
+na-kita   ti      babai lalaki ti
 PF.GF-see CORE.SG girl  boy    CORE.SG
 `The girl saw the boy'
 
@@ -1203,8 +1203,8 @@ Source: a:32
 Vetted: s
 Judgment: u
 Phenomena: {word order}
-Nakita   ti       babai  lalaki ti
-na-kita  ti       babai  lalaki ti
+Nakita    ti       babai  lalaki ti
+na-kita   ti       babai  lalaki ti
 PF.GF-see CORE.SG  boy    girl   CORE.SG
 `The girl saw the boy'
 
