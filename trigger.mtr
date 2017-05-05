@@ -25,3 +25,9 @@ iti_adv_gtr := arg0e_gtr &
   [ CONTEXT [ RELS <! [ PRED "~.*_a_" ] !> ],
     FLAGS.TRIGGER "iti_adv" ].
 
+;;; Trigger for 2nd-pos enclitics
+
+kadi_gr := generator_rule &
+  [ CONTEXT.RELS <! [ ARG0.SF ques ] !>,
+    FLAGS.TRIGGER "kadi" ].
+

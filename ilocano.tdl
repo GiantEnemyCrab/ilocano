@@ -782,3 +782,34 @@ n5-non-sg-non-sg-any-top-coord-rule := basic-n-top-coord-rule & apoly-top-coord-
 
 n5-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase & pass-up-png-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "5" ].
+
+;;;;;
+;;; Second-position enclitic support
+;;;;;
+
+canonical-synsem :+
+    [ L-PERIPH bool ].
+
+basic-binary-phrase :+
+    [ SYNSEM.L-PERIPH #periph,
+      ARGS < [ SYNSEM.L-PERIPH #periph ], [ SYNSEM.L-PERIPH - ] > ].
+
+basic-head-mod-phrase-simple :+
+    [ HEAD-DTR.SYNSEM.L-PERIPH #periph,
+      NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.MOD < [ L-PERIPH #periph ] > ].
+
+same-periph-unary-phrase := unary-phrase &
+    [ SYNSEM.L-PERIPH #periph,
+      ARGS < [ SYNSEM.L-PERIPH #periph ] > ].
+
+bare-np-phrase :+
+    [ SYNSEM.LIGHT - ].
+
+question-clitic-lex := no-hcons-lex-item &
+    [ SYNSEM.LOCAL [ CAT [ VAL [ SPR < >, COMPS < >, SUBJ < >, SPEC < >],
+                                          HEAD adv & 
+                                                [ MOD < [ LIGHT +,
+                                                          LOCAL intersective-mod,
+                                                                L-PERIPH + ] > ]],
+                             CONT.RELS <! !> ]].
+

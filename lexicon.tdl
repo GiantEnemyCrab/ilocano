@@ -442,3 +442,8 @@ lipat_embed := embedding-interrogative-verb-lex &
   [ STEM < "lipat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_forget_v_rel" ].
 
+;;; Question particle
+
+kadi := question-clitic-lex &
+  [ STEM < "kadi" >,
+    SYNSEM.LKEYS.KEYREL.PRED "" ].
