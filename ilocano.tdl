@@ -358,7 +358,7 @@ stative-pred-adj-lex := adj-lex &
   [ SYNSEM.LOCAL [ CAT.VAL.SUBJ < [ LOCAL [ CONT.HOOK.INDEX #xarg,
                                             CAT [ VAL [ SPR < >,
                                                         COMPS < > ],
-                                                  HEAD noun ] ] ] >,
+                                                  HEAD noun & [ CASE cor ] ] ] ] >,
                    CONT.HOOK.XARG #xarg ] ].
 
 ;;; Attributive Adjectives with ligature, intersecting between noun and adj, or adj and noun

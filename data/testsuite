@@ -751,9 +751,9 @@ Source: author
 Vetted: f
 Judgment: g
 Phenomena: {yn}
-Napigsaka         kadi?
-na-pigsa=ka       kadi
-ADJ-strong=2s.ABS QUES
+Napigsaka          kadi?
+na-pigsa=ka        kadi
+ADJ-strong=2SG.ABS QUES
 'Are you strong?'
 
 # Week 6
@@ -762,9 +762,9 @@ Source: author
 Vetted: f
 Judgment: g
 Phenomena: {yn}
-Amaka         kadi?
-ama=ka	      kadi
-father=2s.ABS QUES
+Amaka          kadi?
+ama=ka	       kadi
+father=2SG.ABS QUES
 'Are you a father?'
 
 # Week 6
@@ -775,7 +775,7 @@ Judgment: u
 Phenomena: {yn}
 Nalukmeg  ti      lalaki kadi?
 na-lukmeg ti      lalaki kadi
-ADJ-fag   CORE-SG boy    QUES
+ADJ-fag   CORE.SG boy    QUES
 'Is the boy fat?'
 
 ######################################
@@ -953,15 +953,65 @@ ti      balay na-dalus
 CORE.SG house ADJ-clean
 `The house is clean`
 
+# ungrammatical: AP should not combined with another AP
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Nadalus   nadalu
+na-dalus  na-dalus
+ADJ-clean ADJ-clean
+`clean is clean`
+
+# ungrammatical: AP predicate should not combine with oblique case NP
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Nadalus   iti    balay
+na-dalus  iti    balay
+ADJ-clean OBL.SG house
+`The house is clean`
+
 # Week 4
 # Prepositional phrase (via oblique noun phrase)
-Source: a:416
-Vetted: s
-Judgment: g
+Source: author
+Vetted: u
+Judgment: f
 Phenomena: {Non-verbal predicates}
 Iti    rabaw ti      lamisaan ti      tulbek
 iti    rabaw ti      lamisaan ti      tulbek
 OBL.SG top   CORE.SG table    CORE.SG key
+`The key is on the table`
+
+# ungrammatical: the locative noun should not take oblique NP complement
+Source: authort
+Vetted: u
+Judgment: f
+Phenomena: {Non-verbal predicates}
+Iti    rabaw iti    lamisaan ti      tulbek
+iti    rabaw iti    lamisaan ti      tulbek
+OBL.SG top   OBL.SG table    CORE.SG key
+`The key is on the table`
+
+# ungrammatical: the locative NP should not combine with oblique NP subj
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Iti    rabaw ti    lamisaan iti      tulbek
+iti    rabaw ti    lamisaan iti      tulbek
+OBL.SG top   OBL.SG table   OBL.SG key
+`The key is on the table`
+
+# ungrammatical: locative noun should only combine with OBL singular, not plural
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Kadagiti  rabaw ti    lamisaan iti      tulbek
+kadagiti  rabaw ti    lamisaan iti      tulbek
+OBL.PL    top   OBL.SG table   OBL.SG key
 `The key is on the table`
 
 
