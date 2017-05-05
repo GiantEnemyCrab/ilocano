@@ -802,7 +802,7 @@ Neg=1SG.ABS PF.GF-see CORE.SG boy
 # copular expression
 
 # Week 4
-# Noun phrases
+# Noun phrases as predicates
 Source: a:33
 Vetted: s
 Judgment: g
@@ -813,7 +813,7 @@ siak ti      paralako
 'I am the salesperson'
 
 # Week 4
-# ungrammatical: PERNUM should match
+# ungrammatical: NUM should match
 Source: author
 Vetted: f
 Judgment: g
@@ -822,6 +822,56 @@ Siak dagiti  paralako
 siak dagiti  paralako
 1SG  CORE.PL paralako
 'I am the salesperson'
+
+# ungrammatical: core case needs to be used rather than oblique
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Siak iti    paralako
+siak iti    paralako
+1SG  OBL.PL paralako
+'I am the salesperson'
+
+# grammatical: juxtaposition of two core NPs as finite clause
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Ti      babai ti     lalaki
+ti      babai ti     lalaki
+CORE.SG girl  CORE.SG boy
+'The girl is the boy'
+
+# ungrammatical: juxtaposition of two core NPs with wrong cases
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Iti    babai ti      lalaki
+iti    babai ti      lalaki
+OBL.SG girl  CORE.SG boy
+'The girl is the boy'
+
+# ungrammatical: juxtaposition of two core NPs with wrong cases
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Ti      babai iti    lalaki
+ti      babai iti    lalaki
+CORE.SG girl  OBL.SG boy
+'The girl is the boy'
+
+# ungrammatical: juxtaposition of two core NPs with wrong cases
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Iti    babai iti    lalaki
+iti    babai iti    lalaki
+OBL.SG girl  OBL.SG boy
+'The girl is the boy'
 
 # Week 4
 # Adj predicate
