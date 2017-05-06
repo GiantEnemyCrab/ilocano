@@ -618,7 +618,7 @@ Source: a:496
 Vetted: s
 Judgment: g
 Phenomena: {Embedded questions}
-lipatk         no      nakitamo         ti      lalaki
+lipatko        no      nakitamo         ti      lalaki
 lipat=ko       no      na-kita=mo       ti      lalaki
 forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
 `I forget if you saw the boy`
@@ -628,7 +628,7 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: {Embedded questions}
-lipatk         no      ti      lalaki
+lipatko        no      ti      lalaki
 lipat=ko       no      ti      lalaki
 forget=1SG.ERG CP.QUES CORE.SG boy
 `I forget if you saw the boy`
@@ -638,7 +638,7 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: {Embedded questions}
-lipatk         n  o    no      nakitamo          ti      lalaki
+lipatko        no      no      nakitamo          ti      lalaki
 lipat=ko       no      no      na-kita=mo        ti      lalaki
 forget=1SG.ERG CP.QUES CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
 `I forget if you saw the boy`
@@ -648,9 +648,9 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: {Embedded questions}
-a   lipatk        no      nakitamo          ti      lalaki
-a   lipat=ko      no      na-kita=mo        ti      lalaki
-NO forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
+No      lipatko       no      nakitamo          ti      lalaki
+no      lipat=ko      no      na-kita=mo        ti      lalaki
+CP.QUES forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
 `I forget if you saw the boy`
 
 # ungrammatical: unexpected complementizer for the verb
@@ -658,7 +658,7 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: {Embedded questions}
-lipatk         a       ti      lalaki
+lipatko        a       ti      lalaki
 lipat=ko       a       ti      lalaki
 forget=1SG.ERG CP.PROP CORE.SG boy
 `I forget that you saw the boy`

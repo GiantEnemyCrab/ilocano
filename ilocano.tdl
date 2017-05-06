@@ -109,6 +109,9 @@ infinitive := aspect.
 
 ;;; Nouns
 
+; locative noun to demonstrate PP predicate
+noun :+ [ LOCNOUN bool ].
+
 noun-lex := basic-noun-lex & basic-one-arg & no-hcons-lex-item & non-mod-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL [ SPR < #spr &
                                  [ LOCAL.CAT.HEAD det ] >,
@@ -134,7 +137,17 @@ head-spec-phrase := basic-head-spec-phrase & head-final &
   [ NON-HEAD-DTR.SYNSEM.OPT - ].
 
 common-noun-lex := obl-spr-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd ].
+  [ SYNSEM.LOCAL [ CAT.HEAD.LOCNOUN -,
+                   CONT.HOOK.INDEX.PNG.PERNUM 3rd ] ].
+
+locative-noun-lex := basic-noun-lex & non-mod-lex-item & intransitive-lex-item &
+  [ SYNSEM.LOCAL.CAT [ HEAD noun & [ MOD < >,
+                                     LOCNOUN +,
+                                     CASE obl ],
+                       VAL [ SPR < [ ] >,
+                             COMPS < #comps & [ LOCAL.CAT [ HEAD noun & [ CASE cor ], 
+                                                            VAL.SPR < > ] ] > ] ],
+    ARG-ST < #comps > ].
 
 pron-noun-lex := no-spr-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX [ COG-ST activ-or-more,
@@ -401,6 +414,28 @@ adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
                          POSTHEAD + ] ] ].
 
 ;;; Others
+
+;;; PP locative predicate
+;locative-pp-phrase := unary-phrase & nocoord &
+;  [ SYNSEM [ LOCAL.CAT [ HEAD noun & [ MOD < >,
+;                                       LOCNOUN + ],
+;                         VAL [ COMPS < >,
+;                               SUBJ < [ LOCAL.CAT.HEAD noun & [ CASE cor,
+;                                                                LOCNOUN - ] ] >,
+;                               SPR < > ]]],
+;    C-CONT [ HOOK [ LTOP #ltop,
+;                    INDEX #index,
+;                    XARG #xarg ],
+;             RELS <! arg12-ev-relation &
+;                   [ PRED "_loc_p_rel",
+;                     LBL #ltop,
+;                     ARG0 #index,
+;                     ARG1 #xarg,
+;                     ARG2 #dtr ] !>,
+;             HCONS <! !>  ],
+;    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ CASE cor ],
+;                                  VAL.SPR < > ],
+;                            CONT.HOOK [ INDEX #dtr ]]] > ].
 
 ;;; Complementizers
 complementizer-lex-item := raise-sem-lex-item & basic-one-arg &

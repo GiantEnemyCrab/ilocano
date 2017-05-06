@@ -22,6 +22,8 @@ poss := poss-phrase.
 
 np-pred := n-bar-predicate-rule.
 
+pp-pred := locative-pp-phrase.
+
 n1-top-coord := n1-top-coord-rule.
 
 n1-bottom-coord := n1-bottom-coord-rule.
