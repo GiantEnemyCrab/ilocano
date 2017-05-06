@@ -139,11 +139,12 @@ common-noun-lex := obl-spr-noun-lex &
                    CONT.HOOK.INDEX.PNG.PERNUM 3rd ] ].
 
 locative-noun-lex := basic-noun-lex & non-mod-lex-item & intransitive-lex-item &
-  [ SYNSEM.LOCAL.CAT [ HEAD noun & [ CASE obl,
-                                     LOCNOUN + ],
-                       VAL [ SPR < [ ] >,
-                             COMPS < #comps & [ LOCAL.CAT [ HEAD noun & [ CASE cor ], 
-                                                            VAL.SPR < > ] ] > ] ],
+  [ SYNSEM.LOCAL.CAT [ VAL [ SPR < [ ] >,
+                             COMPS < #comps & [ LOCAL.CAT [ HEAD noun & [ CASE cor ],
+                                                            VAL.SPR < > ], 
+                                                OPT - ] > ],
+                       HEAD noun & [ CASE obl,
+                                     LOCNOUN + ] ],
     ARG-ST < #comps > ].
 
 pron-noun-lex := no-spr-noun-lex &
@@ -416,12 +417,12 @@ adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
 ;;; PP locative predicate
 locative-pp-phrase := unary-phrase & nocoord &
   [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < > ],
-                       VAL [ SPR < >,
-                             COMPS < >,
-                             SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
-                                              CAT [ HEAD noun & [ CASE cor,
-                                                                  LOCNOUN - ],
-                                                    VAL.SPR < > ] ] ] > ] ] ],
+                         VAL [ SPR < >,
+                               COMPS < >,
+                               SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
+                                                CAT [ HEAD noun & [ CASE cor,
+                                                                    LOCNOUN - ],
+                                                      VAL.SPR < > ] ] ] > ] ] ],
     C-CONT [ HOOK [ LTOP #ltop,
                     INDEX #index,
                     XARG #arg1 ],
