@@ -757,6 +757,18 @@ ADJ-strong=2SG.ABS QUES
 'Are you strong?'
 
 # Week 6
+# Example of a yes-no question with 'kadi' after an adjective with unmarked
+# 3rd-person absolutive pronoun.
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {yn}
+Nalabaga          kadi?
+na-labaga         kadi
+ADJ-red=3SG.ABS   QUES
+'Is it red?'
+
+# Week 6
 # Example of a yes-no question with 'kadi' after an encliticized noun.
 Source: author
 Vetted: f
