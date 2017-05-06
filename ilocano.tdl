@@ -384,27 +384,33 @@ attr-adj-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-le
                          VAL [ SPR < >,
                                SUBJ < >,
                                SPEC < >,
-                               COMPS < #comps & [ LOCAL [ CAT [ VAL.SUBJ < [ ] >,
-                                                                HEAD adj ],
+                               COMPS < #comps & [ LOCAL [ CAT [ HEAD adj,
+                                                                VAL.SUBJ < [ ] > ],
                                                           CONT.HOOK [ XARG #index ] ] ] > ],
                          POSTHEAD #init ] ],
-           ARG-ST < #comps > ].
+    ARG-ST < #comps > ].
 
 ;;; Adverbs
 adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
-                           [ MOD < [ LOCAL.CAT [ HEAD verb ] ] > ],
+                           [ MOD < [ LOCAL [ CAT [ HEAD verb,
+                                                   VAL [ SUBJ < >
+                                                         COMPS < > ] ],
+                                             CONT.HOOK [ INDEX #index ] ] ] > ],
                          VAL [ SPR < >,
                                SUBJ < >,
                                SPEC < >,
-                               COMPS < [ LOCAL.CAT [ VAL.SUBJ < [ ] >,
-                                                     HEAD adj ] ] > ],
-                         POSTHEAD - ] ] ].
+                               COMPS < #comps & [ LOCAL [ CAT [ HEAD adj,
+                                                                VAL.SUBJ < [ ] > ],
+                                                          CONT.HOOK [ INDEX #index ] ] ] > ],
+                         POSTHEAD - ] ],
+    ARG-ST < #comps > ].
 
 adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
                            [ MOD < [ LOCAL.CAT [ HEAD verb,
-                                                 VAL.SUBJ < > ] ] > ],
+                                                 VAL [ SUBJ < >,
+                                                       COMPS < > ] ] ] > ],
                          VAL [ SPR < >,
                                SUBJ < >,
                                SPEC < >,
@@ -459,9 +465,10 @@ complementizer-interrogative-lex-item := complementizer-lex-item &
 ;;; SPEC is non-empty, and already specified by basic-determiner-lex.
 
 determiner-lex := basic-determiner-lex & norm-zero-arg & non-mod-lex-item &
-  [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
+  [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
                            COMPS < >,
-                           SUBJ < > ] ].
+                           SUBJ < > ],
+                   CONT.HOOK.INDEX [ COG-ST cog-st ] ] ].
 
 core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE cor,
@@ -664,10 +671,6 @@ comp-head-phrase := basic-head-1st-comp-phrase & head-final &
 
 head-subj-phrase := decl-head-subj-phrase & head-initial &
   [ HEAD-DTR.SYNSEM.LIGHT + ].
-
-; Adverb addition: constrain the head daughter from enabling context1-decl rule
-adj-head-int-restrict-context1-decl-phrase := adj-head-int-phrase &
-   [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ < [ ] > ].
 
 ; Bare NP phrase.  Consider modifying the PRED value of the quantifier relation
 ; introduced to match the semantic effect of bare NPs in your language.
