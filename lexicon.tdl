@@ -1,6 +1,10 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Nouns
 
+rabaw := locative-noun-lex &
+  [ STEM < "rabaw" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_top_n_rel" ].
+
 lalaki := common-noun-lex &
   [ STEM < "lalaki" >,
     SYNSEM.LKEYS.KEYREL.PRED "_boy_n_rel" ].
@@ -32,10 +36,6 @@ simbaan := common-noun-lex &
 tulbek := common-noun-lex &
   [ STEM < "tulbek" >,
     SYNSEM.LKEYS.KEYREL.PRED "_key_n_rel" ].
-
-rabaw := common-noun-lex &
-  [ STEM < "rabaw" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_top_n_rel" ].
 
 ubing := common-noun-lex &
   [ STEM < "ubing" >,
