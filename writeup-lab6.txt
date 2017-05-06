@@ -1,0 +1,523 @@
+Lab 6 Writeup
+LING 567
+Jim Blackburn & Kazuki Shintani
+May 5, 2017
+
+#######################
+Matrix Yes/No Questions
+#######################
+
+Ilocano questions are often formed by placing rising intonation on declarative sentences. This functionality lies outside of the scope of our grammar. However, we are able to implement another optional method for forming yes-no questions.
+
+The Second-Position Clitic ‘Kadi’
+
+Ilocano has an optional second-position clitic “kadi” which is not required but can appear after the first constituent in a sentence. The Rubino text is thin on examples of its use; two patterns are demonstrated: one in which a bare adjective appears as the first constituent of the question, and the other in which the first constituent is an adjective with an encliticized personal pronoun (Rubino 427):
+
+Nalukmeg  (kadi) ni           Jose?
+na-lukmeg kadi   ni           Jose?
+ADJ-fat   QUES   CORE.PERS.SG Jose
+‘Is Jose fat?’
+
+Because proper nouns are also out of scope for our purposes, the example above is presented merely for justification of our test suite examples and does not appear in the test suite itself. From it, however, we posit that a common noun phrase could be substituted here:
+
+Source: author
+Nalukmeg  (kadi) ti      lalaki?
+na-lukmeg kadi   ti      lalaki
+ADJ-fat   QUES   CORE.SG boy
+‘Is the boy fat?’
+
+Following is the example consisting of an encliticized word followed by “kadi”:
+
+Source: author
+Napigsaka        kadi?
+na-pigsa=ka      kadi
+ADJ-strong=2s.ABS QUES
+'Are you strong?'
+
+To implement this second-condition clitic syntactically, the lexical type question-clitic-lex was defined:
+
+question-clitic-lex := no-hcons-lex-item &
+    [ SYNSEM.LOCAL [ CAT [ VAL [ SPR < >, COMPS < >, SUBJ < [ ] >, SPEC < >],
+                             HEAD adv & 
+                                 [ MOD < [ LIGHT +,
+                                           LOCAL intersective-mod,
+                                           L-PERIPH + ] > ]],
+                     CONT.RELS <! !> ]].
+
+To ensure that the clitic can only appear after left-most constituents, a feature L-PERIPH was intruduced to ensure that, in any branching rule, only the left daughter could be [ L-PERIPH + ]:
+
+basic-binary-phrase :+
+    [ SYNSEM.L-PERIPH #periph,
+      ARGS < [ SYNSEM.L-PERIPH #periph ], [ SYNSEM.L-PERIPH - ] > ].
+
+To ensure L-PERIPH values were passed up correctly, constraints were added to basic-head-mod-phrase-simple, and the same-periph-unary-phrase type was defined to allow for non-branching rules to gather the correct value for L-PERIPH:
+
+basic-head-mod-phrase-simple :+
+    [ HEAD-DTR.SYNSEM.L-PERIPH #periph,
+      NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.MOD < [ L-PERIPH #periph ] > ].
+
+same-periph-unary-phrase := unary-phrase &
+    [ SYNSEM.L-PERIPH #periph,
+      ARGS < [ SYNSEM.L-PERIPH #periph ] > ].
+
+Finally, a generator rule was added to trigger.mtr:
+
+kadi_gr := generator_rule &
+  [ CONTEXT.RELS <! [ ARG0.SF ques ] !>,
+    FLAGS.TRIGGER "kadi" ].
+
+By this stage, it was possible to syntactically, but not semantically, parse simple sentences of the form ADJ-QUES (assuming the unmarked 3rd person singular absolutive enclitic on the adjective) such as:
+
+Source: author
+Nalabaga        kadi?
+na-labaga       kadi
+ADJ-red=3SG.ABS QUES
+'Is it red?'
+
+However, when it came time to parse more complex sentences and to include semantics, attempts to implement the additional features failed. Several problems were encountered:
+
+-The grammar loads; it not only fails to parse grammatical sentences with "kadi" but also licenses a large number of unexpected phrases such as "kadi ti" and "na-labaga kadi ti"
+
+-The grammar does not load; it provides the error "BASIC-HEAD-COMP-NMC-PHRASE's constraint specification clashes with its parents'". The type indicated in this error message is confined to matrix.tdl and thus was not modified in any way, and despite suggested debugging the error persisted. The error only fires when the phrase
+
+mc-na-headed-phrase := headed-phrase &
+  [ SYNSEM.LOCAL.CAT.MC na,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.MC na ].
+
+is defined and added as a supertype of binary-headed-phrase. Otherwise, other errors such as inheritance redundancy prevent the grammar from loading. It appears possible that the problem arises from conflicting values for MC -- it is specified in various relevant type definitions in both ilocano.tdl as well as matrix.tdl as +, - and na. When binary-headed-phrase is specified as a subtype of mc-na-headed-phrase and thus inherits the value "na" for feature MC, this may create a conflict with basic-head-comp-nmc-phrase, which is a subtype of basic-binary-headed-phrase and specifies [ MC - ]. Experimental attempts to rectify these conflicts by a feature values of supertypes did not succeed.
+
+###########################
+Embedded Complement Clauses
+Sentential Complement Verbs
+###########################
+
+The verbs "know" (ammo) and "forget" (lipat) were chosen for the purpose of implementing the embedding verb phenomenon.
+For declarative embedded clauses, "know" (ammo) was implemented, and for interrogatives, it was "forget" (lipat).
+A complementizer for declarative clauses is "a" (ligature), and this connects VP and VP in the following word order:
+VP --> a (ligature) --> VP
+
+Because Ilocano's ligature "a" can be used in different contexts, the IGT for the declarative clause complementizer is described as "CP.PROP". For interrogative clause, the lexical item is "no" (complementizer) with IGT as "CP.QUES".
+
+# declarative clause
+Source: a:242
+Vetted: s
+Judgment: g
+Phenomena: {Embedded declaratives}
+Ammok        a       nakitamo          ti      lalaki
+ammo=ko      a       na-kita=mo        ti      lalaki
+know=1SG.ERG CP.PROP PF.GF-see=2SG.ERG CORE.SG boy
+`I know that you saw the boy`
+
+# interrogative clause
+Source: a:496
+Vetted: s
+Judgment: g
+Phenomena: {Embedded questions}
+lipatko        no      nakitamo         ti      lalaki
+lipat=ko       no      na-kita=mo       ti      lalaki
+forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
+`I forget if you saw the boy`
+
+Contrasting test cases would look like:
+
+# ungrammatical: ligature complementizer should not take NP-only phrase
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded declaratives}
+Ammok        a       ti      lalaki
+ammo=ko      a       ti      lalaki
+know=1SG.ERG CP.PROP CORE.SG boy
+`I know that you saw the boy`
+
+# ungrammatical: repeated complemtizer
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded declaratives}
+Ammok        a       a       nakitamo          ti      lalaki
+ammo=ko      a       a       na-kita=mo        ti      lalaki
+know=1SG.ERG CP.PROP CP.PROP PF.GF-see=2SG.ERG CORE.SG boy
+`I know that you saw the boy`
+
+# ungrammatical: complementizer should not come first
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded questions}
+No      lipatko        no      nakitamo          ti      lalaki
+no      lipat=ko       no      na-kita=mo        ti      lalaki
+CP.QUES forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
+`I forget if you saw the boy`
+
+# ungrammatical: unexpected complementizer for the verb
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Embedded questions}
+lipatko        a       ti      lalaki
+lipat=ko       a       ti      lalaki
+forget=1SG.ERG CP.PROP CORE.SG boy
+`I forget that you saw the boy`
+
+[TDL changes]
+For complementizers, the type complementizer-lex-item was created. This inherits from raise-sem-lex-item and basic-one-arg. complementizer-lex-item has its HEAD as comp, and it identifies its comp element with the element in the ARG-ST through #comp.
+
+It should identify the one thing on the ARG-ST with the sole item of its COMPS list and otherwise have empty valence features.
+
+Subtypes of complementizer-lex-item were created to distinguish between INDEX.SF values of either "prop" or "ques".
+complementizer-declarative-lex-item inherits from complementizer-lex-item and specifies its INDEX.SF as prop.
+complementizer-interrogative-lex-item inherits from complementizer-lex-item and specifies its INDEX.SF as ques.
+
+complementizer-lex-item := raise-sem-lex-item & basic-one-arg &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD comp & [ MOD < > ],
+                           VAL [ SPR < >,
+                                 SUBJ < >,
+                                 COMPS < #comp > ] ] ] ],
+    ARG-ST < #comp &
+             [ LOCAL [ CAT [ HEAD verb,
+                             VAL [ SUBJ < >,
+                                   COMPS < > ] ] ] ] > ].
+
+complementizer-declarative-lex-item := complementizer-lex-item &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF prop ].
+
+complementizer-interrogative-lex-item := complementizer-lex-item &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF ques ].
+
+For embedding verbs, three lexical types were created. embedding-verb-lex inherits from main-verb-lex and clausal-second-arg-trans-lex-item. It identifies its COMPS with the second element of the ARG-ST, specifying the HEAD value to be comp.
+
+For each of declarative and interrogative, subtypes of embedding-verb-lex exist. embedding-declarative-verb-lex inheits from embedding-verb-lex, and it specifies its COMPS INDEX.SF to be prop, while embedding-interrogative-verb-lex specifies COMPS INDEX.SF to be ques:
+
+ammo_embed := embedding-declarative-verb-lex &
+  [ STEM < "ammo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel"].
+
+lipat_embed := embedding-interrogative-verb-lex &
+  [ STEM < "lipat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_forget_v_rel" ].
+
+embedding-verb-lex := main-verb-lex & clausal-second-arg-trans-lex-item &
+ [ SYNSEM.LOCAL.CAT.VAL [ COMPS < #comps & [ LOCAL.CAT.HEAD comp ] >,
+                          SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg ],
+   ARG-ST < [ ], #comps > ].
+
+embedding-declarative-verb-lex := embedding-verb-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST [ LOCAL.CONT.HOOK.INDEX.SF prop ] ].
+
+embedding-interrogative-verb-lex := embedding-verb-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST [ LOCAL.CONT.HOOK.INDEX.SF ques ] ].
+
+*** The plan to extend the support of morphological rules to these embedding verbs did not make it to lab #6 submission, but this has been added to the To Do List. One option is to return to the customization system to configure morphology for these embedding verbs, and merge the differences to the current ilocano.tdl file.
+
+#####################
+Non-Verbal Predicates
+#####################
+
+1. AP Predicate
+
+In Ilocano, AP predicate can be achieved by an adjective, followed by an NP, but without anything between.
+There is no copula in Ilocano, so "the house is clean" of English is achieved by justaposing the adjective and the NP. However, it is ungrammatical to follow NPs with adjectives:
+
+Source: a:397
+Vetted: s
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Dakkel ti      ubing
+dakkel ti      ubing
+big    CORE.SG child
+`The child is big`
+
+# Adj predicate
+Source: a:135
+Vetted: s
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Nadalus   ti      balay
+na-dalus  ti      balay
+ADJ-clean CORE.SG house
+`The house is clean`
+
+Contrasing examples are:
+
+# ungrammatical: incorrect word order for what should be AP -> NP
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+ti      balay Nadalus
+ti      balay na-dalus
+CORE.SG house ADJ-clean
+`The house is clean`
+
+# ungrammatical: AP should not combined with another AP
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Nadalus   nadalu
+na-dalus  na-dalus
+ADJ-clean ADJ-clean
+`clean is clean`
+
+# ungrammatical: AP predicate should not combine with oblique case NP
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Nadalus   iti    balay
+na-dalus  iti    balay
+ADJ-clean OBL.SG house
+`The house is clean`
+
+[TDL changes]
+The customization system was able to create grammar that works with AP predicate. However, LKB's "generate" feature revealed that there were sentences that contained the subject in oblique determiner case, which was ungrammatical. Therefore, [ CASE cor ] was added to constrain the parse to only core case NPs.
+"stative-pred-adj-lex" inherits from adj-lex, and it identifies the subject's INDEX with its own (adj) XARG. SPR and COMPS are empty:
+
+stative-pred-adj-lex := adj-lex &
+  [ SYNSEM.LOCAL [ CAT.VAL.SUBJ < [ LOCAL [ CONT.HOOK.INDEX #xarg,
+                                            CAT [ VAL [ SPR < >,
+                                                        COMPS < > ],
+                                                  HEAD noun & [ CASE cor ] ] ] ] >,
+                   CONT.HOOK.XARG #xarg ] ].
+                   
+2. NP Predicate
+
+In Ilocano, there is no copula, and NP predicates for sentences like "The cat is the dog" are achieved by justaposing two NPs directly next to each other. The NP needs to be in the core case NP; the grammar reference also shows that the non-clitic (independent) versions of pronouns, such as "siak (1SG)", can be used for juxtaposition with an NP.
+
+# Noun phrases as predicates
+Source: a:33
+Vetted: s
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Siak ti      paralako
+siak ti      paralako
+1SG  CORE.SG paralako
+'I am the salesperson'
+
+# grammatical: juxtaposition of two core NPs as finite clause
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Ti      babai ti     lalaki
+ti      babai ti     lalaki
+CORE.SG girl  CORE.SG boy
+'The girl is the boy'
+
+Contrasing cases are:
+
+# ungrammatical: core case needs to be used rather than oblique
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Siak iti    paralako
+siak iti    paralako
+1SG  OBL.PL paralako
+'I am the salesperson'
+
+# ungrammatical: juxtaposition of two core NPs with wrong cases
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Ti      babai iti    lalaki
+ti      babai iti    lalaki
+CORE.SG girl  OBL.SG boy
+'The girl is the boy'
+
+[TDL changes]
+The implementation of this phenomenon for Ilocano proceeded from an example provided by the Lab 6 instructions, but with some additional modification: a non-branching non-headed phrase structure rule which takes an NP daughter and produces a VP mother. This introduces the "_be_v_id_rel" relation through the C-CONT.RELS, linking the C-CONT.INDEX to the ARG0 of this relation.
+
+n-bar-predicate-rule := unary-phrase & nocoord &
+  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < > ],
+                       VAL [ SPR < >,
+                             COMPS < >,
+                             SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
+                                              CAT [ HEAD noun & [ CASE cor ],
+                                                    VAL.SPR < > ] ] ] > ] ] ],
+    C-CONT [ HOOK [ LTOP #ltop,
+                    INDEX #index,
+                    XARG #arg1 ],
+             RELS <! arg12-ev-relation &
+                   [ PRED "_be_v_id_rel",
+                     LBL #ltop,
+                     ARG0 #index,
+                     ARG1 #arg1,
+                     ARG2 #arg2 ],
+                   quant-relation &
+                   [ PRED "exist_q_rel",
+                     ARG0 #arg2,
+                     RSTR #harg ] !>,
+             HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
+    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ CASE cor ],
+                                  VAL [ SPR < > ] ],
+                            CONT.HOOK [ INDEX #arg2,
+                                        LTOP #larg ] ] ] > ].
+                                        
+Ilocano added [ MOD < > ] to its own SYNSEM.LOCAL.CAT.HEAD verb, because this helped reduce extraneous parses.
+[ CASE cor ] (core case) is specified on the HEAD noun of the first element of ARGS, and also on the rule's own SUBJ's HEAD noun. [ SPR < > ] is specified instead of the original [ SPR cons ] to help reduce incorrect parses.
+          
+3. PP Predicate
+
+The PP locative predicate phenomenon uses so-called "relator nouns" (Rubino 119), which encapsulate locative meanings.
+A partial list of examples of "relator nouns" are:
+
+rabaw : "top"
+uneg : "inside"
+likud : "back"
+baba : "under" (space below)
+
+Quoting Rubino (page 118): "There is a closed class of nominals that function to indicate position of an entity or the location of an event. These nouns are generally used relationally. They are preceded by the oblique article iti."
+
+The locative nouns combine with the singular oblique determiner "iti", and locative nouns are followed by an NP that represents the object or location to which the relator noun relates. Because Ilocano does not have a copula, the locative NP is juxtaposed by the subject NP, without anything interfering.
+
+The word order is: "iti" --> locative noun --> NP (that contains the location) --> Subject NP
+An example with IGT appears below:
+
+Source: a:416
+Vetted: s
+Judgment: g
+Phenomena: {Non-verbal predicates}
+Iti    rabaw ti      lamisaan ti      tulbek
+iti    rabaw ti      lamisaan ti      tulbek
+OBL.SG top   CORE.SG table    CORE.SG key
+`The key is on the table`
+
+Contrasing examples are:
+
+# ungrammatical: the locative noun should not take oblique NP complement
+Source: authort
+Vetted: u
+Judgment: f
+Phenomena: {Non-verbal predicates}
+Iti    rabaw iti    lamisaan ti      tulbek
+iti    rabaw iti    lamisaan ti      tulbek
+OBL.SG top   OBL.SG table    CORE.SG key
+`The key is on the table`
+
+# ungrammatical: the locative NP should not combine with oblique NP subj
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Iti    rabaw ti     lamisaan iti      tulbek
+iti    rabaw ti     lamisaan iti      tulbek
+OBL.SG top   OBL.SG table   OBL.SG key
+`The key is on the table`
+
+# ungrammatical: locative noun should only combine with OBL singular, not plural
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {Non-verbal predicates}
+Kadagiti  rabaw ti     lamisaan iti    tulbek
+kadagiti  rabaw ti     lamisaan iti    tulbek
+OBL.PL    top   OBL.SG table    OBL.SG key
+`The key is on the table`
+
+[TDL changes]
+Implementation for PP predicate was accomplished in two phases.
+
+In Ilocano, the locative NP contains at least two nouns: the locative noun (which the grammar source describes as a "relator noun"), and another noun, which expresses the object to which the relator noun is relative. This phenomenon was implemented such that the locative noun (relator noun) takes a COMPS of NP via the head-comp rule. Then, the head-spec rule combines the oblique determiner "iti" and the phrase structure of the locative noun (relator noun) that has combined the actual location's noun. If the "top" relator noun is used, then the nested representation of the locative NP is as follows:  (NP iti (NOM 'top' (NP ti (N other-noun)))).
+
+Once the locative NP is created, it goes through a non-branching non-headed phrase structure rule which takes an NP daughter and produces a VP mother, just as the Ilocano team implemented NP predicates, as there is no copula in Ilocano.
+
+The type locative-noun-lex inherits from basic-noun-lex, non-mod-lex-item, and intransitive-lex-item.
+It specifies an oblique case. The feature LOCNOUN was introduced to encode this property: 
+
+noun :+ [ LOCNOUN bool ].
+
+This LOCNOUN was introduced to constrain the situations in which the PP over NP rule can apply. The locative noun lexical type specifies LOCNOUN to be "+" (plus), and all other nominal lexical types specify "-" (minus).
+
+locative-noun-lex specifies that its own HEAD noun case be oblique, and that LOCNOUN is specified as "+" (plus). The element of COMPS is identified with ARG-ST's element via #comps. The HEAD of the COMPS element of locative-noun-lex is noun, and it is specified as the core case. [ OPT - ] was added to COMPS and this was sufficient to suppress the parsing of an incorrectly nested structure, in which undesired combination of the actual location NP and the subject NP was happening, before the the actual location NP was able to combine with "iti".
+
+locative-noun-lex := basic-noun-lex & non-mod-lex-item & intransitive-lex-item &
+  [ SYNSEM.LOCAL.CAT [ VAL [ SPR < [ ] >,
+                             COMPS < #comps & [ LOCAL.CAT [ HEAD noun & [ CASE cor ],
+                                                            VAL.SPR < > ], 
+                                                OPT - ] > ],
+                       HEAD noun & [ CASE obl,
+                                     LOCNOUN + ] ],
+    ARG-ST < #comps > ].
+    
+The second phase of PP locative predicate implementation involved allowing the locative NP to become a VP via a non-branching, non-headed structure, much like how Ilocano implemented NP predicates. In fact, the NP predicate's n-bar-predicate-rule became the starting point of the PP predicate implementation. The key difference is that the PRED value here is "_loc_p_rel", and the LOCNOUN of the VP's subject is specified as "-" (minus), while the LOCNOUN of the locative NP's is specified as "+" (plus). What looked like some extraneous semantic information for the purpose of achieving PP predicate was cleaned from the C-CONT.RELS list.
+
+locative-pp-phrase := unary-phrase & nocoord &
+  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < > ],
+                         VAL [ SPR < >,
+                               COMPS < >,
+                               SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
+                                                CAT [ HEAD noun & [ CASE cor,
+                                                                    LOCNOUN - ],
+                                                      VAL.SPR < > ] ] ] > ] ] ],
+    C-CONT [ HOOK [ LTOP #ltop,
+                    INDEX #index,
+                    XARG #arg1 ],
+             RELS <! arg12-ev-relation &
+                   [ PRED "_loc_p_rel",
+                     LBL #ltop,
+                     ARG0 #index,
+                     ARG1 #arg1,
+                     ARG2 #arg2 ] !>,
+             HCONS <! !> ],
+    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ LOCNOUN + ],
+                                  VAL [ SPR < > ] ],
+                            CONT.HOOK [ INDEX #arg2 ] ] ] > ].
+ 
+##########################
+Generation + Trigger Rules
+##########################
+
+Trigger rules were semantically empty lexical items were added, including complementizers, adpositions, and second position clitics.
+
+comp_declarative_gtr := generator_rule &
+  [ CONTEXT [ RELS <! [ ARG2 #h & handle ],
+                    [ ARG0 #e & event ] !> ],
+    FLAGS [ EQUAL < #e, #h >,
+          TRIGGER "a_compl" ]].
+
+comp_interrogative_gtr := generator_rule &
+  [ CONTEXT [ RELS <! [ ARG2 #h & handle ],
+                    [ ARG0 #e & event ] !> ],
+    FLAGS [ EQUAL < #e, #h >,
+          TRIGGER "no_compl" ]].
+
+a_attr_gtr := arg0e_gtr &
+  [ CONTEXT [ RELS <! [ PRED "~.*_a_"] !> ],
+    FLAGS.TRIGGER "a_attr" ].
+
+a_adv_gtr := arg0e_gtr &
+  [ CONTEXT [ RELS <! [ PRED "~.*_a_"] !> ],
+    FLAGS.TRIGGER "a_adv" ].
+
+iti_adv_gtr := arg0e_gtr &
+  [ CONTEXT [ RELS <! [ PRED "~.*_a_" ] !> ],
+    FLAGS.TRIGGER "iti_adv" ].
+
+kadi_gr := generator_rule &
+  [ CONTEXT.RELS <! [ ARG0.SF ques ] !>,
+    FLAGS.TRIGGER "kadi" ].
+
+
+#########
+Testsuite
+#########
+
+Baseline (from Lab #5's grammar)
+Total items: 115
+Positive items: 60, total results: 39
+Overall Coverage 63.3%
+Negative items: 55, total results: 7
+Overgeneration: 12.7 %
+
+New Results (from lab #6's grammar)
+Total items: 115
+Positive items: 60, total results: 44
+Overall Coverage 73.3%
+Negative items: 55, total results: 6
+Overgeneration: 10.9%
+
+By using the "Compare" feature, it is possible to see that this lab's addition helped, including what used to be parsed by mistake before, but it correctly does not parse now, etc.
+
