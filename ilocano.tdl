@@ -427,20 +427,15 @@ locative-pp-phrase := unary-phrase & nocoord &
                     INDEX #index,
                     XARG #arg1 ],
              RELS <! arg12-ev-relation &
-                   [ PRED "_be_v_id_rel",
+                   [ PRED "_loc_p_rel",
                      LBL #ltop,
                      ARG0 #index,
                      ARG1 #arg1,
-                     ARG2 #arg2 ],
-                   quant-relation &
-                   [ PRED "exist_q_rel",
-                     ARG0 #arg2,
-                     RSTR #harg ] !>,
-             HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
+                     ARG2 #arg2 ] !>,
+             HCONS <! !> ],
     ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ LOCNOUN + ],
                                   VAL [ SPR < > ] ],
-                            CONT.HOOK [ INDEX #arg2,
-                                        LTOP #larg ] ] ] > ].
+                            CONT.HOOK [ INDEX #arg2 ] ] ] > ].
 
 
 ;;; Complementizers
