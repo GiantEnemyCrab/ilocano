@@ -41,7 +41,6 @@ Source a: Rubino, Carl. Reference grammar of Ilocano. Diss. University of Califo
 # Attributive adjectives could appear either before or after the noun, but between
 # the noun and the adjective, there needs to be the ligature "a" or "nga".
 
-# Week 4
 # An example shows that attributive adjectives have a 
 # ligature between ADJ and NOUN, in the order of ADJ LIG NOUN
 Source: a:122
@@ -53,7 +52,6 @@ Kayat-en=ko    ti      na-labaga a   balay
 want-GF=1SG.ERG CORE.SG ADJ-red   LIG house
 `I want the red house`
 
-# Week 4
 # An example shows that attributive adjectives have a 
 # ligature between NOUN LIG ADJ, in the order of NOUN LIG ADJ
 Source: a:139
@@ -65,7 +63,6 @@ Kayat-en=ko    ti      balay a   na-labaga
 want-GF=1SG.ERG CORE.SG house LIG ADJ-red
 `I want the red house`
 
-# Week 4
 # Here is an example of an attributive adjective, with monomorphemis adjective,
 # which does not have morphological rule
 Source: author
@@ -77,7 +74,6 @@ Kayat-en=ko    ti      balay a   dakkel
 want-GF=1SG.ERG CORE.SG house LIG big
 `I want the big house`
 
-# Week 4
 # Here is an example of an attributive adjective, fossilized.
 # which does not have morphological rule
 Source: author
@@ -127,7 +123,6 @@ want-GF=1SG.ERG CORE.SG house ADJ-red
 # The oblique noun marker always needs to be the singular form of the oblique determiner, therefore,
 # the plural form "dagiti" (CORE.PL) is not allowed.
 
-# Week 4
 # 1. use of an adjective with the ligature, "a":
 Source: a:354
 Vetted: s
@@ -138,7 +133,6 @@ na-daras a   n-ag-subli=ak
 ADJ-fast LIG PF-AF-return=1SG.ABS
 `I returned quickly`
 
-# Week 4
 # 2. Ungrammatical use of an adjective without ligature:
 Source: author
 Vetted: f
@@ -149,7 +143,6 @@ na-daras n-ag-subli=ak
 ADJ-fast PF-AF-return=1SG.ABS
 'I returned quickly'
 
-# Week 4
 # 2. use of an adjective or verb. connected to the predicate 
 # as a prepositional phase with the oblique noun marker iti,
 # similar to a prepositional phrase:
@@ -157,24 +150,22 @@ Source: a:354
 Vetted: s
 Judgment: g
 Phenomena: {adverbs}
-Nagsangitak      iti napaut
-n-ag-sangit=ak   iti na-paut
+Nagsangitak       iti napaut
+n-ag-sangit=ak    iti na-paut
 PF-AF-cry=1SG.ABS ADV ADJ-lasting
 `I cried for a long time'
 
-# Week 4
 # adverbial with oblique followed by adjective should not use
 # plural version of oblique
 Source: author
 Vetted: f
 Judgment: u
 Phenomena: {adverbs}
-Nagsangitak      dagiti napaut
-n-ag-sangit=ak   dagiti na-paut
+Nagsangitak       dagiti napaut
+n-ag-sangit=ak    dagiti na-paut
 PF-AF-cry=1SG.ABS OBL.PL ADJ-lasting
 `I cried for a long time'
 
-# Week 4
 # adverbial with oblique followed by adjective should not use
 # core case determiner
 Source: author
@@ -186,7 +177,6 @@ n-ag-sangit=ak   ti      na-paut
 PF-AF-cry=1SG.ABS CORE.SG ADJ-lasting
 `I cried for a long time'
 
-# Week 4
 # ungrammatical: oblique noun marker is missing before the adjective
 Source: author
 Vetted: f
@@ -197,7 +187,6 @@ n-ag-sangit=ak   na-paut
 PF-AF-cry=1SG.ABS ADJ-lasting
 `I cried for a long time'
 
-# Week 4
 Source: a:35
 Vetted: s
 Judgment: g
@@ -207,7 +196,6 @@ n-ag-panunot=ka    iti na-uneg
 PF-AF-think=2SG.ABS ADV ADJ-deep
 `You thought deeply`
 
-# Week 4
 # Ungrammatical example with ligature missing
 Source: author
 Vetted: f
@@ -218,7 +206,6 @@ n-ag-panunot=ka    na-uneg
 PF-AF-think=2SG.ABS ADJ-deep
 `You thought deeply`
 
-# Week 4
 Source: a:36
 Vetted: s
 Judgment: g
@@ -385,7 +372,7 @@ PF.GF-see=1SG.ERG CORE.SG boy
 # incorrect case matching with transitive verb and enclitic pronoun
 Source: author
 Vetted: f
-Judgment: f
+Judgment: u
 Phenomena: {case}
 Nakitaak         ti      lalaki
 na-kita=ak       ti      lalaki
@@ -405,7 +392,7 @@ PF.GF-see=3PL.ERG=1SG.ABS
 # incorrect case matching with transitive verb and enclitic pronoun
 Source: author
 Vetted: f
-Judgment: f
+Judgment: u
 Phenomena: {case}
 Nakitaakda
 na-kita=ak=da
@@ -425,12 +412,32 @@ PF-AF-cry=1SG.ABS
 # incorrect case matching with intransitive verb and enclitic pronoun
 Source: author
 Vetted: f
-Judgment: f
+Judgment: u
 Phenomena: {case}
 Naglaylayak
 n-ag-sangit=ko
 PF-AF-cry=1SG.ERG
 `me cried'
+
+# incorrect use of independent pronoun, as it needs to be absolutive for agent focus verb
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {case}
+Naglaylay   siak
+n-ag-sangit siak
+PF-AF-cry   1SG
+`I cried'
+
+# incorrect use of independent pronoun, as it needs to be ergative for goal focus verb
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {case}
+Nakita    siak ti      lalaki
+na-kita   siak ti      lalaki
+PF.GF-see 1SG  CORE.SG boy
+`I saw the boy'
 
 
 ######################################
@@ -440,7 +447,6 @@ PF-AF-cry=1SG.ERG
 # Ken, "and", is used to connect items which can be freely arranged, 
 # stated in eirher order without affecting the intended semantics of
 # the utterance. It may cordinate words, clauses. or entire sentences
-# Week 4
 Source: a:492
 Vetted: s
 Judgment: g
@@ -454,7 +460,6 @@ CORE.SG dog and cat
 # concepts or clauses. Unlike phrases or words that may be conncected 
 # with ken, the order of consituents connected by ket may not be interchanged.
 # Unlike ken, ket may not be used to conjoin parallelevents.
-# Week 4
 Source: a:492
 Vetted: s
 Judgment: g
@@ -466,7 +471,6 @@ PF-AF-pray=1PL.ABS.EXCL and PF-AF-sing=1PL.ABS.EXCL
 
 # Wenno 'or' conjoins alternatives. It is placed between
 # its connecting constituents
-# Week 4
 Source: author
 Vetted: f
 Judgment: g
@@ -476,7 +480,6 @@ ti      aso wenno pusa
 CORE.SG dog or    cat
 `The dog or cat`
 
-# Week 4
 # Coordination of pronoun and (proper) noun
 Source: a:492
 Vetted: s
@@ -492,7 +495,6 @@ PF-go=1PL.ABS.EXCL and CORE.SG boy
 ######### COORDINATION AGREEMENT #####
 ######################################
 
-# Week 4
 # Ken has a plural form, kada, used to coordinate plural nouns only.
 Source: a:493
 Vetted: s
@@ -503,7 +505,6 @@ n-ag-sangit dagiti  lallakay kada   babbaket
 PF-AF-cry    CORE.PL old.men  and.PL old.women
 'the old men and women (husbands and wives) cried'
 
-# Week 4
 # Ken is able to have either singular or plural on either side.
 Source: author
 Vetted: f
@@ -514,7 +515,6 @@ n-ag-sangit dagiti  lallakay ken   babbaket
 PF-AF-cry    CORE.PL old.men  and   old.women
 'the old men and women (husbands and wives) cried'
 
-# Week 4
 # Ken has a plural form, kada, used to coordinate plural nouns only.
 Source: author
 Vetted: f
@@ -559,7 +559,6 @@ PF-AF-cry    CORE.PL boy
 # Co-refential arguments may be expressed twice: once in the main clause,
 # and again in the complement clause for clarity (to avoid any ambiguity.
 
-# Week 4
 Source: a:242
 Vetted: s
 Judgment: g
@@ -668,7 +667,6 @@ forget=1SG.ERG CP.PROP CORE.SG boy
 ######### Matrix wh questions ########
 ######################################
 
-# Week 4
 # A properly formed 'what' question in which the interrogative
 # is followed by 'ti' and a verb with an ergative enclitic pronoun:
 Source: a:430
@@ -680,7 +678,6 @@ ania ti      gatang-{in}=mo
 what CORE.SG buy-{PF.GF}=2SG.ERG
 'What did you buy?'
 
-# Week 4
 # Another 'what' question following the same pattern, but with the
 # ergative enclitic on a glossed adjective.
 Source: a:431
@@ -692,7 +689,6 @@ ania ti      dakes=mo
 what CORE.SG bad=2SG.ERG
 'What's wrong with you?'
 
-# Week 4
 # An incorrectly formed question where 'ti' is omitted before an encliticized word.
 Source: author
 Vetted: f
@@ -703,7 +699,6 @@ ania gatang-{in}=mo
 what buy-{PF.GF}=2SG.ERG
 'What did you buy?'
 
-# Week 4
 # A 'who' question formed similarly to the above questions.
 Source: a:435
 Vetted: s
@@ -714,7 +709,6 @@ sino ti	    ama=mo
 who  CORE.SG father=2SG.ERG
 'Who is your father?'
 
-# Week 4
 # A 'who' question with absolutive enclitic pronoun on the verb.
 Source: author
 Vetted: f
@@ -799,7 +793,7 @@ Source: author
 Vetted: f
 Judgment: g
 Phenomena: {negation}
-Di  n-ag-laylay ti      sabong
+Di  naglaylay ti      sabong
 di  n-ag-laylay ti      sabong
 Neg PF-AF-wilt   CORE.SG flower.ABS
 `The flower didn't wilt'
@@ -860,7 +854,6 @@ Neg=1SG.ABS PF.GF-see CORE.SG boy
 ######################################
 # copular expression
 
-# Week 4
 # Noun phrases as predicates
 Source: a:33
 Vetted: s
@@ -871,7 +864,6 @@ siak ti      paralako
 1SG  CORE.SG paralako
 'I am the salesperson'
 
-# Week 4
 # ungrammatical: NUM should match
 Source: author
 Vetted: f
@@ -932,7 +924,6 @@ iti    babai iti    lalaki
 OBL.SG girl  OBL.SG boy
 'The girl is the boy'
 
-# Week 4
 # Adj predicate
 Source: a:397
 Vetted: s
@@ -943,7 +934,6 @@ dakkel ti      ubing
 big    CORE.SG child
 `The child is big`
 
-# Week 4
 # Adj predicate
 Source: a:135
 Vetted: s
@@ -954,7 +944,6 @@ na-dalus  ti      balay
 ADJ-clean CORE.SG house
 `The house is clean`
 
-# Week 4
 # ungrammatical: incorrect word order for what should be AP -> NP
 Source: author
 Vetted: f
@@ -985,7 +974,6 @@ na-dalus  iti    balay
 ADJ-clean OBL.SG house
 `The house is clean`
 
-# Week 4
 # Prepositional phrase (via oblique noun phrase)
 Source: a:416
 Vetted: s
