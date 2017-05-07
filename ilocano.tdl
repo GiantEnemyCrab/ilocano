@@ -394,7 +394,7 @@ attr-adj-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-le
 adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
                            [ MOD < [ LOCAL [ CAT [ HEAD verb,
-                                                   VAL [ SUBJ < >
+                                                   VAL [ SUBJ < >,
                                                          COMPS < > ] ],
                                              CONT.HOOK [ INDEX #index ] ] ] > ],
                          VAL [ SPR < >,

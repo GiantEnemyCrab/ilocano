@@ -45,6 +45,10 @@ only-actor-focus-prefix-lex-prefix1 :=
 %prefix (* ag-)
 only-actor-focus-prefix-lex-lex-rule.
 
+only-actor-focus-prefix-lex-prefix1 :=
+%prefix (* man-)
+only-actor-focus-prefix-lex-lex-rule.
+
 only-actor-focus-prefix-lex-prefix2 :=
 %prefix (* mang-)
 only-actor-focus-prefix-lex-lex-rule.
@@ -67,6 +71,10 @@ only-goal-focus-prefix-lex-lex-rule.
 
 productive-actor-focus-prefix-prefix1 :=
 %prefix (* ag-)
+productive-actor-focus-prefix-lex-rule.
+
+productive-actor-focus-prefix-prefix1 :=
+%prefix (* man-)
 productive-actor-focus-prefix-lex-rule.
 
 productive-actor-focus-prefix-prefix2 :=
