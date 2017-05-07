@@ -468,7 +468,7 @@ determiner-lex := basic-determiner-lex & norm-zero-arg & non-mod-lex-item &
   [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
                            COMPS < >,
                            SUBJ < > ],
-                   CONT.HOOK.INDEX [ COG-ST cog-st ] ] ].
+                   CONT.HOOK.INDEX [ COG-ST type-id ] ] ].
 
 core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE cor,
