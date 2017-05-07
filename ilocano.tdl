@@ -682,6 +682,7 @@ bare-np-phrase := basic-bare-np-phrase &
 ;;; Possessive phrase: In all possessive constructions we've seen, the
 ;;; possessum (head) is initial, and the possessor is in second position.
 
+;FIX ME: make two versions of poss, one for COG-ST of uniq+fam+act of and another for type-id
 poss-phrase := head-initial &
   [ SYNSEM.LOCAL.CAT [ HEAD #head,
                        VAL [ SPR #hdspr,
@@ -699,7 +700,7 @@ poss-phrase := head-initial &
       ICONS < ! ! > ],
       HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD #head & noun & [ CASE cor ],
                               VAL.SPR #hdspr & < [ ] > ],
-                              CONT.HOOK [ INDEX #index & [ COG-ST uniq+fam+act ],
+                              CONT.HOOK [ INDEX #index & [ COG-ST cog-st ],
                                           LTOP #lbl ] ],
       NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun & [ CASE cor+erg ],
                                         VAL.SPR < > ],
