@@ -19,7 +19,8 @@ non-mod-lex-item := lex-item &
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 noun :+ [ CASE case,
-          LOCNOUN bool ].
+          LOCNOUN bool,
+          NP-PRED-NOUN bool ].
 
 head :+ [ AUX bool,
           INIT bool,
@@ -53,13 +54,14 @@ isect-mod-phrase :+ [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
 ;;; Case
 
 case := *top*.
-foc := case.  ; focus-case
+;foc := case.  ; focus-case
 obl := case.  ; obliq
 cor+erg := case.
 cor := cor+erg & cor+abs.
 erg := cor+erg.
 cor+abs := case.
 abs := cor+abs.
+ind-pron := case.
 
 ;;; Pernum
 
@@ -135,7 +137,8 @@ head-spec-phrase := basic-head-spec-phrase & head-final &
   [ NON-HEAD-DTR.SYNSEM.OPT - ].
 
 common-noun-lex := obl-spr-noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD.LOCNOUN -,
+  [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN -,
+                              NP-PRED-NOUN + ],
                    CONT.HOOK.INDEX.PNG.PERNUM 3rd ] ].
 
 locative-noun-lex := basic-noun-lex & non-mod-lex-item & intransitive-lex-item &
@@ -152,7 +155,8 @@ pron-noun-lex := no-spr-noun-lex &
                                      SPECI + ],
                    CAT.HEAD.LOCNOUN - ] ].
 
-enc-pron-noun-lex := pron-noun-lex.
+enc-pron-noun-lex := pron-noun-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.NP-PRED-NOUN - ].
 
 erg-1sg-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
@@ -204,7 +208,9 @@ erg-du-noun-lex := enc-pron-noun-lex &
 
 erg-2pl-noun-lex := enc-pron-noun-lex.
 
-ind-pron-noun-lex := pron-noun-lex.
+ind-pron-noun-lex := pron-noun-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD [ NP-PRED-NOUN +,
+                            CASE ind-pron ] ].
 
 ind-1sg-noun-lex := ind-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1sg ].
@@ -229,7 +235,8 @@ redup-gem-noun-lex := obl-spr-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ].
 
 obl-pron-noun-lex := pron-noun-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.CASE obl ].
+  [ SYNSEM.LOCAL.CAT.HEAD [ CASE obl,
+                            NP-PRED-NOUN - ] ].
 
 obl-1sg-noun-lex := obl-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1sg ].
@@ -330,7 +337,7 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                        VAL [ SPR < >,
                              COMPS < >,
                              SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
-                                              CAT [ HEAD noun & [ CASE cor ],
+                                              CAT [ HEAD noun & [ NP-PRED-NOUN + ],
                                                     VAL.SPR < > ] ] ] > ] ] ],
     C-CONT [ HOOK [ LTOP #ltop,
                     INDEX #index,
@@ -346,7 +353,7 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                      ARG0 #arg2,
                      RSTR #harg ] !>,
              HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
-    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ CASE cor ],
+    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ NP-PRED-NOUN + ],
                                   VAL [ SPR < > ] ],
                             CONT.HOOK [ INDEX #arg2,
                                         LTOP #larg ] ] ] > ].
@@ -479,11 +486,13 @@ core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
 obl-sg-determiner-lex := determiner-lex & no-icons-lex-item &
-  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE obl,
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
+                                                       NP-PRED-NOUN - ],
                                             CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
 
 obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
-  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD.CASE obl,
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
+                                                       NP-PRED-NOUN - ],
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
 
