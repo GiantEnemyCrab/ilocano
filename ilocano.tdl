@@ -137,8 +137,7 @@ head-spec-phrase := basic-head-spec-phrase & head-final &
   [ NON-HEAD-DTR.SYNSEM.OPT - ].
 
 common-noun-lex := obl-spr-noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN -,
-                              NP-PRED-NOUN + ],
+  [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN - ],
                    CONT.HOOK.INDEX.PNG.PERNUM 3rd ] ].
 
 locative-noun-lex := basic-noun-lex & non-mod-lex-item & intransitive-lex-item &
@@ -336,7 +335,7 @@ n-bar-predicate-rule := unary-phrase & nocoord &
   [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < > ],
                        VAL [ SPR < >,
                              COMPS < >,
-                             SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
+                             SUBJ < [ OPT -, LOCAL [ CONT.HOOK [ INDEX #arg1 ],
                                               CAT [ HEAD noun & [ NP-PRED-NOUN + ],
                                                     VAL.SPR < > ] ] ] > ] ] ],
     C-CONT [ HOOK [ LTOP #ltop,
