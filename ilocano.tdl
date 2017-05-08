@@ -408,7 +408,7 @@ adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-ite
                                SPEC < >,
                                COMPS < #comps & [ LOCAL [ CAT [ HEAD adj,
                                                                 VAL.SUBJ < [ ] > ],
-                                                          CONT.HOOK [ INDEX #index ] ] ] > ],
+                                                          CONT.HOOK [ XARG #index ] ] ] > ],
                          POSTHEAD - ] ],
     ARG-ST < #comps > ].
 
