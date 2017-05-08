@@ -469,17 +469,6 @@ n-ag-lualo=kami       ket n-ag-kanta=kami
 PF-AF-pray=1PL.ABS.EXCL and PF-AF-sing=1PL.ABS.EXCL
 'We prayed and sang`
 
-# Wenno 'or' conjoins alternatives. It is placed between
-# its connecting constituents
-Source: author
-Vetted: f
-Judgment: g
-Phenomena: {coordination}
-Ti      aso wenno pusa
-ti      aso wenno pusa
-CORE.SG dog or    cat
-`The dog or cat`
-
 # Coordination of pronoun and (proper) noun
 Source: a:492
 Vetted: s
@@ -788,6 +777,16 @@ ADJ-fag   CORE.SG boy    QUES
 ######### NEGATION ###################
 ######################################
 
+# agent focus sentential negation
+Source: a:417
+Vetted: s
+Judgment: g
+Phenomena: {negation}
+Di  nagallikubeng    ti      angin
+di  n-ag-allikubeng  ti      angin
+NEG PF-AF-roundabout CORE.SG wind
+`The wind did not blow around'
+
 # a simple sentential negation with aux 'di' without any abs/erg cases
 Source: author
 Vetted: f
@@ -798,7 +797,7 @@ di  n-ag-laylay ti      sabong
 Neg PF-AF-wilt   CORE.SG flower.ABS
 `The flower didn't wilt'
 
-# a sentential negation with aux 'di' with any abs enclitic
+# sentential negation with aux 'di' with any abs enclitic
 Source: author
 Vetted: f
 Judgment: g
@@ -808,10 +807,10 @@ di=ak       n-ag-sangit
 Neg=1SG.ABS PF-AF-cry
 `I did not cry'
 
-# negation 'di' is not for negating NP-only
+# ungammatical: sentential negation 'di' is not for negating NP-only
 Source: author
 Vetted: f
-Judgment: f
+Judgment: u
 Phenomena: {negation}
 Di  ti      lalaki
 di  ti      lalaki
@@ -821,7 +820,7 @@ Neg CORE.SG boy
 # in negation, a case needs to agree between the subjet (absolutive) and the intransitive verb
 Source: author
 Vetted: f
-Judgment: f
+Judgment: u
 Phenomena: {case}
 Diko        nagsangit
 di=ko       n-ag-sangit
@@ -838,15 +837,46 @@ di=ko       na-kita  ti      lalaki
 Neg=1SG.ERG PF.GF-see CORE.SG boy
 `I didn't see the boy'
 
-# negation with transitive verb sentense, but wrong case (needs ERG, but given ABS)
+# ungrammatical: negation with transitive verb sentense, but wrong case (needs ERG, but given ABS)
 Source: author
 Vetted: f
-Judgment: f
+Judgment: u
 Phenomena: {case}
 Diak        nakita   ti      lalaki
 di=ak       na-kita  ti      lalaki
 Neg=1SG.ABS PF.GF-see CORE.SG boy
 `I didn't see the boy'
+
+# negation with transitive verb sentense core case NP subj and core case NP obj
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {negation}
+Di  nakita    ti      lalaki ti      balay
+di  na-kita   ti      lalaki ti      balay
+Neg PF.GF-see CORE.SG boy    CORE.SG house
+'The boy did not see the house'
+
+# ungrammatical: case needs to be correct according to the verb
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {case}
+Di  nakita    iti    lalaki iti    balay
+di  na-kita   iti    lalaki iti    balay
+Neg PF.GF-see OBL.SG boy    OBL.SG house
+'The boy did not see the house'
+
+# negation with transitive verb sentense erg case subj and abs case obj
+# slightly modified from the grammar reference
+Source: a:418
+Vetted: f
+Judgment: g
+Phenomena: {negation}
+Dikoka              nakita
+di=ko=ka            na-kita
+NEG=1SG.ERG=2SG.ABS PF.GF-see
+'I did not see you'
 
 
 ######################################
