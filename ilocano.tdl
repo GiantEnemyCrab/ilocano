@@ -408,7 +408,7 @@ adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-ite
                                SPEC < >,
                                COMPS < #comps & [ LOCAL [ CAT [ HEAD adj,
                                                                 VAL.SUBJ < [ ] > ],
-                                                          CONT.HOOK [ XARG #index ] ] ] > ],
+                                                          CONT.HOOK [ INDEX #index ] ] ] > ],
                          POSTHEAD - ] ],
     ARG-ST < #comps > ].
 
@@ -427,7 +427,7 @@ adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
 ;;; Others
 
 ;;; PP locative predicate
-locative-pp-phrase := unary-phrase & nocoord &
+locative-vp-phrase := unary-phrase & nocoord &
   [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < > ],
                          VAL [ SPR < >,
                                COMPS < >,
