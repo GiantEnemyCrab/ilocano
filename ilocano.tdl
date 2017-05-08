@@ -782,38 +782,6 @@ s2-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
 s2-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
   [ SYNSEM.LOCAL.COORD-STRAT "2" ].
 
-;;; Coordination Strategy 3
-
-n3-top-coord-rule := basic-n-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
-
-n3-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase &
-  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
-
-;;; Coordination Strategy 3
-
-np3-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
-
-np3-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
-  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
-
-;;; Coordination Strategy 3
-
-vp3-top-coord-rule := basic-vp-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
-
-vp3-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
-  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
-
-;;; Coordination Strategy 3
-
-s3-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
-
-s3-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
-  [ SYNSEM.LOCAL.COORD-STRAT "3" ].
-
 ;;; Feature Resolution Rules
 
 non-sg-non-sg-any-pernum-coord-rule := coord-phrase &

@@ -1,9 +1,29 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Nouns
 
+uneg := locative-noun-lex &
+  [ STEM < "uneg" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_inside_n_rel" ].
+
+baba := locative-noun-lex &
+  [ STEM < "baba" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_below_n_rel" ].
+
+likud := locative-noun-lex &
+  [ STEM < "likud" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_back_n_rel" ].
+
+ruar := locative-noun-lex &
+  [ STEM < "ruar" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_outside_n_rel" ].
+
 rabaw := locative-noun-lex &
   [ STEM < "rabaw" >,
     SYNSEM.LKEYS.KEYREL.PRED "_top_n_rel" ].
+
+angin := common-noun-lex &
+  [ STEM < "angin" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wind_n_rel" ].
 
 lalaki := common-noun-lex &
   [ STEM < "lalaki" >,
@@ -309,6 +329,10 @@ sao := trans-verb-lex &
   [ STEM < "sao" >,
     SYNSEM.LKEYS.KEYREL.PRED "_speak_v_rel" ].
 
+allikubeng := trans-verb-lex &
+  [ STEM < "allikubeng" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_roundabout_v_rel" ].
+
 sukat_2 := trans-verb-lex &
   [ STEM < "sukat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_change_v_rel" ].
@@ -406,11 +430,6 @@ ket2 := conj-lex &
   [ STEM < "ket" >,
     SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
     CFORM "2" ].
-
-wenno3 := conj-lex &
-  [ STEM < "wenno" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
-    CFORM "3" ].
 
 kada5 := conj-lex &
   [ STEM < "kada" >,

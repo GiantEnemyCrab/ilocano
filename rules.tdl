@@ -55,22 +55,6 @@ s2-top-coord := s2-top-coord-rule.
 
 s2-bottom-coord := s2-bottom-coord-rule.
 
-n3-top-coord := n3-top-coord-rule.
-
-n3-bottom-coord := n3-bottom-coord-rule.
-
-np3-top-coord := np3-top-coord-rule.
-
-np3-bottom-coord := np3-bottom-coord-rule.
-
-vp3-top-coord := vp3-top-coord-rule.
-
-vp3-bottom-coord := vp3-bottom-coord-rule.
-
-s3-top-coord := s3-top-coord-rule.
-
-s3-bottom-coord := s3-bottom-coord-rule.
-
 n5-non-sg-non-sg-any-top-coord := n5-non-sg-non-sg-any-top-coord-rule.
 
 n5-bottom-coord := n5-bottom-coord-rule.
