@@ -21,6 +21,30 @@ rabaw := locative-noun-lex &
   [ STEM < "rabaw" >,
     SYNSEM.LKEYS.KEYREL.PRED "_top_n_rel" ].
 
+kalman := common-noun-lex &
+  [ STEM < "kalman" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_yesterday_n_rel" ].
+
+baryo := common-noun-lex &
+  [ STEM < "baryo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_neighborhood_n_rel" ].
+
+mata := common-noun-lex &
+  [ STEM < "mata" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_eye_n_rel" ].
+
+tugaw := common-noun-lex &
+  [ STEM < "tugaw" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_chair_n_rel" ].
+
+pantalon := common-noun-lex &
+  [ STEM < "pantalon" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pants_n_rel" ].
+
+gada := common-noun-lex &
+  [ STEM < "gada" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_ground_n_rel" ].
+
 angin := common-noun-lex &
   [ STEM < "angin" >,
     SYNSEM.LKEYS.KEYREL.PRED "_wind_n_rel" ].
@@ -223,6 +247,18 @@ kaniada := obl-3pl-noun-lex &
 
 ;;; Adjectives
 
+na-lukmeg := adj-adj-lex &
+  [ STEM < "na-lukmeg" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_fat_a_rel" ].
+
+na-sirib := adj-adj-lex &
+  [ STEM < "na-sirib" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_intelligent_a_rel" ].
+
+na-banglo := adj-adj-lex &
+  [ STEM < "na-banglo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_fragrant_a_rel" ].
+
 na-labaga := adj-adj-lex &
   [ STEM < "na-labaga" >,
     SYNSEM.LKEYS.KEYREL.PRED "_red_a_rel" ].
@@ -288,6 +324,34 @@ naimbag := adj-adj-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_good_a_rel" ].
 
 ;;; Verbs
+
+sarita := trans-verb-lex &
+  [ STEM < "sarita" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_speak_v_rel" ].
+
+balintuag := trans-verb-lex &
+  [ STEM < "balintuag" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_rollover_v_rel" ].
+
+briat := trans-verb-lex &
+  [ STEM < "briat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_rip_v_rel" ].
+
+gidda := trans-verb-lex &
+  [ STEM < "gidda" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_lay_v_rel" ].
+
+lagisi := trans-verb-lex &
+  [ STEM < "lagisi" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_slip_v_rel" ].
+
+gapo := trans-verb-lex &
+  [ STEM < "gapo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_come_v_rel" ].
+
+bagyo := trans-verb-lex &
+  [ STEM < "bagyo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_storm_v_rel" ].
 
 sangit := trans-verb-lex &
   [ STEM < "sangit" >,
