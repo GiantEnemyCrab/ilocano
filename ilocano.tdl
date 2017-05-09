@@ -827,6 +827,50 @@ question-clitic-lex := no-hcons-lex-item &
                                           HEAD adv & 
                                                 [ MOD < [ LIGHT +,
                                                           LOCAL intersective-mod,
-                                                                L-PERIPH + ] > ]],
+                                                          L-PERIPH + ] > ]],
                              CONT.RELS <! !> ]].
 
+;;;;;;;;;;;;;;;;;;;;
+;;; Wh-Questions ;;;
+;;;;;;;;;;;;;;;;;;;;
+
+; Adding this feature for now so grammar will load
+non-local :+
+  [ QUE 0-1-dlist ].
+
+wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item & 
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun,
+			   VAL [ SPR < >,
+				 SUBJ < >,
+				 COMPS < >,
+				 SPEC < > ] ],
+		     CONT [ HOOK.INDEX.PNG.PERNUM 3rd,
+	                    RELS <! [ LBL #larg,
+				      ARG0 #ind & ref-ind ],
+				  [ PRED "wh_q_rel",
+				    ARG0 #ind,
+				    RSTR #harg ] !>,
+			    HCONS <! [ HARG #harg,
+				       LARG #larg ] !> ] ],
+	     NON-LOCAL.QUE <! #ind !> ] ].
+
+basic-head-filler-phrase :+
+   [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
+
+wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & 
+		  head-final &
+   [ SYNSEM.LOCAL.CAT [ MC bool,
+			VAL #val,
+			HEAD verb & [ FORM finite ] ],
+     HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
+				 VAL #val & [ SUBJ < >,
+					      COMPS < > ] ],
+     NON-HEAD-DTR.SYNSEM.NON-LOCAL.QUE <! ref-ind !> ].
+
+extracted-comp-phrase := basic-extracted-comp-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD verb,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ cons ].
+
+extracted-subj-phrase := basic-extracted-subj-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD verb,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].

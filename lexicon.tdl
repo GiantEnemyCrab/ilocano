@@ -530,3 +530,13 @@ lipat_embed := embedding-interrogative-verb-lex &
 kadi := question-clitic-lex &
   [ STEM < "kadi" >,
     SYNSEM.LKEYS.KEYREL.PRED "" ].
+
+;;; Wh-Question Words
+
+what := wh-pronoun-noun-lex &
+  [ STEM < "ania" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
+who := wh-pronoun-noun-lex &
+  [ STEM < "sino" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
