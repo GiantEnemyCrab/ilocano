@@ -359,7 +359,7 @@ n-bar-predicate-rule := unary-phrase & nocoord &
 
 ;;; Adjectives
 
-adj-lex := basic-intersective-adjective-lex.
+adj-lex := basic-intersective-adjective-lex & no-hcons-lex-item.
 
 adj-adj-lex := stative-pred-adj-lex &
   [ SYNSEM.LOCAL.CAT.HEAD [ MOD < >,
