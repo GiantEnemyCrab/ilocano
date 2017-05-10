@@ -473,6 +473,14 @@ daytoy := demonstrative-determiner-lex &
   [ STEM < "daytoy" >,
     SYNSEM.LKEYS.KEYREL.PRED "_this_a_rel" ].
 
+dayta := demonstrative-determiner-lex &
+  [ STEM < "dayta" >,
+    SYNSEM.LKEYS.ALTKEYREL.PRED medial+dem_a_rel ].
+
+diay := demonstrative-determiner-lex &
+  [ STEM < "diay" >,
+    SYNSEM.LKEYS.ALTKEYREL.PRED distal+dem_a_rel ].
+
 ;;; Determiners
 
 ti := core-sg-determiner-lex &
