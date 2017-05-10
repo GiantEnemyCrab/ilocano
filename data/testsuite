@@ -557,16 +557,6 @@ ammo=ko      a       na-kita=mo        ti      lalaki
 know=1SG.ERG CP.PROP PF.GF-see=2SG.ERG CORE.SG boy
 `I know that you saw the boy`
 
-# ungrammatical: ligature complementizer should not take NP-only phrase
-Source: author
-Vetted: f
-Judgment: u
-Phenomena: {Embedded declaratives}
-Ammok        a       ti      lalaki
-ammo=ko      a       ti      lalaki
-know=1SG.ERG CP.PROP CORE.SG boy
-`I know that you saw the boy`
-
 # ungrammatical: repeated complemtizer
 Source: author
 Vetted: f
@@ -587,16 +577,6 @@ a       ammo=ko      a       na-kita=mo        ti      lalaki
 CP.PROP know=1SG.ERG CP.PROP PF.GF-see=2SG.ERG CORE.SG boy
 `I know that you saw the boy`
 
-# ungrammatical: unexpected complementizer for the verb
-Source: author
-Vetted: f
-Judgment: u
-Phenomena: {Embedded declaratives}
-Ammok        no      ti      lalaki
-ammo=ko      no      ti      lalaki
-know=1SG.ERG CP.QUES CORE.SG boy
-`I know if you saw the boy`
-
 
 ######################################
 ######### Embedded questions #########
@@ -609,16 +589,6 @@ Phenomena: {Embedded questions}
 lipatko        no      nakitamo         ti      lalaki
 lipat=ko       no      na-kita=mo       ti      lalaki
 forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
-`I forget if you saw the boy`
-
-# ungrammatical: NOature complementizer should not take NP-only phrase
-Source: author
-Vetted: f
-Judgment: u
-Phenomena: {Embedded questions}
-lipatko        no      ti      lalaki
-lipat=ko       no      ti      lalaki
-forget=1SG.ERG CP.QUES CORE.SG boy
 `I forget if you saw the boy`
 
 # ungrammatical: repeated complemtizer
@@ -640,16 +610,6 @@ No      lipatko       no      nakitamo          ti      lalaki
 no      lipat=ko      no      na-kita=mo        ti      lalaki
 CP.QUES forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
 `I forget if you saw the boy`
-
-# ungrammatical: unexpected complementizer for the verb
-Source: author
-Vetted: f
-Judgment: u
-Phenomena: {Embedded questions}
-lipatko        a       ti      lalaki
-lipat=ko       a       ti      lalaki
-forget=1SG.ERG CP.PROP CORE.SG boy
-`I forget that you saw the boy`
 
 
 ######################################
