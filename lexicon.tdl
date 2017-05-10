@@ -463,7 +463,11 @@ intrans_place_holder_void := intrans-verb-lex &
 
 ;;; Auxiliaries
 
-di := neg-aux-lex &
+di_enc_pron := neg-enclitic-pronoun-aux-lex &
+  [ STEM < "di" >,
+    SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
+
+di_non_pron := neg-non-pronoun-aux-lex &
   [ STEM < "di" >,
     SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
 
