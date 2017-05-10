@@ -477,19 +477,19 @@ daytoy := demonstrative-determiner-lex &
 
 ti := core-sg-determiner-lex &
   [ STEM < "ti" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
 
 dagiti := core-pl-determiner-lex &
   [ STEM < "dagiti" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
 
 iti := obl-sg-determiner-lex &
   [ STEM < "iti" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
 
 kadagiti := obl-pl-determiner-lex &
   [ STEM < "kadagiti" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_the_q_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
 
 ken1 := conj-lex &
   [ STEM < "ken" >,
