@@ -316,11 +316,11 @@ enclitic-pronoun-subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
                                    SPR < >,
                                    SPEC < >,
                                    COMPS < > ] ],
-                       CONT.HOOK.INDEX #xarg ] ],
+                       CONT.HOOK [ INDEX #xarg,
+                                   INDEX.COG-ST activ-or-more ] ] ],
              #comps &
              [ LOCAL.CAT [ HEAD verb,
-                           VAL [ COMPS < >,
-                                 SPR < >,
+                           VAL [ SPR < >,
                                  SPEC < >,
                                  SUBJ < unexpressed &
                                         [ LOCAL.CAT.HEAD.CASE #case ] > ] ] ] > ].
