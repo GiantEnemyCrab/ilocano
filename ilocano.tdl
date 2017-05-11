@@ -342,8 +342,9 @@ non-pronoun-subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
 
 neg-enclitic-pronoun-aux-lex := enclitic-pronoun-subj-raise-aux & trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
-                   CAT.VAL.COMPS.FIRST.LOCAL [ CONT.HOOK.INDEX #index,
-                                               CAT.HEAD.FORM finite ] ] ].
+                   CAT.VAL [ SUBJ < [ OPT - ] >,
+                             COMPS.FIRST.LOCAL [ CONT.HOOK.INDEX #index,
+                                                 CAT.HEAD.FORM finite ] ] ] ].
 
 neg-non-pronoun-aux-lex := non-pronoun-subj-raise-aux & trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
