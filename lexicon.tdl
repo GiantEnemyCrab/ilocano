@@ -536,13 +536,13 @@ no_compl := complementizer-interrogative-lex-item &
   [ STEM < "no" > ].
 
 sinaludsod_embed := embedding-interrogative-verb-lex &
-  [ STEM < "ask" >,
+  [ STEM < "sinaludsod" >,
     SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
              LKEYS.KEYREL.PRED "_ask_v_rel" ] ].
 
 ;morphology hack
 sinaludsod_embed_perf_aspect := embedding-interrogative-verb-lex &
-  [ STEM < "ask" >,
+  [ STEM < "sinaludsod-{in}" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
 ammo_embed := embedding-declarative-verb-lex &
