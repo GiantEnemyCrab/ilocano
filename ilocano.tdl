@@ -380,7 +380,13 @@ n-bar-predicate-rule := unary-phrase & nocoord &
 
 ;;; Adjectives
 
-adj-lex := basic-intersective-adjective-lex & no-hcons-lex-item.
+; commenting this out because Ilocano adj can act as both adj and adv via ligature (or 'iti' for adv)
+; adj wants to see LOCAL.CONT.HOOK.XARG ref-ind but to enable adv, this needs to be event-or-ref-index
+; adj-lex := basic-intersective-adjective-lex & no-hcons-lex-item.
+basic-intersective-adjective-adverb-lex := basic-adjective-lex &
+  [ SYNSEM [ LOCAL.CONT.HOOK.XARG event-or-ref-index & #xarg,
+             LKEYS.KEYREL.ARG1 #xarg ] ].
+adj-lex := basic-intersective-adjective-adverb-lex & no-hcons-lex-item.
 
 adj-adj-lex := stative-pred-adj-lex &
   [ SYNSEM.LOCAL.CAT.HEAD [ MOD < >,
@@ -429,7 +435,7 @@ adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-ite
                                SPEC < >,
                                COMPS < #comps & [ LOCAL [ CAT [ HEAD adj,
                                                                 VAL.SUBJ < [ ] > ],
-                                                          CONT.HOOK.INDEX #index ] ] > ],
+                                                          CONT.HOOK.XARG #index ] ] > ],
                          POSTHEAD - ] ],
     ARG-ST < #comps > ].
 
