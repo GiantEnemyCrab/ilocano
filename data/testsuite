@@ -654,19 +654,50 @@ Vetted: s
 Judgment: g
 Phenomena: {wh}
 Sino ti      amam?
-sino ti	    ama=mo
+sino ti	     ama=mo
 who  CORE.SG father=2SG.ERG
 'Who is your father?'
 
-# A 'who' question with absolutive enclitic pronoun on the verb.
+# A 'who' question: "sino" appears in absolutive role with respect tothe verb
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {wh}
+Sino ti      nakita    ti      lalaki?
+sino ti      na-kita   ti      lalaki
+who  CORE.SG PF.GF-see CORE.SG boy.
+`Who saw the boy?`
+
+# verb needs to take the correct case enclitic pronoun
+Source: a:435
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Sino ti      n-ag-kita kenka?
+sino ti      n-ag-kita kenka
+who  CORE.SG PF-AF-see 2SG.OBL
+'Who saw you?'
+
+# ungrammatical: verb needs to take the correct case enclitic pronoun
 Source: author
 Vetted: f
 Judgment: u
-Phenomena: {wh}
+Phenomena: {case}
 Sino ti      nakitaka?
 sino ti      na-kita=ka
 who  CORE.SG PF.GF-see=2SG.ABS
 'Who saw you?'
+
+# grammatical but potentially out of scope
+Source: a:484
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Sinaludsodna       no  sino ti      amak
+sinaludsod-{in}=na no  sino ti      ama=ko
+saludsod-{in}=na   SUB WHO  CORE.SG father=1SG.ERG
+`She asked who my father was.`
+
 
 ######################################
 ######### Matrix yes-no questions ####
