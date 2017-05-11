@@ -902,3 +902,35 @@ extracted-comp-phrase := basic-extracted-comp-phrase &
 extracted-subj-phrase := basic-extracted-subj-phrase &
   [ SYNSEM.LOCAL.CAT.HEAD verb,
     HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+
+;;;;;;;;;;;;;;;;;;;;;;
+;;; Demonstratives ;;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+demonstrative_a_rel := predsort.
+proximal+dem_a_rel := demonstrative_a_rel. ; near speaker
+medial+dem_a_rel := demonstrative_a_rel.   ; near hearer
+distal+dem_a_rel := demonstrative_a_rel.   ; near neither speaker nor hearer (remote)
+
+determiner-lex-supertype := norm-hook-lex-item & norm-zero-arg &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD det,
+			   VAL[ SPEC.FIRST.LOCAL.CONT.HOOK [ INDEX #ind,
+				  			     LTOP #larg ],
+                                SPR < >,
+                                SUBJ < >,
+                                COMPS < >]],
+		     CONT.HCONS <! qeq &
+				 [ HARG #harg,
+				   LARG #larg ] !> ], 
+	     LKEYS.KEYREL quant-relation &
+		   [ ARG0 #ind,
+		     RSTR #harg ] ] ].
+
+demonstrative-determiner-lex := determiner-lex-supertype &
+ [ SYNSEM [ LOCAL [ CAT.VAL.SPEC.FIRST.LOCAL.CONT.HOOK [ LTOP #ltop,
+                                                         INDEX #ind & [ COG-ST activ+fam ] ],
+                    CONT.RELS <! [ PRED "exist_q_rel" ],
+                                 arg1-ev-relation & #akr & 
+                                 [ LBL #ltop,
+                                   ARG1 #ind ] !> ],
+            LKEYS.ALTKEYREL #akr ] ].

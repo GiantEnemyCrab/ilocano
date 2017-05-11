@@ -475,7 +475,7 @@ di_non_pron := neg-non-pronoun-aux-lex &
 
 daytoy := demonstrative-determiner-lex & 
   [ STEM < "daytoy" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_this_a_rel" ].
+    SYNSEM.LKEYS.ALTKEYREL.PRED proximal+dem_a_rel ].
 
 dayta := demonstrative-determiner-lex &
   [ STEM < "dayta" >,
