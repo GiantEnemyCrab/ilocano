@@ -451,10 +451,10 @@ Source: a:492
 Vetted: s
 Judgment: g
 Phenomena: {coordination}
-Ti      aso ken pusa
-ti      aso ken pusa
-CORE.SG dog and cat
-`The dog and cat`
+n-ag-taray ti      aso ken pusa
+n-ag-taray ti      aso ken pusa
+PF-AF-run  CORE.SG dog and cat
+`The dog and cat ran`
 
 # Ket "and, and then", is mostly used to introduce successive nominal
 # concepts or clauses. Unlike phrases or words that may be conncected 
@@ -693,9 +693,9 @@ Source: a:484
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Sinaludsodna       no  sino ti      amak
-sinaludsod-{in}=na no  sino ti      ama=ko
-saludsod-{in}=na   SUB WHO  CORE.SG father=1SG.ERG
+Sinaludsodna        no      sino ti      amak
+sinaludsod-{in}=na  no      sino ti      ama=ko
+ask-{PF.GF}=3SG.ERG CP.QUES WHO  CORE.SG father=1SG.ERG
 `She asked who my father was.`
 
 
@@ -869,6 +869,36 @@ di=ko=ka            na-kita
 NEG=1SG.ERG=2SG.ABS PF.GF-see
 'I did not see you'
 
+# negation for NP predicate
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {negation}
+Di  ti      lalaki ti      babai
+di  ti      lalaki ti      babai
+NEG CORE.SG boy    CORE.SG girl
+'The boy is not the girl'
+
+# negation for AP predicate
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {negation}
+Di  nadaras  ti      lalaki
+di  na-daras ti      lalaki
+NEG ADJ-fast CORE.SG boy
+'The boy is not fast'
+
+# negation for NP predicate
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {negation}
+Di  iti    rabaw ti      lamisaan ti      tulbek
+di  iti    rabaw ti      lamisaan ti      tulbek
+NEG OBL.SG top   CORE.SG table    CORE.SG key
+`The key is not on the table`
+
 
 ######################################
 ######### Non-Verbal Predicates ######
@@ -918,7 +948,7 @@ CORE.SG girl  CORE.SG boy
 # ungrammatical: juxtaposition of two core NPs with wrong cases
 Source: author
 Vetted: f
-Judgment: g
+Judgment: u
 Phenomena: {Non-verbal predicates}
 Iti    babai ti      lalaki
 iti    babai ti      lalaki
@@ -928,7 +958,7 @@ OBL.SG girl  CORE.SG boy
 # ungrammatical: juxtaposition of two core NPs with wrong cases
 Source: author
 Vetted: f
-Judgment: g
+Judgment: gu
 Phenomena: {Non-verbal predicates}
 Ti      babai iti    lalaki
 ti      babai iti    lalaki
@@ -938,7 +968,7 @@ CORE.SG girl  OBL.SG boy
 # ungrammatical: juxtaposition of two core NPs with wrong cases
 Source: author
 Vetted: f
-Judgment: g
+Judgment: u
 Phenomena: {Non-verbal predicates}
 Iti    babai iti    lalaki
 iti    babai iti    lalaki
