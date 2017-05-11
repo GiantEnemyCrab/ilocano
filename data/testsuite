@@ -586,30 +586,30 @@ Source: a:496
 Vetted: s
 Judgment: g
 Phenomena: {Embedded questions}
-lipatko        no      nakitamo         ti      lalaki
-lipat=ko       no      na-kita=mo       ti      lalaki
-forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
-`I forget if you saw the boy`
+nalipatenko          no      nakitamo         ti      lalaki
+na-lipat-en=ko       no      na-kita=mo       ti      lalaki
+PD-forget-GF=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
+`I forgot if you saw the boy`
 
 # ungrammatical: repeated complemtizer
 Source: author
 Vetted: f
 Judgment: u
 Phenomena: {Embedded questions}
-lipatko        no      no      nakitamo          ti      lalaki
-lipat=ko       no      no      na-kita=mo        ti      lalaki
-forget=1SG.ERG CP.QUES CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
-`I forget if you saw the boy`
+nalipatenko          no      no      nakitamo          ti      lalaki
+na-lipat-en=ko       no      no      na-kita=mo        ti      lalaki
+PF-forget-GF=1SG.ERG CP.QUES CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
+`I forgot if you saw the boy`
 
 # ungrammatical: complementizer should not come first
 Source: author
 Vetted: f
 Judgment: u
 Phenomena: {Embedded questions}
-No      lipatko       no      nakitamo          ti      lalaki
-no      lipat=ko      no      na-kita=mo        ti      lalaki
-CP.QUES forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
-`I forget if you saw the boy`
+No      nalipatenko          no      nakitamo          ti      lalaki
+no      na-lipat-en=ko       no      na-kita=mo        ti      lalaki
+CP.QUES PF-forget-GF=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
+`I forgot if you saw the boy`
 
 
 ######################################

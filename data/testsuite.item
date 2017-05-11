@@ -45,9 +45,9 @@
 45@a:242@@@1@emb-d@ammo=ko      a       na-kita=mo        ti      lalaki@@@@1@5@know=1SG.ERG CP.PROP PF.GF-see=2SG.ERG CORE.SG boy`I know that you saw the boy`@james blackburn, kazuki shintani@april 7, 2017
 46@author@@@1@emb-d@ammo=ko      a       a       na-kita=mo        ti      lalaki@@@@0@6@know=1SG.ERG CP.PROP CP.PROP PF.GF-see=2SG.ERG CORE.SG boy`I know that you saw the boy`@james blackburn, kazuki shintani@april 7, 2017
 47@author@@@1@emb-d@a       ammo=ko      a       na-kita=mo        ti      lalaki@@@@0@6@CP.PROP know=1SG.ERG CP.PROP PF.GF-see=2SG.ERG CORE.SG boy`I know that you saw the boy`@james blackburn, kazuki shintani@april 7, 2017
-48@a:496@@@1@emb-q@lipat=ko       no      na-kita=mo       ti      lalaki@@@@1@5@forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy`I forget if you saw the boy`@james blackburn, kazuki shintani@april 7, 2017
-49@author@@@1@emb-q@lipat=ko       no      no      na-kita=mo        ti      lalaki@@@@0@6@forget=1SG.ERG CP.QUES CP.QUES PF.GF-see=2SG.ERG CORE.SG boy`I forget if you saw the boy`@james blackburn, kazuki shintani@april 7, 2017
-50@author@@@1@emb-q@no      lipat=ko      no      na-kita=mo        ti      lalaki@@@@0@6@CP.QUES forget=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy`I forget if you saw the boy`@james blackburn, kazuki shintani@april 7, 2017
+48@a:496@@@1@emb-q@na-lipat-en=ko       no      na-kita=mo       ti      lalaki@@@@1@5@PD-forget-GF=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy`I forgot if you saw the boy`@james blackburn, kazuki shintani@april 7, 2017
+49@author@@@1@emb-q@na-lipat-en=ko       no      no      na-kita=mo        ti      lalaki@@@@0@6@PF-forget-GF=1SG.ERG CP.QUES CP.QUES PF.GF-see=2SG.ERG CORE.SG boy`I forgot if you saw the boy`@james blackburn, kazuki shintani@april 7, 2017
+50@author@@@1@emb-q@no      na-lipat-en=ko       no      na-kita=mo        ti      lalaki@@@@0@6@CP.QUES PF-forget-GF=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy`I forgot if you saw the boy`@james blackburn, kazuki shintani@april 7, 2017
 51@a:430@@@1@wh@ania ti      gatang-{in}=mo@@@@1@3@what CORE.SG buy-{PF.GF}=2SG.ERG'What did you buy?'@james blackburn, kazuki shintani@april 7, 2017
 52@a:431@@@1@wh@ania ti      dakes=mo@@@@1@3@what CORE.SG bad=2SG.ERG'What's wrong with you?'@james blackburn, kazuki shintani@april 7, 2017
 53@author@@@1@wh@ania gatang-{in}=mo@@@@0@2@what buy-{PF.GF}=2SG.ERG'What did you buy?'@james blackburn, kazuki shintani@april 7, 2017
