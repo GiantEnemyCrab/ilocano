@@ -316,8 +316,8 @@ enclitic-pronoun-subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
                                    SPR < >,
                                    SPEC < >,
                                    COMPS < > ] ],
-                       CONT.HOOK [ INDEX #xarg,
-                                   INDEX.COG-ST activ-or-more ] ] ],
+                       CONT.HOOK [ INDEX #xarg & 
+                                         [ COG-ST activ-or-more ] ] ] ],
              #comps &
              [ LOCAL.CAT [ HEAD verb,
                            VAL [ SPR < >,
@@ -352,7 +352,8 @@ neg-non-pronoun-aux-lex := non-pronoun-subj-raise-aux & trans-first-arg-raising-
 
 ;;; NP predicate (copula-less equational sentence)
 n-bar-predicate-rule := unary-phrase & nocoord &
-  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < > ],
+  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < >,
+                                       PRD + ],
                        VAL [ SPR < >,
                              COMPS < >,
                              SUBJ < [ OPT -, LOCAL [ CONT.HOOK [ INDEX #arg1 ],
@@ -448,7 +449,8 @@ adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
 
 ;;; PP locative predicate
 locative-vp-phrase := unary-phrase & nocoord &
-  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < > ],
+  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ FORM finite,
+                                       PRD + ],
                          VAL [ SPR < >,
                                COMPS < >,
                                SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
