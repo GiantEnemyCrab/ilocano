@@ -441,15 +441,18 @@ adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-ite
 
 adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
-                           [ MOD < [ LOCAL.CAT [ HEAD verb,
-                                                 VAL [ SUBJ < >,
-                                                       COMPS < > ] ] ] > ],
+                           [ MOD < [ LOCAL [ CAT [ HEAD verb,
+                                                   VAL [ SUBJ < >,
+                                                         COMPS < > ] ],
+                                             CONT.HOOK [ INDEX #index ] ] ] > ],
                          VAL [ SPR < >,
                                SUBJ < >,
                                SPEC < >,
-                               COMPS < [ LOCAL.CAT [ VAL.SUBJ < [ ] >,
-                                                     HEAD adj ] ] > ],
-                         POSTHEAD + ] ] ].
+                               COMPS < #comps & [ LOCAL [ CAT [ HEAD adj,
+                                                              VAL.SUBJ < [ ] > ],
+                                                          CONT.HOOK.XARG #index ] ] > ],
+                         POSTHEAD + ] ],
+    ARG-ST < #comps > ].
 
 ;;; Others
 
