@@ -215,7 +215,8 @@ erg-2pl-noun-lex := enc-pron-noun-lex.
 ind-pron-noun-lex := pron-noun-lex &
   [ SYNSEM.LOCAL.CAT.HEAD [ NP-PRED-NOUN +,
                             CASE ind-pron,
-                            DIRECT-OBJ-NOUN - ] ].
+                            DIRECT-OBJ-NOUN - ,
+                            ENCPRON - ] ].
 
 ind-1sg-noun-lex := ind-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1sg ].
