@@ -349,7 +349,17 @@ non-pronoun-subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
                                  SPEC < >,
                                  SUBJ < > ] ] ] > ].
 
-;subj-raise-aux-with-pred := subj-raise-aux & norm-sem-lex-item & trans-first-arg-raising-lex-item-1.
+adj-subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
+  [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
+                             SPEC < >,
+                             COMPS < #comps >,
+                             SUBJ < > ] ],
+    ARG-ST < [ ],
+             #comps &
+             [ LOCAL.CAT [ HEAD adj,
+                           VAL [ COMPS < >,
+                                 SPEC < >,
+                                 SUBJ < > ] ] ] > ].
 
 neg-enclitic-pronoun-aux-lex := enclitic-pronoun-subj-raise-aux & trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
@@ -363,6 +373,13 @@ neg-non-pronoun-aux-lex := non-pronoun-subj-raise-aux & trans-first-arg-raising-
                              COMPS.FIRST.LOCAL [ CONT.HOOK.INDEX #index,
                                                  CAT.HEAD [ FORM finite,
                                                             ENCPRON - ] ] ] ] ].
+
+neg-aux-adj-lex := adj-subj-raise-aux & trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
+                   CAT.VAL [ COMPS.FIRST.LOCAL [ CONT.HOOK.INDEX #index,
+                                                 CAT.HEAD [ FORM finite,
+                                                            ENCPRON - ] ] ] ] ].
+
 
 ;;; NP predicate (copula-less equational sentence)
 n-bar-predicate-rule := unary-phrase & nocoord &

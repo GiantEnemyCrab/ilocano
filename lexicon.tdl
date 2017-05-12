@@ -471,6 +471,10 @@ di_non_pron := neg-non-pronoun-aux-lex &
   [ STEM < "di" >,
     SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
 
+di_adj := neg-aux-adj-lex &
+  [ STEM < "di" >,
+    SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
+
 ;;; Demonstratives
 
 daytoy := demonstrative-determiner-lex & 
