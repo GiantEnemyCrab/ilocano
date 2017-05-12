@@ -285,15 +285,15 @@ na-kita  iti    babai ti      lalaki ti      babai
 PF.GF-see OBL.SG girl  CORE.SG boy    CORE.SG girl
 `The girl saw the boy'
 
-# argument optionality with transitive verb: tr CoreNP missing
+# argument optionality: for goal focus, object can be dropped
 Source: a:32
 Vetted: s
-Judgment: u
+Judgment: g
 Phenomena: {argument optionality}
 Nakita   ti      babai
 na-kita  ti      babai
 PF.GF-see CORE.SG girl
-`The girl saw'
+`The girl saw (it)'
 
 ######################################
 ######### CASE #######################
@@ -309,24 +309,27 @@ na-kita     iti    babai iti    lalaki
 PF.GF-see    OBL.SG girl  OBL.SG boy
 `The girl saw the boy'
 
-# incorrect plural determiner case
+# incorrect plural determiner case after goal focus
 Source: a:194
 Vetted: s
 Judgment: u
 Phenomena: {case}
-Nagsangit   kadagiti lalaki
-n-ag-sangit kadagiti lalaki
-PF-AF-cry    OBL.PL   boy
+Nakita    kadagiti lalaki
+na-kita   kadagiti lalaki
+PF.GF-cry OBL.PL   boy
 `The boys cried'
 
-# Incorrect use of verbal arguments/transitivity.
+# Syntactially agent focus verb takes patient (object) in oblique case
+# Here, notice that the subject is dropped
+# but should this "rain" be considered to be semantically intransitive?
+# This needs to be verified with native speakers or grammar reference author
 Source: author
 Vetted: f
-Judgment: u
+Judgment: g
 Phenomena: {case}
 Nagtudo    iti    balay
 n-ag-tudo  iti    balay
-PF-AF-rain  OBL.SG house
+PF-AF-rain OBL.SG house
 'It rained the house'
 
 # incorrect patient NP case with transitive verb: tr CoreNP oblique-NP
@@ -828,6 +831,17 @@ di=ko       na-kita  ti      lalaki
 Neg=1SG.ERG PF.GF-see CORE.SG boy
 `I didn't see the boy'
 
+# ungrammatical: in negation aux, the enclitic pronoun should not attach to the verb,
+# because it needs to attach to the neg aux
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {negation}
+Di  nakita=ko         ti      lalaki
+di  na-kita=ko        ti      lalaki
+Neg PF.GF-see=1SG.ERG CORE.SG boy
+`I didn't see the boy'
+
 # ungrammatical: negation with transitive verb sentense, but wrong case (needs ERG, but given ABS)
 Source: author
 Vetted: f
@@ -1269,17 +1283,6 @@ Agbasbasa        ti      ansisit
 ag-basa-RR       ti      ansisit
 PF.AF-read-IMPERF CORE.SG dwarf
 ‘The dwarf reads’
-
-# Incorrect co-occurrence of n- perfective aspect marker with incompatible -um- infix
-Source: author
-Vetted: f
-Judgement: u
-Phenomena: {tam}
-Numumanges     ti      lalaki
-n-umanges-{um} ti      lalaki
-PF-breathe-{I} CORE.SG boy
-`The boy breathed`
-
 
 
 ######################################

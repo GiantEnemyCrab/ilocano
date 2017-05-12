@@ -19,10 +19,10 @@
 19@author@@@1@pro-d@na-kita=ko=ak@@@@1@1@PF.GF-see=2SG.ERG=1SG.ABS`You see me`@james blackburn, kazuki shintani@april 7, 2017
 20@author@@@1@pro-d@n-ag-laylay ansisit@@@@0@2@PF-AF-wilt   dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2017
 21@a:32@@@1@pro-d@na-kita  iti    babai ti      lalaki ti      babai@@@@0@7@PF.GF-see OBL.SG girl  CORE.SG boy    CORE.SG girl`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
-22@a:32@@@1@pro-d@na-kita  ti      babai@@@@0@3@PF.GF-see CORE.SG girl`The girl saw'@james blackburn, kazuki shintani@april 7, 2017
+22@a:32@@@1@pro-d@na-kita  ti      babai@@@@1@3@PF.GF-see CORE.SG girl`The girl saw (it)'@james blackburn, kazuki shintani@april 7, 2017
 23@a:32@@@1@c@na-kita     iti    babai iti    lalaki@@@@0@5@PF.GF-see    OBL.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
-24@a:194@@@1@c@n-ag-sangit kadagiti lalaki@@@@0@3@PF-AF-cry    OBL.PL   boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2017
-25@author@@@1@c@n-ag-tudo  iti    balay@@@@0@3@PF-AF-rain  OBL.SG house'It rained the house'@james blackburn, kazuki shintani@april 7, 2017
+24@a:194@@@1@c@na-kita   kadagiti lalaki@@@@0@3@PF.GF-cry OBL.PL   boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2017
+25@author@@@1@c@n-ag-tudo  iti    balay@@@@1@3@PF-AF-rain OBL.SG house'It rained the house'@james blackburn, kazuki shintani@april 7, 2017
 26@a:32@@@1@c@na-kita  ti      babai iti    lalaki@@@@0@5@PF.GF-see CORE.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
 27@a:32@@@1@c@na-kita  iti    babai ti     lalaki@@@@0@5@PF.GF-see OBL.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
 28@author@@@1@wo,c@n-ag-laylay ti      ansisit@@@@1@3@PF-AF-wilt   CORE.SG dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2017
@@ -55,7 +55,7 @@
 55@author@@@1@wh@sino ti      na-kita   ti      lalaki@@@@1@5@who  CORE.SG PF.GF-see CORE.SG boy.`Who saw the boy?`@james blackburn, kazuki shintani@april 7, 2017
 56@a:435@@@1@wh@sino ti      n-ag-kita kenka@@@@1@4@who  CORE.SG PF-AF-see 2SG.OBL'Who saw you?'@james blackburn, kazuki shintani@april 7, 2017
 57@author@@@1@c@sino ti      na-kita=ka@@@@0@3@who  CORE.SG PF.GF-see=2SG.ABS'Who saw you?'@james blackburn, kazuki shintani@april 7, 2017
-58@a:484@@@1@wh@sinaludsod-{in}=na no  sino ti      ama=ko@@@@1@5@saludsod-{in}=na   SUB WHO  CORE.SG father=1SG.ERG`She asked who my father was.`@james blackburn, kazuki shintani@april 7, 2017
+58@a:484@@@1@wh@sinaludsod-{in}=na  no      sino ti      ama=ko@@@@1@5@ask-{PF.GF}=3SG.ERG CP.QUES WHO  CORE.SG father=1SG.ERG`She asked who my father was.`@james blackburn, kazuki shintani@april 7, 2017
 59@author@@@1@yn@na-lukmeg kadi   ti      lalaki@@@@1@4@ADJ-fat   QUES   CORE.SG boy‘Is the boy fat?’@james blackburn, kazuki shintani@april 7, 2017
 60@author@@@1@yn@na-pigsa=ka        kadi@@@@1@2@ADJ-strong=2SG.ABS QUES'Are you strong?'@james blackburn, kazuki shintani@april 7, 2017
 61@author@@@1@yn@na-labaga        kadi@@@@1@2@ADJ-red(3SG.ABS) QUES'Is it red?'@james blackburn, kazuki shintani@april 7, 2017
@@ -67,47 +67,47 @@
 67@author@@@1@neg@di  ti      lalaki@@@@0@3@Neg CORE.SG boy`Not the boy'@james blackburn, kazuki shintani@april 7, 2017
 68@author@@@1@c@di=ko       n-ag-sangit@@@@0@2@Neg=1SG.ERG PF-AF-cry`I did not cry'@james blackburn, kazuki shintani@april 7, 2017
 69@author@@@1@neg@di=ko       na-kita  ti      lalaki@@@@1@4@Neg=1SG.ERG PF.GF-see CORE.SG boy`I didn't see the boy'@james blackburn, kazuki shintani@april 7, 2017
-70@author@@@1@c@di=ak       na-kita  ti      lalaki@@@@0@4@Neg=1SG.ABS PF.GF-see CORE.SG boy`I didn't see the boy'@james blackburn, kazuki shintani@april 7, 2017
-71@author@@@1@neg@di  na-kita   ti      lalaki ti      balay@@@@1@6@Neg PF.GF-see CORE.SG boy    CORE.SG house'The boy did not see the house'@james blackburn, kazuki shintani@april 7, 2017
-72@author@@@1@c@di  na-kita   iti    lalaki iti    balay@@@@0@6@Neg PF.GF-see OBL.SG boy    OBL.SG house'The boy did not see the house'@james blackburn, kazuki shintani@april 7, 2017
-73@a:418@@@1@neg@di=ko=ka            na-kita@@@@1@2@NEG=1SG.ERG=2SG.ABS PF.GF-see'I did not see you'@james blackburn, kazuki shintani@april 7, 2017
-74@author@@@1@neg@di  ti      lalaki ti      babai@@@@1@5@NEG CORE.SG boy    CORE.SG girl'The boy is not the girl'@james blackburn, kazuki shintani@april 7, 2017
-75@author@@@1@neg@di  na-daras ti      lalaki@@@@1@4@NEG ADJ-fast CORE.SG boy'The boy is not fast'@james blackburn, kazuki shintani@april 7, 2017
-76@author@@@1@neg@di  iti    rabaw ti      lamisaan ti      tulbek@@@@1@7@NEG OBL.SG top   CORE.SG table    CORE.SG key`The key is not on the table`@james blackburn, kazuki shintani@april 7, 2017
-77@a:33@@@1@non-verbalpredicates@siak ti      paralako@@@@1@3@1SG  CORE.SG paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2017
-78@author@@@1@non-verbalpredicates@siak dagiti  paralako@@@@1@3@1SG  CORE.PL paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2017
-79@author@@@1@non-verbalpredicates@siak iti    paralako@@@@0@3@1SG  OBL.PL paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2017
-80@author@@@1@non-verbalpredicates@ti      babai ti     lalaki@@@@1@4@CORE.SG girl  CORE.SG boy'The girl is the boy'@james blackburn, kazuki shintani@april 7, 2017
-81@author@@@1@non-verbalpredicates@iti    babai ti      lalaki@@@@0@4@OBL.SG girl  CORE.SG boy'The girl is the boy'@james blackburn, kazuki shintani@april 7, 2017
-82@author@@@1@non-verbalpredicates@ti      babai iti    lalaki@@@@0@4@CORE.SG girl  OBL.SG boy'The girl is the boy'@james blackburn, kazuki shintani@april 7, 2017
-83@author@@@1@non-verbalpredicates@iti    babai iti    lalaki@@@@0@4@OBL.SG girl  OBL.SG boy'The girl is the boy'@james blackburn, kazuki shintani@april 7, 2017
-84@a:397@@@1@non-verbalpredicates@dakkel ti      ubing@@@@1@3@big    CORE.SG child`The child is big`@james blackburn, kazuki shintani@april 7, 2017
-85@a:135@@@1@non-verbalpredicates@na-dalus  ti      balay@@@@1@3@ADJ-clean CORE.SG house`The house is clean`@james blackburn, kazuki shintani@april 7, 2017
-86@author@@@1@non-verbalpredicates@ti      balay na-dalus@@@@0@3@CORE.SG house ADJ-clean`The house is clean`@james blackburn, kazuki shintani@april 7, 2017
-87@author@@@1@non-verbalpredicates@na-dalus  na-dalus@@@@0@2@ADJ-clean ADJ-clean`clean is clean`@james blackburn, kazuki shintani@april 7, 2017
-88@author@@@1@non-verbalpredicates@na-dalus  iti    balay@@@@0@3@ADJ-clean OBL.SG house`The house is clean`@james blackburn, kazuki shintani@april 7, 2017
-89@a:416@@@1@non-verbalpredicates@iti    rabaw ti      lamisaan ti      tulbek@@@@1@6@OBL.SG top   CORE.SG table    CORE.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2017
-90@authort@@@1@non-verbalpredicates@iti    rabaw iti    lamisaan ti      tulbek@@@@0@6@OBL.SG top   OBL.SG table    CORE.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2017
-91@author@@@1@non-verbalpredicates@iti    rabaw ti    lamisaan iti      tulbek@@@@0@6@OBL.SG top   OBL.SG table   OBL.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2017
-92@author@@@1@non-verbalpredicates@kadagiti  rabaw ti    lamisaan iti      tulbek@@@@0@6@OBL.PL    top   OBL.SG table   OBL.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2017
-93@a:117@@@1@poss@na-kita  ti      babai ti      balay=ko@@@@1@5@PF.GF-see CORE.SG girl  CORE.SG house=1SG.ERG`The girl saw my house'@james blackburn, kazuki shintani@april 7, 2017
-94@a:117@@@1@poss@na-kita=ko       ti      tulbek ti      lalaki@@@@1@5@PF.GF-see=1SG.ERG CORE.SG key    CORE.SG boy`I saw the boy's key'@james blackburn, kazuki shintani@april 7, 2017
-95@author@@@1@poss@na-kita  ti      babai ti      tulbek ti      lalaki@@@@1@7@PF.GF-see CORE.SG girl  CORE.SG key    CORE.SG boy`The girl saw the boy's key'@james blackburn, kazuki shintani@april 7, 2017
-96@author@@@1@c@na-kita  ti      babai ti      balay=ak@@@@0@5@PF.GF-see CORE.SG girl  CORE.SG house=1SG.ABS`The girl saw my house'@james blackburn, kazuki shintani@april 7, 2017
-97@author@@@1@c@na-kita  ti      babai balay=ak@@@@0@4@PF.GF-see CORE.SG girl  house=1SG.ABS`The girl saw my house'@james blackburn, kazuki shintani@april 7, 2017
-98@a:117@@@1@poss@na-kita=ko       ti      balay ti      babai@@@@1@5@PF.GF-see=1SG.ERG CORE.SG house CORE.SG girl'I saw the girl's house'@james blackburn, kazuki shintani@april 7, 2017
-99@author@@@1@poss@n-ag-kita=ak     iti    balay ti      babai@@@@1@5@PF-AF-see=1SG.ABS OBL.SG house CORE.SG girl'I saw the girl's house'@james blackburn, kazuki shintani@april 7, 2017
-100@author@@@1@poss@n-ag-kita=ak     iti     balay iti    babai@@@@0@5@PF-AF-see=1SG.ABS CORE.SG house OBL.SG girl'I saw the girl's house'@james blackburn, kazuki shintani@april 7, 2017
-101@author@@@1@poss@n-ag-laylay ti      babai ti       sabong@@@@1@5@PF-AF-wilt  CORE.SG girl  CORE.SG  flower'The girl's flower wilted.'@james blackburn, kazuki shintani@april 7, 2017
-102@author@@@1@poss@na-kita=ko        ti      balay=mo@@@@1@3@PF.GF-see=1sg.ERG CORE.SG house=2sg.ERG'I saw your house.'@james blackburn, kazuki shintani@april 7, 2017
-103@author@@@1@poss@na-kita=ko        iti    balay=mo@@@@0@3@PF.GF-see=1sg.ERG OBL.SG house=2sg.ERG'I saw your house.'@james blackburn, kazuki shintani@april 7, 2017
-104@author@@@1@poss@na-kita=ko        iti      balay=ka@@@@0@3@PF.GF-see=1sg.ERG CORE.SG house=2sg.ABS'I saw your house.'@james blackburn, kazuki shintani@april 7, 2017
-105@author@@@1@wo@n-ag-kita  ti      babai iti    sabong@@@@1@5@PF-AF-kita CORE.SG girl  OBL.SG flower'The girl saw the flower.'@james blackburn, kazuki shintani@april 7, 2017
-106@author@@@1@poss@na-kita    ti      babai ti      sabong@@@@1@5@PF.GF-kita CORE.SG girl  CORE.SG flower'The girl saw the flower.'@james blackburn, kazuki shintani@april 7, 2017
-107@a:186@@@1@tam@n-ag-laylay  ti      sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS‘The flower wilted’@james blackburn, kazuki shintani@april 7, 2017
-108@author@@@1@tam@taray-{um}-{in}=ak@@@@1@1@run-{I}-{PF}=1SG.ABS‘I ran’@james blackburn, kazuki shintani@april 7, 2017
-109@author@@@1@tam@ag-basa-RR       ti      ansisit@@@@1@3@PF.AF-read-IMPERF CORE.SG dwarf‘The dwarf reads’@james blackburn, kazuki shintani@april 7, 2017
-110@author@@@1@tam@n-umanges-{um} ti      lalaki@@@@0@3@PF-breathe-{I} CORE.SG boy`The boy breathed`@james blackburn, kazuki shintani@april 7, 2017
+70@author@@@1@neg@di  na-kita=ko        ti      lalaki@@@@0@4@Neg PF.GF-see=1SG.ERG CORE.SG boy`I didn't see the boy'@james blackburn, kazuki shintani@april 7, 2017
+71@author@@@1@c@di=ak       na-kita  ti      lalaki@@@@0@4@Neg=1SG.ABS PF.GF-see CORE.SG boy`I didn't see the boy'@james blackburn, kazuki shintani@april 7, 2017
+72@author@@@1@neg@di  na-kita   ti      lalaki ti      balay@@@@1@6@Neg PF.GF-see CORE.SG boy    CORE.SG house'The boy did not see the house'@james blackburn, kazuki shintani@april 7, 2017
+73@author@@@1@c@di  na-kita   iti    lalaki iti    balay@@@@0@6@Neg PF.GF-see OBL.SG boy    OBL.SG house'The boy did not see the house'@james blackburn, kazuki shintani@april 7, 2017
+74@a:418@@@1@neg@di=ko=ka            na-kita@@@@1@2@NEG=1SG.ERG=2SG.ABS PF.GF-see'I did not see you'@james blackburn, kazuki shintani@april 7, 2017
+75@author@@@1@neg@di  ti      lalaki ti      babai@@@@1@5@NEG CORE.SG boy    CORE.SG girl'The boy is not the girl'@james blackburn, kazuki shintani@april 7, 2017
+76@author@@@1@neg@di  na-daras ti      lalaki@@@@1@4@NEG ADJ-fast CORE.SG boy'The boy is not fast'@james blackburn, kazuki shintani@april 7, 2017
+77@author@@@1@neg@di  iti    rabaw ti      lamisaan ti      tulbek@@@@1@7@NEG OBL.SG top   CORE.SG table    CORE.SG key`The key is not on the table`@james blackburn, kazuki shintani@april 7, 2017
+78@a:33@@@1@non-verbalpredicates@siak ti      paralako@@@@1@3@1SG  CORE.SG paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2017
+79@author@@@1@non-verbalpredicates@siak dagiti  paralako@@@@1@3@1SG  CORE.PL paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2017
+80@author@@@1@non-verbalpredicates@siak iti    paralako@@@@0@3@1SG  OBL.PL paralako'I am the salesperson'@james blackburn, kazuki shintani@april 7, 2017
+81@author@@@1@non-verbalpredicates@ti      babai ti     lalaki@@@@1@4@CORE.SG girl  CORE.SG boy'The girl is the boy'@james blackburn, kazuki shintani@april 7, 2017
+82@author@@@1@non-verbalpredicates@iti    babai ti      lalaki@@@@0@4@OBL.SG girl  CORE.SG boy'The girl is the boy'@james blackburn, kazuki shintani@april 7, 2017
+83@author@@@1@non-verbalpredicates@ti      babai iti    lalaki@@@@0@4@CORE.SG girl  OBL.SG boy'The girl is the boy'@james blackburn, kazuki shintani@april 7, 2017
+84@author@@@1@non-verbalpredicates@iti    babai iti    lalaki@@@@0@4@OBL.SG girl  OBL.SG boy'The girl is the boy'@james blackburn, kazuki shintani@april 7, 2017
+85@a:397@@@1@non-verbalpredicates@dakkel ti      ubing@@@@1@3@big    CORE.SG child`The child is big`@james blackburn, kazuki shintani@april 7, 2017
+86@a:135@@@1@non-verbalpredicates@na-dalus  ti      balay@@@@1@3@ADJ-clean CORE.SG house`The house is clean`@james blackburn, kazuki shintani@april 7, 2017
+87@author@@@1@non-verbalpredicates@ti      balay na-dalus@@@@0@3@CORE.SG house ADJ-clean`The house is clean`@james blackburn, kazuki shintani@april 7, 2017
+88@author@@@1@non-verbalpredicates@na-dalus  na-dalus@@@@0@2@ADJ-clean ADJ-clean`clean is clean`@james blackburn, kazuki shintani@april 7, 2017
+89@author@@@1@non-verbalpredicates@na-dalus  iti    balay@@@@0@3@ADJ-clean OBL.SG house`The house is clean`@james blackburn, kazuki shintani@april 7, 2017
+90@a:416@@@1@non-verbalpredicates@iti    rabaw ti      lamisaan ti      tulbek@@@@1@6@OBL.SG top   CORE.SG table    CORE.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2017
+91@authort@@@1@non-verbalpredicates@iti    rabaw iti    lamisaan ti      tulbek@@@@0@6@OBL.SG top   OBL.SG table    CORE.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2017
+92@author@@@1@non-verbalpredicates@iti    rabaw ti    lamisaan iti      tulbek@@@@0@6@OBL.SG top   OBL.SG table   OBL.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2017
+93@author@@@1@non-verbalpredicates@kadagiti  rabaw ti    lamisaan iti      tulbek@@@@0@6@OBL.PL    top   OBL.SG table   OBL.SG key`The key is on the table`@james blackburn, kazuki shintani@april 7, 2017
+94@a:117@@@1@poss@na-kita  ti      babai ti      balay=ko@@@@1@5@PF.GF-see CORE.SG girl  CORE.SG house=1SG.ERG`The girl saw my house'@james blackburn, kazuki shintani@april 7, 2017
+95@a:117@@@1@poss@na-kita=ko       ti      tulbek ti      lalaki@@@@1@5@PF.GF-see=1SG.ERG CORE.SG key    CORE.SG boy`I saw the boy's key'@james blackburn, kazuki shintani@april 7, 2017
+96@author@@@1@poss@na-kita  ti      babai ti      tulbek ti      lalaki@@@@1@7@PF.GF-see CORE.SG girl  CORE.SG key    CORE.SG boy`The girl saw the boy's key'@james blackburn, kazuki shintani@april 7, 2017
+97@author@@@1@c@na-kita  ti      babai ti      balay=ak@@@@0@5@PF.GF-see CORE.SG girl  CORE.SG house=1SG.ABS`The girl saw my house'@james blackburn, kazuki shintani@april 7, 2017
+98@author@@@1@c@na-kita  ti      babai balay=ak@@@@0@4@PF.GF-see CORE.SG girl  house=1SG.ABS`The girl saw my house'@james blackburn, kazuki shintani@april 7, 2017
+99@a:117@@@1@poss@na-kita=ko       ti      balay ti      babai@@@@1@5@PF.GF-see=1SG.ERG CORE.SG house CORE.SG girl'I saw the girl's house'@james blackburn, kazuki shintani@april 7, 2017
+100@author@@@1@poss@n-ag-kita=ak     iti    balay ti      babai@@@@1@5@PF-AF-see=1SG.ABS OBL.SG house CORE.SG girl'I saw the girl's house'@james blackburn, kazuki shintani@april 7, 2017
+101@author@@@1@poss@n-ag-kita=ak     iti     balay iti    babai@@@@0@5@PF-AF-see=1SG.ABS CORE.SG house OBL.SG girl'I saw the girl's house'@james blackburn, kazuki shintani@april 7, 2017
+102@author@@@1@poss@n-ag-laylay ti      babai ti       sabong@@@@1@5@PF-AF-wilt  CORE.SG girl  CORE.SG  flower'The girl's flower wilted.'@james blackburn, kazuki shintani@april 7, 2017
+103@author@@@1@poss@na-kita=ko        ti      balay=mo@@@@1@3@PF.GF-see=1sg.ERG CORE.SG house=2sg.ERG'I saw your house.'@james blackburn, kazuki shintani@april 7, 2017
+104@author@@@1@poss@na-kita=ko        iti    balay=mo@@@@0@3@PF.GF-see=1sg.ERG OBL.SG house=2sg.ERG'I saw your house.'@james blackburn, kazuki shintani@april 7, 2017
+105@author@@@1@poss@na-kita=ko        iti      balay=ka@@@@0@3@PF.GF-see=1sg.ERG CORE.SG house=2sg.ABS'I saw your house.'@james blackburn, kazuki shintani@april 7, 2017
+106@author@@@1@wo@n-ag-kita  ti      babai iti    sabong@@@@1@5@PF-AF-kita CORE.SG girl  OBL.SG flower'The girl saw the flower.'@james blackburn, kazuki shintani@april 7, 2017
+107@author@@@1@poss@na-kita    ti      babai ti      sabong@@@@1@5@PF.GF-kita CORE.SG girl  CORE.SG flower'The girl saw the flower.'@james blackburn, kazuki shintani@april 7, 2017
+108@a:186@@@1@tam@n-ag-laylay  ti      sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS‘The flower wilted’@james blackburn, kazuki shintani@april 7, 2017
+109@author@@@1@tam@taray-{um}-{in}=ak@@@@1@1@run-{I}-{PF}=1SG.ABS‘I ran’@james blackburn, kazuki shintani@april 7, 2017
+110@author@@@1@tam@ag-basa-RR       ti      ansisit@@@@1@3@PF.AF-read-IMPERF CORE.SG dwarf‘The dwarf reads’@james blackburn, kazuki shintani@april 7, 2017
 111@a:187@@@1@wo@n-ag-laylay ti       sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
 112@a:187@@@1@wo@ti      sabong     n-ag-laylay@@@@0@3@CORE.SG flower.ABS PF-AF-wilt`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
 113@a:187@@@1@wo@n-ag-laylay  ti      sabong@@@@1@3@PF-AF-wilt   CORE.SG flower.ABS`The flower wilted'@james blackburn, kazuki shintani@april 7, 2017
