@@ -322,7 +322,8 @@ enclitic-pronoun-subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
     ARG-ST < #subj &
              [ LOCAL [ CAT [ HEAD noun &
                                   [ CASE #case,
-                                    ENCPRON + ],
+                                    ENCPRON + ,
+                                    LOCNOUN - ],
                              VAL [ SUBJ < >,
                                    SPR < >,
                                    SPEC < >,
@@ -369,9 +370,10 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                                        PRD + ],
                        VAL [ SPR < >,
                              COMPS < >,
-                             SUBJ < [ OPT -, LOCAL [ CONT.HOOK [ INDEX #arg1 ],
+                             SUBJ < [ OPT - ,
+                                      LOCAL [ CONT.HOOK [ INDEX #arg1 ],
                                               CAT [ HEAD noun & [ NP-PRED-NOUN + ],
-                                                    VAL.SPR < > ] ] ] > ] ] ],
+                                                                  VAL.SPR < > ] ] ] > ] ] ],
     C-CONT [ HOOK [ LTOP #ltop,
                     INDEX #index,
                     XARG #arg1 ],
