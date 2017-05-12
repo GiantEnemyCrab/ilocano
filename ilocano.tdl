@@ -139,7 +139,8 @@ head-spec-phrase := basic-head-spec-phrase & head-final &
   [ NON-HEAD-DTR.SYNSEM.OPT - ].
 
 common-noun-lex := obl-spr-noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN - ],
+  [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN -,
+                              ENCPRON - ],
                    CONT.HOOK.INDEX.PNG.PERNUM 3rd ] ].
 
 locative-noun-lex := basic-noun-lex & non-mod-lex-item & intransitive-lex-item &
@@ -356,9 +357,10 @@ neg-enclitic-pronoun-aux-lex := enclitic-pronoun-subj-raise-aux & trans-first-ar
 
 neg-non-pronoun-aux-lex := non-pronoun-subj-raise-aux & trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
-                   CAT.VAL.COMPS.FIRST.LOCAL [ CONT.HOOK.INDEX #index,
-                                               CAT.HEAD [ FORM finite,
-                                                          ENCPRON - ] ] ] ].
+                   CAT.VAL [ SUBJ < >,
+                             COMPS.FIRST.LOCAL [ CONT.HOOK.INDEX #index,
+                                                 CAT.HEAD [ FORM finite,
+                                                            ENCPRON - ] ] ] ] ].
 
 ;;; NP predicate (copula-less equational sentence)
 n-bar-predicate-rule := unary-phrase & nocoord &
