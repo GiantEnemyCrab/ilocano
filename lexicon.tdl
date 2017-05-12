@@ -567,15 +567,15 @@ a_compl := complementizer-declarative-lex-item &
 no_compl := complementizer-interrogative-lex-item &
   [ STEM < "no" > ].
 
-sinaludsod_embed := embedding-interrogative-verb-lex &
-  [ STEM < "sinaludsod" >,
-    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
-             LKEYS.KEYREL.PRED "_ask_v_rel" ] ].
+saludsod_embed := embedding-interrogative-verb-lex &
+  [ STEM < "saludsod" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
 ;morphology hack
-sinaludsod_embed_perf_aspect := embedding-interrogative-verb-lex &
-  [ STEM < "sinaludsod-{in}" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
+saludsod_embed_perf_aspect := embedding-interrogative-verb-lex &
+  [ STEM < "saludsod-{in}" >,
+    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
+             LKEYS.KEYREL.PRED "_ask_v_rel" ] ].
 
 ammo_embed := embedding-declarative-verb-lex &
   [ STEM < "ammo" >,
