@@ -606,3 +606,4 @@ what := wh-pronoun-noun-lex &
 who := wh-pronoun-noun-lex &
   [ STEM < "sino" >,
     SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
+

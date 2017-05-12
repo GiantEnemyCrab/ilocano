@@ -405,7 +405,8 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                      ARG0 #arg2,
                      RSTR #harg ] !>,
              HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
-    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ NP-PRED-NOUN + ],
+    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ NP-PRED-NOUN + ,
+                                                LOCNOUN - ],
                                   VAL [ SPR < > ] ],
                             CONT.HOOK [ INDEX #arg2,
                                         LTOP #larg ] ] ] > ].
@@ -903,36 +904,34 @@ question-clitic-lex := no-hcons-lex-item &
 ;;;;;;;;;;;;;;;;;;;;
 
 ; Adding this feature for now so grammar will load
-non-local :+
-  [ QUE 0-1-dlist ].
+non-local :+ [ QUE 0-1-dlist ].
 
 wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item & 
-  [ SYNSEM [ LOCAL [ CAT [ HEAD noun,
-			   VAL [ SPR < >,
-				 SUBJ < >,
-				 COMPS < >,
-				 SPEC < > ] ],
-		     CONT [ HOOK.INDEX.PNG.PERNUM 3rd,
-	                    RELS <! [ LBL #larg,
-				      ARG0 #ind & ref-ind ],
-				  [ PRED "wh_q_rel",
-				    ARG0 #ind,
-				    RSTR #harg ] !>,
-			    HCONS <! [ HARG #harg,
-				       LARG #larg ] !> ] ],
-	     NON-LOCAL.QUE <! #ind !> ] ].
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ],
+                           VAL [ SPR < >,
+                                 SUBJ < >,
+                                 COMPS < >,
+                                 SPEC < > ] ],
+                     CONT [ HOOK.INDEX.PNG.PERNUM 3rd,
+                            RELS <! [ LBL #larg,
+                                      ARG0 #ind & ref-ind ],
+                                    [ PRED "wh_q_rel",
+                                      ARG0 #ind,
+                                      RSTR #harg ] !>,
+                            HCONS <! [ HARG #harg,
+                                       LARG #larg ] !> ] ],
+              NON-LOCAL.QUE <! #ind !> ] ].
 
 basic-head-filler-phrase :+
    [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
 
-wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & 
-		  head-final &
+wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & head-final &
    [ SYNSEM.LOCAL.CAT [ MC bool,
-			VAL #val,
-			HEAD verb & [ FORM finite ] ],
+                        VAL #val,
+                        HEAD verb & [ FORM finite ] ],
      HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
-				 VAL #val & [ SUBJ < >,
-					      COMPS < > ] ],
+                                 VAL #val & [ SUBJ < >,
+                                              COMPS < > ] ],
      NON-HEAD-DTR.SYNSEM.NON-LOCAL.QUE <! ref-ind !> ].
 
 extracted-comp-phrase := basic-extracted-comp-phrase &
@@ -954,17 +953,17 @@ distal+dem_a_rel := demonstrative_a_rel.   ; near neither speaker nor hearer (re
 
 determiner-lex-supertype := norm-hook-lex-item & norm-zero-arg &
   [ SYNSEM [ LOCAL [ CAT [ HEAD det,
-			   VAL[ SPEC.FIRST.LOCAL.CONT.HOOK [ INDEX #ind,
-				  			     LTOP #larg ],
+               VAL[ SPEC.FIRST.LOCAL.CONT.HOOK [ INDEX #ind,
+                                   LTOP #larg ],
                                 SPR < >,
                                 SUBJ < >,
                                 COMPS < >]],
-		     CONT.HCONS <! qeq &
-				 [ HARG #harg,
-				   LARG #larg ] !> ], 
-	     LKEYS.KEYREL quant-relation &
-		   [ ARG0 #ind,
-		     RSTR #harg ] ] ].
+             CONT.HCONS <! qeq &
+                 [ HARG #harg,
+                   LARG #larg ] !> ], 
+         LKEYS.KEYREL quant-relation &
+           [ ARG0 #ind,
+             RSTR #harg ] ] ].
 
 demonstrative-determiner-lex := determiner-lex-supertype &
  [ SYNSEM [ LOCAL [ CAT.VAL.SPEC.FIRST.LOCAL.CONT.HOOK [ LTOP #ltop,

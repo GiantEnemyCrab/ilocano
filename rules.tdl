@@ -60,3 +60,8 @@ n5-non-sg-non-sg-any-top-coord := n5-non-sg-non-sg-any-top-coord-rule.
 n5-bottom-coord := n5-bottom-coord-rule.
 
 wh-ques := wh-ques-phrase.
+
+extr-comp := extracted-comp-phrase.
+
+extr-subj := extracted-subj-phrase.
+
