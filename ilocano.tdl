@@ -21,7 +21,8 @@ non-mod-lex-item := lex-item &
 noun :+ [ CASE case,
           LOCNOUN bool,
           NP-PRED-NOUN bool,
-          DIRECT-OBJ-NOUN bool ].
+          DIRECT-OBJ-NOUN bool,
+          WHQ bool ].
 
 head :+ [ AUX bool,
           ENCPRON bool,
@@ -135,7 +136,10 @@ no-spr-noun-lex := noun-lex &
 ; Rules for building NPs.  Note that the Matrix uses SPR for
 ; the specifier of nouns and SUBJ for the subject (specifier) of verbs.
 
-head-spec-phrase := basic-head-spec-phrase & head-final &
+head-final-spec-phrase := basic-head-spec-phrase & head-final &
+  [ NON-HEAD-DTR.SYNSEM.OPT - ].
+
+head-initial-spec-phrase := basic-head-spec-phrase & head-initial &
   [ NON-HEAD-DTR.SYNSEM.OPT - ].
 
 common-noun-lex := obl-spr-noun-lex &
@@ -385,13 +389,13 @@ neg-aux-adj-lex := adj-subj-raise-aux & trans-first-arg-raising-lex-item-1 & nor
 n-bar-predicate-rule := unary-phrase & nocoord &
   [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < >,
                                        PRD + ],
-                       VAL [ SPR < >,
-                             COMPS < >,
-                             SUBJ < [ OPT - ,
-                                      LOCAL [ CONT.HOOK [ INDEX #arg1 ],
-                                              CAT [ HEAD noun & [ NP-PRED-NOUN +,
-                                                                  LOCNOUN - ],
-                                                                  VAL.SPR < > ] ] ] > ] ] ],
+                         VAL [ SPR < >,
+                               COMPS < >,
+                               SUBJ < [ OPT - ,
+                                        LOCAL [ CONT.HOOK [ INDEX #arg1 ],
+                                                CAT [ HEAD noun & [ NP-PRED-NOUN +,
+                                                                    LOCNOUN - ],
+                                                                    VAL.SPR < > ] ] ] > ] ] ],
     C-CONT [ HOOK [ LTOP #ltop,
                     INDEX #index,
                     XARG #arg1 ],
@@ -407,7 +411,8 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                      RSTR #harg ] !>,
              HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
     ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ NP-PRED-NOUN + ,
-                                                LOCNOUN - ],
+                                                LOCNOUN - ,
+                                                WHQ - ],
                                   VAL [ SPR < > ] ],
                             CONT.HOOK [ INDEX #arg2,
                                         LTOP #larg ] ] ] > ].
@@ -492,7 +497,8 @@ adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
 
 ;;; PP locative predicate
 locative-vp-phrase := unary-phrase & nocoord &
-  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ FORM finite,
+  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < >,
+                                       FORM finite,
                                        PRD + ],
                          VAL [ SPR < >,
                                COMPS < >,
@@ -820,38 +826,6 @@ s1-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
 s1-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
   [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
-;;; Coordination Strategy 2
-
-n2-top-coord-rule := basic-n-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
-
-n2-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase &
-  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
-
-;;; Coordination Strategy 2
-
-np2-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
-
-np2-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
-  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
-
-;;; Coordination Strategy 2
-
-vp2-top-coord-rule := basic-vp-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
-
-vp2-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
-  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
-
-;;; Coordination Strategy 2
-
-s2-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
-
-s2-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
-  [ SYNSEM.LOCAL.COORD-STRAT "2" ].
-
 ;;; Feature Resolution Rules
 
 non-sg-non-sg-any-pernum-coord-rule := coord-phrase &
@@ -908,7 +882,8 @@ question-clitic-lex := no-hcons-lex-item &
 non-local :+ [ QUE 0-1-dlist ].
 
 wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item & 
-  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ],
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ,
+                                         WHQ + ],
                            VAL [ SPR < >,
                                  SUBJ < >,
                                  COMPS < >,
