@@ -651,13 +651,34 @@ ania gatang-{in}=mo
 what buy-{PF.GF}=2SG.ERG
 'What did you buy?'
 
+# ungramatical: Ilocano is not wh-in-situ language, therefore do not expect question word to
+# appear at the position of the argument of interest
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {word order}
+ginatangmo          ania
+gatang-{in}=mo      ania
+buy-{PF.GF}=2SG.ERG what
+'You bought what?'
+
+# 'what' -> verb -> obj pattern
+Source: a:430
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Ania     ti      nagdungpar    kenkuana?
+Ania     ti      n-ag-dungpar  kenkuana?
+what.ABS CORE.SG PF-AF-collide OBL.3SG
+`What hit (bumped into) him?`
+
 # A 'who' question formed similarly to the above questions.
 Source: a:435
 Vetted: s
 Judgment: g
 Phenomena: {wh}
 Sino ti      amam?
-sino ti	     ama=mo
+sino ti      ama=mo
 who  CORE.SG father=2SG.ERG
 'Who is your father?'
 
@@ -676,10 +697,31 @@ Source: a:435
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Sino ti      n-ag-kita kenka?
+Sino ti      nagkita   kenka?
 sino ti      n-ag-kita kenka
 who  CORE.SG PF-AF-see 2SG.OBL
 'Who saw you?'
+
+# 'who' -> core article 'ti' -> Verb -> object pattern
+Source: a:435
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Sino ti      nakitamo
+sino ti      na-kita=mo
+who  CORE.SG PF.GF-see=2SG.ERG
+'Who did you see?'
+
+# ungramatical: Ilocano is not wh-in-situ language, therefore do not expect question word to
+# appear at the position of the argument of interest
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {word order}
+Nakitamo          sino?
+na-kita=mo        sino
+PF.GF-see=2SG.ERG who
+`You saw who?'
 
 # ungrammatical: verb needs to take the correct case enclitic pronoun
 Source: author
@@ -752,7 +794,7 @@ Vetted: f
 Judgment: g
 Phenomena: {yn}
 Amaka          kadi?
-ama=ka	       kadi
+ama=ka         kadi
 father=2SG.ABS QUES
 'Are you a father?'
 
