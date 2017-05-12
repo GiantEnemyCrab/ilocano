@@ -225,8 +225,16 @@ kaniana := obl-3sg-noun-lex &
   [ STEM < "kaniana" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
+kenkuana := obl-3sg-noun-lex &
+  [ STEM < "kenkuana" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
 kaniatayo := obl-1pl-noun-lex &
   [ STEM < "kaniatayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kadatayo := obl-1pl-noun-lex &
+  [ STEM < "kadatayo" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 kaniami := obl-1pl-noun-lex &
@@ -237,12 +245,24 @@ kaniayo := obl-2pl-noun-lex &
   [ STEM < "kaniayo" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
+kadakayo := obl-2pl-noun-lex &
+  [ STEM < "kadakayo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kadata := obl-du-noun-lex &
+  [ STEM < "kadata" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
 kaniata := obl-du-noun-lex &
   [ STEM < "kaniata" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 kaniada := obl-3pl-noun-lex &
   [ STEM < "kaniada" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kadakuada := obl-3pl-noun-lex &
+  [ STEM < "kadakuada" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 ;;; Adjectives
@@ -324,6 +344,10 @@ naimbag := adj-adj-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_good_a_rel" ].
 
 ;;; Verbs
+
+dungpar := trans-verb-lex &
+  [ STEM < "dungpar" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_hit_v_rel" ].
 
 sarita := trans-verb-lex &
   [ STEM < "sarita" >,
