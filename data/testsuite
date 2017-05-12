@@ -459,16 +459,12 @@ n-ag-taray ti      aso ken pusa
 PF-AF-run  CORE.SG dog and cat
 `The dog and cat ran`
 
-# Ket "and, and then", is mostly used to introduce successive nominal
-# concepts or clauses. Unlike phrases or words that may be conncected 
-# with ken, the order of consituents connected by ket may not be interchanged.
-# Unlike ken, ket may not be used to conjoin parallelevents.
-Source: a:492
-Vetted: s
+Source: author
+Vetted: f
 Judgment: g
 Phenomena: {coordination}
-Naglualokami          ket nagkantakami
-n-ag-lualo=kami       ket n-ag-kanta=kami
+Naglualokami            ken nagkantakami
+n-ag-lualo=kami         ken n-ag-kanta=kami
 PF-AF-pray=1PL.ABS.EXCL and PF-AF-sing=1PL.ABS.EXCL
 'We prayed and sang`
 
@@ -477,8 +473,8 @@ Source: a:492
 Vetted: s
 Judgment: g
 Phenomena: {coordination}
-Napankami           ken ti      lalaki.
-na-pan=kami         ken ti      lalaki
+Napankami          ken ti      lalaki.
+na-pan=kami        ken ti      lalaki
 PF-go=1PL.ABS.EXCL and CORE.SG boy
 'The boy and I went.'
 
@@ -619,6 +615,15 @@ CP.QUES PF-forget-GF=1SG.ERG CP.QUES PF.GF-see=2SG.ERG CORE.SG boy
 ######### Matrix wh questions ########
 ######################################
 
+Source: a:430
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Ania ti      daytoy
+ania ti      daytoy
+what CORE.SG CORE.SG.PROXIMAL
+'What is this?'
+
 # A properly formed 'what' question in which the interrogative
 # is followed by 'ti' and a verb with an ergative enclitic pronoun:
 Source: a:430
@@ -667,10 +672,10 @@ Source: a:430
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Ania     ti      nagdungpar    kenkuana?
-Ania     ti      n-ag-dungpar  kenkuana?
-what.ABS CORE.SG PF-AF-collide OBL.3SG
-`What hit (bumped into) him?`
+Ania     ti      nagdungpar   kenkuana?
+ania     ti      n-ag-dungpar kenkuana
+what.ABS CORE.SG PF-AF-hit    OBL.3SG
+`What hit (bumped into) him?
 
 # A 'who' question juxtaposing an NP
 Source: a:435
@@ -751,7 +756,7 @@ Vetted: s
 Judgment: g
 Phenomena: {wh}
 Diak        ammo no      ania ti      kinunada
-Di=ak       ammo no      ania ti      kuna-{in}=da
+di=ak       ammo no      ania ti      kuna-{in}=da
 NEG=1SG.ABS know CP.QUES what CORE.SG say-{PF.T}=3PL.ERG
 `I don't know what they said.`
 
