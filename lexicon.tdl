@@ -345,6 +345,10 @@ naimbag := adj-adj-lex &
 
 ;;; Verbs
 
+kuna := trans-verb-lex &
+  [ STEM < "kuna" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_say_v_rel" ].
+
 dungpar := trans-verb-lex &
   [ STEM < "dungpar" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hit_v_rel" ].

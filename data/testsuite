@@ -662,7 +662,7 @@ gatang-{in}=mo      ania
 buy-{PF.GF}=2SG.ERG what
 'You bought what?'
 
-# 'what' -> verb -> obj pattern
+# 'what' -> verb -> obj pattern without any subj
 Source: a:430
 Vetted: s
 Judgment: g
@@ -672,7 +672,7 @@ Ania     ti      n-ag-dungpar  kenkuana?
 what.ABS CORE.SG PF-AF-collide OBL.3SG
 `What hit (bumped into) him?`
 
-# A 'who' question formed similarly to the above questions.
+# A 'who' question juxtaposing an NP
 Source: a:435
 Vetted: s
 Judgment: g
@@ -733,15 +733,37 @@ sino ti      na-kita=ka
 who  CORE.SG PF.GF-see=2SG.ABS
 'Who saw you?'
 
-# grammatical but potentially out of scope
+# embedding verb with complementizer followed by a wh-question word
 Source: a:484
 Vetted: s
 Judgment: g
 Phenomena: {wh}
 Sinaludsodna        no      sino ti      amak
 sinaludsod-{in}=na  no      sino ti      ama=ko
-ask-{PF.GF}=3SG.ERG CP.QUES WHO  CORE.SG father=1SG.ERG
+ask-{PF.GF}=3SG.ERG CP.QUES wjp  CORE.SG father=1SG.ERG
 `She asked who my father was.`
+
+# embedding verb with complementizer followed by a wh-question word
+# notice that theproperty of the clause does not change whether it is embedded or independent,
+# unlike English (~ ~ what they said vs what did they say)
+Source: a:423
+Vetted: s
+Judgment: g
+Phenomena: {wh}
+Diak        ammo no      ania ti      kinunada
+Di=ak       ammo no      ania ti      kuna-{in}=da
+NEG=1SG.ABS know CP.QUES what CORE.SG say-{PF.T}=3PL.ERG
+`I don't know what they said.`
+
+# demonstrating with the above case if the question is independent, not embedded clause
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {wh}
+Ania ti      kinunada
+ania ti      kuna-{in}=da
+what CORE.SG say-{PF.T}=3PL.ERG
+`What did they say?`
 
 
 ######################################
