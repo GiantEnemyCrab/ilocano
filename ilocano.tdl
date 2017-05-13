@@ -903,12 +903,12 @@ wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
 ; wh-question words without core case determiner for combining with NP pred
 ; or, combining with complementizers
 no-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
-  [ SYNSEM.LOCAL.CAT [ VAL.SPR < > ] ].
+  [ SYNSEM.LOCAL.CAT.VAL.SPR < > ].
 
 ; wh-question words requiring core case determiner for combining with VP
 obl-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
-  [ SYNSEM.LOCAL.CAT [ HEAD [ CASE cor ],
-                       VAL.SPR < [ OPT - ] > ] ].
+  [ SYNSEM [ LOCAL.CAT [ HEAD.CASE cor,
+                         VAL.SPR < [ OPT - ] > ] ] ].
 
 basic-head-filler-phrase :+
    [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
@@ -922,7 +922,7 @@ wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & head-final &
                                               COMPS < > ] ],
      NON-HEAD-DTR.SYNSEM.NON-LOCAL.QUE <! ref-ind !> ].
 
-; take off SUBS cons constraints off for VSO language to work
+; take off SUBJ cons constraints off for VSO language to work
 extracted-comp-phrase := basic-extracted-comp-phrase &
   [ SYNSEM.LOCAL.CAT.HEAD verb ].
 ;  [ SYNSEM.LOCAL.CAT.HEAD verb,
