@@ -1,0 +1,431 @@
+Lab 7 Writeup
+LING 567
+Kazuki Shintani & Jim Blackburn
+May 12, 2017
+
+# Negation
+Ilocano negation is achieved by placing the negation aux "di" at the start of a sentence.
+The negation aux behavior can change in terms of which word comes after the negation aux, depending on if the subject is a pronoun or not.
+If the subject is a pronoun, in negation sentences, the pronoun attaches to the right of negation aux instead of the verb (in declarative sentences, a pronoun attaches to the right of the verb)
+
+Diko        nakita   ti      lalaki
+di=ko       na-kita  ti      lalaki
+Neg=1SG.ERG PF.GF-see CORE.SG boy
+`I didn't see the boy'
+
+If the subject is a non-pronominal noun, then the subject comes after the verb:
+Di  nakita    ti      lalaki ti      balay
+di  na-kita   ti      lalaki ti      balay
+Neg PF.GF-see CORE.SG boy    CORE.SG house
+'The boy did not see the house'
+
+To achieve these different phenomena, a set of two separate entries was added:
+1. one that takes enclitic pronoun
+2. one that takes non-pronoun nouns
+
+The ENCPRON bool variable was added to the head definition. This was introduced to prevent enclitic pronouns from appearing after the verb in negation sentences. Then, "transitive-verb-lex" copy their subject's ENCPRON value.
+
+There was also incorrect MRS if the subj-raise-aux-with-pred type from the customization system was used. In this case, aux links its INDEX to its own ARG0. A lexical type that inherits from trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item was created to point its INDEX at its HEAD verb complement's INDEX.
+
+One problem remains in this implementation of negation aux. If both the subject and the object are enclitic pronouns, both of these pronouns attach to the negation aux. In the current implementation, it is able to only take one enclitic pronoun for the verb. This may be more of a second position phenomenon, but it would not have been realistic to implement it immediately.
+
+# This does not parse, no support yet for two enclitic pronouns
+Dikoka              nakita
+di=ko=ka            na-kita
+NEG=1SG.ERG=2SG.ABS PF.GF-see
+'I did not see you'
+
+*It was possible to generate from working examples illustrating the phenomenon.
+
+[TDL changes]
+    
+head :+ [ ENCPRON bool ]
+          
+enc-pron-noun-lex := pron-noun-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD [ ENCPRON + ] ].
+
+transitive-verb-lex := main-verb-lex & transitive-lex-item & fossil-aspect-infix-or-fossil-aspect-prefix-rule-dtr & only-focus-prefix-or-only-focus-suffix-or-inf
+x-rule-dtr &
+  [ SYNSEM.LOCAL.CAT [ HEAD.ENCPRON #encpron,
+                       VAL [ SUBJ < [ LOCAL.CAT.HEAD.ENCPRON #encpron ] >,
+                             COMPS < #comps > ] ],
+    ARG-ST < [ LOCAL.CAT.HEAD noun ],
+             #comps &
+             [ LOCAL.CAT [ VAL [ SPR < >,
+                                 COMPS < > ],
+                           HEAD noun ] ] > ].
+                            
+enclitic-pronoun-subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
+  [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
+                             SPEC < >,
+                             COMPS < #comps >,
+                             SUBJ < #subj > ],
+                   CONT.HOOK.XARG #xarg ],
+    ARG-ST < #subj &
+             [ LOCAL [ CAT [ HEAD noun &
+                                  [ CASE #case,
+                                    ENCPRON + ,
+                                    LOCNOUN - ],
+                             VAL [ SUBJ < >,
+                                   SPR < >,
+                                   SPEC < >,
+                                   COMPS < > ] ],
+                       CONT.HOOK [ INDEX #xarg ] ] ],
+             #comps &
+             [ LOCAL.CAT [ HEAD verb,
+                           VAL [ SPR < >,
+                                 SPEC < >,
+                                 SUBJ < unexpressed &
+                                        [ LOCAL.CAT.HEAD.CASE #case ] > ] ] ] > ].
+
+non-pronoun-subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
+  [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
+                             SPEC < >,
+                             COMPS < #comps >,
+                             SUBJ < > ] ],
+    ARG-ST < [ ],
+             #comps &
+             [ LOCAL.CAT [ HEAD verb,
+                           VAL [ COMPS < >,
+                                 SPR < >,
+                                 SPEC < >,
+                                 SUBJ < > ] ] ] > ].
+
+neg-enclitic-pronoun-aux-lex := enclitic-pronoun-subj-raise-aux & trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
+                   CAT.VAL [ SUBJ < [ OPT - ] >,
+                             COMPS.FIRST.LOCAL [ CONT.HOOK.INDEX #index,
+                                                 CAT.HEAD.FORM finite ] ] ] ].
+
+neg-non-pronoun-aux-lex := non-pronoun-subj-raise-aux & trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
+                   CAT.VAL [ SUBJ < >,
+                             COMPS.FIRST.LOCAL [ CONT.HOOK.INDEX #index,
+                                                 CAT.HEAD [ FORM finite,
+                                                            ENCPRON - ] ] ] ] ].                                                
+
+[Lexical Entries]
+di_enc_pron := neg-enclitic-pronoun-aux-lex &
+  [ STEM < "di" >,
+    SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
+
+di_non_pron := neg-non-pronoun-aux-lex &
+  [ STEM < "di" >,
+    SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
+    
+    
+    
+    
+# Wh-Questions
+
+Declarative sentences in Ilocano tend to take a VSO word order, but wh-question
+words appear at the beginning of clauses. There is no evidence in our grammar
+resource that in-situ structures occur in Ilocano. Therefore, we proceeded to
+implement wh-initial phrase structure rules.
+
+To begin work on wh-questions, we began by checking on the ancillary rules to
+address any possible issues there; not finding any types or rules that fit the
+descriptions, we went on to implementing the wh-pronoun-noun-lex type. The only
+change that needed to be made immediately in order to compile the grammar was
+to adjust the name of the PER feature to the PERNUM feature of our grammar.
+
+Lexical types for 'ania' (what) and 'sino' (who) were added to the lexicon.
+There is no direct evidence in Rubino's text that these question words change
+form.
+
+To form matrix wh-questions, the question words 'ania' or 'sino' are followed
+by a core-case article or demonstrative -- 'ti' is used exclusively in our test
+suite for sentences of this type -- followed by a VP:
+
+Ania     ti      ginatangmo?
+ania     ti      gatang-{in}=mo
+what.ABS CORE.SG buy-{PF.GF}=2sg.ERG
+'What did you buy?'
+
+Sino    ti      nakitamo?
+sino    ti      na-kita=mo
+who.ABS CORE.SG PF.GF-see=mo
+'Who did you see?'
+
+Sino ti      amam?
+sino ti      ama=mo
+who  CORE.SG father=2SG.ERG
+'Who is your father?'
+
+Ania     ti      nagdungpar   kenkuana?
+ania     ti      n-ag-dungpar kenkuana
+what.ABS CORE.SG PF-AF-hit    OBL.3SG
+`What hit (bumped into) him? 
+
+The treatment of the core case determiner was challenging. In our analysis, for patterns where 
+NP predicates follow the wh-word, the determiner would attach to the NP, but for patterns that VP or S follow the pair of wh-words and the core case determiner, the core case determiner would attach to the wh-ques words on the left. But the order of the determiner and the wh-question pronoun is reversed going from pronoun to determiner, rather than determiner to noun.
+
+Two separate rules were created, which inherit from basic-head-spec-phrase, but each rule specifies whether it is head-final or head-initial. On the head-initial version, the WHQUES variable is marked as + to constrain the behavior of word order flipping to just the wh-question words, otherwise all other nouns can flip the order of determiners and nouns. So, "WHQUES -" is specified on all other nouns.
+
+A lexical type of wh-pronoun-noun-lex was copied over from the lab instruction, but now SYNSEM.LOCAL.CAT.VAL.SPR is underspecified. There are now two lexical types that inherit wh-pronoun-noun-lex: no-spr-wh-pronoun-noun-lex and obl-spr-wh-pronoun-noun-lex.
+
+no-spr-wh-pronoun-noun-lex specifies empty SPR. This is for use with combining the wh-question word with NP predicate. 
+
+Meanwhile obl-spr-wh-pronoun-noun-lex specifies a mantatory SPR, and this pattern is used for combining with VP or S.
+
+There was a need to relax the constraints of extracted-comp-phrase to underspecify HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ, to enable patterns to parse like below, where ergative pronoun appears after the verb, otherwise, it didn't parse:
+
+Ania ti ginatangmo
+ania ti gatang-{in}=mo
+what CORE.SG buy-{PF.GF}=2SG.ERG
+'What did you buy?'
+
+When the wh-ques words combine with complementizer, the word order does not seem to change:
+
+Sinaludsodna        no      sino ti      amak
+saludsod-{in}=na    no      sino ti      ama=ko
+ask-{PF.GF}=3SG.ERG CP.QUES wjp  CORE.SG father=1SG.ERG
+`She asked who my father was.`
+
+Diko        saludsod-{in} no      ania ti      kinunada
+di=ko       saludsod-{in} no      ania ti      kuna-{in}=da
+NEG=1SG.ERG ask-{PF.GF}   CP.QUES what CORE.SG say-{PF.T}=3PL.ERG
+`I did not ask what they said.`
+
+We exhaustively searched for a pattern mentioned in the lab, like "What do you think the dog chases?", from the grammar reference. However, there was no example like that documented.
+
+In the current implementation, there is a pattern of overgeneration, where ungrammatical pattern of the core case determining missing is parsed:
+
+#ungrammatical because "ania" needs to be followed by a core case determiner such as "ti"
+Ania ginatangmo
+ania gatang-{in}=mo
+what buy-{PF.GF}=2SG.ERG
+'What did you buy?'
+
+More constraints need to be implemented in the grammar to forbid a pattern like above.
+
+
+[TDL changes]
+    
+noun :+ [ WHQUES bool ].
+
+head-final-spec-phrase := basic-head-spec-phrase & head-final &
+  [ NON-HEAD-DTR.SYNSEM.OPT - ].
+
+head-initial-spec-phrase := basic-head-spec-phrase & head-initial &
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.WHQUES + ,
+    NON-HEAD-DTR.SYNSEM.OPT - ].
+
+wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ,
+                                         WHQUES + ],
+                           VAL [ SUBJ < >,
+                                 COMPS < >,
+                                 SPEC < > ] ],
+                     CONT [ HOOK.INDEX.PNG.PERNUM 3rd,
+                            RELS <! [ LBL #larg,
+                                      ARG0 #ind & ref-ind ],
+                                    [ PRED "wh_q_rel",
+                                      ARG0 #ind,
+                                      RSTR #harg ] !>,
+                            HCONS <! [ HARG #harg,
+                                       LARG #larg ] !> ] ],
+              NON-LOCAL.QUE <! #ind !> ] ].
+
+; wh-question words without     core case determiner for combining with NP pred
+; or, combining with complementizers
+no-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.SPR < > ].
+
+; wh-question words requiring core case determiner for combining with VP
+obl-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
+  [ SYNSEM [ LOCAL.CAT [ HEAD.CASE cor,
+                         VAL.SPR < [ OPT - ] > ] ] ].
+
+basic-head-filler-phrase :+
+   [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
+
+wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & head-final &
+   [ SYNSEM.LOCAL.CAT [ MC bool,
+                        VAL #val,
+                        HEAD verb & [ FORM finite ] ],
+     HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
+                                 VAL #val & [ SUBJ < >,
+                                              COMPS < > ] ],
+     NON-HEAD-DTR [ SYNSEM.NON-LOCAL.QUE <! ref-ind !> ] ].
+
+; take off SUBJ cons constraints off for VSO language to work
+extracted-comp-phrase := basic-extracted-comp-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD verb ].
+;  [ SYNSEM.LOCAL.CAT.HEAD verb,
+;    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ cons ].
+
+extracted-subj-phrase := basic-extracted-subj-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD verb,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+
+[Lexical entries] 
+
+what_no_spr := no-spr-wh-pronoun-noun-lex &
+  [ STEM < "ania" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
+what_obl_spr := obl-spr-wh-pronoun-noun-lex &
+  [ STEM < "ania" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
+who_no_spr := no-spr-wh-pronoun-noun-lex &
+  [ STEM < "sino" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
+
+who_obl_spr := obl-spr-wh-pronoun-noun-lex &
+  [ STEM < "sino" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
+    
+    
+*It was possible to generate from working examples illustrating the phenomenon.
+
+
+
+# Demonstrative Determiners (For the purpose of Test Corpus)
+
+When tasked with getting one additional sentence from our test corpus to parse,
+it appeared that implementing demonstratives would be a valuable and attainable
+addition to our grammar. Ilocano demonstratives distinguish three degrees of
+distance from the speaker: proximal (near the speaker), medial (near the
+hearer), and distal (near neither the speaker nor the hearer). Demonstrative
+determiners appear in the same syntactic environments as other determiners such
+as "ti" and "dagiti", and, like them, take different forms based on number and
+case. For the purposes of this lab, we will focus for the moment only on core-
+case, singular demonstrative determiners:
+
+Demonstrative   Scope
+-------------   -----
+daytoy          proximal
+dayta           medial
+diay            distal
+
+This class of determiners was defined in the grammar to inherit from predsort;
+three spatial scopes were defined according to the description given by Rubino
+in his treatment of these words (p. 40):
+
+[TDL changes]
+
+demonstrative_a_rel := predsort.
+proximal+dem_a_rel := demonstrative_a_rel. ; near speaker
+medial+dem_a_rel := demonstrative_a_rel.   ; near hearer
+distal+dem_a_rel := demonstrative_a_rel.   ; near neither speaker nor hearer (remote)
+
+Following the general pattern for defining demonstrative determiners, the
+following addition was made to the grammar. The type inherits from the
+determiner supertype, and a two-element RELS list was specified. The first
+element supplies an "exist_q_rel" PRED value, while the second identifies its
+LTOP with that of the determiner itself, and its ARG1 value with the index of
+the determiner. This second element is identified with the determiner's LKEYS.
+ALTKEYREL value. Finally, to reflect the discourse status of the N to which
+these determiners attach, the COG-ST value is set to activ+fam.
+
+[TDL changes]
+
+demonstrative-determiner-lex := determiner-lex-supertype &
+ [ SYNSEM [ LOCAL [ CAT.VAL.SPEC.FIRST.LOCAL.CONT.HOOK [ LTOP #ltop,
+                                                         INDEX #ind & [ COG-ST activ+fam ] ],
+                    CONT.RELS <! [ PRED "exist_q_rel" ],
+                                 arg1-ev-relation & #akr & 
+                                 [ LBL #ltop,
+                                   ARG1 #ind ] !> ],
+            LKEYS.ALTKEYREL #akr ] ].
+
+This analysis was sufficient to parse sentences with demonstrative determiners such as:
+
+Nabanglo     dayta  sabongmo
+na-banglo    dayta  sabong=mo
+ADJ-fragrant MEDIAL flower=2sg.ERG
+'Your flower is fragrant.'
+
+which appears in our test corpus and now parses correctly. There is at this
+time still no support for constructions wherein the demonstrative stands alone
+without attaching to an N (Rubino 430):
+
+Ania  daytoy?
+ania  daytoy
+what  PROXIMAL
+'What is this?'
+
+This feature can be implemented in a later iteration of our grammar if
+necessary. As our grammar stands now, we are able to parse simple sentences
+with any of the three added demonstratives, and see the expected semantics show
+up in the MRS: In the above example "nabanglo dayta sabongmo", the ARG0 of both
+the exist_q_rel and _flower_n_rel are coreferenced, and this is in turn
+coreferenced with the ARG1 of both the demonstrative (medial+dem_a_rel) and the 
+adjective "fragrant".
+
+*Generation was successful for the test corpus sentence that was implemented
+via the addition of support for demonstratives.
+
+
+# Variable Property Mapping
+No change was done on VPM for this lab
+
+# Testsuite / Performance Comparison and Analysis
+129 total (72 positive items, 49 negative items)
+
+Previous Lab 6 Results:
+Overall Coverage: 66.7%
+Overgeneration 7.0%
+
+Current  Lab 7 Results:
+Overall Coverage: 90.3%
+Overgeneration 5.3%
+
+# Test Corpus / Performance Comparison
+11 total (all 11 are positive items)
+Previous Lab 6 Results:
+Overall Coverage: 0%
+
+Current  Lab 7 Results:
+Overall Coverage: 54.5%
+
+# Other Fixes / Improvements
+# Adverb MRS Fix
+
+Lab #5's feedback was incorrect MRS on adverbs.
+The ARG1 of _fast_a_rel should be the ARG0 of _return_v_rel, but that was not working.
+Ilocano adverbial behavior is achieved by adjective, followed by a ligature, which is then followed by a VP or S.
+
+Nadaras  a   nagsubliak
+na-daras a   n-ag-subli=ak
+ADJ-fast ADV PF-AF-return=1SG.ABS
+`I returned quickly`
+
+Adj wants to see LOCAL.CONT.HOOK.XARG ref-ind, but to enable adv; this constraint needed to be relaxed to be event-or-ref-index. Therefore, a new lexical type that inherits from basic-adjective-lex was created to allow both adjectival and adverbial behaviors.
+
+[TDL changes]
+basic-intersective-adjective-adverb-lex := basic-adjective-lex &
+  [ SYNSEM [ LOCAL.CONT.HOOK.XARG event-or-ref-index & #xarg,
+             LKEYS.KEYREL.ARG1 #xarg ] ].
+adj-lex := basic-intersective-adjective-adverb-lex & no-hcons-lex-item.
+
+adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
+  [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
+                           [ MOD < [ LOCAL [ CAT [ HEAD verb,
+                                                   VAL [ SUBJ < >,
+                                                         COMPS < > ] ],
+                                             CONT.HOOK [ INDEX #index ] ] ] > ],
+                         VAL [ SPR < >,
+                               SUBJ < >,
+                               SPEC < >,
+                               COMPS < #comps & [ LOCAL [ CAT [ HEAD adj,
+                                                                VAL.SUBJ < [ ] > ],
+                                                          CONT.HOOK.XARG #index ] ] > ],
+                         POSTHEAD - ] ],
+    ARG-ST < #comps > ].
+
+# type-id COG-ST for determiners 
+Now, determiner-lex has COG-ST as type-id.
+In Ilocano determiners, there is no distinction of indefinite vs definite article, but demonstratives would have more specific COG-ST values.
+
+[TDL changes]
+
+determiner-lex := basic-determiner-lex & norm-zero-arg & non-mod-lex-item &
+  [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
+                           COMPS < >,
+                           SUBJ < > ],
+                   CONT.HOOK.INDEX [ COG-ST type-id ] ] ]. 
+
+
