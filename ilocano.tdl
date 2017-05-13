@@ -910,8 +910,6 @@ obl-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
   [ SYNSEM [ LOCAL.CAT [ HEAD.CASE cor,
                          VAL.SPR < [ OPT - ] > ] ] ].
 
-wh-pronoun-noun-lex :+ [ QUESTION + ].
-
 basic-head-filler-phrase :+
    [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
 
@@ -922,8 +920,7 @@ wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & head-final &
      HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
                                  VAL #val & [ SUBJ < >,
                                               COMPS < > ] ],
-     NON-HEAD-DTR [ SYNSEM.NON-LOCAL.QUE <! ref-ind !>,
-                    QUESTION + ] ].
+     NON-HEAD-DTR [ SYNSEM.NON-LOCAL.QUE <! ref-ind !> ] ].
 
 ; take off SUBJ cons constraints off for VSO language to work
 extracted-comp-phrase := basic-extracted-comp-phrase &
