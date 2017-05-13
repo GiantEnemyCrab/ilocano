@@ -751,14 +751,14 @@ ask-{PF.GF}=3SG.ERG CP.QUES wjp  CORE.SG father=1SG.ERG
 # embedding verb with complementizer followed by a wh-question word
 # notice that theproperty of the clause does not change whether it is embedded or independent,
 # unlike English (~ ~ what they said vs what did they say)
-Source: a:423 (partially), author (replaced verb)
+Source: author, a:423 (partially replaced verb)
 Vetted: s
 Judgment: g
 Phenomena: {wh}
-Diak        saludsod no      ania ti      kinunada
-di=ak       saludsod no      ania ti      kuna-{in}=da
-NEG=1SG.ABS ask      CP.QUES what CORE.SG say-{PF.T}=3PL.ERG
-`I don't ask what they said.`
+Diko        saludsod-{in} no      ania ti      kinunada
+di=ko       saludsod-{in} no      ania ti      kuna-{in}=da
+NEG=1SG.ERG ask-{PF.GF}   CP.QUES what CORE.SG say-{PF.T}=3PL.ERG
+`I did not ask what they said.`
 
 # demonstrating with the above case if the question is independent, not embedded clause
 Source: author
