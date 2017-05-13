@@ -140,11 +140,13 @@ head-final-spec-phrase := basic-head-spec-phrase & head-final &
   [ NON-HEAD-DTR.SYNSEM.OPT - ].
 
 head-initial-spec-phrase := basic-head-spec-phrase & head-initial &
-  [ NON-HEAD-DTR.SYNSEM.OPT - ].
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.WHQUES + ,
+    NON-HEAD-DTR.SYNSEM.OPT - ].
 
 common-noun-lex := obl-spr-noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN -,
-                              ENCPRON - ],
+  [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN - ,
+                              ENCPRON - ,
+                              WHQUES - ],
                    CONT.HOOK.INDEX.PNG.PERNUM 3rd ] ].
 
 locative-noun-lex := basic-noun-lex & non-mod-lex-item & intransitive-lex-item &
@@ -160,7 +162,8 @@ pron-noun-lex := no-spr-noun-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX [ COG-ST activ-or-more,
                                      SPECI + ],
                    CAT.HEAD [ LOCNOUN - ,
-                              DIRECT-OBJ-NOUN - ] ] ].
+                              DIRECT-OBJ-NOUN - ,
+                              WHQUES - ] ] ].
 
 enc-pron-noun-lex := pron-noun-lex &
   [ SYNSEM.LOCAL.CAT.HEAD [ NP-PRED-NOUN - ,
