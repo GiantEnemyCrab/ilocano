@@ -627,11 +627,19 @@ kadi := question-clitic-lex &
 
 ;;; Wh-Question Words
 
-what := wh-pronoun-noun-lex &
+what_no_spr := no-spr-wh-pronoun-noun-lex &
   [ STEM < "ania" >,
     SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
 
-who := wh-pronoun-noun-lex &
+what_obl_spr := obl-spr-wh-pronoun-noun-lex &
+  [ STEM < "ania" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
+who_no_spr := no-spr-wh-pronoun-noun-lex &
+  [ STEM < "sino" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
+
+who_obl_spr := obl-spr-wh-pronoun-noun-lex &
   [ STEM < "sino" >,
     SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
 

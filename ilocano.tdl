@@ -22,7 +22,7 @@ noun :+ [ CASE case,
           LOCNOUN bool,
           NP-PRED-NOUN bool,
           DIRECT-OBJ-NOUN bool,
-          WHQ bool ].
+          WHQUES bool ].
 
 head :+ [ AUX bool,
           ENCPRON bool,
@@ -412,7 +412,7 @@ n-bar-predicate-rule := unary-phrase & nocoord &
              HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
     ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ NP-PRED-NOUN + ,
                                                 LOCNOUN - ,
-                                                WHQ - ],
+                                                WHQUES - ],
                                   VAL [ SPR < > ] ],
                             CONT.HOOK [ INDEX #arg2,
                                         LTOP #larg ] ] ] > ].
@@ -879,13 +879,12 @@ question-clitic-lex := no-hcons-lex-item &
 ;;;;;;;;;;;;;;;;;;;;
 
 ; Adding this feature for now so grammar will load
-non-local :+ [ QUE 0-1-dlist ].
+; non-local :+ [ QUE 0-1-dlist ].
 
-wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item & 
+wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
   [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ,
-                                         WHQ + ],
-                           VAL [ SPR < >,
-                                 SUBJ < >,
+                                         WHQUES + ],
+                           VAL [ SUBJ < >,
                                  COMPS < >,
                                  SPEC < > ] ],
                      CONT [ HOOK.INDEX.PNG.PERNUM 3rd,
@@ -897,6 +896,16 @@ wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
                             HCONS <! [ HARG #harg,
                                        LARG #larg ] !> ] ],
               NON-LOCAL.QUE <! #ind !> ] ].
+
+; wh-question words without core case determiner for combining with NP pred
+; or, combining with complementizers
+no-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
+  [ SYNSEM.LOCAL.CAT [ VAL.SPR < > ] ].
+
+; wh-question words requiring core case determiner for combining with VP
+obl-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
+  [ SYNSEM.LOCAL.CAT [ HEAD [ CASE cor ],
+                       VAL.SPR < [ OPT - ] > ] ].
 
 basic-head-filler-phrase :+
    [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
@@ -910,9 +919,11 @@ wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & head-final &
                                               COMPS < > ] ],
      NON-HEAD-DTR.SYNSEM.NON-LOCAL.QUE <! ref-ind !> ].
 
+; take off SUBS cons constraints off for VSO language to work
 extracted-comp-phrase := basic-extracted-comp-phrase &
-  [ SYNSEM.LOCAL.CAT.HEAD verb,
-    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ cons ].
+  [ SYNSEM.LOCAL.CAT.HEAD verb ].
+;  [ SYNSEM.LOCAL.CAT.HEAD verb,
+;    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ cons ].
 
 extracted-subj-phrase := basic-extracted-subj-phrase &
   [ SYNSEM.LOCAL.CAT.HEAD verb,
@@ -949,3 +960,4 @@ demonstrative-determiner-lex := determiner-lex-supertype &
                                  [ LBL #ltop,
                                    ARG1 #ind ] !> ],
             LKEYS.ALTKEYREL #akr ] ].
+
