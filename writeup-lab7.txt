@@ -6,7 +6,7 @@ May 12, 2017
 # Negation
 Ilocano negation is achieved by placing the negation aux "di" at the start of a sentence.
 The negation aux behavior can change in terms of which word comes after the negation aux, depending on if the subject is a pronoun or not.
-If the subject is a pronoun, in negation sentences, the pronoun attaches to the right of negation aux instead of the verb (in declarative sentences, a pronoun attaches to the right of the verb)
+In negated sentences, if the subject is a pronoun, the pronoun attaches to the right of the negation aux instead of to the verb (in declarative sentences, a pronoun attaches to the right of the verb).
 
 Diko        nakita   ti      lalaki
 di=ko       na-kita  ti      lalaki
@@ -23,11 +23,11 @@ To achieve these different phenomena, a set of two separate entries was added:
 1. one that takes enclitic pronoun
 2. one that takes non-pronoun nouns
 
-The ENCPRON bool variable was added to the head definition. This was introduced to prevent enclitic pronouns from appearing after the verb in negation sentences. Then, "transitive-verb-lex" copy their subject's ENCPRON value.
+The ENCPRON bool variable was added to the head definition. This was introduced to prevent enclitic pronouns from appearing after the verb in negated sentences. Instances of "transitive-verb-lex" copy their subject's ENCPRON value.
 
-There was also incorrect MRS if the subj-raise-aux-with-pred type from the customization system was used. In this case, aux links its INDEX to its own ARG0. A lexical type that inherits from trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item was created to point its INDEX at its HEAD verb complement's INDEX.
+Incorrect MRS information appeared if the subj-raise-aux-with-pred type from the customization system was used. In this case, aux links its INDEX to its own ARG0. A lexical type that inherits from trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item was created to point its INDEX at its HEAD verb complement's INDEX.
 
-One problem remains in this implementation of negation aux. If both the subject and the object are enclitic pronouns, both of these pronouns attach to the negation aux. In the current implementation, it is able to only take one enclitic pronoun for the verb. This may be more of a second position phenomenon, but it would not have been realistic to implement it immediately.
+One problem remains in this implementation of the negation aux. If both the subject and the object are enclitic pronouns, both of these pronouns attach to the negation aux. In the current implementation, it is only possible to take one enclitic pronoun for the verb. This may be more of a second position phenomenon, but it would not have been realistic to implement it immediately.
 
 # This does not parse, no support yet for two enclitic pronouns
 Dikoka              nakita
@@ -158,17 +158,17 @@ what.ABS CORE.SG PF-AF-hit    OBL.3SG
 `What hit (bumped into) him? 
 
 The treatment of the core case determiner was challenging. In our analysis, for patterns where 
-NP predicates follow the wh-word, the determiner would attach to the NP, but for patterns that VP or S follow the pair of wh-words and the core case determiner, the core case determiner would attach to the wh-ques words on the left. But the order of the determiner and the wh-question pronoun is reversed going from pronoun to determiner, rather than determiner to noun.
+NP predicates follow the wh-word, the determiner would attach to the NP, but for patterns in which a VP or S followed the pair of wh-words and the core case determiner, the core case determiner would attach to the wh-ques word on its left. However, the order of the determiner and the wh-question pronoun is reversed going from pronoun to determiner, rather than determiner to noun.
 
-Two separate rules were created, which inherit from basic-head-spec-phrase, but each rule specifies whether it is head-final or head-initial. On the head-initial version, the WHQUES variable is marked as + to constrain the behavior of word order flipping to just the wh-question words, otherwise all other nouns can flip the order of determiners and nouns. So, "WHQUES -" is specified on all other nouns.
+Two separate rules were created, both of which inherit from basic-head-spec-phrase, but each rule specifies whether it is head-final or head-initial. On the head-initial version, the WHQUES variable is marked as + to constrain the behavior of word order flipping to just the wh-question words, otherwise all other nouns can flip the order of determiners and nouns. For this reason, "WHQUES -" is specified on all other nouns.
 
-A lexical type of wh-pronoun-noun-lex was copied over from the lab instruction, but now SYNSEM.LOCAL.CAT.VAL.SPR is underspecified. There are now two lexical types that inherit wh-pronoun-noun-lex: no-spr-wh-pronoun-noun-lex and obl-spr-wh-pronoun-noun-lex.
+A lexical type of wh-pronoun-noun-lex was copied over from the lab instruction, but now its SYNSEM.LOCAL.CAT.VAL.SPR value is underspecified. There are now two lexical types that inherit wh-pronoun-noun-lex: no-spr-wh-pronoun-noun-lex and obl-spr-wh-pronoun-noun-lex.
 
-no-spr-wh-pronoun-noun-lex specifies empty SPR. This is for use with combining the wh-question word with NP predicate. 
+no-spr-wh-pronoun-noun-lex specifies an empty SPR. This is for use when combining the wh-question word with NP predicate. 
 
-Meanwhile obl-spr-wh-pronoun-noun-lex specifies a mantatory SPR, and this pattern is used for combining with VP or S.
+The obl-spr-wh-pronoun-noun-lex type specifies a mandatory SPR, and this pattern is used for combining with a VP or S.
 
-There was a need to relax the constraints of extracted-comp-phrase to underspecify HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ, to enable patterns to parse like below, where ergative pronoun appears after the verb, otherwise, it didn't parse:
+It was necessary to relax the constraints of extracted-comp-phrase to underspecify HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ, to enable patterns to parse like below, where an ergative pronoun appears after the verb. Otherwise, it didn't parse:
 
 Ania ti ginatangmo
 ania ti gatang-{in}=mo
@@ -187,9 +187,9 @@ di=ko       saludsod-{in} no      ania ti      kuna-{in}=da
 NEG=1SG.ERG ask-{PF.GF}   CP.QUES what CORE.SG say-{PF.T}=3PL.ERG
 `I did not ask what they said.`
 
-We exhaustively searched for a pattern mentioned in the lab, like "What do you think the dog chases?", from the grammar reference. However, there was no example like that documented.
+We exhaustively searched for a pattern mentioned in the lab, such as "What do you think the dog chases?", from the grammar reference. However, no example of that type was documented.
 
-In the current implementation, there is a pattern of overgeneration, where ungrammatical pattern of the core case determining missing is parsed:
+In the current implementation, there is a pattern of overgeneration, where the ungrammatical example of a missing core case determiner is successfully parsed:
 
 #ungrammatical because "ania" needs to be followed by a core case determiner such as "ti"
 Ania ginatangmo
@@ -360,7 +360,7 @@ via the addition of support for demonstratives.
 
 
 # Variable Property Mapping
-No change was done on VPM for this lab
+No change was done on VPM for this lab.
 
 # Testsuite / Performance Comparison and Analysis
 129 total (72 positive items, 49 negative items)
@@ -385,15 +385,15 @@ Overall Coverage: 54.5%
 # Adverb MRS Fix
 
 Lab #5's feedback was incorrect MRS on adverbs.
-The ARG1 of _fast_a_rel should be the ARG0 of _return_v_rel, but that was not working.
-Ilocano adverbial behavior is achieved by adjective, followed by a ligature, which is then followed by a VP or S.
+The ARG1 of _fast_a_rel should be identified with the ARG0 of _return_v_rel, but that was not working.
+Ilocano adverbial behavior is achieved by an adjective, followed by a ligature, which is then followed by a VP or S.
 
 Nadaras  a   nagsubliak
 na-daras a   n-ag-subli=ak
 ADJ-fast ADV PF-AF-return=1SG.ABS
 `I returned quickly`
 
-Adj wants to see LOCAL.CONT.HOOK.XARG ref-ind, but to enable adv; this constraint needed to be relaxed to be event-or-ref-index. Therefore, a new lexical type that inherits from basic-adjective-lex was created to allow both adjectival and adverbial behaviors.
+Adjectives want to see LOCAL.CONT.HOOK.XARG ref-ind, but to enable adverbial behavior; this constraint needed to be relaxed to be event-or-ref-index. Therefore, a new lexical type that inherits from basic-adjective-lex was created to allow both adjectival and adverbial behaviors.
 
 [TDL changes]
 basic-intersective-adjective-adverb-lex := basic-adjective-lex &
@@ -418,7 +418,7 @@ adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-ite
 
 # type-id COG-ST for determiners 
 Now, determiner-lex has COG-ST as type-id.
-In Ilocano determiners, there is no distinction of indefinite vs definite article, but demonstratives would have more specific COG-ST values.
+Ilocano determiners show no distinction between definiteness and indefiniteness, but demonstratives are expected to have more specific COG-ST values.
 
 [TDL changes]
 
