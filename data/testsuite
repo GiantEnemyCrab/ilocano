@@ -728,15 +728,15 @@ na-kita=mo        sino
 PF.GF-see=2SG.ERG who
 `You saw who?'
 
-# ungrammatical: verb needs to take the correct case enclitic pronoun
-Source: author
-Vetted: f
-Judgment: u
-Phenomena: {case}
-Sino ti      nakitaka?
-sino ti      na-kita=ka
-who  CORE.SG PF.GF-see=2SG.ABS
-'Who saw you?'
+# Unsure if this is grammatical or ungrammatical: verb needs to take the correct case enclitic pronoun
+#Source: author
+#Vetted: f
+#Judgment: u
+#Phenomena: {case}
+#Sino ti      nakitaka?
+#sino ti      na-kita=ka
+#who  CORE.SG PF.GF-see=2SG.ABS
+#'Who saw you?'
 
 # embedding verb with complementizer followed by a wh-question word
 Source: a:484
@@ -745,7 +745,7 @@ Judgment: g
 Phenomena: {wh}
 Sinaludsodna        no      sino ti      amak
 saludsod-{in}=na    no      sino ti      ama=ko
-ask-{PF.GF}=3SG.ERG CP.QUES wjp  CORE.SG father=1SG.ERG
+ask-{PF.GF}=3SG.ERG CP.QUES who  CORE.SG father=1SG.ERG
 `She asked who my father was.`
 
 # embedding verb with complementizer followed by a wh-question word
