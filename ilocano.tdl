@@ -467,9 +467,11 @@ attr-adj-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-le
     ARG-ST < #comps > ].
 
 ;;; Adverbs
+; INIT - to prevent sentence to start from ligature
 adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
-                           [ MOD < [ LOCAL [ CAT [ HEAD verb,
+                           [ INIT - , 
+                             MOD < [ LOCAL [ CAT [ HEAD verb,
                                                    VAL [ SUBJ < >,
                                                          COMPS < > ] ],
                                              CONT.HOOK [ INDEX #index ] ] ] > ],
@@ -482,9 +484,11 @@ adv-mod-ligature-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-ite
                          POSTHEAD - ] ],
     ARG-ST < #comps > ].
 
+; INIT + to prevent sentence to end with the 'iti'
 adv-mod-iti-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
-                           [ MOD < [ LOCAL [ CAT [ HEAD verb,
+                           [ INIT + ,
+                             MOD < [ LOCAL [ CAT [ HEAD verb,
                                                    VAL [ SUBJ < >,
                                                          COMPS < > ] ],
                                              CONT.HOOK [ INDEX #index ] ] ] > ],
@@ -870,13 +874,13 @@ same-periph-unary-phrase := unary-phrase &
 bare-np-phrase :+
     [ SYNSEM.LIGHT - ].
 
-question-clitic-lex := no-hcons-lex-item &
-    [ SYNSEM.LOCAL [ CAT [ VAL [ SPR < >, COMPS < >, SUBJ < >, SPEC < >],
-                                          HEAD adv & 
-                                                [ MOD < [ LIGHT +,
-                                                          LOCAL intersective-mod,
-                                                          L-PERIPH + ] > ]],
-                             CONT.RELS <! !> ]].
+;question-clitic-lex := no-hcons-lex-item &
+;    [ SYNSEM.LOCAL [ CAT [ VAL [ SPR < >, COMPS < >, SUBJ < >, SPEC < >],
+;                                          HEAD adv & 
+;                                                [ MOD < [ LIGHT +,
+;                                                          LOCAL intersective-mod,
+;                                                          L-PERIPH + ] > ]],
+;                             CONT.RELS <! !> ]].
 
 ;;;;;;;;;;;;;;;;;;;;
 ;;; Wh-Questions ;;;
