@@ -391,15 +391,16 @@ neg-aux-adj-lex := adj-subj-raise-aux & trans-first-arg-raising-lex-item-1 & nor
 
 ;;; NP predicate (copula-less equational sentence)
 n-bar-predicate-rule := unary-phrase & nocoord &
-  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < >,
-                                       PRD + ],
-                         VAL [ SPR < >,
-                               COMPS < >,
-                               SUBJ < [ OPT - ,
-                                        LOCAL [ CONT.HOOK [ INDEX #arg1 ],
-                                                CAT [ HEAD noun & [ NP-PRED-NOUN +,
-                                                                    LOCNOUN - ],
-                                                                    VAL.SPR < > ] ] ] > ] ] ],
+  [ SYNSEM [ LOCAL [ CAT [ HEAD verb & [ MOD < >,
+                                         PRD + ],
+                           VAL [ SPR < >,
+                                 COMPS < >,
+                                 SUBJ < [ OPT - ,
+                                          LOCAL [ CONT.HOOK [ INDEX #arg1 ],
+                                                  CAT [ HEAD noun & [ NP-PRED-NOUN +,
+                                                                      LOCNOUN - ],
+                                                                      VAL.SPR < > ] ] ] > ] ] ],
+             NON-LOCAL #non-local ],
     C-CONT [ HOOK [ LTOP #ltop,
                     INDEX #index,
                     XARG #arg1 ],
@@ -414,12 +415,13 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                      ARG0 #arg2,
                      RSTR #harg ] !>,
              HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
-    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ NP-PRED-NOUN + ,
-                                                LOCNOUN - ,
-                                                WHQUES - ],
-                                  VAL [ SPR < > ] ],
-                            CONT.HOOK [ INDEX #arg2,
-                                        LTOP #larg ] ] ] > ].
+    ARGS < [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ NP-PRED-NOUN + ,
+                                                  LOCNOUN - ,
+                                                  WHQUES - ],
+                                    VAL [ SPR < > ] ],
+                              CONT.HOOK [ INDEX #arg2,
+                                          LTOP #larg ] ],
+                      NON-LOCAL #non-local ] ] > ].
 
 ;;; Adjectives
 
@@ -513,7 +515,8 @@ locative-vp-phrase := unary-phrase & nocoord &
                                SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
                                                 CAT [ HEAD noun & [ CASE cor,
                                                                     LOCNOUN - ],
-                                                      VAL.SPR < > ] ] ] > ] ] ],
+                                                      VAL.SPR < > ] ] ] > ] ],
+             NON-LOCAL #non-local ],
     C-CONT [ HOOK [ LTOP #ltop,
                     INDEX #index,
                     XARG #arg1 ],
@@ -524,9 +527,10 @@ locative-vp-phrase := unary-phrase & nocoord &
                      ARG1 #arg1,
                      ARG2 #arg2 ] !>,
              HCONS <! !> ],
-    ARGS < [ SYNSEM.LOCAL [ CAT [ HEAD noun & [ LOCNOUN + ],
+    ARGS < [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN + ],
                                   VAL [ SPR < > ] ],
-                            CONT.HOOK [ INDEX #arg2 ] ] ] > ].
+                            CONT.HOOK [ INDEX #arg2 ] ],
+                      NON-LOCAL #non-local ] ] > ].
 
 
 ;;; Complementizers
@@ -887,7 +891,7 @@ bare-np-phrase :+
 ;;;;;;;;;;;;;;;;;;;;
 
 ; Adding this feature for now so grammar will load
-; non-local :+ [ QUE 0-1-dlist ].
+non-local :+ [ QUE 0-1-dlist ].
 
 wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
   [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ,
@@ -927,7 +931,8 @@ wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & head-final &
                                  HEAD.PRD #prd,
                                  VAL #val & [ SUBJ < >,
                                               COMPS < > ] ],
-     NON-HEAD-DTR [ SYNSEM.LOCAL.CAT.HEAD.PRD #prd, SYNSEM.NON-LOCAL.QUE <! ref-ind !> ] ].
+     NON-HEAD-DTR [ SYNSEM [ LOCAL.CAT.HEAD.PRD #prd,
+                             NON-LOCAL.QUE <! ref-ind !> ] ] ].
 
 ; take off SUBJ cons constraints off for VSO language to work
 extracted-comp-phrase := basic-extracted-comp-phrase &
