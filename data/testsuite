@@ -167,9 +167,9 @@ PF-AF-cry=1SG.ABS ADV ADJ-lasting
 `I cried for a long time'
 
 # ungrammatical: iti should never come at the end of the sentence
-Source: a:354
-Vetted: s
-Judgment: g
+Source: author
+Vetted: f
+Judgment: u
 Phenomena: {adverbs}
 Nagsangitak       napaut      iti
 n-ag-sangit=ak    na-paut     iti
@@ -709,6 +709,15 @@ sino ti      ama=mo
 who  CORE.SG father=2SG.ERG
 'Who is your father?'
 
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: {wh}
+Sino ti      lalaki?
+sino ti      lalaki
+who  CORE.SG boy
+'Who is the boy?'
+
 # A 'who' question: "sino" appears in absolutive role with respect tothe verb
 Source: author
 Vetted: f
@@ -739,6 +748,17 @@ sino ti      na-kita=mo
 who  CORE.SG PF.GF-see=2SG.ERG
 'Who did you see?'
 
+# ungrammatical: word order is "sino ti" not "ti sino"
+Source: a:435
+Vetted: f
+Judgment: u
+Phenomena: {word order}
+Ti      sino nakitamo
+ti      sino na-kita=mo
+CORE.SG who  PF.GF-see=2SG.ERG
+'Who did you see?'
+
+# ungramatical: Ilocano is not wh-in-situ language, therefore do not expect question word to
 # ungramatical: Ilocano is not wh-in-situ language, therefore do not expect question word to
 # appear at the position of the argument of interest
 Source: author
@@ -790,6 +810,16 @@ Phenomena: {wh}
 Ania ti      kinunada
 ania ti      kuna-{in}=da
 what CORE.SG say-{PF.T}=3PL.ERG
+`What did they say?`
+
+# ungrammatical: word order is Ania ti, not ti ania
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {word order}
+Ti      ania kinunada
+ti      ania kuna-{in}=da
+CORE.SG what say-{PF.T}=3PL.ERG
 `What did they say?`
 
 
