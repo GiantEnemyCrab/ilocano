@@ -37,8 +37,7 @@ infl-satisfied :+ [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG na-or-+,
     ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG na-or-+,
     ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG na-or-+ ].
 
-png :+ [ PERNUM pernum,
-    GEND gender ].
+png :+ [ PERNUM pernum ].
 
 basic-head-comp-phrase :+ [ SYNSEM.LOCAL.CAT.MC #mc,
     HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
@@ -90,12 +89,6 @@ pl+1st := pernum.
 pl+2nd := pernum.
 2nd := pl+2nd.
 
-;;; Gender
-
-gender := *top*.
-masculine := gender.
-feminine := gender.
-
 ;;; Form
 
 form := *top*.
@@ -108,6 +101,7 @@ perfective := aspect.
 imperfective := aspect.
 past-imperfective := aspect.
 infinitive := aspect.
+no-aspect := aspect.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
@@ -137,7 +131,8 @@ no-spr-noun-lex := noun-lex &
 ; the specifier of nouns and SUBJ for the subject (specifier) of verbs.
 
 head-final-spec-phrase := basic-head-spec-phrase & head-final &
-  [ NON-HEAD-DTR.SYNSEM.OPT - ].
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.WHQUES - ,
+    NON-HEAD-DTR.SYNSEM.OPT - ].
 
 head-initial-spec-phrase := basic-head-spec-phrase & head-initial &
   [ HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.WHQUES + ,
