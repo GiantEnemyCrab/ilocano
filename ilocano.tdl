@@ -253,15 +253,20 @@ obl-1sg-noun-lex := obl-pron-noun-lex &
 obl-2sg-noun-lex := obl-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 2sg ].
 
-obl-3sg-noun-lex := obl-pron-noun-lex.
+obl-3sg-noun-lex := obl-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3sg ].
 
-obl-1pl-noun-lex := obl-pron-noun-lex.
+obl-1pl-noun-lex := obl-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+1st ].
 
-obl-2pl-noun-lex := obl-pron-noun-lex.
+obl-2pl-noun-lex := obl-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+2nd ].
 
-obl-du-noun-lex := obl-pron-noun-lex.
+obl-du-noun-lex := obl-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM du ].
 
-obl-3pl-noun-lex := pron-noun-lex.
+obl-3pl-noun-lex := pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ].
 
 ;;; Verbs
 
