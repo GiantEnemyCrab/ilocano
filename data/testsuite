@@ -143,6 +143,17 @@ na-daras n-ag-subli=ak
 ADJ-fast PF-AF-return=1SG.ABS
 'I returned quickly'
 
+# ungrammatical, ADV should never come first in the sentence
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {word order}
+A   nadaras  nagsubliak
+a   na-daras n-ag-subli=ak
+ADV ADJ-fast PF-AF-return=1SG.ABS
+'I returned quickly'
+
+# 2. use of an adjective or verb. connected to the predicate 
 # 2. use of an adjective or verb. connected to the predicate 
 # as a prepositional phase with the oblique noun marker iti,
 # similar to a prepositional phrase:
@@ -155,6 +166,17 @@ n-ag-sangit=ak    iti na-paut
 PF-AF-cry=1SG.ABS ADV ADJ-lasting
 `I cried for a long time'
 
+# ungrammatical: iti should never come at the end of the sentence
+Source: a:354
+Vetted: s
+Judgment: g
+Phenomena: {adverbs}
+Nagsangitak       napaut      iti
+n-ag-sangit=ak    na-paut     iti
+PF-AF-cry=1SG.ABS ADJ-lasting ADV
+`I cried for a long time'
+
+# adverbial with oblique followed by adjective should not use
 # adverbial with oblique followed by adjective should not use
 # plural version of oblique
 Source: author
