@@ -37,7 +37,7 @@ COG-ST : COG-ST
   * <> *
 
 
-PNG.PERNUM : PNG.PERNUM
+PNG.PERNUM : PERNUM
   3dist-pl <> 3dist-pl
   2dist-pl <> 2dist-pl
   1dist-pl <> 1dist-pl
@@ -57,20 +57,16 @@ PNG.PERNUM : PNG.PERNUM
   sg <> sg
   * <> *
 
-PNG.GEND : PNG.GEND
-  feminine <> feminine
-  masculine <> masculine
+E.TENSE : TENSE
   * <> *
 
-E.TENSE : E.TENSE
-  * <> *
-
-E.ASPECT : E.ASPECT
+E.ASPECT : ASPECT
   perfective <> perfective
   imperfective <> imperfective
   past-imperfective <> past-imperfective
   infinitive <> infinitive
+  no-aspect << [e]
+
+E.MOOD : MOOD
   * <> *
 
-E.MOOD : E.MOOD
-  * <> *
