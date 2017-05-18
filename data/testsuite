@@ -709,6 +709,17 @@ sino ti      ama=mo
 who  CORE.SG father=2SG.ERG
 'Who is your father?'
 
+#: ungrammatical: WHO + det joining with NP that contains det, not good
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: {wh}
+Sino ti      ti      amam?
+sino ti      ti      ama=mo
+who  CORE.SG CORE.SG father=2SG.ERG
+'Who is your father?'
+
+Source: author
 Source: author
 Vetted: f
 Judgment: g
@@ -718,6 +729,7 @@ sino ti      lalaki
 who  CORE.SG boy
 'Who is the boy?'
 
+# A 'who' question: "sino" appears in absolutive role with respect tothe verb
 # A 'who' question: "sino" appears in absolutive role with respect tothe verb
 Source: author
 Vetted: f

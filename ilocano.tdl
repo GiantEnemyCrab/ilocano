@@ -917,7 +917,7 @@ no-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
 
 ; wh-question words requiring core case determiner for combining with VP
 obl-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
-  [ SYNSEM [ LOCAL.CAT [ HEAD.CASE cor,
+  [ SYNSEM [ LOCAL.CAT [ HEAD [ CASE cor, PRD - ],
                          VAL.SPR < [ OPT - ] > ] ] ].
 
 basic-head-filler-phrase :+
