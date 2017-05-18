@@ -643,3 +643,12 @@ who_obl_spr := obl-spr-wh-pronoun-noun-lex &
   [ STEM < "sino" >,
     SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
 
+wh_ti := wh-core-sg-determiner-lex &
+  [ STEM < "ti" >,
+    SYNSEM.LKEYS.KEYREL.PRED "wh_q_rel" ].
+
+wh_dagiti := wh-core-pl-determiner-lex &
+  [ STEM < "dagiti" >,
+    SYNSEM.LKEYS.KEYREL.PRED "wh_q_rel" ].
+
+

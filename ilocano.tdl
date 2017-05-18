@@ -26,6 +26,7 @@ noun :+ [ CASE case,
 
 head :+ [ AUX bool,
           ENCPRON bool,
+          WHDETERMINER bool,
           INIT bool,
           FORM form ].
 
@@ -132,11 +133,13 @@ no-spr-noun-lex := noun-lex &
 
 head-final-spec-phrase := basic-head-spec-phrase & head-final &
   [ HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.WHQUES - ,
-    NON-HEAD-DTR.SYNSEM.OPT - ].
+    NON-HEAD-DTR.SYNSEM [ OPT - ,
+                          LOCAL.CAT.VAL.SPEC.FIRST.LOCAL.CAT.HEAD.WHDETERMINER - ] ].
 
 head-initial-spec-phrase := basic-head-spec-phrase & head-initial &
   [ HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.WHQUES + ,
-    NON-HEAD-DTR.SYNSEM.OPT - ].
+    NON-HEAD-DTR.SYNSEM [ OPT - ,
+                          LOCAL.CAT.VAL.SPEC.FIRST.LOCAL.CAT.HEAD.WHDETERMINER + ] ].
 
 common-noun-lex := obl-spr-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN - ,
@@ -561,24 +564,38 @@ determiner-lex := basic-determiner-lex & norm-zero-arg & non-mod-lex-item &
 
 core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+                                                       WHDETERMINER - ,
                                                        DIRECT-OBJ-NOUN + ],
                                             CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
 
 core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+                                                       WHDETERMINER - ,
                                                        DIRECT-OBJ-NOUN + ],
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
 obl-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
+                                                       WHDETERMINER - ,
                                                        NP-PRED-NOUN - ,
                                                        DIRECT-OBJ-NOUN + ],
                                             CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
 
 obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
+                                                       WHDETERMINER - ,
                                                        NP-PRED-NOUN - ,
                                                        DIRECT-OBJ-NOUN + ],
+                                            CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
+
+wh-core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+                                                       WHDETERMINER + ],
+                                            CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
+
+wh-core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+                                                       WHDETERMINER + ],
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
 
@@ -893,10 +910,14 @@ bare-np-phrase :+
 ; Adding this feature for now so grammar will load
 non-local :+ [ QUE 0-1-dlist ].
 
-wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
-  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ,
+; wh-question words without core case determiner for combining with NP pred
+; or, combining with complementizers
+no-spr-wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ PRD +,
+                                         LOCNOUN - ,
                                          WHQUES + ],
-                           VAL [ SUBJ < >,
+                           VAL [ SPR < >,
+                                 SUBJ < >,
                                  COMPS < >,
                                  SPEC < > ] ],
                      CONT [ HOOK.INDEX.PNG.PERNUM 3rd,
@@ -909,16 +930,21 @@ wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
                                        LARG #larg ] !> ] ],
               NON-LOCAL.QUE <! #ind !> ] ].
 
-; wh-question words without core case determiner for combining with NP pred
-; or, combining with complementizers
-no-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
-  [ SYNSEM.LOCAL.CAT [ HEAD.PRD +,
-                       VAL.SPR < > ] ].
+obl-spr-wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ CASE cor,
+                                         PRD -,
+                                         LOCNOUN - ,
+                                         WHQUES + ],
+                           VAL [ SPR < [ OPT - ] >,
+                                 SUBJ < >,
+                                 COMPS < >,
+                                 SPEC < > ] ],
+                     CONT [ HOOK.INDEX.PNG.PERNUM 3rd,
+                            RELS <! [ LBL #larg,
+                                      ARG0 #ind & ref-ind ] !>,
+                            HCONS <! [ LARG #larg ] !> ] ],
+              NON-LOCAL.QUE <! #ind !> ] ].
 
-; wh-question words requiring core case determiner for combining with VP
-obl-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
-  [ SYNSEM [ LOCAL.CAT [ HEAD [ CASE cor, PRD - ],
-                         VAL.SPR < [ OPT - ] > ] ] ].
 
 basic-head-filler-phrase :+
    [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
