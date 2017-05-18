@@ -113,6 +113,10 @@ lamisaan := common-noun-lex &
   [ STEM < "lamisaan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_table_n_rel" ].
 
+baryo := common-noun-lex &
+  [ STEM < "baryo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_neighborhood_n_rel" ].
+
 ko := erg-1sg-noun-lex &
   [ STEM < "ko" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
