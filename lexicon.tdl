@@ -485,6 +485,10 @@ kaan := trans-verb-lex &
   [ STEM < "kaan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
+turog := trans-verb-lex &
+  [ STEM < "turog" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
+
 intrans_place_holder_void := intrans-verb-lex &
   [ STEM < "intrans_place_holder_void" >,
     SYNSEM.LKEYS.KEYREL.PRED "_intrans_place_holder_v_rel" ].
