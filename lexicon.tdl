@@ -663,6 +663,6 @@ idi := temporal-adv-lex &
 
 ;;; Temporal Words
 
-kalman := temporal-adj-lex &
+kalman := temporal-noun-lex &
   [ STEM < "kalman" >,
     SYNSEM.LKEYS.KEYREL.PRED "_yesterday_n_rel" ].
