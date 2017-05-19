@@ -21,10 +21,6 @@ rabaw := locative-noun-lex &
   [ STEM < "rabaw" >,
     SYNSEM.LKEYS.KEYREL.PRED "_top_n_rel" ].
 
-kalman := common-noun-lex &
-  [ STEM < "kalman" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_yesterday_n_rel" ].
-
 baryo := common-noun-lex &
   [ STEM < "baryo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_neighborhood_n_rel" ].
@@ -659,4 +655,14 @@ wh_dagiti := wh-core-pl-determiner-lex &
   [ STEM < "dagiti" >,
     SYNSEM.LKEYS.KEYREL.PRED "wh_q_rel" ].
 
+;;; Temporal Adverbs
 
+idi := temporal-adv-lex &
+  [ STEM < "idi" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_past_adv_rel" ].
+
+;;; Temporal Words
+
+kalman := temporal-adj-lex &
+  [ STEM < "kalman" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_yesterday_n_rel" ].

@@ -998,3 +998,8 @@ demonstrative-determiner-lex := determiner-lex-supertype &
                                    ARG1 #ind ] !> ],
             LKEYS.ALTKEYREL #akr ] ].
 
+;;; Temporal Adverbs
+
+temporal-adv-lex := adv-mod-iti-lex.
+
+temporal-adj-lex := adj-adj-lex.
