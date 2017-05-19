@@ -132,5 +132,3 @@
 (if (eq (length *last-parses*) 1)
 (setf *last-parses* '("n-ag-sangit ti lalaki" "n-ag-laylay=ak" )))
 
-;;; Semi.vpm activation?
-(mt:read-vpm (lkb-pathname (parent-directory) "semi.vpm") :semi)
