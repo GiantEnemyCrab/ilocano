@@ -37,24 +37,32 @@ COG-ST : COG-ST
   * <> *
 
 
-PNG.PERNUM : PERNUM
-  3dist-pl <> 3dist-pl
-  2dist-pl <> 2dist-pl
-  1dist-pl <> 1dist-pl
-  3du <> 3du
-  2du <> 2du
-  1du <> 1du
-  3sg <> 3sg
-  2sg <> 2sg
-  1sg <> 1sg
-  3rd <> 3rd
-  2nd <> 2nd
-  1st <> 1st
-  dist-pl <> dist-pl
-  du <> du
-  pl <> pl
-  non-sg <> non-sg
-  sg <> sg
+PNG.PERNUM : PER NUM
+  3dist-pl <> third pl
+  2dist-pl <> second pl
+  1dist-pl <> first pl
+  3du <> third pl
+  2du <> second pl
+  1du <> first pl
+  3sg <> third sg
+  2sg <> second sg
+  1sg <> first sg
+  3rd <> third !
+  3rd << third *
+  2nd <> second !
+  2nd << second *
+  1st <> first !
+  1st << first *
+  dist-pl <> ! pl
+  dist-pl << * pl
+  du <> ! pl
+  du << * pl
+  pl <> ! pl
+  pl << * pl
+  non-sg <> ! pl
+  non-sg << * pl
+  sg <> ! sg
+  sg << * sg
   * <> *
 
 E.TENSE : TENSE
@@ -65,7 +73,7 @@ E.ASPECT : ASPECT
   imperfective <> imperfective
   past-imperfective <> past-imperfective
   infinitive <> infinitive
-  no-aspect << [e]
+  perfective << [e]
 
 E.MOOD : MOOD
   * <> *
