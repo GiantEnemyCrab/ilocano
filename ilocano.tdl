@@ -268,7 +268,7 @@ obl-2pl-noun-lex := obl-pron-noun-lex &
 obl-du-noun-lex := obl-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM du ].
 
-obl-3pl-noun-lex := pron-noun-lex &
+obl-3pl-noun-lex := obl-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ].
 
 ;;; Verbs
@@ -376,7 +376,8 @@ neg-enclitic-pronoun-aux-lex := enclitic-pronoun-subj-raise-aux & trans-first-ar
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
                    CAT.VAL [ SUBJ < [ OPT - ] >,
                              COMPS.FIRST.LOCAL [ CONT.HOOK.INDEX #index,
-                                                 CAT.HEAD.FORM finite ] ] ] ].
+                                                 CAT.HEAD [ FORM finite,
+                                                            ENCPRON + ] ] ] ] ].
 
 neg-non-pronoun-aux-lex := non-pronoun-subj-raise-aux & trans-first-arg-raising-lex-item-1 & norm-ltop-lex-item & single-rel-lex-item &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
@@ -588,13 +589,14 @@ obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
                                                        DIRECT-OBJ-NOUN + ],
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
+;wh pronoun take absolutive case (subj of agent focus verb, obj of goal focus verb)
 wh-core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
-  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE abs,
                                                        WHDETERMINER + ],
                                             CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
 
 wh-core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
-  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE abs,
                                                        WHDETERMINER + ],
                                             CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
 
@@ -933,7 +935,7 @@ no-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
               NON-LOCAL.QUE <! #ind !> ] ].
 
 obl-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
-  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ CASE cor,
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ CASE abs,
                                          PRD - ],
                            VAL [ SPR < [ OPT - ] > ] ],
                      CONT [ RELS <! [ LBL #larg,
