@@ -142,3 +142,5 @@
 ; output all complete generated results
 ; (setf *bypass-equality-check* t)
 
+;;; Added line for MT task Lab 8
+(setf *translate-grid* '(:ilo :eng :shu))
