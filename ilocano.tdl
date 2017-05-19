@@ -910,18 +910,20 @@ bare-np-phrase :+
 ; Adding this feature for now so grammar will load
 non-local :+ [ QUE 0-1-dlist ].
 
-; wh-question words without core case determiner for combining with NP pred
-; or, combining with complementizers
-no-spr-wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
-  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ PRD +,
-                                         LOCNOUN - ,
+wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ,
                                          WHQUES + ],
-                           VAL [ SPR < >,
-                                 SUBJ < >,
+                           VAL [ SUBJ < >,
                                  COMPS < >,
                                  SPEC < > ] ],
-                     CONT [ HOOK.INDEX.PNG.PERNUM 3rd,
-                            RELS <! [ LBL #larg,
+                     CONT [ HOOK.INDEX.PNG.PERNUM 3rd ] ] ] ].
+
+; wh-question words without core case determiner for combining with NP pred
+; or, combining with complementizers
+no-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ PRD + ],
+                           VAL [ SPR < > ] ],
+                     CONT [ RELS <! [ LBL #larg,
                                       ARG0 #ind & ref-ind ],
                                     [ PRED "wh_q_rel",
                                       ARG0 #ind,
@@ -930,17 +932,11 @@ no-spr-wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
                                        LARG #larg ] !> ] ],
               NON-LOCAL.QUE <! #ind !> ] ].
 
-obl-spr-wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
+obl-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
   [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ CASE cor,
-                                         PRD -,
-                                         LOCNOUN - ,
-                                         WHQUES + ],
-                           VAL [ SPR < [ OPT - ] >,
-                                 SUBJ < >,
-                                 COMPS < >,
-                                 SPEC < > ] ],
-                     CONT [ HOOK.INDEX.PNG.PERNUM 3rd,
-                            RELS <! [ LBL #larg,
+                                         PRD - ],
+                           VAL [ SPR < [ OPT - ] > ] ],
+                     CONT [ RELS <! [ LBL #larg,
                                       ARG0 #ind & ref-ind ] !>,
                             HCONS <! [ LARG #larg ] !> ] ],
               NON-LOCAL.QUE <! #ind !> ] ].
