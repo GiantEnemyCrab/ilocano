@@ -659,7 +659,7 @@ wh_dagiti := wh-core-pl-determiner-lex &
 
 idi := temporal-adv-lex &
   [ STEM < "idi" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_past_adv_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "locnonsp_rel" ].
 
 ;;; Temporal Words
 

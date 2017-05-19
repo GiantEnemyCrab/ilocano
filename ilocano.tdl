@@ -1002,21 +1002,18 @@ demonstrative-determiner-lex := determiner-lex-supertype &
 
 ;;; Temporal Adverbs
 
-temporal-adv-lex := basic-one-arg & intersective-mod-lex & raise-sem-lex-item &
+temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex &
   [ SYNSEM.LOCAL [ CAT [ HEAD adp & 
                            [ INIT + ,
                              MOD < [ LOCAL [ CAT [ HEAD verb,
                                                    VAL [ SUBJ < >,
-                                                         COMPS < > ] ],
-                                             CONT.HOOK [ INDEX #index ] ] ] > ],
+                                                         COMPS < > ] ] ] ] > ],
                          VAL [ SPR < >,
                                SUBJ < >,
                                SPEC < >,
                                COMPS < #comps & [ LOCAL [ CAT [ HEAD noun,
-                                                              VAL.SUBJ < [ ] > ],
-                                                          CONT.HOOK.XARG #index ] ] > ],
+                                                                VAL.SPR <> ] ] ] > ],
                          POSTHEAD + ] ],
     ARG-ST < #comps > ].
 
-temporal-noun-lex := basic-noun-lex &
- [ TEMP + ].
+temporal-noun-lex := noun-lex.
