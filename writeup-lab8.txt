@@ -53,7 +53,27 @@ temporal-noun-lex := noun-lex &
 
 Note that unlike the common-noun-lex type in Ilocano, the temporal nouns need to inherit directly from noun-lex to avoid unification conflicts. "Kalman" and other temporal nouns cannot appear with specifiers; instead they only function as bare-np nominals that act as the complement of "idi". For this reason, inheriting from common-noun-lex caused unification failure when trying to build the "idi kalman" constituent.
 
+Furthermore, while it was not necessary for the purpose of expanding our test corpus coverage this week, we chose to partially implement the independent, no-complement form of "idi", for the sake of completeness in this lab, since the division of "idi" into two types was discussed. This addition enables parsing of lone "idi" constructions, but does not include the suggested semantic distinction.
+
+TDL snippet for no-comp "idi":
+
+temporal-adverb-lex := basic-adverb-lex & intersective-mod-lex &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD.MOD < [ LOCAL.CAT.HEAD verb ]>,
+                           VAL [ SPR < >,
+                                 SUBJ < >,
+                                 COMPS < >,
+                                 SPEC < > ],
+                           POSTHEAD + ] ] ] ].
+
+Lexical entry:
+
+idi := temporal-adverb-lex &
+  [ STEM < "idi" >,
+    SYNSEM.LKEYS.KEYREL.PRED "locnonsp_rel" ].
+
+
 2. Variable Property Mapping
+
 Before discussing VPM changes, changes made to the PERNUM feature for this week's lab should be discussed.
 Below is the PERNUM snippets from the tdl file:
 ;;; Pernum
