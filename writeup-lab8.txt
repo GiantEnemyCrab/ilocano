@@ -1,0 +1,340 @@
+Lab 8 Writeup
+LING 567
+May 19, 2017
+Jim Blackburn & Kazuki Shintani
+
+1. Test Corpus Expansion
+
+As an additional sentence from our test corpus to successfully parse, we chose the following sentence, which illustrates the phenomenon of what are described as temporal adverbs. The selected sentence illustrates a temporal adverb ("idi") which is followed by a noun describing a period of time ("kalman").
+
+Source: b:elicited
+Vetted: t
+Judgment: g
+Phenomena: {adjectives}
+Napanak            diay baryo        idi           kalman
+na-pan=ak          diay baryo        idi           kalman
+PF.GF-go=1sg.ABS   DIST neighborhood ADV.LONG.PAST yesterday
+'I went to that neighborhood yesterday.'
+
+The temporal adverbs appear to the right of a VP, modifying the event by placing it at some distance in the past or future ("idi" is glossed as "a while back" in Rubino 361), either independently, or followed by a noun further specifying the point in time at which the event occured. In order to process the semantics neatly, it was decided to implement two versions of "idi" in the lexicon; one that appears independently in a sentence-final position, and one that takes a temporal noun complement.
+
+Since the sentence above bears many syntactic similarities to those containing the previously-implemented "iti" adverbial clauses (i.e. they appear after and modify VP's and they take one complement), implementation of this phenomenon began by taking parts of the adv-mod-iti-lex type definition and adjusting them to suit the new phenomenon. A type temporal-adv-mod-idi-lex was implemented similarly to adv-mod-iti-lex, but specifying that the HEAD value for the complement must be type noun and not adj.
+
+TODO
+Further constraints were necessary to restrict temporal adverbs such as "idi" to only take a constrained set of nouns as their complements. 
+
+In order to build correct semantics for the complement-taking form of "idi" that appears in this test corpus sentence, the temporal adverb type needs to include a relation that identifies the event described by the modified VP with the temporal noun that serves as its complement. In the case of the no-complement form of "idi", since no specific timeframe is specified by the temporal noun complement, the bare form of the temporal adverb simply specifies an additional "_past_n_rel" on its RELS list to pass up by semantic composition.
+
+In the test case above, "idi" will not contribute its own semantic relation, but instead will serve to link the "_yesterday_n_rel" relation of "kalman" with the VP modified by the temporal adverb.
+
+2. Variable Property Mapping
+Before discussing VPM changes, changes made to the PERNUM feature for this week's lab should be discussed.
+Below is the PERNUM snippets from the tdl file:
+;;; Pernum
+pernum := *top*.
+sg := pernum.
+non-sg := pernum.
+pl := non-sg & pl+3rd & pl+1st & pl+2nd.
+du := non-sg.
+dist-pl := pl.
+1sg := 1st & sg.
+2sg := 2nd & sg.
+3sg := 3rd & sg.
+1du := 1st & du.
+2du := 2nd & du.
+3du := 3rd & du.
+1dist-pl := 1st & dist-pl.
+2dist-pl := 2nd & dist-pl.
+3dist-pl := 3rd & dist-pl.
+pl+3rd := pernum.
+3rd := pl+3rd.
+pl+1st := pernum.
+1st := pl+1st.
+pl+2nd := pernum.
+2nd := pl+2nd.
+
+The issue is that, for example, there is a pl+1st feature, but ideally it would be much easier to implement VPM if there were a clear separation of the PL and 1ST features.
+
+The output of the customization system gave the PERNUM features, but looking at this, pl+1st is a subtype of PERNUM, which is placed in the upper part of the hierarchy.
+
+Somehow, there is no line that has 1ST & PL, either. The most straight forward way to implement the VPM in relation to PERNUM was to re-design Ilocano's PERNUM itself. The approach was to separate PER and NUM, as the following snippet demonstrates:
+
+;;; Person
+
+person := *top*.
+1st := person.
+2nd := person.
+3rd := person.
+
+;;; Number
+
+number := *top*.
+sg := number.
+non-sg := number.
+pl := non-sg.
+du := non-sg.
+dist-pl := pl.
+
+All of the existing PERNUM features in the grammar needed to change to acommodate this separation of features, but as a result, feature constraints were more comphrehensive and it was much easier to implement changes in VPM with more confidence.
+
+The following is the VPM:
+
+; A basic VPM for Matrix grammars.
+event          <> e
+ref-ind        <> x
+individual     <> i
+handle         <> h
+non_event      <> p
+*              >> u
+semarg         << u
+
+SPECI : SPECI
+  * <> *
+
+SF : SF
+  prop <> prop
+  ques <> ques
+  prop-or-ques >> prop-or-ques
+  prop << prop-or-ques
+  comm <> comm
+  * <> *
+
+COG-ST : COG-ST
+  type-id <> type-id
+  uniq-id <> uniq-id
+  familiar <> familiar
+  activated <> activated
+  in-foc <> in-foc
+  activ+fam <> activ+fam
+  uniq+fam <> uniq+fam
+  activ-or-more <> activ-or-more
+  uniq-or-less <> uniq-or-less
+  uniq+fam+act <> uniq+fam+act
+  fam-or-more <> fam-or-more
+  fam-or-less <> fam-or-less
+  uniq-or-more <> uniq-or-more
+  activ-or-less <> activ-or-less
+  * <> *
+
+PNG.PER : PER
+  3rd <> third
+  2nd <> second
+  1st <> first
+  * <> *
+
+PNG.NUM : NUM
+  pl <> pl
+  du >> pl
+  dist-pl >> pl
+  non-sg >> pl
+  sg <> sg
+  * <> *
+
+E.ASPECT : ASPECT
+  perfective <> perfective
+  imperfective <> imperfective
+  past-imperfective <> past-imperfective
+  infinitive <> infinitive
+  perfective << [e]
+
+E.MOOD : MOOD
+  * <> *
+
+An important change was to comment out lines related to TENSE. English has TENSE but Ilocano does not.
+If TENSE lines were not commented out, it prevented English-to-Ilocano machine translation from happening.
+
+For aspect, the line "perfective << [e]" was added. In the current implementation of the grammar, all verbs are encoded with aspect feature values. But aspect features for non-verbal predicates are not specified at the moment, so  whether this works well for a broader variety of translations needs to be invetigated in the week ahead.
+
+PER and NUM features were rather straight-forward to implement for VPM, following the re-design of PERNUM to PER and NUM in the grammar, as mentioned earlier. On the left side, "non-sg", "du" and "dist-pl" map to "pl" on the right side uni-directionally but both sg and pl have bidirectional "pl <> pl" and "sg <> sg".
+
+This also helped reduce generations from within Ilocano. In the current grammar, this still generates a handful of verb permutations, based on the rather extensive morphology rules. But this is fine; for example, a perfective aspect sentence would still only generate perfective aspect sentences, though generations may seem to be a lot.
+
+3. Changes made in Ilocano grammar to get English "Dogs sleep" or other sentences working for machine translation
+
+For this lab's machine translation, the change applied to Ilocano grammar was the re-design to separate PERNUM features into PER and NUM respectively, and this topic is covered in the previous section #2, which describes VPM changes.
+
+4. Sample sentence for machine translation
+
+Two sentences were tested for machine translation.
+
+# 4.1 "Dogs sleep" case but in perfective aspect, translates fine but semantically
+# incorrect because this is a transitive verb with object dropping
+naturogen   dagiti  aso
+na-turog-en dagiti  aso
+PF-sleep-GF CORE.PL dog
+`Dogs slept`
+
+#4.2 "A dog eats a cat" in perfective apsect
+nakaanen   ti      aso ti      pusa
+na-kaan-en ti      aso ti      pusa
+PF-eat-GF  CORE.SG dog CORE.SG cat
+`A dog ate a cat`
+
+Ilcano has been using the customization system's transitive verbs exclusively, with the exception of embedding verbs that inherit from main-verb-lex. There is no verb that makes use of the customization system's intransitive verbs at the moment, and it is not difficult to add entries to intransitive verbs. However, as any root form verb could potentially become goal-focus through affixation (thus, approximating the notion of transitivity), we wanted to carefully approach this. We sent a questionnaire to a native speaker of Ilocano with contrasting sentences to help decide how to add lexical entries to intranstive verbs. This could be a set of specific morphological forms of some verbs.
+
+5. Test coverage / overgeneration
+
+5.1 Testsuite
+Total of 134 test cases: 73 positive tests, 61 negative tests
+
+From the previous lab #7 grammar:
+Coverage: 90.4% (66 tests covered)
+Overgeneration: 9.8% (6 tests overgenerated)
+
+From the current grammar:
+Coverage: 89.0% (65 tests covered)
+Overgeneration 1.6% (1 test overgenerated)
+
+Error Analysis: lost coverage of one case in wh-ques because of more constraints. Details to be covered in section #6 (Other changes) of this write-up
+
+5.2 Test Corpus
+Total of 11 cases, all positive tests
+
+From the previous lab #7 grammar:
+Coverage: 54.5% (6 tests covered)
+
+From the current grammar:
+Coverage: 63.6% (7 tests covered)
+
+The additional test corpus sentence to be covered this week originally failed to parse despite successful implementation of the "idi kalman" constituent. Upon further inspection, this was revealed to be because the verb "na-pan=ak" contained, according to our understanding and implmenetation of the grammar, two incompatible components: the affix "na-", which encodes perfective aspect and goal focus, along with the enclitic "=ak", which is a first-person singular absolutive pronoun,  although the goal focus expects the enclitic pronoun to be in the ergative case (=ko). While the sentence was provided and vetted by a native speaker of Ilocano, we do not have a model for how this form would arise, based on the source materials upon which we built our grammar. We solicited clarification on this point from the same native speaker, but we have not received a response at the time of submission.
+
+To illustrate the implementation of "idi kalman", we have provided a slightly altered form of the sentence which enables proper parsing of the sentence:
+
+Source: b:elicited
+Vetted: t
+Judgment: g
+Phenomena: {adjectives}
+Napanak            diay baryo        idi           kalman
+na-pan=ko          diay baryo        idi           kalman
+PF.GF-go=1sg.ERG   DIST neighborhood ADV.LONG.PAST yesterday
+'I went to that neighborhood yesterday.'
+
+6. Other changes since lab #7
+Feedback related to wh-questions was incoporated into the grammar.
+Formerly, following patterns of ungrammatical sentences parsed in the system, but issues were addressed.
+
+# ungrammatical
+Sino ti      ti      amam?
+sino ti      ti      ama=mo
+who  CORE.SG CORE.SG father=2SG.ERG
+'Who is your father?'
+Above is ungrammatical because there should not be two of "ti" (core singular determiners) occuring one after another.
+"ti" should combine with "ama=mo" ("your father") to consitute a noun phrase, which can then be combined with "sino" ("who").
+
+# ungrammatical
+Ania ginatangmo
+ania gatang-{in}=mo
+what buy-{PF.GF}=2SG.ERG
+'What did you buy?'
+Above is ungrammatical because there is "ti" (core singular determiner) missing after the wh-ques word.
+Wh-ques word that combines with VP needs to take the form of "ania ti", where the determiner combines with the wh-ques word.
+
+# grammatical, parsed in the system, but MRS was not correct
+Ania     ti      ginatangmo?
+ania     ti      gatang-{in}=mo
+what.ABS CORE.SG buy-{PF.GF}=2sg.ERG
+'What did you buy?'
+In the case above, there were two quantifiers for the wh-ques word. There should be only one.
+There were two suggestions for the fix:
+(1) Make the determiners that co-occur with the question words semantically empty.
+(2) Make the determiners that co-occur with the question words contribute the wh_q_rel, and edit the question word definitions so that they don't.
+Thep referred solution was (2) because (1) requires a trigger rule additionally.
+So, approach (1) was taken.
+
+
+# grammatical, parsed in the system, but there was an extra parse.
+Ti      ania kinunada
+ti      ania kuna-{in}=da
+CORE.SG what say-{PF.GF}=3PL.ERG
+`What did they say?`
+In the above, there were two parses: VP that contributed EXTR-SUBJ and VP that contributed EXTR-COMP.
+This was addressed by specifying the wh-ques words to have absolutive case, rather than core case from the previous lab.
+This change aligns with Ilocano grammar reference that wh-ques takes abolutive positions.
+Absolutive case NP is the subject of agent-focus verbs, while it is the object of goal-focus verbs.
+
+The remaining problem is that [ PRD + ] constrain has been added, and while this works with np predicate, which now also has [ PRD + ], this does not work with supposively simpler case like below:
+ino ti      lalaki?
+sino ti      lalaki
+who  CORE.SG boy
+'Who is the boy?'
+
+[up-to-date TDL for wh-ques words]
+what_no_spr := no-spr-wh-pronoun-noun-lex &
+  [ STEM < "ania" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
+what_obl_spr := obl-spr-wh-pronoun-noun-lex &
+  [ STEM < "ania" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
+who_no_spr := no-spr-wh-pronoun-noun-lex &
+  [ STEM < "sino" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
+
+who_obl_spr := obl-spr-wh-pronoun-noun-lex &
+  [ STEM < "sino" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
+
+wh_ti := wh-core-sg-determiner-lex &
+  [ STEM < "ti" >,
+    SYNSEM.LKEYS.KEYREL.PRED "wh_q_rel" ].
+
+wh_dagiti := wh-core-pl-determiner-lex &
+  [ STEM < "dagiti" >,
+    SYNSEM.LKEYS.KEYREL.PRED "wh_q_rel" ].
+    
+h-core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE abs,
+                                                       WHDETERMINER + ],
+                                            CONT.HOOK.INDEX.PNG.NUM sg ] ].
+
+wh-core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE abs,
+                                                       WHDETERMINER + ],
+                                            CONT.HOOK.INDEX.PNG.NUM non-sg ] ].
+
+wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ,
+                                         WHQUES + ],
+                           VAL [ SUBJ < >,
+                                 COMPS < >,
+                                 SPEC < > ] ],
+                     CONT [ HOOK.INDEX.PNG.PER 3rd ] ] ] ].
+
+no-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ PRD + ],
+                           VAL [ SPR < > ] ],
+                     CONT [ RELS <! [ LBL #larg,
+                                      ARG0 #ind & ref-ind ],
+                                    [ PRED "wh_q_rel",
+                                      ARG0 #ind,
+                                      RSTR #harg ] !>,
+                            HCONS <! [ HARG #harg,
+                                       LARG #larg ] !> ] ],
+              NON-LOCAL.QUE <! #ind !> ] ].
+
+obl-spr-wh-pronoun-noun-lex := wh-pronoun-noun-lex &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ CASE abs,
+                                         PRD - ],
+                           VAL [ SPR < [ OPT - ] > ] ],
+                     CONT [ RELS <! [ LBL #larg,
+                                      ARG0 #ind & ref-ind ] !>,
+                            HCONS <! [ LARG #larg ] !> ] ],
+              NON-LOCAL.QUE <! #ind !> ] ].
+
+
+basic-head-filler-phrase :+
+   [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
+
+wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & head-final &
+   [ SYNSEM.LOCAL.CAT [ MC bool,
+                        VAL #val,
+                        HEAD verb & [ FORM finite ] ],
+     HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
+                                 HEAD.PRD #prd,
+                                 VAL #val & [ SUBJ < >,
+                                              COMPS < > ] ],
+     NON-HEAD-DTR [ SYNSEM [ LOCAL.CAT.HEAD.PRD #prd,
+                             NON-LOCAL.QUE <! ref-ind !> ] ] ].
+
+
