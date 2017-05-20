@@ -72,8 +72,8 @@ PNG.NUM : NUM
 ; sg << * sg
 ; * <> *
 
-E.TENSE : TENSE
-  * <> *
+;E.TENSE : TENSE
+;  * <> *
 
 E.ASPECT : ASPECT
   perfective <> perfective
