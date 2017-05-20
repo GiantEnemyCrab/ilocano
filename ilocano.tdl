@@ -20,6 +20,7 @@ non-mod-lex-item := lex-item &
 
 noun :+ [ CASE case,
           LOCNOUN bool,
+          TEMPNOUN bool,
           NP-PRED-NOUN bool,
           DIRECT-OBJ-NOUN bool,
           WHQUES bool ].
@@ -160,6 +161,7 @@ head-initial-spec-phrase := basic-head-spec-phrase & head-initial &
 
 common-noun-lex := obl-spr-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN - ,
+                              TEMPNOUN - ,
                               ENCPRON - ,
                               WHQUES - ],
                    CONT.HOOK.INDEX.PNG.PER 3rd ] ].
@@ -177,6 +179,7 @@ pron-noun-lex := no-spr-noun-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX [ COG-ST activ-or-more,
                                      SPECI + ],
                    CAT.HEAD [ LOCNOUN - ,
+                              TEMPNOUN - ,
                               DIRECT-OBJ-NOUN - ,
                               WHQUES - ] ] ].
 
@@ -355,6 +358,7 @@ enclitic-pronoun-subj-raise-aux := aux-lex & trans-first-arg-raising-lex-item &
              [ LOCAL [ CAT [ HEAD noun &
                                   [ CASE #case,
                                     ENCPRON + ,
+                                    TEMPNOUN - ,
                                     LOCNOUN - ],
                              VAL [ SUBJ < >,
                                    SPR < >,
@@ -423,6 +427,7 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                                  SUBJ < [ OPT - ,
                                           LOCAL [ CONT.HOOK [ INDEX #arg1 ],
                                                   CAT [ HEAD noun & [ NP-PRED-NOUN +,
+                                                                      TEMPNOUN - ,
                                                                       LOCNOUN - ],
                                                                       VAL.SPR < > ] ] ] > ] ] ],
              NON-LOCAL #non-local ],
@@ -441,6 +446,7 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                      RSTR #harg ] !>,
              HCONS <! qeq & [ HARG #harg, LARG #larg ] !> ],
     ARGS < [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ NP-PRED-NOUN + ,
+                                                  TEMPNOUN - ,
                                                   LOCNOUN - ,
                                                   WHQUES - ],
                                     VAL [ SPR < > ] ],
@@ -539,6 +545,7 @@ locative-vp-phrase := unary-phrase & nocoord &
                                COMPS < >,
                                SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
                                                 CAT [ HEAD noun & [ CASE cor,
+                                                                    TEMPNOUN - ,
                                                                     LOCNOUN - ],
                                                       VAL.SPR < > ] ] ] > ] ],
              NON-LOCAL #non-local ],
@@ -834,6 +841,7 @@ poss-phrase := head-initial &
       HCONS < ! qeq & [ HARG #harg, LARG #lbl ] ! >,
       ICONS < ! ! > ],
       HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD #head & noun & [ DIRECT-OBJ-NOUN + ,
+                                                          TEMPNOUN - ,
                                                           LOCNOUN - ],
                               VAL.SPR #hdspr & < [ ] > ],
                               CONT.HOOK [ INDEX #index & [ COG-ST cog-st ],
@@ -935,6 +943,7 @@ non-local :+ [ QUE 0-1-dlist ].
 
 wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
   [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN - ,
+                                         TEMPNOUN - ,
                                          WHQUES + ],
                            VAL [ SUBJ < >,
                                  COMPS < >,
@@ -1033,7 +1042,7 @@ temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex &
                            VAL [ SPR < >,
                                  SUBJ < >,
                                  SPEC < >,
-                                 COMPS < #comps & [ LOCAL [ CAT [ HEAD noun,
+                                 COMPS < #comps & [ LOCAL [ CAT [ HEAD noun & [ TEMPNOUN + ],
                                                                   VAL.SPR < > ],
                                                             CONT.HOOK.INDEX #arg2 ] ] > ],
                            POSTHEAD + ],
@@ -1043,4 +1052,5 @@ temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex &
              LKEYS.KEYREL.PRED #pred ],
     ARG-ST < #comps > ].
 
-temporal-noun-lex := noun-lex.
+temporal-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.TEMPNOUN + ].
