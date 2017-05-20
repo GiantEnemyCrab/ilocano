@@ -1042,7 +1042,8 @@ temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex &
                            VAL [ SPR < >,
                                  SUBJ < >,
                                  SPEC < >,
-                                 COMPS < #comps & [ LOCAL [ CAT [ HEAD noun & [ TEMPNOUN + ],
+                                 COMPS < #comps & [ OPT -,
+                                                    LOCAL [ CAT [ HEAD noun & [ TEMPNOUN + ],
                                                                   VAL.SPR < > ],
                                                             CONT.HOOK.INDEX #arg2 ] ] > ],
                            POSTHEAD + ],
@@ -1052,5 +1053,14 @@ temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex &
              LKEYS.KEYREL.PRED #pred ],
     ARG-ST < #comps > ].
 
+temporal-adverb-lex := basic-adverb-lex & intersective-mod-lex &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD.MOD < [ LOCAL.CAT.HEAD verb ]>,
+                           VAL [ SPR < >,
+                                 SUBJ < >,
+                                 COMPS < >,
+                                 SPEC < > ],
+                           POSTHEAD + ] ] ] ].
+
 temporal-noun-lex := noun-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.TEMPNOUN + ].
+
