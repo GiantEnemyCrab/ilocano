@@ -1037,9 +1037,9 @@ temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex &
                                                                   VAL.SPR < > ],
                                                             CONT.HOOK.INDEX #arg2 ] ] > ],
                            POSTHEAD + ],
-                     CONT.RELS <! [ PRED #pred ],
-                                  [ ARG1 #arg1 ],
-                                  [ ARG2 #arg2 ] !> ],
+                     CONT.RELS <! [ PRED #pred,
+                                    ARG1 #arg1,
+                                    ARG2 #arg2 ] !> ],
              LKEYS.KEYREL.PRED #pred ],
     ARG-ST < #comps > ].
 
