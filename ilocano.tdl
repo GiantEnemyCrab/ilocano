@@ -38,7 +38,8 @@ infl-satisfied :+ [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG na-or-+,
     ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-FLAG na-or-+,
     ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-FLAG na-or-+ ].
 
-png :+ [ PERNUM pernum ].
+png :+ [ PER person,
+         NUM number ].
 
 basic-head-comp-phrase :+ [ SYNSEM.LOCAL.CAT.MC #mc,
     HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
@@ -66,30 +67,46 @@ cor+abs := case.
 abs := cor+abs.
 ind-pron := case.
 
-;;; Pernum
+;;; Person
 
-pernum := *top*.
-sg := pernum.
-non-sg := pernum.
-pl := non-sg & pl+3rd & pl+1st & pl+2nd.
+person := *top*.
+1st := person.
+2nd := person.
+3rd := person.
+
+;;; Number
+
+number := *top*.
+sg := number.
+non-sg := number.
+pl := non-sg.
 du := non-sg.
 dist-pl := pl.
-1sg := 1st & sg.
-2sg := 2nd & sg.
-3sg := 3rd & sg.
-1du := 1st & du.
-2du := 2nd & du.
-3du := 3rd & du.
-1dist-pl := 1st & dist-pl.
-2dist-pl := 2nd & dist-pl.
-3dist-pl := 3rd & dist-pl.
-pl+3rd := pernum.
-3rd := pl+3rd.
-pl+1st := pernum.
-1st := pl+1st.
-pl+2nd := pernum.
-2nd := pl+2nd.
 
+;;; Pernum
+;;; customization system output didn't work well
+;pernum := *top*.
+;sg := pernum.
+;non-sg := pernum.
+;pl := non-sg & pl+3rd & pl+1st & pl+2nd.
+;du := non-sg.
+;dist-pl := pl.
+;1sg := 1st & sg.
+;2sg := 2nd & sg.
+;3sg := 3rd & sg.
+;1du := 1st & du.
+;2du := 2nd & du.
+;3du := 3rd & du.
+;1dist-pl := 1st & dist-pl.
+;2dist-pl := 2nd & dist-pl.
+;3dist-pl := 3rd & dist-pl.
+;pl+3rd := pernum.
+;3rd := pl+3rd.
+;pl+1st := pernum.
+;1st := pl+1st.
+;pl+2nd := pernum.
+;2nd := pl+2nd.
+;
 ;;; Form
 
 form := *top*.
@@ -145,10 +162,10 @@ common-noun-lex := obl-spr-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD [ LOCNOUN - ,
                               ENCPRON - ,
                               WHQUES - ],
-                   CONT.HOOK.INDEX.PNG.PERNUM 3rd ] ].
+                   CONT.HOOK.INDEX.PNG.PER 3rd ] ].
 
 locative-noun-lex := basic-noun-lex & non-mod-lex-item & intransitive-lex-item &
-  [ SYNSEM.LOCAL.CAT [ VAL [ SPR < [ LOCAL.CONT.HOOK.INDEX.PNG.PERNUM sg ] >,
+  [ SYNSEM.LOCAL.CAT [ VAL [ SPR < [ LOCAL.CONT.HOOK.INDEX.PNG.NUM sg ] >,
                              COMPS < #comps & [ LOCAL.CAT [ HEAD noun & [ CASE cor ],
                                                             VAL.SPR < > ], 
                                                 OPT - ] > ],
@@ -169,53 +186,55 @@ enc-pron-noun-lex := pron-noun-lex &
 
 erg-1sg-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
-                   CONT.HOOK.INDEX.PNG.PERNUM 1sg ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM sg ] ] ].
 
 erg-2sg-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
-                   CONT.HOOK.INDEX.PNG.PERNUM 2sg ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 2nd, NUM sg ] ] ].
 
 erg-3sg-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
-                   CONT.HOOK.INDEX.PNG.PERNUM 3sg ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 3rd, NUM sg ] ] ].
 
 erg-3pl-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
-                   CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 3rd, NUM pl ] ] ].
 
 abs-1sg-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
-                   CONT.HOOK.INDEX.PNG.PERNUM 1sg ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM sg ] ] ].
 
 abs-2sg-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
-                   CONT.HOOK.INDEX.PNG.PERNUM 2sg ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 2nd, NUM sg ] ] ].
 
 abs-3pl-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
-                   CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 3rd, NUM pl ] ] ].
 
 abs-1pl-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
-                   CONT.HOOK.INDEX.PNG.PERNUM pl+1st ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM pl ] ] ].
 
 abs-2pl-noun-lex := no-spr-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
-                   CONT.HOOK.INDEX.PNG.PERNUM pl+2nd ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM pl ] ] ].
 
 abs-du-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
-                   CONT.HOOK.INDEX.PNG.PERNUM du ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM du ] ] ].
 
 erg-1pl-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
-                   CONT.HOOK.INDEX.PNG.PERNUM pl+1st ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM pl ] ] ].
 
 erg-du-noun-lex := enc-pron-noun-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.PNG.PERNUM du,
-                   CAT.HEAD.CASE erg ] ].
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM du ] ] ].
 
-erg-2pl-noun-lex := enc-pron-noun-lex.
+erg-2pl-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
+                   CONT.HOOK.INDEX.PNG [ PER 2nd, NUM pl ] ] ].
 
 ind-pron-noun-lex := pron-noun-lex &
   [ SYNSEM.LOCAL.CAT.HEAD [ NP-PRED-NOUN +,
@@ -224,26 +243,28 @@ ind-pron-noun-lex := pron-noun-lex &
                             ENCPRON - ] ].
 
 ind-1sg-noun-lex := ind-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1sg ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM sg ] ].
 
-ind-1pl-noun-lex := ind-pron-noun-lex.
+ind-1pl-noun-lex := ind-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM pl ] ].
 
 ind-du-noun-lex := enc-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM du ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM du ] ].
 
-ind-2sg-noun-lex := ind-pron-noun-lex.
+ind-2sg-noun-lex := ind-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd, NUM sg ] ].
 
 ind-2pl-noun-lex := ind-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+2nd ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd, NUM pl ] ].
 
 ind-3sg-noun-lex := ind-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3sg ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd, NUM sg ] ].
 
 ind-3pl-noun-lex := ind-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd, NUM pl ] ].
 
 redup-gem-noun-lex := obl-spr-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd, NUM dist-pl ] ].
 
 obl-pron-noun-lex := pron-noun-lex &
   [ SYNSEM.LOCAL.CAT.HEAD [ CASE obl,
@@ -251,25 +272,25 @@ obl-pron-noun-lex := pron-noun-lex &
                             DIRECT-OBJ-NOUN - ] ].
 
 obl-1sg-noun-lex := obl-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1sg ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM sg ] ].
 
 obl-2sg-noun-lex := obl-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 2sg ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd, NUM sg ] ].
 
 obl-3sg-noun-lex := obl-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3sg ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd, NUM sg ] ].
 
 obl-1pl-noun-lex := obl-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+1st ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM pl ] ].
 
 obl-2pl-noun-lex := obl-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+2nd ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd, NUM pl ] ].
 
 obl-du-noun-lex := obl-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM du ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM du ] ].
 
 obl-3pl-noun-lex := obl-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM pl+3rd ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd, NUM pl ] ].
 
 ;;; Verbs
 
@@ -567,38 +588,38 @@ core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
                                                        WHDETERMINER - ,
                                                        DIRECT-OBJ-NOUN + ],
-                                            CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
+                                            CONT.HOOK.INDEX.PNG.NUM sg ] ].
 
 core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
                                                        WHDETERMINER - ,
                                                        DIRECT-OBJ-NOUN + ],
-                                            CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
+                                            CONT.HOOK.INDEX.PNG.NUM non-sg ] ].
 
 obl-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
                                                        WHDETERMINER - ,
                                                        NP-PRED-NOUN - ,
                                                        DIRECT-OBJ-NOUN + ],
-                                            CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
+                                            CONT.HOOK.INDEX.PNG.NUM sg ] ].
 
 obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
                                                        WHDETERMINER - ,
                                                        NP-PRED-NOUN - ,
                                                        DIRECT-OBJ-NOUN + ],
-                                            CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
+                                            CONT.HOOK.INDEX.PNG.NUM non-sg ] ].
 
 ;wh pronoun take absolutive case (subj of agent focus verb, obj of goal focus verb)
 wh-core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE abs,
                                                        WHDETERMINER + ],
-                                            CONT.HOOK.INDEX.PNG.PERNUM sg ] ].
+                                            CONT.HOOK.INDEX.PNG.NUM sg ] ].
 
 wh-core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE abs,
                                                        WHDETERMINER + ],
-                                            CONT.HOOK.INDEX.PNG.PERNUM non-sg ] ].
+                                            CONT.HOOK.INDEX.PNG.NUM non-sg ] ].
 
 
 ;;;;;;;;;;;;;;;;;;;
@@ -772,7 +793,7 @@ productive-imperf-aspect-redup-lex-lex-rule := productive-imperf-aspect-redup-le
 
 context1-decl-head-opt-subj-phrase := decl-head-opt-subj-phrase &
   [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE abs,
-                                                     CONT.HOOK.INDEX.PNG.PERNUM 3sg ] ].
+                                                     CONT.HOOK.INDEX.PNG [ PER 3rd, NUM sg ] ] ].
 
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2
@@ -860,8 +881,8 @@ s1-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
 ;;; Feature Resolution Rules
 
 non-sg-non-sg-any-pernum-coord-rule := coord-phrase &
-  [ LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM non-sg,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM non-sg ].
+  [ LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.NUM non-sg,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.NUM non-sg ].
 
 pass-up-png-coord-rule := bottom-coord-phrase &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG #png,
@@ -918,7 +939,7 @@ wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item &
                            VAL [ SUBJ < >,
                                  COMPS < >,
                                  SPEC < > ] ],
-                     CONT [ HOOK.INDEX.PNG.PERNUM 3rd ] ] ] ].
+                     CONT [ HOOK.INDEX.PNG.PER 3rd ] ] ] ].
 
 ; wh-question words without core case determiner for combining with NP pred
 ; or, combining with complementizers

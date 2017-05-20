@@ -36,34 +36,41 @@ COG-ST : COG-ST
   activ-or-less <> activ-or-less
   * <> *
 
-
-PNG.PERNUM : PER NUM
-  3dist-pl <> third pl
-  2dist-pl <> second pl
-  1dist-pl <> first pl
-  3du <> third pl
-  2du <> second pl
-  1du <> first pl
-  3sg <> third sg
-  2sg <> second sg
-  1sg <> first sg
-  3rd <> third !
-  3rd << third *
-  2nd <> second !
-  2nd << second *
-  1st <> first !
-  1st << first *
-  dist-pl <> ! pl
-  dist-pl << * pl
-  du <> ! pl
-  du << * pl
-  pl <> ! pl
-  pl << * pl
-  non-sg <> ! pl
-  non-sg << * pl
-  sg <> ! sg
-  sg << * sg
+PNG.PER : PER
+  3rd <> third
+  2nd <> second
+  1st <> first
   * <> *
+
+PNG.NUM : NUM
+  pl <> pl
+  du >> pl
+  dist-pl >> pl
+  sg <> sg
+  * <> *
+
+;PNG.PERNUM : PER NUM
+; 3dist-pl >> third pl
+; 2dist-pl >> second pl
+; 1dist-pl >> first pl
+; 3sg <> third sg
+; 3rd << third pl
+; 2sg <> second sg
+; 1sg <> first sg
+; 3rd <> third !
+; 3rd << third *
+; 2nd <> second !
+; 2nd << second *
+; 1st <> first !
+; 1st << first *
+; dist-pl >> ! pl
+; du >> ! pl
+; pl <> ! pl
+; non-sg <> ! pl
+; non-sg << * pl
+; sg <> ! sg
+; sg << * sg
+; * <> *
 
 E.TENSE : TENSE
   * <> *
@@ -74,6 +81,7 @@ E.ASPECT : ASPECT
   past-imperfective <> past-imperfective
   infinitive <> infinitive
   perfective << [e]
+  * <> *
 
 E.MOOD : MOOD
   * <> *
