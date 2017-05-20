@@ -20,12 +20,38 @@ The temporal adverbs appear to the right of a VP, modifying the event by placing
 
 Since the sentence above bears many syntactic similarities to those containing the previously-implemented "iti" adverbial clauses (i.e. they appear after and modify VP's and they take one complement), implementation of this phenomenon began by taking parts of the adv-mod-iti-lex type definition and adjusting them to suit the new phenomenon. A type temporal-adv-mod-idi-lex was implemented similarly to adv-mod-iti-lex, but specifying that the HEAD value for the complement must be type noun and not adj.
 
-TODO
-Further constraints were necessary to restrict temporal adverbs such as "idi" to only take a constrained set of nouns as their complements. 
-
-In order to build correct semantics for the complement-taking form of "idi" that appears in this test corpus sentence, the temporal adverb type needs to include a relation that identifies the event described by the modified VP with the temporal noun that serves as its complement. In the case of the no-complement form of "idi", since no specific timeframe is specified by the temporal noun complement, the bare form of the temporal adverb simply specifies an additional "_past_n_rel" on its RELS list to pass up by semantic composition.
+In order to build correct semantics for the complement-taking form of "idi" that appears in this test corpus sentence, the temporal adverb type needs to include a locnonsp_rel relation that is mapped from the lexical entry, and additionally identifies the event described by the modified VP with the temporal noun that serves as its complement. In the case of the no-complement form of "idi", since no specific timeframe is specified by the temporal noun complement, the bare form of the temporal adverb simply specifies an additional "_past_n_rel" on its RELS list to pass up by semantic composition.
 
 In the test case above, "idi" will not contribute its own semantic relation, but instead will serve to link the "_yesterday_n_rel" relation of "kalman" with the VP modified by the temporal adverb.
+
+Below is the TDL snippet for the temporal-adv-mod-idi-lex type. Note the specification of TEMPNOUN + on the complement, which is a feature implemented to prevent non-temporal nouns from ungrammatically following "idi".
+
+temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD adp & 
+                         [ INIT + ,
+                           MOD < [ LOCAL [ CAT [ HEAD verb,
+                                                 VAL [ SUBJ < >,
+                                                       COMPS < > ] ],
+                                           CONT.HOOK.INDEX #arg1 ] ] > ],
+                           VAL [ SPR < >,
+                                 SUBJ < >,
+                                 SPEC < >,
+                                 COMPS < #comps & [ LOCAL [ CAT [ HEAD noun & [ TEMPNOUN + ],
+                                                                  VAL.SPR < > ],
+                                                            CONT.HOOK.INDEX #arg2 ] ] > ],
+                           POSTHEAD + ],
+                     CONT.RELS <! [ PRED #pred,
+                                    ARG1 #arg1,
+                                    ARG2 #arg2 ] !> ],
+             LKEYS.KEYREL.PRED #pred ],
+    ARG-ST < #comps > ].
+
+TDL snippet for the temporal noun lexical type, from which "kalman" inherits:
+
+temporal-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.TEMPNOUN + ].
+
+Note that unlike the common-noun-lex type in Ilocano, the temporal nouns need to inherit directly from noun-lex to avoid unification conflicts. "Kalman" and other temporal nouns cannot appear with specifiers; instead they only function as bare-np nominals that act as the complement of "idi". For this reason, inheriting from common-noun-lex caused unification failure when trying to build the "idi kalman" constituent.
 
 2. Variable Property Mapping
 Before discussing VPM changes, changes made to the PERNUM feature for this week's lab should be discussed.
@@ -211,14 +237,14 @@ PF.GF-go=1sg.ERG   DIST neighborhood ADV.LONG.PAST yesterday
 
 6. Other changes since lab #7
 Feedback related to wh-questions was incoporated into the grammar.
-Formerly, following patterns of ungrammatical sentences parsed in the system, but issues were addressed.
+Previously, the following patterns of ungrammatical sentences parsed in the system, but these issues were addressed.
 
 # ungrammatical
 Sino ti      ti      amam?
 sino ti      ti      ama=mo
 who  CORE.SG CORE.SG father=2SG.ERG
 'Who is your father?'
-Above is ungrammatical because there should not be two of "ti" (core singular determiners) occuring one after another.
+The above is ungrammatical because there should not be two "ti" (core singular determiners) occuring one after another.
 "ti" should combine with "ama=mo" ("your father") to consitute a noun phrase, which can then be combined with "sino" ("who").
 
 # ungrammatical
@@ -226,33 +252,34 @@ Ania ginatangmo
 ania gatang-{in}=mo
 what buy-{PF.GF}=2SG.ERG
 'What did you buy?'
-Above is ungrammatical because there is "ti" (core singular determiner) missing after the wh-ques word.
-Wh-ques word that combines with VP needs to take the form of "ania ti", where the determiner combines with the wh-ques word.
+Above is ungrammatical because "ti" (core singular determiner) is missing after the wh-ques word.
+Wh-ques words that combine with VP's need to take the form "ania ti", where the determiner combines with the wh-ques word.
 
 # grammatical, parsed in the system, but MRS was not correct
 Ania     ti      ginatangmo?
 ania     ti      gatang-{in}=mo
 what.ABS CORE.SG buy-{PF.GF}=2sg.ERG
 'What did you buy?'
+
 In the case above, there were two quantifiers for the wh-ques word. There should be only one.
 There were two suggestions for the fix:
 (1) Make the determiners that co-occur with the question words semantically empty.
 (2) Make the determiners that co-occur with the question words contribute the wh_q_rel, and edit the question word definitions so that they don't.
-Thep referred solution was (2) because (1) requires a trigger rule additionally.
+The preferred solution was (2) because (1) requires a trigger rule additionally.
 So, approach (1) was taken.
-
 
 # grammatical, parsed in the system, but there was an extra parse.
 Ti      ania kinunada
 ti      ania kuna-{in}=da
 CORE.SG what say-{PF.GF}=3PL.ERG
 `What did they say?`
-In the above, there were two parses: VP that contributed EXTR-SUBJ and VP that contributed EXTR-COMP.
+In the above, there were two parses: A VP that contributed EXTR-SUBJ and a VP that contributed EXTR-COMP.
 This was addressed by specifying the wh-ques words to have absolutive case, rather than core case from the previous lab.
-This change aligns with Ilocano grammar reference that wh-ques takes abolutive positions.
-Absolutive case NP is the subject of agent-focus verbs, while it is the object of goal-focus verbs.
 
-The remaining problem is that [ PRD + ] constrain has been added, and while this works with np predicate, which now also has [ PRD + ], this does not work with supposively simpler case like below:
+This change aligns with the Ilocano grammar reference which states that wh-ques take abolutive positions.
+Absolutive case NP's are the subjects of agent-focus verbs, while they are the object of goal-focus verbs.
+
+The remaining problem is that [ PRD + ] constraint has been added, and while this works with np predicate, which now also has [ PRD + ], this does not work with supposively simpler case like below:
 ino ti      lalaki?
 sino ti      lalaki
 who  CORE.SG boy
@@ -336,5 +363,4 @@ wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & head-final &
                                               COMPS < > ] ],
      NON-HEAD-DTR [ SYNSEM [ LOCAL.CAT.HEAD.PRD #prd,
                              NON-LOCAL.QUE <! ref-ind !> ] ] ].
-
 
