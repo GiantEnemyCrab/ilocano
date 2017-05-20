@@ -44,36 +44,11 @@ PNG.PER : PER
 
 PNG.NUM : NUM
   pl <> pl
+  non-sg >> pl
   du >> pl
   dist-pl >> pl
   sg <> sg
   * <> *
-
-;PNG.PERNUM : PER NUM
-; 3dist-pl >> third pl
-; 2dist-pl >> second pl
-; 1dist-pl >> first pl
-; 3sg <> third sg
-; 3rd << third pl
-; 2sg <> second sg
-; 1sg <> first sg
-; 3rd <> third !
-; 3rd << third *
-; 2nd <> second !
-; 2nd << second *
-; 1st <> first !
-; 1st << first *
-; dist-pl >> ! pl
-; du >> ! pl
-; pl <> ! pl
-; non-sg <> ! pl
-; non-sg << * pl
-; sg <> ! sg
-; sg << * sg
-; * <> *
-
-;E.TENSE : TENSE
-;  * <> *
 
 E.ASPECT : ASPECT
   perfective <> perfective
@@ -81,7 +56,6 @@ E.ASPECT : ASPECT
   past-imperfective <> past-imperfective
   infinitive <> infinitive
   perfective << [e]
-  * <> *
 
 E.MOOD : MOOD
   * <> *
