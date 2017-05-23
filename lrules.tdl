@@ -1,1 +1,4 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
+goal-focus-no-morph-lex-lex := goal-focus-no-morph-lex-lex-rule.
+
+actor-focus-no-morph-lex-lex := actor-focus-no-morph-lex-lex-rule.
