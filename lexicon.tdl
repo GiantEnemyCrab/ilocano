@@ -381,17 +381,13 @@ bagyo := trans-verb-lex &
   [ STEM < "bagyo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_storm_v_rel" ].
 
-sangit := trans-verb-lex &
-  [ STEM < "sangit" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
+;sangit := trans-verb-lex &
+;  [ STEM < "sangit" >,
+;    SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
 
 laylay := trans-verb-lex &
   [ STEM < "laylay" >,
     SYNSEM.LKEYS.KEYREL.PRED "_wilt_v_rel" ].
-
-tudo := trans-verb-lex &
-  [ STEM < "tudo" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_rain_v_rel" ].
 
 sukat_1 := trans-verb-lex &
   [ STEM < "sukat" >,
@@ -485,13 +481,17 @@ kaan := trans-verb-lex &
   [ STEM < "kaan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
-turog := trans-verb-lex &
+sangit := intrans-if-actor-focus-verb-lex &
+  [ STEM < "sangit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
+
+turog := intrans-if-actor-focus-verb-lex &
   [ STEM < "turog" >,
     SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
-intrans_place_holder_void := intrans-verb-lex &
-  [ STEM < "intrans_place_holder_void" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_intrans_place_holder_v_rel" ].
+tudo := intrans-if-actor-focus-verb-lex &
+  [ STEM < "tudo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_rain_v_rel" ].
 
 ;;; Auxiliaries
 
