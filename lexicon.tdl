@@ -21,6 +21,17 @@ rabaw := locative-noun-lex &
   [ STEM < "rabaw" >,
     SYNSEM.LKEYS.KEYREL.PRED "_top_n_rel" ].
 
+; Could not find translation of "park" in the grammar resource
+; _park_n_rel is needed for machine translation exercise from English
+; This entry is a made-up data
+talon := common-noun-lex &
+  [ STEM < "talon" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_park_n_rel" ].
+
+kotse := common-noun-lex &
+  [ STEM < "kotse" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_car_n_rel" ].
+
 baryo := common-noun-lex &
   [ STEM < "baryo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_neighborhood_n_rel" ].
@@ -315,6 +326,14 @@ na-dalus := adj-adj-lex &
   [ STEM < "na-dalus" >,
     SYNSEM.LKEYS.KEYREL.PRED "_clean_a_rel" ].
 
+ma-belig := adj-adj-lex &
+  [ STEM < "ma-belig" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_strong_a_rel" ].
+
+ma-bisin := adj-adj-lex &
+  [ STEM < "ma-bisin" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_hungry_a_rel" ].
+
 dakkel := adj-adj-lex &
   [ STEM < "dakkel" >,
     SYNSEM.LKEYS.KEYREL.PRED "_big_a_rel" ].
@@ -344,6 +363,14 @@ naimbag := adj-adj-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_good_a_rel" ].
 
 ;;; Verbs
+
+; anup in reality means "hunt" but for the purpose of
+; English to Ilocano translation, using this so that
+; machine translation works with English "chase" input
+; (grammar reference did not provide a word for "chase")
+anup := trans-verb-lex &
+  [ STEM < "anup" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_chase_v_rel" ].
 
 kuna := trans-verb-lex &
   [ STEM < "kuna" >,
@@ -581,23 +608,44 @@ saludsod_embed_perf_aspect := embedding-interrogative-verb-lex &
     SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
              LKEYS.KEYREL.PRED "_ask_v_rel" ] ].
 
+panunot_embed := embedding-declarative-verb-lex &
+  [ STEM < "panunot" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel"].
+
+;;morphology hack
+panunot_embed_perf_aspect := embedding-declarative-verb-lex &
+  [ STEM < "na-panunot" >,
+    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
+             LKEYS.KEYREL.PRED "_think_v_rel" ] ].
+
+;morphology hack
+panunot_embed_goal_suffix := embedding-declarative-verb-lex &
+  [ STEM < "panunot-en" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel" ].
+
+;morphology hack
+panunot_embed_perf_aspect_goal_suffix := embedding-declarative-verb-lex &
+  [ STEM < "na-panunot-en" >,
+    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
+             LKEYS.KEYREL.PRED "_think_v_rel" ] ].
+
 ammo_embed := embedding-declarative-verb-lex &
   [ STEM < "ammo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel"].
 
-;morphology hack
-ammo_embed_perf_aspect := embedding-interrogative-verb-lex &
+;;morphology hack
+ammo_embed_perf_aspect := embedding-declarative-verb-lex &
   [ STEM < "na-ammo" >,
     SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
              LKEYS.KEYREL.PRED "_know_v_rel" ] ].
 
 ;morphology hack
-ammo_embed_goal_suffix := embedding-interrogative-verb-lex &
+ammo_embed_goal_suffix := embedding-declarative-verb-lex &
   [ STEM < "ammo-en" >,
     SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel" ].
 
 ;morphology hack
-ammo_embed_perf_aspect_goal_suffix := embedding-interrogative-verb-lex &
+ammo_embed_perf_aspect_goal_suffix := embedding-declarative-verb-lex &
   [ STEM < "na-ammo-en" >,
     SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
              LKEYS.KEYREL.PRED "_know_v_rel" ] ].
