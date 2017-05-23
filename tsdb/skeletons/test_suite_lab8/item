@@ -24,7 +24,7 @@
 24@a:32@@@1@pro-d@na-kita  ti      babai@@@@1@3@PF.GF-see CORE.SG girl`The girl saw (it)'@james blackburn, kazuki shintani@april 7, 2017
 25@a:32@@@1@c@na-kita     iti    babai iti    lalaki@@@@0@5@PF.GF-see    OBL.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
 26@a:194@@@1@c@na-kita   kadagiti lalaki@@@@0@3@PF.GF-cry OBL.PL   boy`The boys cried'@james blackburn, kazuki shintani@april 7, 2017
-27@author@@@1@c@n-ag-tudo  iti    balay@@@@1@3@PF-AF-rain OBL.SG house'It rained the house'@james blackburn, kazuki shintani@april 7, 2017
+27@a:188@@@1@c@n-ag-tudo@@@@1@1@PF-AF-rain'It rained'@james blackburn, kazuki shintani@april 7, 2017
 28@a:32@@@1@c@na-kita  ti      babai iti    lalaki@@@@0@5@PF.GF-see CORE.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
 29@a:32@@@1@c@na-kita  iti    babai ti     lalaki@@@@0@5@PF.GF-see OBL.SG girl  OBL.SG boy`The girl saw the boy'@james blackburn, kazuki shintani@april 7, 2017
 30@author@@@1@wo,c@n-ag-laylay ti      ansisit@@@@1@3@PF-AF-wilt   CORE.SG dwarf.ABS`The dwarf wilted'@james blackburn, kazuki shintani@april 7, 2017
@@ -65,9 +65,9 @@
 65@a:435@@@1@wo@ti      sino na-kita=mo@@@@0@3@CORE.SG who  PF.GF-see=2SG.ERG'Who did you see?'@james blackburn, kazuki shintani@april 7, 2017
 66@author@@@1@wo@na-kita=mo        sino@@@@0@2@PF.GF-see=2SG.ERG who`You saw who?'@james blackburn, kazuki shintani@april 7, 2017
 67@a:484@@@1@wh@saludsod-{in}=na    no      sino ti      ama=ko@@@@1@5@ask-{PF.GF}=3SG.ERG CP.QUES who  CORE.SG father=1SG.ERG`She asked who my father was.`@james blackburn, kazuki shintani@april 7, 2017
-68@author, a:423 (partially replaced verb)@@@1@wh@di=ko       saludsod-{in} no      ania ti      kuna-{in}=da@@@@1@6@NEG=1SG.ERG ask-{PF.GF}   CP.QUES what CORE.SG say-{PF.T}=3PL.ERG`I did not ask what they said.`@james blackburn, kazuki shintani@april 7, 2017
-69@author@@@1@wh@ania ti      kuna-{in}=da@@@@1@3@what CORE.SG say-{PF.T}=3PL.ERG`What did they say?`@james blackburn, kazuki shintani@april 7, 2017
-70@author@@@1@wo@ti      ania kuna-{in}=da@@@@0@3@CORE.SG what say-{PF.T}=3PL.ERG`What did they say?`@james blackburn, kazuki shintani@april 7, 2017
+68@author, a:423 (partially replaced verb)@@@1@wh@di=ko       saludsod-{in} no      ania ti      kuna-{in}=da@@@@1@6@NEG=1SG.ERG ask-{PF.GF}   CP.QUES what CORE.SG say-{PF.GF}=3PL.ERG`I did not ask what they said.`@james blackburn, kazuki shintani@april 7, 2017
+69@author@@@1@wh@ania ti      kuna-{in}=da@@@@1@3@what CORE.SG say-{PF.GF}=3PL.ERG`What did they say?`@james blackburn, kazuki shintani@april 7, 2017
+70@author@@@1@wo@ti      ania kuna-{in}=da@@@@0@3@CORE.SG what say-{PF.GF}=3PL.ERG`What did they say?`@james blackburn, kazuki shintani@april 7, 2017
 71@author@@@1@yn@na-lukmeg kadi   ti      lalaki@@@@1@4@ADJ-fat   QUES   CORE.SG boy‘Is the boy fat?’@james blackburn, kazuki shintani@april 7, 2017
 72@author@@@1@yn@na-pigsa=ka        kadi@@@@1@2@ADJ-strong=2SG.ABS QUES'Are you strong?'@james blackburn, kazuki shintani@april 7, 2017
 73@author@@@1@yn@na-labaga        kadi@@@@1@2@ADJ-red(3SG.ABS) QUES'Is it red?'@james blackburn, kazuki shintani@april 7, 2017
