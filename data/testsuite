@@ -341,18 +341,15 @@ na-kita   kadagiti lalaki
 PF.GF-cry OBL.PL   boy
 `The boys cried'
 
-# Syntactially agent focus verb takes patient (object) in oblique case
-# Here, notice that the subject is dropped
-# but should this "rain" be considered to be semantically intransitive?
-# This needs to be verified with native speakers or grammar reference author
-Source: author
-Vetted: f
+# semantically intransitive verb (like sleep, rain, cry) should not have object
+Source: a:188
+Vetted: s
 Judgment: g
 Phenomena: {case}
-Nagtudo    iti    balay
-n-ag-tudo  iti    balay
-PF-AF-rain OBL.SG house
-'It rained the house'
+Nagtudo
+n-ag-tudo
+PF-AF-rain
+'It rained'
 
 # incorrect patient NP case with transitive verb: tr CoreNP oblique-NP
 Source: a:32
@@ -811,7 +808,7 @@ Judgment: g
 Phenomena: {wh}
 Diko        saludsod-{in} no      ania ti      kinunada
 di=ko       saludsod-{in} no      ania ti      kuna-{in}=da
-NEG=1SG.ERG ask-{PF.GF}   CP.QUES what CORE.SG say-{PF.T}=3PL.ERG
+NEG=1SG.ERG ask-{PF.GF}   CP.QUES what CORE.SG say-{PF.GF}=3PL.ERG
 `I did not ask what they said.`
 
 # demonstrating with the above case if the question is independent, not embedded clause
@@ -821,7 +818,7 @@ Judgment: g
 Phenomena: {wh}
 Ania ti      kinunada
 ania ti      kuna-{in}=da
-what CORE.SG say-{PF.T}=3PL.ERG
+what CORE.SG say-{PF.GF}=3PL.ERG
 `What did they say?`
 
 # ungrammatical: word order is Ania ti, not ti ania
@@ -831,7 +828,7 @@ Judgment: u
 Phenomena: {word order}
 Ti      ania kinunada
 ti      ania kuna-{in}=da
-CORE.SG what say-{PF.T}=3PL.ERG
+CORE.SG what say-{PF.GF}=3PL.ERG
 `What did they say?`
 
 
