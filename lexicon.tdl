@@ -32,10 +32,6 @@ kotse := common-noun-lex &
   [ STEM < "kotse" >,
     SYNSEM.LKEYS.KEYREL.PRED "_car_n_rel" ].
 
-baryo := common-noun-lex &
-  [ STEM < "baryo" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_neighborhood_n_rel" ].
-
 mata := common-noun-lex &
   [ STEM < "mata" >,
     SYNSEM.LKEYS.KEYREL.PRED "_eye_n_rel" ].
@@ -508,15 +504,15 @@ kaan := trans-verb-lex &
   [ STEM < "kaan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
-sangit := intrans-if-actor-focus-verb-lex &
+sangit := intrans-verb-lex &
   [ STEM < "sangit" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
 
-turog := intrans-if-actor-focus-verb-lex &
+turog := intrans-verb-lex &
   [ STEM < "turog" >,
     SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
-tudo := intrans-if-actor-focus-verb-lex &
+tudo := intrans-verb-lex &
   [ STEM < "tudo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_rain_v_rel" ].
 
@@ -602,74 +598,17 @@ saludsod_embed := embedding-interrogative-verb-lex &
   [ STEM < "saludsod" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
-;morphology hack
-saludsod_embed_perf_aspect := embedding-interrogative-verb-lex &
-  [ STEM < "saludsod-{in}" >,
-    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
-             LKEYS.KEYREL.PRED "_ask_v_rel" ] ].
-
 panunot_embed := embedding-declarative-verb-lex &
   [ STEM < "panunot" >,
     SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel"].
-
-;;morphology hack
-panunot_embed_perf_aspect := embedding-declarative-verb-lex &
-  [ STEM < "na-panunot" >,
-    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
-             LKEYS.KEYREL.PRED "_think_v_rel" ] ].
-
-;morphology hack
-panunot_embed_goal_suffix := embedding-declarative-verb-lex &
-  [ STEM < "panunot-en" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel" ].
-
-;morphology hack
-panunot_embed_perf_aspect_goal_suffix := embedding-declarative-verb-lex &
-  [ STEM < "na-panunot-en" >,
-    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
-             LKEYS.KEYREL.PRED "_think_v_rel" ] ].
 
 ammo_embed := embedding-declarative-verb-lex &
   [ STEM < "ammo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel"].
 
-;;morphology hack
-ammo_embed_perf_aspect := embedding-declarative-verb-lex &
-  [ STEM < "na-ammo" >,
-    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
-             LKEYS.KEYREL.PRED "_know_v_rel" ] ].
-
-;morphology hack
-ammo_embed_goal_suffix := embedding-declarative-verb-lex &
-  [ STEM < "ammo-en" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel" ].
-
-;morphology hack
-ammo_embed_perf_aspect_goal_suffix := embedding-declarative-verb-lex &
-  [ STEM < "na-ammo-en" >,
-    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
-             LKEYS.KEYREL.PRED "_know_v_rel" ] ].
-
 lipat_embed := embedding-interrogative-verb-lex &
   [ STEM < "lipat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_forget_v_rel" ].
-
-;morphology hack
-lipat_embed_perf_aspect := embedding-interrogative-verb-lex &
-  [ STEM < "na-lipat" >,
-    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
-             LKEYS.KEYREL.PRED "_forget_v_rel" ] ].
-
-;morphology hack
-lipat_embed_goal_suffix := embedding-interrogative-verb-lex &
-  [ STEM < "lipat-en" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_forget_v_rel" ].
-
-;morphology hack
-lipat_embed_perf_aspect_goal_suffix := embedding-interrogative-verb-lex &
-  [ STEM < "na-lipat-en" >,
-    SYNSEM [ LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective ],
-             LKEYS.KEYREL.PRED "_forget_v_rel" ] ].
 
 ;;; Question particle
 

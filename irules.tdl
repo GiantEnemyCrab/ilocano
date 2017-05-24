@@ -196,3 +196,63 @@ fossil-goal-imperf-prefix-lex-lex-rule.
 fossil-goal-imperf-prefix-lex-prefix4 :=
 %prefix (* ma-)
 fossil-goal-imperf-prefix-lex-lex-rule.
+
+embed-only-goal-prefix-lex-prefix1 :=
+%prefix (* pag-)
+embed-only-goal-prefix-lex-lex-rule.
+
+embed-only-goal-prefix-lex-prefix2 :=
+%prefix (* i-)
+embed-only-goal-prefix-lex-lex-rule.
+
+embed-only-goal-prefix-lex-prefix3 :=
+%prefix (* ka-)
+embed-only-goal-prefix-lex-lex-rule.
+
+embed-only-goal-prefix-lex-prefix4 :=
+%prefix (* ma-)
+embed-only-goal-prefix-lex-lex-rule.
+
+embed-only-goal-suffix-lex-suffix1 :=
+%suffix (* -an)
+embed-only-goal-suffix-lex-lex-rule.
+
+embed-only-goal-suffix-lex-suffix2 :=
+%suffix (* -en)
+embed-only-goal-suffix-lex-lex-rule.
+
+embed-fos-perf-prefix-lex-prefix1 :=
+%prefix (* na-)
+embed-fos-perf-prefix-lex-lex-rule.
+
+embed-fos-perf-prefix-lex-prefix2 :=
+%prefix (* n-)
+embed-fos-perf-prefix-lex-lex-rule.
+
+embed-fos-perf-infix-lex-suffix :=
+%suffix (* -{in})
+embed-fos-perf-infix-lex-lex-rule.
+
+embed-prod-goal-prefix-lex-prefix1 :=
+%prefix (* pag-)
+embed-prod-goal-prefix-lex-lex-rule.
+
+embed-prod-goal-prefix-lex-prefix2 :=
+%prefix (* i-)
+embed-prod-goal-prefix-lex-lex-rule.
+
+embed-prod-goal-prefix-lex-prefix3 :=
+%prefix (* ka-)
+embed-prod-goal-prefix-lex-lex-rule.
+
+embed-prod-goal-prefix-lex-prefix4 :=
+%prefix (* ma-)
+embed-prod-goal-prefix-lex-lex-rule.
+
+embed-prod-goal-suffix-lex-suffix1 :=
+%suffix (* -an)
+embed-prod-goal-suffix-lex-lex-rule.
+
+embed-prod-goal-suffix-lex-suffix2 :=
+%suffix (* -en)
+embed-prod-goal-suffix-lex-lex-rule.

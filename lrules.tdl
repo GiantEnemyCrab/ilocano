@@ -2,3 +2,5 @@
 goal-focus-no-morph-lex-lex := goal-focus-no-morph-lex-lex-rule.
 
 actor-focus-no-morph-lex-lex := actor-focus-no-morph-lex-lex-rule.
+
+embed-no-morph-lex-lex := embed-no-morph-lex-lex-rule.
