@@ -90,6 +90,8 @@ non-sg := number.
 pl := non-sg.
 du := non-sg.
 dist-pl := pl.
+excl-pl := pl.
+incl-pl := pl.
 
 ;;; Form
 
@@ -197,9 +199,13 @@ abs-3pl-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
                    CONT.HOOK.INDEX.PNG [ PER 3rd, NUM pl ] ] ].
 
-abs-1pl-noun-lex := enc-pron-noun-lex &
+abs-1pl-excl-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
-                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM pl ] ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM excl-pl ] ] ].
+
+abs-1pl-incl-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM incl-pl ] ] ].
 
 abs-2pl-noun-lex := no-spr-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
@@ -209,9 +215,13 @@ abs-du-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
                    CONT.HOOK.INDEX.PNG [ PER 1st, NUM du ] ] ].
 
-erg-1pl-noun-lex := enc-pron-noun-lex &
+erg-1pl-excl-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
-                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM pl ] ] ].
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM excl-pl ] ] ].
+
+erg-1pl-incl-noun-lex := enc-pron-noun-lex &
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
+                   CONT.HOOK.INDEX.PNG [ PER 1st, NUM incl-pl ] ] ].
 
 erg-du-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
@@ -230,8 +240,11 @@ ind-pron-noun-lex := pron-noun-lex &
 ind-1sg-noun-lex := ind-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM sg ] ].
 
-ind-1pl-noun-lex := ind-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM pl ] ].
+ind-1pl-excl-noun-lex := ind-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM excl-pl ] ].
+
+ind-1pl-incl-noun-lex := ind-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM incl-pl ] ].
 
 ind-du-noun-lex := enc-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM du ] ].
@@ -265,8 +278,11 @@ obl-2sg-noun-lex := obl-pron-noun-lex &
 obl-3sg-noun-lex := obl-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd, NUM sg ] ].
 
-obl-1pl-noun-lex := obl-pron-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM pl ] ].
+obl-1pl-incl-noun-lex := obl-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM incl-pl ] ].
+
+obl-1pl-excl-noun-lex := obl-pron-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st, NUM excl-pl ] ].
 
 obl-2pl-noun-lex := obl-pron-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd, NUM pl ] ].

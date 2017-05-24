@@ -148,11 +148,11 @@ da_2 := abs-3pl-noun-lex &
   [ STEM < "da" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
-tayo_1 := abs-1pl-noun-lex &
+tayo_1 := abs-1pl-incl-noun-lex &
   [ STEM < "tayo" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
-kami := abs-1pl-noun-lex &
+kami := abs-1pl-excl-noun-lex &
   [ STEM < "kami" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
@@ -164,11 +164,11 @@ ta_1 := abs-du-noun-lex &
   [ STEM < "ta" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
-tayo_2 := erg-1pl-noun-lex &
+tayo_2 := erg-1pl-incl-noun-lex &
   [ STEM < "tayo" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
-mi := erg-1pl-noun-lex &
+mi := erg-1pl-excl-noun-lex &
   [ STEM < "mi" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
@@ -184,7 +184,11 @@ siak := ind-1sg-noun-lex &
   [ STEM < "siak" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
-datayo := ind-1pl-noun-lex &
+dakami := ind-1pl-excl-noun-lex &
+  [ STEM < "dakami" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+datayo := ind-1pl-incl-noun-lex &
   [ STEM < "datayo" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
@@ -236,16 +240,20 @@ kenkuana := obl-3sg-noun-lex &
   [ STEM < "kenkuana" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
-kaniatayo := obl-1pl-noun-lex &
+kaniatayo := obl-1pl-incl-noun-lex &
   [ STEM < "kaniatayo" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
-kadatayo := obl-1pl-noun-lex &
+kadatayo := obl-1pl-incl-noun-lex &
   [ STEM < "kadatayo" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
-kaniami := obl-1pl-noun-lex &
+kaniami := obl-1pl-excl-noun-lex &
   [ STEM < "kaniami" >,
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
+
+kadakami := obl-1pl-excl-noun-lex &
+  [ STEM < "kadakami" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 kaniayo := obl-2pl-noun-lex &
