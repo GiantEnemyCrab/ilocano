@@ -324,7 +324,8 @@ transitive-verb-lex := main-verb-lex & transitive-lex-item &
                              COMPS < #comps > ] ],
     ARG-ST < [ LOCAL.CAT.HEAD noun ],
              #comps &
-             [ LOCAL.CAT [ VAL [ SPR < >,
+             [ OPT-CS type-id,
+               LOCAL.CAT [ VAL [ SPR < >,
                                  COMPS < > ],
                            HEAD noun ] ] > ].
 
