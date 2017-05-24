@@ -368,12 +368,11 @@ naimbag := adj-adj-lex &
 
 ;;; Verbs
 
-; anup in reality means "hunt" but for the purpose of
-; English to Ilocano translation, using this so that
-; machine translation works with English "chase" input
-; (grammar reference did not provide a word for "chase")
-anup := trans-verb-lex &
-  [ STEM < "anup" >,
+;kamat
+;1 verb ag-, -um- to run after, pursue or chase someone or something.
+;1 verb -um-, mang-:-en to run after, chase, pursue.
+kamat := trans-verb-lex &
+  [ STEM < "kamat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_chase_v_rel" ].
 
 kuna := trans-verb-lex &
