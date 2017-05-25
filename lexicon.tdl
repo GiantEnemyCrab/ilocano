@@ -411,11 +411,7 @@ bagyo := trans-verb-lex &
   [ STEM < "bagyo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_storm_v_rel" ].
 
-;sangit := trans-verb-lex &
-;  [ STEM < "sangit" >,
-;    SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
-
-laylay := trans-verb-lex &
+laylay := intrans-verb-lex &
   [ STEM < "laylay" >,
     SYNSEM.LKEYS.KEYREL.PRED "_wilt_v_rel" ].
 
@@ -553,31 +549,42 @@ diay := demonstrative-determiner-lex &
 
 ;;; Determiners
 
-ti := core-sg-determiner-lex &
+ti := core-sg-nonref-determiner-lex &
   [ STEM < "ti" >,
     SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
 
-dagiti := core-pl-determiner-lex &
+dagiti := core-pl-nonref-determiner-lex &
   [ STEM < "dagiti" >,
     SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
 
-iti := obl-sg-determiner-lex &
+iti := obl-sg-nonref-determiner-lex &
   [ STEM < "iti" >,
     SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
 
-kadagiti := obl-pl-determiner-lex &
+kadagiti := obl-pl-nonref-determiner-lex &
   [ STEM < "kadagiti" >,
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
+
+ni_det := core-sg-ref-determiner-lex &
+  [ STEM < "ni" >,
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
+
+da_det := core-pl-ref-determiner-lex &
+  [ STEM < "da" >,
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
+
+kenni_det := obl-sg-ref-determiner-lex &
+  [ STEM < "kenni" >,
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
+
+kada_det := obl-pl-ref-determiner-lex &
+  [ STEM < "kada" >,
     SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
 
 ken1 := conj-lex &
   [ STEM < "ken" >,
     SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
     CFORM "1" ].
-
-ket2 := conj-lex &
-  [ STEM < "ket" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
-    CFORM "2" ].
 
 kada5 := conj-lex &
   [ STEM < "kada" >,

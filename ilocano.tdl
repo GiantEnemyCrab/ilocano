@@ -591,37 +591,68 @@ complementizer-interrogative-lex-item := complementizer-lex-item &
 
 determiner-lex := basic-determiner-lex & norm-zero-arg & non-mod-lex-item &
   [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
-                           COMPS < >,
-                           SUBJ < > ],
-                   CONT.HOOK.INDEX [ COG-ST type-id ] ] ].
+                             COMPS < >,
+                             SUBJ < > ] ] ].
 
-core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
+nonref-determiner-lex := determiner-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.COG-ST type-id ].
+
+ref-determiner-lex := determiner-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.COG-ST uniq+fam+act ].
+
+core-sg-nonref-determiner-lex := nonref-determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
                                                        WHDETERMINER - ,
                                                        DIRECT-OBJ-NOUN + ],
                                             CONT.HOOK.INDEX.PNG.NUM sg ] ].
 
-core-pl-determiner-lex := determiner-lex & no-icons-lex-item &
+core-pl-nonref-determiner-lex := nonref-determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
                                                        WHDETERMINER - ,
                                                        DIRECT-OBJ-NOUN + ],
                                             CONT.HOOK.INDEX.PNG.NUM non-sg ] ].
 
-obl-sg-determiner-lex := determiner-lex & no-icons-lex-item &
+obl-sg-nonref-determiner-lex := nonref-determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
                                                        WHDETERMINER - ,
                                                        NP-PRED-NOUN - ,
                                                        DIRECT-OBJ-NOUN + ],
                                             CONT.HOOK.INDEX.PNG.NUM sg ] ].
 
-obl-pl-determiner-lex := determiner-lex & no-icons-lex-item &
+obl-pl-nonref-determiner-lex := nonref-determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
                                                        WHDETERMINER - ,
                                                        NP-PRED-NOUN - ,
                                                        DIRECT-OBJ-NOUN + ],
                                             CONT.HOOK.INDEX.PNG.NUM non-sg ] ].
 
-;wh pronoun take absolutive case (subj of agent focus verb, obj of goal focus verb)
+core-sg-ref-determiner-lex := ref-determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+                                                       WHDETERMINER - ,
+                                                       DIRECT-OBJ-NOUN + ],
+                                            CONT.HOOK.INDEX.PNG.NUM sg ] ].
+
+core-pl-ref-determiner-lex := ref-determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+                                                       WHDETERMINER - ,
+                                                       DIRECT-OBJ-NOUN + ],
+                                            CONT.HOOK.INDEX.PNG.NUM non-sg ] ].
+
+obl-sg-ref-determiner-lex := ref-determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
+                                                       WHDETERMINER - ,
+                                                       NP-PRED-NOUN - ,
+                                                       DIRECT-OBJ-NOUN + ],
+                                            CONT.HOOK.INDEX.PNG.NUM sg ] ].
+
+obl-pl-ref-determiner-lex := ref-determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE obl,
+                                                       WHDETERMINER - ,
+                                                       NP-PRED-NOUN - ,
+                                                       DIRECT-OBJ-NOUN + ],
+                                            CONT.HOOK.INDEX.PNG.NUM non-sg ] ].
+
+;;wh pronoun take absolutive case (subj of agent focus verb, obj of goal focus verb)
 wh-core-sg-determiner-lex := determiner-lex & no-icons-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE abs,
                                                        WHDETERMINER + ],
