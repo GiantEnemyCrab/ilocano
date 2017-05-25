@@ -47,6 +47,8 @@ PNG.NUM : NUM
   non-sg >> pl
   du >> pl
   dist-pl >> pl
+  excl-pl >> pl
+  incl-pl >> pl
   sg <> sg
   * <> *
 
