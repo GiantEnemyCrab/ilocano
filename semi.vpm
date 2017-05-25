@@ -50,6 +50,7 @@ PNG.NUM : NUM
   excl-pl >> pl
   incl-pl >> pl
   sg <> sg
+  sg << [x]
   * <> *
 
 E.ASPECT : ASPECT
