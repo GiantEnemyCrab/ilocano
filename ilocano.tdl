@@ -433,8 +433,19 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                                                   CAT [ HEAD noun & [ NP-PRED-NOUN +,
                                                                       TEMPNOUN - ,
                                                                       LOCNOUN - ],
-                                                                      VAL.SPR < > ] ] ] > ] ] ],
-             NON-LOCAL #non-local ],
+                                                                      VAL.SPR < > ] ],
+                                          NON-LOCAL [ SLASH [ LIST #sfirst,
+                                                              LAST #sbetween ],
+                                                      QUE [ LIST #qfirst,
+                                                            LAST #qbetween ],
+                                                      REL [ LIST #rfirst,
+                                                            LAST #rbetween ] ] ] > ] ] ],
+             NON-LOCAL [ SLASH [ LIST #sfirst,
+                                 LAST #slast ],
+                         QUE [ LIST #qfirst,
+                                 LAST #qlast ],
+                         REL [ LIST #rfirst,
+                                 LAST #rlast ] ] ],
     C-CONT [ HOOK [ LTOP #ltop,
                     INDEX #index,
                     XARG #arg1 ],
@@ -456,7 +467,12 @@ n-bar-predicate-rule := unary-phrase & nocoord &
                                     VAL [ SPR < > ] ],
                               CONT.HOOK [ INDEX #arg2,
                                           LTOP #larg ] ],
-                      NON-LOCAL #non-local ] ] > ].
+                      NON-LOCAL [ SLASH [ LIST #sbetween,
+                                          LAST #slast ],
+                                  QUE [ LIST #qbetween,
+                                        LAST #qlast ],
+                                  REL [ LIST #rbetween,
+                                        LAST #rlast ] ] ] ] > ].
 
 ;;; Adjectives
 
