@@ -29,7 +29,7 @@ COG-ST : COG-ST
   uniq+fam <> uniq+fam
   activ-or-more <> activ-or-more
   uniq-or-less <> uniq-or-less
-  type-id << uniq+fam+act
+  uniq+fam+act <> uniq+fam+act
   fam-or-more <> fam-or-more
   fam-or-less <> fam-or-less
   uniq-or-more <> uniq-or-more
