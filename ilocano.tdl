@@ -1338,10 +1338,10 @@ n1-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase &
 
 ;;; Coordination Strategy 1
 
-np1-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule &
+np1-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule & np-case-matching-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
-np1-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
+np1-bottom-coord-rule := conj-first-bottom-coord-rule & pass-up-np-case-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
 ;;; Coordination Strategy 1
@@ -1361,6 +1361,15 @@ s1-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
   [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
 ;;; Feature Resolution Rules
+
+np-case-matching-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE #case,
+    LCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE #case ,
+    RCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE #case ].
+
+pass-up-np-case-coord-rule := np-bottom-coord-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE #case,
+    NONCONJ-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE #case ].
 
 non-sg-non-sg-any-pernum-coord-rule := coord-phrase &
   [ LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.NUM non-sg,
