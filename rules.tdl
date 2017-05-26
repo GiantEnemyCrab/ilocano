@@ -29,7 +29,13 @@ n1-top-coord := n1-top-coord-rule.
 
 n1-bottom-coord := n1-bottom-coord-rule.
 
-np1-top-coord := np1-top-coord-rule.
+np1-abs-cor-top-coord := np1-abs-cor-top-coord-rule.
+
+np1-erg-cor-top-coord := np1-erg-cor-top-coord-rule.
+
+np1-cor-cor-top-coord := np1-cor-cor-top-coord-rule.
+
+np1-obl-top-coord := np1-obl-top-coord-rule.
 
 np1-bottom-coord := np1-bottom-coord-rule.
 

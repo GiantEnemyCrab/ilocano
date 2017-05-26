@@ -1336,10 +1336,19 @@ n1-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase &
 
 ;;; Coordination Strategy 1
 
-np1-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule & np-case-matching-coord-rule &
+np1-abs-cor-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule & abs-cor-case-matching-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
-np1-bottom-coord-rule := conj-first-bottom-coord-rule & pass-up-np-case-coord-rule &
+np1-erg-cor-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule & erg-cor-case-matching-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+np1-cor-cor-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule & cor-cor-case-matching-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+np1-obl-top-coord-rule := basic-np-top-coord-rule & apoly-top-coord-rule & obl-case-matching-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+np1-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase & pass-up-same-case-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
 ;;; Coordination Strategy 1
@@ -1360,12 +1369,27 @@ s1-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
 
 ;;; Feature Resolution Rules
 
-np-case-matching-coord-rule := coord-phrase &
-  [ SYNSEM.LOCAL.CAT.HEAD.CASE #case,
-    LCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE #case ,
-    RCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE #case ].
+abs-cor-case-matching-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE cor+abs,
+    LCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE abs ,
+    RCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE cor ].
 
-pass-up-np-case-coord-rule := np-bottom-coord-phrase &
+erg-cor-case-matching-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE cor+erg,
+    LCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE erg ,
+    RCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE cor ].
+
+cor-cor-case-matching-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE cor,
+    LCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE cor ,
+    RCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE cor ].
+
+obl-case-matching-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE obl,
+    LCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE obl ,
+    RCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE obl ].
+
+pass-up-same-case-coord-rule := bottom-coord-phrase &
   [ SYNSEM.LOCAL.CAT.HEAD.CASE #case,
     NONCONJ-DTR.SYNSEM.LOCAL.CAT.HEAD.CASE #case ].
 
