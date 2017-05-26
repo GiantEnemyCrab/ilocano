@@ -31,21 +31,21 @@ head :+ [ AUX bool,
           INIT bool,
           FORM form ].
 
-inflected :+ [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG luk,
-    EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG luk,
-    EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG luk,
-    FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG luk,
+inflected :+ [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG luk,
+    FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG luk,
+    FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG luk,
     FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG luk,
+    EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG luk,
     ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG luk,
-    FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG luk ].
+    INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG luk ].
 
-infl-satisfied :+ [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG na-or-+,
-    EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG na-or-+,
-    EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG na-or-+,
-    FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG na-or-+,
+infl-satisfied :+ [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG na-or-+,
+    FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG na-or-+,
+    FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG na-or-+,
     FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG na-or-+,
+    EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG na-or-+,
     ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG na-or-+,
-    FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG na-or-+ ].
+    INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG na-or-+ ].
 
 png :+ [ PER person,
          NUM number ].
@@ -317,7 +317,9 @@ aux-lex := verb-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.AUX + ].
 
 intransitive-verb-lex := main-verb-lex & intransitive-lex-item & fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-rule-dtr &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS < >,
+  [ SYNSEM.LOCAL.CAT [ HEAD.ENCPRON #encpron,
+                       VAL [ SUBJ < [ LOCAL.CAT.HEAD.ENCPRON #encpron ] >,
+                            COMPS < > ] ],
     ARG-ST.FIRST.LOCAL.CAT.HEAD noun ].
 
 transitive-verb-lex := main-verb-lex & transitive-lex-item &
@@ -335,7 +337,9 @@ trans-verb-lex := transitive-verb-lex & fossil-aspect-infix-or-fossil-aspect-pre
   [ INFLECTED.ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG - ].
 
 intrans-verb-lex := intransitive-verb-lex &
-  [ INFLECTED.FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG - ].
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
+                                      OPT + ],
+    INFLECTED.INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG - ].
 
 embedding-verb-lex-super := main-verb-lex & clausal-second-arg-trans-lex-item & embed-fos-asp-infix-or-embed-fos-asp-prefix-rule-dtr &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
@@ -693,19 +697,19 @@ fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-rule-dtr := word-or-
 
 only-focus-suffix-or-infx-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR trans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 only-goal-focus-suffix-lex-lex-rule := only-focus-suffix-or-infx-lex-rule-super &
   [ SYNSEM.LOCAL [ CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
@@ -722,19 +726,19 @@ only-actor-focus-infix-lex-lex-rule := only-focus-suffix-or-infx-lex-rule-super 
 
 only-aspect-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR trans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 only-perf-aspect-prefix-lex-lex-rule := only-aspect-prefix-lex-rule-super &
   [ SYNSEM.LOCAL [ CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
@@ -747,15 +751,15 @@ productive-focus-suffix-or-infix-lex-rule-super := add-only-no-ccont-rule & foss
                 ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG +,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
     DTR trans-verb-lex &
         [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                      FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
 
 productive-actor-focus-infix-lex-lex-rule := productive-focus-suffix-or-infix-lex-rule-super &
   [ INFLECTED.FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG -,
@@ -772,38 +776,38 @@ productive-goal-focus-suffix-lex-lex-rule := productive-focus-suffix-or-infix-le
 
 fossil-aspect-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                 ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR fossil-aspect-infix-or-fossil-aspect-prefix-rule-dtr &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                      FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                      FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 fossil-aspect-prefix-lex-lex-rule := fossil-aspect-prefix-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
 
 only-focus-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR trans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 only-actor-focus-prefix-lex-lex-rule := only-focus-prefix-lex-rule-super &
   [ SYNSEM.LOCAL [ CAT.VAL [ SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
@@ -823,15 +827,15 @@ productive-focus-prefix-lex-rule-super := add-only-no-ccont-rule & fossil-aspect
                 ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG +,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
     DTR trans-verb-lex &
         [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                      FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
 
 productive-actor-focus-prefix-lex-rule := productive-focus-prefix-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
@@ -846,19 +850,19 @@ productive-goal-focus-prefix-lex-rule := productive-focus-prefix-lex-rule-super 
 
 only-aspect-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR trans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 only-perf-aspect-infix-lex-lex-rule := only-aspect-infix-lex-rule-super &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT perfective,
@@ -868,38 +872,38 @@ only-perf-aspect-infix-lex-lex-rule := only-aspect-infix-lex-rule-super &
 
 fossil-aspect-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                 ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR fossil-aspect-infix-or-fossil-aspect-prefix-rule-dtr &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                      FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                      FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 fossil-perf-aspect-infix-lex-lex-rule := fossil-aspect-infix-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
 
 only-aspect-suffix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR trans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 imperf-aspect-redup-lex-lex-rule := only-aspect-suffix-lex-rule-super &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT imperfective,
@@ -909,19 +913,19 @@ imperf-aspect-redup-lex-lex-rule := only-aspect-suffix-lex-rule-super &
 
 productive-imperf-aspect-redup-lex-rule-super := add-only-no-ccont-rule & fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix-rule-dtr & infl-lex-rule &
   [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR trans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 productive-imperf-aspect-redup-lex-lex-rule := productive-imperf-aspect-redup-lex-rule-super &
   [ INFLECTED.FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG -,
@@ -929,19 +933,19 @@ productive-imperf-aspect-redup-lex-lex-rule := productive-imperf-aspect-redup-le
 
 trans-no-morph-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR trans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 goal-focus-no-morph-lex-lex-rule := trans-no-morph-lex-rule-super &
   [ SYNSEM.LOCAL [ CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE cor+erg,
@@ -950,158 +954,150 @@ goal-focus-no-morph-lex-lex-rule := trans-no-morph-lex-rule-super &
                    CONT.HOOK.INDEX.E.ASPECT infinitive ] ].
 
 intrans-no-morph-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
-  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
+  [ INFLECTED [ INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph ],
     DTR intrans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                      FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph ] ] ].
 
 actor-focus-no-morph-lex-lex-rule := intrans-no-morph-lex-rule-super &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT infinitive,
-                   CAT.VAL.SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
-                                        OPT + ] ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT infinitive ].
 
 only-actor-prefix-intrans-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
+  [ INFLECTED [ INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph ],
     DTR intrans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                      FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph ] ] ].
 
 only-actor-focus-prefix-intrans-lex-lex-rule := only-actor-prefix-intrans-lex-rule-super &
-  [ SYNSEM.LOCAL [ CAT.VAL.SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
-                                        OPT + ],
-                   CONT.HOOK.INDEX.E.ASPECT infinitive ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT infinitive ].
 
 fossil-aspect-prefix-intrans-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG +,
+  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG +,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                 ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-rule-dtr &
         [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                      FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 fossil-perf-prefix-intrans-lex-lex-rule := fossil-aspect-prefix-intrans-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
 
 productive-actor-prefix-intrans-lex-rule-super := add-only-no-ccont-rule & fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-rule-dtr & infl-lex-rule &
-  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG -,
+  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG -,
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                 FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ],
     DTR intrans-verb-lex &
         [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                       FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ] ] ].
 
-productive-actor-prefix-intrans-lex-lex-rule := productive-actor-prefix-intrans-lex-rule-super &
-  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
-                                      OPT + ] ].
+productive-actor-prefix-intrans-lex-lex-rule := productive-actor-prefix-intrans-lex-rule-super.
 
 only-actor-infix-intrans-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
+  [ INFLECTED [ INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph ],
     DTR intrans-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                      FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph ] ] ].
 
 only-actor-infix-intrans-lex-lex-rule := only-actor-infix-intrans-lex-rule-super &
-  [ SYNSEM.LOCAL [ CAT.VAL.SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
-                                        OPT + ],
-                   CONT.HOOK.INDEX.E.ASPECT infinitive ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT infinitive ].
 
 fossil-aspect-infix-intrans-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG +,
+  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG +,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                 ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-rule-dtr &
         [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
+                      FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                      FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 fossil-aspect-infix-intrans-lex-lex-rule := fossil-aspect-infix-intrans-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
 
 productive-actor-infix-intrans-lex-rule-super := add-only-no-ccont-rule & fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-rule-dtr & infl-lex-rule &
-  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG -,
+  [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG -,
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG +,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                 FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ],
     DTR intrans-verb-lex &
         [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                       FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ] ] ].
 
 productive-actor-infix-intrans-lex-lex-rule := productive-actor-infix-intrans-lex-rule-super &
-  [ INFLECTED.FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG -,
-    SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
-                                      OPT + ] ].
+  [ INFLECTED.FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG - ].
 
 fossil-focus-imperf-suffix-or-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix ],
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix-rule-dtr &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix ] ] ].
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 fossil-actor-imperf-infix-lex-lex-rule := fossil-focus-imperf-suffix-or-infix-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
@@ -1116,19 +1112,19 @@ fossil-goal-imperf-suffix-lex-lex-rule := fossil-focus-imperf-suffix-or-infix-le
 
 fossil-focus-imperf-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
                 FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix ],
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ],
     DTR fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix-rule-dtr &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix-or-embed-no-morph-or-embed-only-focus-prefix-or-embed-only-focus-suffix-or-embed-prod-focus-prefix-or-embed-prod-focus-suffix ] ] ].
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans ] ] ].
 
 fossil-actor-imperf-prefix-lex-lex-rule := fossil-focus-imperf-prefix-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST [ LOCAL.CAT.HEAD.CASE cor+abs,
@@ -1143,18 +1139,18 @@ fossil-goal-imperf-prefix-lex-lex-rule := fossil-focus-imperf-prefix-lex-rule-su
 
 embed-only-focus-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
-                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                 FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
     DTR embedding-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                       FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
 
 embed-only-goal-prefix-lex-lex-rule := embed-only-focus-prefix-lex-rule-super &
@@ -1162,18 +1158,18 @@ embed-only-goal-prefix-lex-lex-rule := embed-only-focus-prefix-lex-rule-super &
 
 embed-no-morph-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
-                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                 FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
     DTR embedding-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                       FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
 
 embed-no-morph-lex-lex-rule := embed-no-morph-lex-rule-super &
@@ -1181,18 +1177,18 @@ embed-no-morph-lex-lex-rule := embed-no-morph-lex-rule-super &
 
 embed-only-focus-suffix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
-                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                 FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
     DTR embedding-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                       FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
 
 embed-only-goal-suffix-lex-lex-rule := embed-only-focus-suffix-lex-rule-super &
@@ -1201,17 +1197,17 @@ embed-only-goal-suffix-lex-lex-rule := embed-only-focus-suffix-lex-rule-super &
 embed-fos-asp-prefix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG +,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
     DTR embed-fos-asp-infix-or-embed-fos-asp-prefix-rule-dtr &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                      FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
 
 embed-fos-perf-prefix-lex-lex-rule := embed-fos-asp-prefix-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perfective ].
@@ -1219,34 +1215,34 @@ embed-fos-perf-prefix-lex-lex-rule := embed-fos-asp-prefix-lex-rule-super &
 embed-fos-asp-infix-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
   [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG +,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                 FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ],
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
     DTR embed-fos-asp-infix-or-embed-fos-asp-prefix-rule-dtr &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                       ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix,
-                      FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix ] ] ].
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+                      FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
 
 embed-fos-perf-infix-lex-lex-rule := embed-fos-asp-infix-lex-rule-super.
 
 embed-prod-focus-prefix-lex-rule-super := add-only-no-ccont-rule & embed-fos-asp-infix-or-embed-fos-asp-prefix-rule-dtr & infl-lex-rule &
   [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
-                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                 FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
     DTR embedding-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                       FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
 
 embed-prod-goal-prefix-lex-lex-rule := embed-prod-focus-prefix-lex-rule-super &
@@ -1254,18 +1250,18 @@ embed-prod-goal-prefix-lex-lex-rule := embed-prod-focus-prefix-lex-rule-super &
 
 embed-prod-focus-suffix-lex-rule-super := add-only-no-ccont-rule & embed-fos-asp-infix-or-embed-fos-asp-prefix-rule-dtr & infl-lex-rule &
   [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-OR-EMBED-NO-MORPH-OR-EMBED-ONLY-FOCUS-PREFIX-OR-EMBED-ONLY-FOCUS-SUFFIX-OR-EMBED-PROD-FOCUS-PREFIX-OR-EMBED-PROD-FOCUS-SUFFIX-FLAG +,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
-                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
-                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
                 EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
+                FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
+                ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                 FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ],
     DTR embedding-verb-lex &
-        [ INFLECTED [ FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-OR-INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans-or-intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
+        [ INFLECTED [ EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
                       FOSSIL-ASPECT-INFIX-OR-FOSSIL-ASPECT-PREFIX-FLAG #fossil-aspect-infix-or-fossil-aspect-prefix,
-                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
                       FOSSIL-ASPECT-INFIX-INTRANS-OR-FOSSIL-ASPECT-PREFIX-INTRANS-FLAG #fossil-aspect-infix-intrans-or-fossil-aspect-prefix-intrans,
-                      EMBED-FOS-ASP-INFIX-OR-EMBED-FOS-ASP-PREFIX-FLAG #embed-fos-asp-infix-or-embed-fos-asp-prefix,
+                      ONLY-ASPECT-INFIX-OR-ONLY-ASPECT-PREFIX-OR-ONLY-ASPECT-SUFFIX-OR-ONLY-FOCUS-PREFIX-OR-ONLY-FOCUS-SUFFIX-OR-INFX-OR-PRODUCTIVE-FOCUS-PREFIX-OR-PRODUCTIVE-FOCUS-SUFFIX-OR-INFIX-OR-PRODUCTIVE-IMPERF-ASPECT-REDUP-OR-TRANS-NO-MORPH-FLAG #only-aspect-infix-or-only-aspect-prefix-or-only-aspect-suffix-or-only-focus-prefix-or-only-focus-suffix-or-infx-or-productive-focus-prefix-or-productive-focus-suffix-or-infix-or-productive-imperf-aspect-redup-or-trans-no-morph,
+                      INTRANS-NO-MORPH-OR-ONLY-ACTOR-INFIX-INTRANS-OR-ONLY-ACTOR-PREFIX-INTRANS-OR-PRODUCTIVE-ACTOR-INFIX-INTRANS-OR-PRODUCTIVE-ACTOR-PREFIX-INTRANS-FLAG #intrans-no-morph-or-only-actor-infix-intrans-or-only-actor-prefix-intrans-or-productive-actor-infix-intrans-or-productive-actor-prefix-intrans,
                       FOSSIL-FOCUS-IMPERF-PREFIX-OR-FOSSIL-FOCUS-IMPERF-SUFFIX-OR-INFIX-FLAG #fossil-focus-imperf-prefix-or-fossil-focus-imperf-suffix-or-infix ] ] ].
 
 embed-prod-goal-suffix-lex-lex-rule := embed-prod-focus-suffix-lex-rule-super &
