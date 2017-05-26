@@ -244,3 +244,24 @@ quickly-mtr := monotonic_mtr &
                        ARG0 #arg0,
                        ARG1 #arg1 ] !> ] ].
 
+loc-vp-mtr := monotonic_mtr &
+  [ INPUT [ RELS <! [ PRED "_in_p_rel",
+                      LBL #lbl,
+                      ARG0 #arg0,
+                      ARG1 #arg1,
+                      ARG2 #arg2 ] !>,
+            HCONS <! !> ],
+    OUTPUT [ RELS <! [ PRED "_loc_p_rel",
+                       LBL #lbl,
+                       ARG0 #arg0,
+                       ARG1 #arg1,
+                       ARG2 #locnoun ],
+                     [ PRED "_in_n_rel",
+                       LBL #larg,
+                       ARG0 #locnoun,
+                       ARG1 #arg2],
+                     [ PRED "exist_q_rel",
+                       ARG0 #locnoun,
+                       RSTR #harg ] !>,
+             HCONS <! [ HARG #harg,
+                        LARG #larg ] !> ] ].
