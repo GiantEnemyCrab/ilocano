@@ -151,7 +151,9 @@ common-noun-lex := obl-spr-noun-lex &
                    CONT.HOOK.INDEX.PNG.PER 3rd ] ].
 
 locative-noun-lex := basic-noun-lex & non-mod-lex-item & intransitive-lex-item &
-  [ SYNSEM.LOCAL.CAT [ VAL [ SPR < [ LOCAL.CONT.HOOK.INDEX.PNG.NUM sg ] >,
+  [ SYNSEM.LOCAL.CAT [ VAL [ SPR < [ OPT -,
+                                     LOCAL.CONT.HOOK.INDEX [ PNG.NUM sg,
+                                                             COG-ST type-id ] ] >,
                              COMPS < #comps & [ LOCAL.CAT [ HEAD noun & [ CASE cor ],
                                                             VAL.SPR < > ], 
                                                 OPT - ] > ],
