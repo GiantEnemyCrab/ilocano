@@ -312,7 +312,7 @@ na-baknang := adj-adj-lex &
 
 na-daras := adj-adj-lex &
   [ STEM < "na-daras" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_hurry_a_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "_quick_a_rel" ].
 
 na-paut := adj-adj-lex &
   [ STEM < "na-paut" >,

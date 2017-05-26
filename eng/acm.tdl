@@ -234,4 +234,13 @@ think-mtr := monotonic_mtr &
 	   HCONS <! [ HARG #harg,
 		     LARG #larg ] !> ]].
 
+quickly-mtr := monotonic_mtr &
+  [ INPUT [ RELS <! [ PRED "_quickly_a_rel",
+                      LBL #lbl,
+                      ARG0 #arg0,
+                      ARG1 #arg1 ] !> ],
+    OUTPUT [ RELS <! [ PRED "_quick_a_rel",
+                       LBL #lbl,
+                       ARG0 #arg0,
+                       ARG1 #arg1 ] !> ] ].
 
