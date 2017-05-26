@@ -21,11 +21,12 @@ rabaw := locative-noun-lex &
   [ STEM < "rabaw" >,
     SYNSEM.LKEYS.KEYREL.PRED "_top_n_rel" ].
 
-; Could not find translation of "park" in the grammar resource
-; _park_n_rel is needed for machine translation exercise from English
-; This entry is a made-up data
-talon := common-noun-lex &
-  [ STEM < "talon" >,
+yan := locative-noun-lex &
+  [ STEM < "yan" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_in_n_rel" ].
+
+pagpasiaran := common-noun-lex &
+  [ STEM < "pagpasiaran" >,
     SYNSEM.LKEYS.KEYREL.PRED "_park_n_rel" ].
 
 kotse := common-noun-lex &
