@@ -1303,21 +1303,22 @@ poss-phrase := head-initial &
                        VAL [ SPR #hdspr,
                              COMPS < >,
                              SUBJ < > ] ],
-    C-CONT [ HOOK.INDEX #index,
-      RELS < ! arg12-ev-relation & [ PRED "poss_rel",
-                                     LBL #lbl,
-                                     ARG1 #index,
-                                     ARG2 #poss ] !>,
-      ICONS < ! ! > ],
-      HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD #head & noun & [ DIRECT-OBJ-NOUN + ,
-                                                          TEMPNOUN - ,
-                                                          LOCNOUN - ],
-                              VAL.SPR #hdspr & < [ ] > ],
-                              CONT.HOOK [ INDEX #index & [ COG-ST cog-st ],
-                                          LTOP #lbl ] ],
-      NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun & [ CASE cor+erg ],
-                                        VAL.SPR < > ],
-                                  CONT.HOOK.INDEX #poss ] ].
+                 C-CONT [ HOOK.INDEX #index,
+                          RELS < ! arg12-ev-relation & [ PRED "poss_rel",
+                                                         LBL #lbl,
+                                                         ARG1 #index,
+                                                         ARG2 #poss ] !>,
+                          HCONS < ! ! >,
+                          ICONS < ! ! > ],
+                 HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD #head & noun & [ DIRECT-OBJ-NOUN + ,
+                                                                     TEMPNOUN - ,
+                                                                     LOCNOUN - ],
+                                               VAL.SPR #hdspr & < [ LOCAL.CONT.HCONS <! qeq & [ LARG #lbl ] !> ] > ],
+                                         CONT.HOOK [ INDEX #index,
+                                                     LTOP #lbl ] ],
+                 NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun & [ CASE cor+erg ],
+                                                   VAL.SPR < > ],
+                                             CONT.HOOK.INDEX #poss ] ].
 
 ;;;;;;;;;;;;;;;;;;
 ;;; Coordination
@@ -1350,11 +1351,11 @@ np1-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
 
 ;;; Coordination Strategy 1
 
-vp1-top-coord-rule := basic-vp-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+;vp1-top-coord-rule := basic-vp-top-coord-rule & apoly-top-coord-rule &
+;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
-vp1-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
-  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+;vp1-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
+;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
 ;;; Coordination Strategy 1
 
