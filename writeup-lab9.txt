@@ -1,0 +1,566 @@
+Lab 9 Writeup
+LING 567
+May 26, 2017
+Kazuki Shintani & Jim Blackburn
+
+1. Contents of ilo.txt
+
+Displayed below, and in the included ilo.txt file, are the expected translations for the provided MMT sentences.
+
+n-ag-turog dagiti aso
+
+na-kamat-en dagiti aso dagiti kotse
+
+na-kamat-en=ko=ka
+
+na-kaan-en dagiti aso
+
+na-kamat-en da aso dagiti kotse
+
+di na-kamat-en da aso dagiti kotse
+
+na-panunot=ko a na-ammo=mo a na-kamat-en dagiti aso dagiti kotse
+
+na-saludsod=ko no na-ammo=mo a na-kamat-en dagiti aso dagiti kotse
+
+na-kamat-en dagiti pusa ken dagiti aso dagiti kotse
+
+na-kamat-en dagiti aso dagiti kotse ken na-kamat-en dagiti pusa dagiti aso
+
+na-kamat-en dagiti pusa dagiti aso ken n-ag-turog dagiti pusa
+
+na-kamat-en kadi dagiti pusa dagiti aso
+
+na-kaan-en dagiti aso a ma-bisin
+
+na-daras a na-kaan-en dagiti aso
+
+ma-bisin da aso
+
+iti yan ni pagpasiaran da aso
+
+da pusa da aso
+
+sino ti n-ag-turog
+
+ania ti na-kamat-en da aso
+
+ania ti na-panunot=mo a na-kamat-en da aso
+
+translation unavailable
+
+na-saludsod=ko no ania dagiti na-kamat-en da aso
+
+n-ag-turog ti kotse ni aso
+
+n-ag-turog dagiti aso=ko
+
+2. Grammar Cleanup
+
+2.1 Introducing a Determiner with uniq+fam+act
+
+One issue that made some translations difficult involved the conflicting values of COG-ST on either end of the translations. In many cases, an incoming COG-ST value of uniq+fam+act supplied by an English definite article was incompatible with the frequently-seen Ilocano COG-ST value of type-id specified on many det+nom NP's. Rubino describes "personal articles" that generally specify animate entities, but also indicate that the speaker and the listener both have a shared reference for the individual in question. This behavior approximates the uniq+fam+act specification more closely than the other determiners found in Ilocano. For that reason, "ni" (singular) and "da" (plural) determiners were introduced to enable parsing of certain sentences for which a conflict between COG-ST values had existed.
+
+Both definitions for the singular and plural "personal articles" inherit from ref-determiner-lex, which specifies the necessary COG-ST value. 
+
+Definitions:
+
+ref-determiner-lex := determiner-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.COG-ST uniq+fam+act ].
+
+core-sg-ref-determiner-lex := ref-determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+                                                       WHDETERMINER - ,
+                                                       DIRECT-OBJ-NOUN + ],
+                                            CONT.HOOK.INDEX.PNG.NUM sg ] ].
+
+core-pl-ref-determiner-lex := ref-determiner-lex & no-icons-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC.FIRST.LOCAL [ CAT.HEAD [ CASE cor,
+                                                       WHDETERMINER - ,
+                                                       DIRECT-OBJ-NOUN + ],
+                                            CONT.HOOK.INDEX.PNG.NUM non-sg ] ].
+
+The corresponding lexical entries, each providing an "exist_q_rel":
+
+ni_det := core-sg-ref-determiner-lex &
+  [ STEM < "ni" >,
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
+
+da_det := core-pl-ref-determiner-lex &
+  [ STEM < "da" >,
+    SYNSEM.LKEYS.KEYREL.PRED "exist_q_rel" ].
+
+2.2 NP predicate rule change
+
+One change that was successfully addressed in the grammar cleanup phase was a superfluous "exist_q_rel" relation introduced by the n-bar-predicate-rule, which was not present in the MRS of the English input sentence. The n-bar rule had initially specified two items in its RELS list -- one of which was contributing the redundant and semantically unnecessary quantifier relation. The updated rule definition shown below, from which the "exist_q_rel" has been removed from the RELS list, is sufficient to parse equational NP+NP phrases in Ilocano, without introducing unnecessary semantics; the change enabled the successful translation of the sentence "The dogs are the cats". 
+
+n-bar-predicate-rule := unary-phrase & nocoord &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD verb & [ MOD < >,
+                                         PRD + ],
+                           VAL [ SPR < >,
+                                 COMPS < >,
+                                 SUBJ < [ OPT - ,
+                                          LOCAL [ CONT.HOOK [ INDEX #arg1 ],
+                                                  CAT [ HEAD noun & [ NP-PRED-NOUN +,
+                                                                      TEMPNOUN - ,
+                                                                      LOCNOUN - ],
+                                                                      VAL.SPR < > ] ],
+                                          NON-LOCAL [ SLASH [ LIST #sfirst,
+                                                              LAST #sbetween ],
+                                                      QUE [ LIST #qfirst,
+                                                            LAST #qbetween ],
+                                                      REL [ LIST #rfirst,
+                                                            LAST #rbetween ] ] ] > ] ] ],
+             NON-LOCAL [ SLASH [ LIST #sfirst,
+                                 LAST #slast ],
+                         QUE [ LIST #qfirst,
+                                 LAST #qlast ],
+                         REL [ LIST #rfirst,
+                                 LAST #rlast ] ] ],
+    C-CONT [ HOOK [ LTOP #ltop,
+                    INDEX #index,
+                    XARG #arg1 ],
+             RELS <! arg12-ev-relation &
+                   [ PRED "_be_v_id_rel",
+                     LBL #ltop,
+                     ARG0 #index,
+                     ARG1 #arg1,
+                     ARG2 #arg2 ] !>,
+             HCONS <! qeq & [ LARG #larg ] !> ],
+    ARGS < [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ NP-PRED-NOUN + ,
+                                                  TEMPNOUN - ,
+                                                  LOCNOUN - ,
+                                                  WHQUES - ],
+                                    VAL [ SPR < > ] ],
+                              CONT.HOOK [ INDEX #arg2,
+                                          LTOP #larg ] ],
+                      NON-LOCAL [ SLASH [ LIST #sbetween,
+                                          LAST #slast ],
+                                  QUE [ LIST #qbetween,
+                                        LAST #qlast ],
+                                  REL [ LIST #rbetween,
+                                        LAST #rlast ] ] ] ] > ].
+
+2.3 Possessives
+
+Attempts to parse sentences featuring possessives failed initially for reasons similar to the issue above. The MRS of the expected Ilocano translations revealed an additional semantic relation that appeared to be redundant. This predsort relation was contributed by the poss-phrase type definition, and was able to be removed from that rule's definition while preserving semantic consistency. This adjustment fixed the superfluous semantic relation, but sentences still did not generate translations due to a conflict in COG-ST values on the possessums, as described in (2.1): the English indexed MRS showed a value of uniq+fam+act, while in Ilocano the value was type-id. Because of the new determiners described above, the translation from "the dog's car sleeps" into Ilocano currently produces a translation in which the nouns "kotse" (car) and "aso" (dog) are both marked with "ni". Similarly, the sentence "my dogs sleep" encountered similar difficulties, but currently generates a translation that shows the word "aso" (dog) marked with the plural determiner "da" - in fact, Rubino (p. 37) cites a sentence in which a the name of a dog evidently known to the speaker and listener is specified by a personal article, so we judge this translation result to be essentially correct.
+
+The modified poss-phrase definition with the extraneous predsort relation removed:
+
+poss-phrase := head-initial &
+  [ SYNSEM.LOCAL.CAT [ HEAD #head,
+                        VAL [ SPR #hdspr,
+                                COMPS < >,
+                                SUBJ < > ] ],
+                C-CONT [ HOOK.INDEX #index,
+                        RELS < ! arg12-ev-relation & [ PRED "poss_rel",
+                                                        LBL #lbl,
+                                                        ARG1 #index,
+                                                        ARG2 #poss ] !>,
+                        HCONS < ! ! >,
+                        ICONS < ! ! > ],
+                HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD #head & noun & [ DIRECT-OBJ-NOUN + ,
+                                                                        TEMPNOUN - ,
+                                                                        LOCNOUN - ],
+                                                VAL.SPR #hdspr & < [ LOCAL.CONT.HCONS <! qeq & [ LARG #lbl ] !> ] > ],
+                                        CONT.HOOK [ INDEX #index,
+                                                        LTOP #lbl ] ],
+                NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun & [ CASE cor+erg ],
+                                                VAL.SPR < > ],
+                                                CONT.HOOK.INDEX #poss ] ].
+
+2.4 Exclusive/Inclusive Addition
+Although clusivity was specified in the customization system, somehow this information didn't show up.
+
+This is the PERNUM hierarchy from before:
+
+pernum := *top*.
+sg := pernum.
+non-sg := pernum.
+pl := non-sg & pl+3rd & pl+1st & pl+2nd.
+du := non-sg.
+dist-pl := pl.
+1sg := 1st & sg.
+2sg := 2nd & sg.
+3sg := 3rd & sg.
+1du := 1st & du.
+2du := 2nd & du.
+3du := 3rd & du.
+1dist-pl := 1st & dist-pl.
+2dist-pl := 2nd & dist-pl.
+3dist-pl := 3rd & dist-pl.
+pl+3rd := pernum.
+3rd := pl+3rd.
+pl+1st := pernum.
+1st := pl+1st.
+pl+2nd := pernum.
+2nd := pl+2nd.
+
+Thus, clusivity didn't seem to be modeled to begin with.
+In Lab #8, this PERNUM was divided into PER and NUM. After lab #8, exclusive and inclusive 1st person plurals were added in the following way:
+
+person := *top*.
+1st := person.
+2nd := person.
+3rd := person.
+
+;;; Number
+
+number := *top*.
+sg := number.
+non-sg := number.
+pl := non-sg.
+du := non-sg.
+dist-pl := pl.
+excl-pl := pl.
+incl-pl := pl.
+
+Basically, excl-pl and incl-pl were added as subtypes of pl.
+In the grammar, only 1st person pronouns make use of excl-pl and incl-pl.
+PERNUM may model this better, but we decided to stick with PER and NUM separately, because this makes the configuration of semi.vpm easier for now.
+
+2.5 semi.vpm changes
+
+excl-pl and incl-pl mappings were added to semi.vpm since lab #8.
+Also, " sg << [x] " was added to the NUM section to help reduce overgeneration.
+PNG.NUM : NUM
+  pl <> pl
+  non-sg >> pl
+  du >> pl
+  dist-pl >> pl
+  excl-pl >> pl
+  incl-pl >> pl
+  sg <> sg
+  sg << [x]
+  * <> *
+
+2.6 Semantically intransitive verbs
+
+After much consideration, intransitive verbs were implemented in Ilocano for verbs like "sleep".
+This may sound like a straightforward change, but there was some hesitation to completely separate some verbs from the previous single "transitive verb" method.
+One phenomenon in Ilocano to be noted is how the language achieves passive voice by using goal focus morphology with semantically intransitive verbs:
+
+Natudoanak.
+na-tudo-an=ak 
+PERF-rain-GF=1SG.ABS 
+'I got rained on.`
+
+By having one verb system that supports all the morphology, passive voice support is implemented naturally, as soon as goal focus morphology is supported. However, the MRS for passive voice structures would probably not be correct anyway, therefore a decision was made to separate semantically intransitive verbs from the all-in-one transitive verb solution, which didn’t support an [ OPT - ] value on COMPS. 
+
+2.7 Verb Morphology and Reduction of Generations
+
+The customization system was revisited in order to add support for morphology for intransitive verbs. In addition, a few variations of morphology for embedding verbs were hardcoded in lexicon.tdl. The customization system was also used to add proper morphology position rules for embedding verbs, as well.
+
+However, while the addition of patterns for morphology is advantageous for parsing, it can result in very high number of generations. For example, in one particular case, a sentence contained three verbs, and the pattern generation exceeded 25,000. After discussion on Canvas, it was recommended that two version of irules.tdl should be maintained for the purpose of this lab. One of those is the original irules.tdl with all the morphology allowed, and another version is mostly commented out version to reduce pattern generation. They are named irules_original.tdl and irules_reduced.tdl respectively.
+
+3. Transfer Rules Initiated
+
+From Chadian Arabic, the following transfer rule has been initiated:
+
+pro-ins2 := pro-insert-arg2-mtr.
+
+pro-insert-arg2-mtr := monotonic_mtr &
+[ INPUT.RELS <! !>,
+  CONTEXT.RELS <! [ ARG0.SF prop-or-ques,
+                   ARG2 #x & [ COG-ST fam-or-more ]] !>,
+  FILTER.RELS <! [ ARG0 #x ] !>,
+  OUTPUT [ RELS <! [ PRED "pron_rel",
+                    ARG0 #x,
+                    LBL #larg ],
+                  [ PRED "exist_q_rel",
+                    ARG0 #x,
+                    RSTR #harg ] !>,
+        HCONS <! qeq &
+                [ HARG #harg,
+                  LARG #larg ] !> ],
+  FLAGS.EQUAL < #x > ].
+
+This was necessary to get the translation working for the sentence, "ana n-itaarid-0-k" (English equivalent of "I chase you").
+The issue was that the 2nd person pronoun was dropped from the Chadian Arabic sentence, therefore inserting a pronoun through a transfer rule was the key to make the translation generate.
+
+4. New transfer rules implemented
+
+4.1 _a_quicky_rel to _a_quick_rel transfer rule.
+Both English and Chadian Arabic had "_a_quickly_rel" PRED value for the adverb in the sentence, "Dogs eat quickly".
+On the other hand, Ilocano's adverbial behavior is achieved by an adjective word followed by a ligature word "a", which is then followed by a VP; or a VP followed by an adpositional word "iti", which itself is followed by an adjective word.
+
+The following IGTs illustrate the examples:
+
+Nadaras  a   nagsubliak
+na-daras a   n-ag-subli=ak
+ADJ-fast ADV PERF-AF-return=1SG.ABS
+`I returned quickly`
+
+Nagsubliak             iti nadaras
+n-ag-subli=ak          iti na-daras
+PERF-AF-return=1SG.ABS ADV ADJ-fast
+`I returned quickly`
+
+Because "na-daras" is an adjective, it needs to keep the pred value of "_quick_a_rel", rather than "_quickly_a_rel".
+Therefore, a transfer rule was implemented to convert English and Chadian Arabic's "_quickly_a_rel" to "_quick_a_rel".
+
+quickly-to-quick := quickly-mtr.
+
+quickly-mtr := monotonic_mtr &
+  [ INPUT [ RELS <! [ PRED "_quickly_a_rel",
+                      LBL #lbl,
+                      ARG0 #arg0,
+                      ARG1 #arg1 ] !> ],
+    OUTPUT [ RELS <! [ PRED "_quick_a_rel",
+                       LBL #lbl,
+                       ARG0 #arg0,
+                       ARG1 #arg1 ] !> ] ].
+
+In this rule, the PRED value changes from "_quickly_a_rel" to "_quick_a_rel", but other properties are identified between the input and the output.
+
+4.2 locative vp transfer rule (locative predicate)
+
+Ilocano's implementation of locative predicates in a sentence like "the dogs are in the park", was achieved by using the locative noun along with "iti", which is required for the locative noun.
+
+iti    yan   ni      pagpasiaran da      aso
+iti    yan   ni      pagpasiaran da      aso
+OBL.SG place CORE.SG park        CORE.PL dog
+`The dogs are in (place of) the park`
+
+In the tdl from Lab #6, the rule was implemented to become a VP as below:
+
+locative-vp-phrase := unary-phrase & nocoord &
+  [ SYNSEM [ LOCAL.CAT [ HEAD verb & [ MOD < >,
+                                       FORM finite,
+                                       PRD + ],
+                         VAL [ SPR < >,
+                               COMPS < >,
+                               SUBJ < [ LOCAL [ CONT.HOOK [ INDEX #arg1 ],
+                                                CAT [ HEAD noun & [ CASE cor,
+                                                                    TEMPNOUN - ,
+                                                                    LOCNOUN - ],
+                                                      VAL.SPR < > ] ] ] > ] ],
+             NON-LOCAL #non-local ],
+    C-CONT [ HOOK [ LTOP #ltop,
+                    INDEX #index,
+                    XARG #arg1 ],
+             RELS <! arg12-ev-relation &
+                   [ PRED "_loc_p_rel",
+                     LBL #ltop,
+                     ARG0 #index,
+                     ARG1 #arg1,
+                     ARG2 #arg2 ] !>,
+             HCONS <! !> ],
+    ARGS < [ SYNSEM [ LOCAL [ CAT [ HEAD noun & [ LOCNOUN + ],
+                                  VAL [ SPR < > ] ],
+                            CONT.HOOK [ INDEX #arg2 ] ],
+                      NON-LOCAL #non-local ] ] > ].
+
+For this, the following new transfer rule has been implemented for both English and Chadian Arabic:
+
+in-p-to-loc-vp := loc-vp-mtr.
+
+loc-vp-mtr := monotonic_mtr &
+  [ INPUT [ RELS <! [ PRED "_in_p_rel",
+                      LBL #lbl,
+                      ARG0 #arg0,
+                      ARG1 #arg1,
+                      ARG2 #arg2 ] !>,
+            HCONS <! !> ],
+    OUTPUT [ RELS <! [ PRED "_loc_p_rel",
+                       LBL #lbl,
+                       ARG0 #arg0,
+                       ARG1 #arg1,
+                       ARG2 #locnoun ],
+                     [ PRED "_in_n_rel",
+                       LBL #larg,
+                       ARG0 #locnoun,
+                       ARG1 #arg2],
+                     [ PRED "exist_q_rel",
+                       ARG0 #locnoun,
+                       RSTR #harg ] !>,
+             HCONS <! [ HARG #harg,
+                        LARG #larg ] !> ] ].
+
+By this rule, a word containing a pred value of "_in_p_rel" will transfer to a word with a pred value of "in_n_rel". The LBL, ARG0 and ARG1 values are identified between these two.
+
+The transfer rule adds a PRED value of "_in_n_rel" for the locative noun as well as the quantifier "exist_q_rel", as Ilocano implemented locative predicates with "iti" as the oblique determiner, which introduces "exist_q_rel", so it was necessary in order to match the input and the output of the transfer rule. ARG2 of the input is identified with ARG1 of "_in_n_rel". ARG2 of "_loc_p_rel" is identified with ARG1 of "_in_n_rel" and ARG0 of "exist_q_rel" through #locnoun. The quantifier's RSTR is identified with HCONS's HARG value, and "_in_n_rel"'s LBL is identified with HCONS's LARG.
+
+5 + 6. Coverage of MMT from English and Chadian Arabic and explanation of MMT not covered
+
+From 24 English sentences, MMT coverage in Ilocano is 21 sentences
+From 22 Chadian Arabic sentence, MMT coverage in Ilocano is 19 sentences.
+3 sentences not covered by Ilocano are equivalent sentences between English and Chadian Arabic
+
+Each result
+
+5.01: Dogs sleep. | kalib-PL y-unuum-u
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: n-ag-turog dagiti aso
+Comments:
+
+5.02: Dogs chase cars. | kalib-PL y-itaarid-u watiir-PL
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: na-kamat-en dagiti aso dagiti kotse
+Comments:
+
+5.03: I chase you. | ana n-itaarid-0-k
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: na-kamat-en ko ka
+Comments:
+
+5.04: Dogs eat. | kalib-PL y-aakul-u
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: na-kaan-en dagiti aso
+Comments:
+
+5.05: The dogs chase cars. | al-kalib-PL y-itaarid-u watiir-PL
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: na-kamat-en da aso dagiti kotse
+Comments:
+
+5.06: The dogs dont chase cars. | al-kalib-PL ma y-itaarid-u watiir-PL
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: di na-kamat-en da aso dagiti kotse
+Comments:
+
+5.07: I think that you know that dogs chase cars. | ana n-ahsib-0 kadar inta t-a'arif-0 kadar kalib-PL y-itaarid-u watiir-PL
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: na-panunot ko a na-ammo mo a na-kamat-en dagiti aso dagiti kotse
+Comments:
+
+5.08: I ask whether you know that dogs chase cars. | ana n-as'al-0 kan inta t-a'arif-0 kadar kalib-PL y-itaarid-u watiir-PL
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: na-saludsod ko no na-ammo mo a na-kamat-en dagiti aso dagiti kotse
+Comments:
+
+5.09: Cats and dogs chase cars. | biss-PL wa kalib-PL y-itaarid-u watiir-PL
+Covered: yes
+Generations: 3 from English (English had 2 parses and the 1st parse generated one sentence while the 2nd sentence generated two sentences), 1 from Chadian Arabic and one from Chadian Arabic is identical to one of English parses
+Ilocano realization: 
+1. Common between 1st parse of English and Chadian Arabic: na-kamat-en dagiti pusa ken dagiti aso dagiti kotse
+2. 2 different translations from the 2nd parse of English:
+na-kamat-en dagiti pusa kada aso dagiti kotse
+na-kamat-en dagiti pusa ken aso dagiti kotse 
+Comments: All of the realizations in Ilocano look reasonable. The "kada" coordination takes NPs only if both sides are plural, and indeed, this is the case.
+
+5.10: Dogs chase cars and cats chase dogs. | kalib-PL y-itaarid-u watiir-PL wa biss-PL y-itaarid-u kalib-PL
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: na-kamat-en dagiti aso dagiti kotse ken na-kamat-en dagiti pusa dagiti aso
+Comments:
+
+5.11: Cats chase dogs and sleep. | biss-PL y-itaarid-u kalib-PL wa naam-o
+Covered: no
+Generations: 1 from one of two Chadian Arabic parses (2nd parse)
+Ilocano realization: na-kamat-en dagiti pusa dagiti aso ken n-ag-turog
+Comments: The realization from the Chadian Arabic's 2nd parse is not quite correct, because it is missing the subject from the "sleep" verb. If the source language has VP coordination rule, but Ilocano does not, then there should be a transfer rule that puts in a pronoun to be the subject of the second verb (so that it's S coordination). But this was not implemented, as it is not absolutely required for this lab.
+
+5.12: Do cats chase dogs? | biss-PL y-itaarid-u kalib-PL walla
+Covered: no
+Generations: none
+Ilocano realization: none
+Comments: second position clitics for interrogative sentences is not implemented yet in the Ilocano grammar.
+
+5.13: Hungry dogs eat. | kalib-PL jii'aan-PL y-aakul-u
+Covered: yes
+Generations: 2 for both languages, the same Ilocano output
+Ilocano realization:
+na-kaan-en dagiti ma-bisin a aso
+na-kaan-en dagiti aso a ma-bisin
+Comments: There are 2 different Ilocano outputs, but they are both correct. Attributive adjectives can be expressed in two ways: the adjective followed by the ligature word "a", followed by the noun; or the noun followed by the ligature word "a", which is then followed by the adjective.
+
+5.14: Dogs eat quickly. | kalib-PL y-aakul-u ajala
+Covered: yes
+Generations: 2 for both languages, the same Ilocano output
+Ilocano realization:
+na-daras a na-kaan-en dagiti aso
+na-kaan-en dagiti aso iti na-daras
+Comments: There are 2 different Ilocano outputs, but they are both correct. Ilocano adverbial behavior is achieved in two ways: either by an adjective followed by the ligature word "a", which is then followed by VP; or by a VP followed by "iti", which is then followed by the adjective.
+
+5.15: The dogs are hungry. | al-kalib-PL jii'aan-PL
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: ma-bisin da aso
+Comments:
+
+5.16: The dogs are in the park. | al-kalib-PL fi al-naga'a
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: iti yan ni pagpasiaran da aso
+Comments:
+
+5.17: The dogs are the cats. | al-kalib-PL al-biss-PL
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: da pusa da aso
+Comments:
+
+5.18: Who sleeps? | yaatu y-unuum-0
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: sino ti n-ag-turog
+Comments:
+
+5.19: What do the dogs chase? | al-kalib-PL y-itaarid-u chunu
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: ania ti na-kamat-en da aso
+Comments:
+
+5.20: What do you think the dogs chase? | inta t-ahsib-0 kadar al-kalib-PL y-itaarid-u chunu
+Covered: yes
+Generations: 1 for both languages, the same Ilocano output
+Ilocano realization: ania ti na-panunot mo a na-kamat-en da aso
+Comments:
+
+5.21: Who asked what the dogs chase? | yaatu sa'al-0 al-kalib-PL y-itaarid-u chunu
+Covered: no
+Generations: none
+Ilocano realization: none
+Comments: The grammar resource did not provide any explanation or example sentences that contain multiple wh-ques words, making it difficult to estimate what the correct translation should be. Translation Unavailable.
+
+5.22: I asked what the dogs chased. | ana sa'al-t al-kalib-PL taarad-o chunu
+Covered: yes
+Generations: 1 from English, 2 from Chadian Arabic. Chadian Arabic had two parses. The Ilocano sentence from Chadian Arabic's second parse was identical to the one from English. The translation from Chadian Arabic's first parse was different.
+Ilocano realization: na-saludsod ko no ania dagiti na-kamat-en da aso
+Comments: Chadian Arabic's first parse produced translation that sounded like "What did I ask whether dogs chased". This was discussed on Canvas, and it turns out that that is how Chadian Arabic processed the sentence, and it looked like Ilocano grammar was translating from each of Chadian Arabic parses correctly.
+
+5.23: The dog's car sleeps.
+Covered: yes
+Generations: 1 output from English (Chadian Arabic sentence not available)
+Ilocano realization: n-ag-turog ni kotse ni aso
+Comments: The expected translation seen in ilo.txt is different from Ilocano translation output, which is: "n-ag-turog ti kotse ni aso".
+The determiner "ti" has COG-ST of type-id while "ni" has uniq+fam+act.
+The input MRS indeed specified uniq+fam+act from both of exits_q_rel, so the Ilocano translation is done correctly according to the input.
+It is just that in the grammar resource, no example of the possessum using the uniq+fam+act determiner has been found, but nothing in the grammar resource says that is a forbidden behavior either. So, the translation output is probably grammatically ok.
+
+5.24: My dogs sleep.
+Covered: yes
+Generations: 1 output from English (Chadian Arabic sentence not available)
+Ilocano realization:  n-ag-turog da aso ko
+Comments: Similar with the case above, the expected translation used type-id determiner "dagiti": n-ag-turog dagiti aso ko
+And the translation output is probably not wrong.
+
+7. Testsuite
+
+It was requested to include both the full morphology version of the test results as well as the reduced version.
+
+First, the baseline using the Lab #8 grammar:
+134 total tests: 73 positive tests and 61 negative tests
+Coverage: 89.0% (65 tests)
+Overgeneration: 1.6% (1 test)
+
+The Lab #9 grammar with full morphology:
+134 total tests: 73 positive tests and 61 negative tests
+Coverage: 90.4% (66 tests)
+Overgeneration: 1.6% (1 test)
+
+The Lab #9 grammar with reduced morphology:
+134 total tests: 73 positive tests and 61 negative tests
+Coverage: 34.2% (25 tests)
+Overgeneration: 0.0% (0 tests)
+
