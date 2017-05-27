@@ -10,7 +10,6 @@ na-kamat-en da aso dagiti kotse
 
 di na-kamat-en da aso dagiti kotse
 
-
 na-panunot=ko a na-ammo=mo a na-kamat-en dagiti aso dagiti kotse
 
 na-saludsod=ko no na-ammo=mo a na-kamat-en dagiti aso dagiti katse
