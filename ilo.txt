@@ -4,7 +4,7 @@ na-kamat-en dagiti aso dagiti kotse
 
 na-kamat-en=ko=ka
 
-n-ag-turog dagiti aso
+na-kaan-en dagiti aso
 
 na-kamat-en da aso dagiti kotse
 
