@@ -42,6 +42,6 @@ translation unavailable
 
 na-saludsod=ko no ania dagiti na-kamat-en da aso
 
-n-ag-turog ti kotse ti aso
+n-ag-turog ti kotse ni aso
 
 n-ag-turog dagiti aso=ko
