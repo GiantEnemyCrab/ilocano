@@ -1535,7 +1535,7 @@ demonstrative-determiner-lex := determiner-lex-supertype &
 
 ;;; Temporal Adverbs
 
-temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex &
+temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex & norm-sem-lex-item &
   [ SYNSEM [ LOCAL [ CAT [ HEAD adp & 
                          [ INIT + ,
                            MOD < [ LOCAL [ CAT [ HEAD verb,
@@ -1550,19 +1550,34 @@ temporal-adv-mod-idi-lex := basic-one-arg & intersective-mod-lex &
                                                                   VAL.SPR < > ],
                                                             CONT.HOOK.INDEX #arg2 ] ] > ],
                            POSTHEAD + ],
-                     CONT.RELS <! [ PRED #pred,
-                                    ARG1 #arg1,
-                                    ARG2 #arg2 ] !> ],
+                     CONT.RELS <! arg12-ev-relation & [ PRED #pred,
+                                                        ARG1 #arg1,
+                                                        ARG2 #arg2 ] !> ],
              LKEYS.KEYREL.PRED #pred ],
     ARG-ST < #comps > ].
 
-temporal-adverb-lex := basic-adverb-lex & intersective-mod-lex &
-  [ SYNSEM [ LOCAL [ CAT [ HEAD.MOD < [ LOCAL.CAT.HEAD verb ]>,
+temporal-adverb-lex := norm-zero-arg &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD adv & [ MOD < [ LOCAL [ CAT.HEAD verb,
+                                                        CONT.HOOK [ INDEX #index,
+                                                                    LTOP #lbl ] ] ] > ],
                            VAL [ SPR < >,
                                  SUBJ < >,
                                  COMPS < >,
                                  SPEC < > ],
-                           POSTHEAD + ] ] ] ].
+                           POSTHEAD + ],
+                     CONT [ RELS <! arg12-ev-relation & [ PRED #pred,
+                                                          LBL #lbl,
+                                                          ARG1 #index,
+                                                          ARG2 ref-ind & #arg2 ],
+                                    [ PRED "_n_past_rel",
+                                      LBL #larg,
+                                      ARG0 #arg2 ],
+                                    [ PRED "exist_q_rel",
+                                      ARG0 #arg2,
+                                      RSTR #harg ] !>,
+                            HCONS <! [ HARG #harg,
+                                       LARG #larg ] !> ] ],
+             LKEYS.KEYREL.PRED #pred ] ].
 
 temporal-noun-lex := noun-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.TEMPNOUN + ].
